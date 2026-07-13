@@ -1,48 +1,76 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: sans-serif;
 }
-body {
+
+.header-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  min-height: 100vh;
+  background-color: #fff8f3;
+  overflow: hidden;
 }
 
-header {
+.vertical-text-wrapper {
+  grid-column: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-header nav h3 {
+.developer {
+  font-size: 4em;
+  font-weight: 700;
+  color: #cac9c7;
+  transform: rotate(-90deg);
+  text-transform: uppercase;
+  letter-spacing: 2.5rem;
+  white-space: nowrap;
+  position: absolute;
+}
+
+.main-header-content {
+  grid-column: 2 / 13; /* From line 2 to line 13 */
+  padding: 2em 4em;
+}
+
+/* 4. Navigation Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h3 {
   font-weight: bold;
   font-size: 2em;
 }
 
-nav div ul {
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 1em;
-  justify-content: end;
+  gap: 2.5em;
   list-style: none;
 }
 
-nav div ul li a {
+.nav-links li a {
   text-decoration: none;
   color: black;
+  font-size: 1.1em;
 }
 
+/* 5. Colors and Buttons */
 .primary {
   color: #fd6e0a;
 }
 
 .btn {
   background-color: #fd6e0a;
-  color: white;
+  color: white !important;
   font-weight: 500;
-  padding: 10px 20px;
-  margin: 0 auto;
+  padding: 10px 25px;
   border-radius: 4px;
-  font-size: 1em;
-}
-
-.developer {
-  font-size: 4em;
-  font-weight: 600;
-  color: #c5c3c3;
 }
