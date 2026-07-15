@@ -195,6 +195,22 @@
 .work-section {
   max-width: 80%;
   margin: 0 auto;
+  padding-bottom: 130px;
 }
+
 .work-container {
+  display: flex;
+  justify-content: space-evenly;
+ 
+}
+
+.work-container div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+}
+.work-container div img {
+  width: 95%;
+  
 }
