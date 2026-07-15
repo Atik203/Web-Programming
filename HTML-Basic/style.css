@@ -109,12 +109,16 @@
 
 .hero-image-container {
   max-height: 575px;
+  background-image: url('./images/hero-bg.svg');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
  
 }
 .hero-image {
   max-height: 575px;
   width: 100%;
-  height: auto%;
+  height: auto;
   object-fit: contain;
   display: block;
 }
