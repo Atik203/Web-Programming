@@ -201,16 +201,52 @@
 .work-container {
   display: flex;
   justify-content: space-evenly;
- 
 }
 
 .work-container div {
   display: flex;
   flex-direction: column;
   gap: 24px;
-
 }
 .work-container div img {
   width: 95%;
-  
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 0 auto;
+  background: #fff8f3;
+  margin-bottom: 50px;
+}
+.footer-icons {
+  display: flex;
+  gap: 12px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+form input {
+  border-radius: 5px;
+  background: var(--White-Color, #fff);
+  border: 1px solid gray;
+  padding: 12px;
+}
+
+#message {
+  border-radius: 5px;
+  background: var(--White-Color, #fff);
+  border: 1px solid gray;
+  padding: 12px;
+}
+
+.copyright {
+  text-align: center;
+  padding: 10px 0;
+  color: #757575;
 }
