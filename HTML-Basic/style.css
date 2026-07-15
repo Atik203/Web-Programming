@@ -144,7 +144,7 @@
 
 .about-section {
   max-width: 80%;
-  margin: 130px auto;
+  margin: 0 auto;
   border-radius: 10px;
   background: #fff8f3;
   padding: 6rem;
@@ -158,8 +158,31 @@
 .what-section {
   max-width: 80%;
   margin: 0 auto;
-  margin-bottom: 130px;
+  padding: 6rem;
 }
 
 .what-card-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.card {
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.06);
+  padding: 20px;
+}
+
+.resume-section {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 6rem;
+}
+
+.edu-ex-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  align-items: center;
 }
