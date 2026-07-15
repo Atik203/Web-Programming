@@ -191,3 +191,10 @@
   display: flex;
   justify-content: center;
 }
+
+.work-section {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.work-container {
+}
