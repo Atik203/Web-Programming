@@ -154,3 +154,12 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.what-section {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-bottom: 130px;
+}
+
+.what-card-container {
+}
