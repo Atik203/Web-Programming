@@ -186,3 +186,8 @@
   gap: 20px;
   align-items: center;
 }
+
+.resume-btn-container {
+  display: flex;
+  justify-content: center;
+}
