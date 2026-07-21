@@ -43,19 +43,42 @@ nav h2 {
   cursor: pointer;
 }
 
-bg-1 {
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.bg1 {
   background-color: #1975d1;
 }
-bg-2 {
+.bg2 {
   background-color: #378b3b;
 }
-bg-3 {
+.bg3 {
   background-color: #f78100;
 }
-bg-4 {
+.bg4 {
   background-color: #781fa0;
 }
 
-card {
+.card {
   color: white;
+  padding: 1rem;
+}
+
+.card-button {
+  padding: 8px 16px;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-button:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
