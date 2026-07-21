@@ -42,3 +42,20 @@ nav h2 {
   font-weight: bold;
   cursor: pointer;
 }
+
+bg-1 {
+  background-color: #1975d1;
+}
+bg-2 {
+  background-color: #378b3b;
+}
+bg-3 {
+  background-color: #f78100;
+}
+bg-4 {
+  background-color: #781fa0;
+}
+
+card {
+  color: white;
+}
