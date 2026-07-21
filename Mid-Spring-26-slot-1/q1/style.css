@@ -45,8 +45,10 @@ nav h2 {
 
 .card-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  margin-top: 2rem;
+  gap: 7rem;
 }
 
 .bg1 {
@@ -64,11 +66,11 @@ nav h2 {
 
 .card {
   color: white;
-  padding: 1rem;
+  padding: 2rem;
+  border-radius: 6px;
 }
-
 .card-button {
-  padding: 8px 16px;
+  padding: 0.7rem 3rem;
   color: white;
   cursor: pointer;
   border-radius: 8px;
@@ -81,4 +83,15 @@ nav h2 {
 
 .card-button:hover {
   background: rgba(255, 255, 255, 0.25);
+}
+
+.sub-title {
+  margin: 0.5rem 0;
+  font-weight: 500;
+  font-size: normal;
+}
+.title {
+  margin: 0.5rem 0;
+  font-weight: bold;
+  font-size: 2rem;
 }
