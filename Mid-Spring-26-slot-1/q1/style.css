@@ -2,3 +2,43 @@
   margin: 0;
   padding: 0;
 }
+
+nav {
+  background-color: #252578;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.2rem 0px;
+}
+
+nav div ul li {
+  list-style: none;
+}
+
+nav div ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+nav div ul li a:hover {
+  text-decoration: underline;
+  color: rgb(77, 154, 242);
+}
+
+nav div ul {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 4em;
+}
+
+nav h4 {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+nav h2 {
+  font-weight: bold;
+  cursor: pointer;
+}
