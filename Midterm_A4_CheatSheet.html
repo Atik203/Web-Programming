@@ -2,146 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UIU Web Programming Midterm — 1-Page A4 Cheat Sheet</title>
+  <title>UIU Web Programming Midterm - 1-Page A4 Cheat Sheet</title>
   <style>
-    /* ================= A4 PORTRAIT EXACT PRINT FIT ================= */
-    @page {
-      size: A4 portrait;
-      margin: 4mm;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
-    body {
-      background: #ffffff;
-      color: #0f172a;
-      font-size: 7.2pt;
-      line-height: 1.15;
-      width: 100%;
-      max-width: 200mm;
-      margin: 0 auto;
-    }
-
-    /* MINIMAL CLEAN HEADER */
-    .cheat-header {
-      border-bottom: 1.2px solid #0f172a;
-      padding-bottom: 1.5px;
-      margin-bottom: 3px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .cheat-header h1 {
-      font-size: 8.5pt;
-      font-weight: 700;
-      color: #0f172a;
-    }
-    .cheat-header .meta {
-      font-size: 6.8pt;
-      color: #475569;
-    }
-
-    /* 2-COLUMN BALANCED GRID FOR A4 PORTRAIT */
-    .sheet-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.5px;
-    }
-    .sheet-col {
-      display: flex;
-      flex-direction: column;
-      gap: 3.5px;
-    }
-
-    /* BOX CARD CONTAINERS */
-    .box {
-      border: 1px solid #cbd5e1;
-      border-radius: 3px;
-      background: #ffffff;
-      overflow: hidden;
-      page-break-inside: avoid;
-    }
-    .box-title {
-      background: #f1f5f9;
-      color: #0f172a;
-      font-size: 7.2pt;
-      font-weight: 700;
-      padding: 1.5px 5px;
-      border-bottom: 1px solid #cbd5e1;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .box-title .pill {
-      font-size: 6pt;
-      background: #0284c7;
-      color: #fff;
-      padding: 0.5px 3.5px;
-      border-radius: 2px;
-      font-weight: 600;
-    }
-    .box-content {
-      padding: 2.5px 4.5px;
-    }
-
-    /* CODE SNIPPET BLOCKS */
-    pre, code {
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Courier, monospace;
-      font-size: 6.5pt;
-      line-height: 1.13;
-      word-break: normal;
-      overflow-wrap: anywhere;
-    }
-    pre {
-      background: #f8fafc;
-      padding: 1.5px 3.5px;
-      border-radius: 2px;
-      border: 1px solid #e2e8f0;
-      white-space: pre-wrap;
-      color: #0f172a;
-      margin: 1px 0;
-    }
-    .hl-comm { color: #64748b; font-style: italic; }
+    @page { size: A4 portrait; margin: 4mm; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    body { background:#fff; color:#0f172a; font-size:7pt; line-height:1.12; width:100%; max-width:200mm; margin:0 auto; }
+    .cheat-header { border-bottom:1.2px solid #0f172a; padding-bottom:1.5px; margin-bottom:3px; display:flex; justify-content:space-between; align-items:baseline; }
+    .cheat-header h1 { font-size:8.5pt; font-weight:700; }
+    .cheat-header .meta { font-size:6.8pt; color:#475569; }
+    .sheet-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5px; }
+    .sheet-col { display:flex; flex-direction:column; gap:2.5px; }
+    .box { border:1px solid #cbd5e1; border-radius:3px; background:#fff; overflow:hidden; page-break-inside:avoid; }
+    .box-title { background:#f1f5f9; font-size:7pt; font-weight:700; padding:1px 5px; border-bottom:1px solid #cbd5e1; display:flex; justify-content:space-between; align-items:center; }
+    .pill { font-size:5.8pt; background:#0284c7; color:#fff; padding:0.5px 3px; border-radius:2px; font-weight:600; }
+    .box-content { padding:2px 4px; }
+    pre { font-family:"SFMono-Regular",Consolas,"Liberation Mono",Courier,monospace; font-size:6.1pt; line-height:1.1; background:#f8fafc; padding:1px 3px; border-radius:2px; border:1px solid #e2e8f0; white-space:pre-wrap; overflow-wrap:anywhere; margin:1px 0; }
+    .cm { color:#64748b; font-style:italic; }
   </style>
 </head>
 <body>
-
-  <!-- MINIMAL CLEAN HEADER -->
   <div class="cheat-header">
     <h1>UIU CSE4165 / CSE465 Web Programming Midterm Cheat Sheet</h1>
-    <div class="meta">Pure HTML5 & Vanilla CSS Exam Skeletons (90 Min • 30 Marks)</div>
+    <div class="meta">Pure HTML5 &amp; Vanilla CSS Exam Skeletons (90 Min &bull; 30 Marks)</div>
   </div>
-
   <div class="sheet-grid">
-
-    <!-- ================= COLUMN 1 ================= -->
+    <!-- COL 1 -->
     <div class="sheet-col">
-
-      <!-- 1. UNIVERSAL RESET & BASE -->
+      <!-- 1 BOILERPLATE -->
       <div class="box">
-        <div class="box-title">1. Boilerplate & Global Reset <span class="pill">Start</span></div>
-        <div class="box-content">
-<pre>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;
+        <div class="box-title">1. Boilerplate &amp; Global Reset <span class="pill">Start</span></div>
+        <div class="box-content"><pre>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 body { background:#f4f6f8; color:#333; } a { text-decoration:none; color:inherit; }
-&lt;/style&gt;&lt;/head&gt;&lt;body&gt; ... &lt;/body&gt;&lt;/html&gt;</pre>
-        </div>
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt; ... &lt;/body&gt;&lt;/html&gt;</pre></div>
       </div>
-
-      <!-- 2. UNIVERSAL NAVBAR -->
+      <!-- 2 NAVBAR -->
       <div class="box">
-        <div class="box-title">2. Universal Navbar (Left Logo, Right Links/Button) <span class="pill">Navbar</span></div>
-        <div class="box-content">
-<pre>&lt;nav class="navbar"&gt;
+        <div class="box-title">2. Navbar (Left Logo, Right Links/Btn) <span class="pill">Navbar</span></div>
+        <div class="box-content"><pre>&lt;nav class="navbar"&gt;
   &lt;div class="logo"&gt;UIU &lt;span style="color:#ff4419;"&gt;Desk&lt;/span&gt;&lt;/div&gt;
   &lt;ul class="nav-links"&gt;
     &lt;li&gt;&lt;a href="#" class="active"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#"&gt;Jobs&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="#" class="btn btn-sm btn-primary"&gt;Sign Up&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
@@ -149,109 +50,104 @@ body { background:#f4f6f8; color:#333; } a { text-decoration:none; color:inherit
 .navbar { display:flex; justify-content:space-between; align-items:center; padding:5px 12px; background:#fff; border-bottom:1px solid #ddd; }
 .nav-links { display:flex; gap:12px; list-style:none; align-items:center; }
 .nav-links a.active { color:#1d78f0; font-weight:bold; border-bottom:2px solid #1d78f0; padding-bottom:1px; }
-&lt;/style&gt;</pre>
-        </div>
+&lt;/style&gt;</pre></div>
       </div>
-
-      <!-- 3. SIDEBAR DASHBOARD LAYOUT -->
+      <!-- 3 SIDEBAR -->
       <div class="box">
-        <div class="box-title">3. Sidebar Dashboard Layout <span class="pill">LMS / Drive</span></div>
-        <div class="box-content">
-<pre>&lt;div class="layout"&gt;
+        <div class="box-title">3. Sidebar Dashboard (LMS / Drive / Filter) <span class="pill">Sidebar</span></div>
+        <div class="box-content"><pre>&lt;div class="layout"&gt;
   &lt;aside class="sidebar"&gt;
-    &lt;div class="avatar"&gt;JS&lt;/div&gt;
-    &lt;h3&gt;UIU HUB&lt;/h3&gt;
+    &lt;div class="avatar"&gt;JS&lt;/div&gt;&lt;h3&gt;UIU HUB&lt;/h3&gt;
     &lt;ul class="side-menu"&gt;
       &lt;li class="active"&gt;Dashboard&lt;/li&gt;
       &lt;li&gt;Courses&lt;/li&gt;&lt;li&gt;Settings&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/aside&gt;
-  &lt;main class="main"&gt;&lt;!-- Question Content Cards --&gt;&lt;/main&gt;
+  &lt;main class="main"&gt;&lt;!-- cards here --&gt;&lt;/main&gt;
 &lt;/div&gt;
 &lt;style&gt;
 .layout { display:flex; min-height:100vh; }
 .sidebar { width:170px; background:#0d3e86; color:#fff; padding:12px; flex-shrink:0; }
+<span class="cm">/* Colors: dark-blue#0d3e86 | teal#0976a7 | light filter: bg:#f5f6fb border-right:1px solid #e2e8f0 */</span>
 .side-menu { list-style:none; margin-top:8px; display:flex; flex-direction:column; gap:4px; }
 .side-menu li { padding:5px 8px; border-radius:4px; cursor:pointer; font-size:9.5px; }
 .side-menu li.active { background:rgba(255,255,255,0.22); font-weight:bold; }
 .main { flex:1; padding:12px; background:#f5f6fb; }
-&lt;/style&gt;</pre>
-        </div>
+&lt;/style&gt;
+<span class="cm">/* Filter Sidebar variant (Spring26 Slot1 Q2 - Jobs filter panel): */</span>
+.filter-sidebar { width:200px; padding:12px; border-right:1px solid #e2e8f0; }
+.filter-group h4 { font-size:9px; font-weight:bold; margin-bottom:4px; }
+.filter-group label { display:flex; align-items:center; gap:5px; font-size:9px; margin-bottom:3px; }</pre></div>
       </div>
-
-      <!-- 4. 2-COLUMN SPLIT CONTAINER -->
+      <!-- 4 SPLIT -->
       <div class="box">
-        <div class="box-title">4. 2-Column Split Hero / Auth Layout <span class="pill">Split Screen</span></div>
-        <div class="box-content">
-<pre>&lt;div class="split-box"&gt;
+        <div class="box-title">4. 2-Column Split Hero / Auth Layout <span class="pill">Split</span></div>
+        <div class="box-content"><pre>&lt;div class="split-box"&gt;
   &lt;div class="col-left"&gt;
     &lt;h2&gt;Launch Faster.&lt;/h2&gt;&lt;p&gt;Modern teams tool.&lt;/p&gt;
     &lt;button class="btn btn-green"&gt;Learn More&lt;/button&gt;
   &lt;/div&gt;
-  &lt;div class="col-right"&gt;&lt;!-- Form Card / Grid --&gt;&lt;/div&gt;
+  &lt;div class="col-right"&gt;&lt;!-- Form / Grid --&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;style&gt;
 .split-box { display:flex; gap:10px; background:#eff6fe; padding:12px; border-radius:6px; }
 .col-left { flex:1; display:flex; flex-direction:column; justify-content:center; gap:5px; }
 .col-right { flex:1; background:#fff; padding:10px; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
-/* Custom ratio: .col-left { flex:0.4; } .col-right { flex:0.6; } */
-&lt;/style&gt;</pre>
-        </div>
+<span class="cm">/* Dark left panel (Spring25 Q2): col-left { background:#0976a7; color:#fff; } */</span>
+<span class="cm">/* Custom ratio: .col-left{flex:0.4} .col-right{flex:0.6} */</span>
+&lt;/style&gt;</pre></div>
       </div>
-
-      <!-- 5. GRID ENGINES & 4-COLUMN KPI CARDS -->
+      <!-- 5 GRID + KPI -->
       <div class="box">
-        <div class="box-title">5. Grid Templates & KPI Stat Cards <span class="pill">Analytics</span></div>
-        <div class="box-content">
-<pre>&lt;style&gt;
-.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
-.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
-.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
-.grid-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:5px; }
+        <div class="box-title">5. Grid Templates &amp; KPI Stat Cards <span class="pill">Analytics</span></div>
+        <div class="box-content"><pre>&lt;style&gt;
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;}
 &lt;/style&gt;
 &lt;div class="grid-4"&gt;
-  &lt;div class="stat-card" style="background:#1975d1; color:#fff;"&gt;
-    &lt;span style="font-size:8.5px;"&gt;Total Users&lt;/span&gt;
+  &lt;div class="stat-card" style="background:#1975d1;color:#fff;"&gt;
+    &lt;span&gt;Total Users&lt;/span&gt;
     &lt;strong style="font-size:15px;"&gt;12,450&lt;/strong&gt;
     &lt;span class="stat-pill"&gt;UP +12% MONTHLY&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;style&gt;
-.stat-card { padding:7px; border-radius:4px; display:flex; flex-direction:column; gap:2px; }
-.stat-pill { align-self:flex-start; font-size:7px; background:rgba(255,255,255,0.25); padding:1px 4px; border-radius:5px; font-weight:bold; }
-&lt;/style&gt;</pre>
-        </div>
+.stat-card{padding:7px;border-radius:4px;display:flex;flex-direction:column;gap:2px;}
+.stat-pill{align-self:flex-start;font-size:7px;background:rgba(255,255,255,0.25);padding:1px 4px;border-radius:5px;font-weight:bold;}
+<span class="cm">/* KPI colors: blue#1975d1 green#378b3b orange#f78100 purple#781fa0 */</span>
+&lt;/style&gt;</pre></div>
       </div>
-
     </div>
-
-    <!-- ================= COLUMN 2 ================= -->
+    <!-- COL 2 -->
     <div class="sheet-col">
-
-      <!-- 6. CARD ARCHETYPES -->
+      <!-- 6 CARDS -->
       <div class="box">
-        <div class="box-title">6. Card Archetypes (Accent, Brutalist, Gradient) <span class="pill">Cards</span></div>
-        <div class="box-content">
-<pre><span class="hl-comm">/* 1. Job Card with Left Accent Border */</span>
-.job-card { background:#fff; padding:7px; border-radius:4px; border-left:4px solid #205bcb; display:flex; justify-content:space-between; align-items:center; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
-<span class="hl-comm">/* 2. Brutalist Hard Shadow Card (Spring 25) */</span>
-.brutal-card { background:#fff; padding:7px; border:2px solid #000; box-shadow:4px 4px 0px #000; text-align:center; }
-<span class="hl-comm">/* 3. Course Card with Gradient Header (Summer 25) */</span>
-.course-card { background:#fff; border-radius:4px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,0.08); }
-.course-head { background:linear-gradient(135deg, #10b981, #84cc16); color:#fff; padding:5px 8px; font-weight:bold; }
-.course-body { padding:5px 8px; }</pre>
-        </div>
+        <div class="box-title">6. Card Archetypes (Accent, Brutalist, Gradient, Event, Category) <span class="pill">Cards</span></div>
+        <div class="box-content"><pre><span class="cm">/* 1. Job Card - Left Accent Border (Spring26 Slot1 Q2) */</span>
+.job-card{background:#fff;padding:7px;border-radius:4px;border-left:4px solid #205bcb;display:flex;justify-content:space-between;align-items:center;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+<span class="cm">/* 2. Brutalist Hard Shadow Card (Spring25 Q1) */</span>
+.brutal-card{background:#fff;padding:7px;border:2px solid #000;box-shadow:4px 4px 0 #000;text-align:center;}
+<span class="cm">/* 3. Course Card - Gradient Header (Summer25 Q1) */</span>
+.course-card{background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.course-head{background:linear-gradient(135deg,#10b981,#84cc16);color:#fff;padding:5px 8px;font-weight:bold;}
+.course-body{padding:5px 8px;}
+<span class="cm">/* 4. Event/Schedule Card - Colored bg (Summer25 Q1 bottom row) */</span>
+.event-card{border-radius:6px;padding:6px 8px;color:#fff;}
+<span class="cm">/* event colors: orange#f97316 | purple#9b59b6 | teal#06b6d4 | bg-card: has small, strong, badge */</span>
+<span class="cm">/* 5. Category Colored Card (Spring26 Slot2 Q1 - Drive/BookHub grid) */</span>
+.cat-card{border-radius:6px;padding:8px 10px;color:#fff;}
+<span class="cm">/* cat colors: purple#6b63ff | teal#0db0d7 | pink#ea6aa8 | blue#2c74db */</span></pre></div>
       </div>
-
-      <!-- 7. COMPLETE FORM SKELETON -->
+      <!-- 7 FORM + SOCIAL AUTH -->
       <div class="box">
-        <div class="box-title">7. Complete Form Skeleton (All Input Types) <span class="pill">Forms</span></div>
-        <div class="box-content">
-<pre>&lt;form class="exam-form"&gt;
+        <div class="box-title">7. Form Skeleton + Social Auth (All Input Types) <span class="pill">Forms</span></div>
+        <div class="box-content"><pre>&lt;form class="exam-form"&gt;
   &lt;div class="fg"&gt;&lt;label&gt;Full Name&lt;/label&gt;&lt;input type="text" placeholder="John Doe"&gt;&lt;/div&gt;
   &lt;div class="grid-2"&gt;
-    &lt;div class="fg"&gt;&lt;label&gt;Deployment Zone&lt;/label&gt;&lt;select&gt;&lt;option&gt;North America&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
-    &lt;div class="fg"&gt;&lt;label&gt;Work Email&lt;/label&gt;&lt;input type="email" placeholder="email@co.com"&gt;&lt;/div&gt;
+    &lt;div class="fg"&gt;&lt;label&gt;Zone&lt;/label&gt;&lt;select&gt;&lt;option&gt;North America&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+    &lt;div class="fg"&gt;&lt;label&gt;Email&lt;/label&gt;&lt;input type="email" placeholder="email@co.com"&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="fg"&gt;&lt;label&gt;Notes&lt;/label&gt;&lt;textarea rows="2" placeholder="Notes..."&gt;&lt;/textarea&gt;&lt;/div&gt;
   &lt;div class="cb-group"&gt;
@@ -262,65 +158,63 @@ body { background:#f4f6f8; color:#333; } a { text-decoration:none; color:inherit
   &lt;button type="submit" class="btn btn-primary btn-block"&gt;Submit Form&lt;/button&gt;
 &lt;/form&gt;
 &lt;style&gt;
-.fg { display:flex; flex-direction:column; gap:1.5px; margin-bottom:3.5px; }
-.fg label { font-size:8px; font-weight:bold; color:#475569; }
-input[type="text"], input[type="email"], input[type="password"], select, textarea {
-  width:100%; padding:3px 6px; border:1px solid #cbd5e1; border-radius:3px; font-size:8.5px; outline:none; }
-input:focus, select:focus, textarea:focus { border-color:#2563eb; }
-.cb-group { display:flex; gap:4px; margin-bottom:4px; }
-.cb-btn { display:flex; align-items:center; gap:3px; padding:2px 5px; border:1px solid #cbd5e1; border-radius:3px; font-size:8px; cursor:pointer; background:#fff; }
-&lt;/style&gt;</pre>
-        </div>
+.fg{display:flex;flex-direction:column;gap:1.5px;margin-bottom:3px;}
+.fg label{font-size:8px;font-weight:bold;color:#475569;}
+input[type="text"],input[type="email"],input[type="password"],select,textarea{width:100%;padding:3px 6px;border:1px solid #cbd5e1;border-radius:3px;font-size:8.5px;outline:none;}
+input:focus,select:focus,textarea:focus{border-color:#2563eb;}
+.cb-group{display:flex;gap:4px;margin-bottom:4px;}
+.cb-btn{display:flex;align-items:center;gap:3px;padding:2px 5px;border:1px solid #cbd5e1;border-radius:3px;font-size:8px;cursor:pointer;background:#fff;}
+&lt;/style&gt;
+<span class="cm">/* Social Auth Buttons (Spring25 Q2 - Sign In page) */</span>
+&lt;button class="social-btn"&gt;G  Sign in with Google&lt;/button&gt;
+&lt;div class="grid-2" style="gap:4px;"&gt;
+  &lt;button class="social-btn"&gt;Apple&lt;/button&gt;
+  &lt;button class="social-btn"&gt;Facebook&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="divider"&gt;&lt;span&gt;OR&lt;/span&gt;&lt;/div&gt;
+.social-btn{width:100%;padding:5px;border:1px solid #ddd;border-radius:4px;background:#fff;font-size:8.5px;cursor:pointer;margin-bottom:4px;}
+.divider{display:flex;align-items:center;margin:3px 0;color:#888;}
+.divider::before,.divider::after{content:'';flex:1;border-bottom:1px solid #ddd;}
+.divider span{padding:0 4px;font-size:7.5px;}</pre></div>
       </div>
-
-      <!-- 8. BUTTON SYSTEM -->
+      <!-- 8 BUTTONS + BANNER -->
       <div class="box">
-        <div class="box-title">8. Button Palette & Styles <span class="pill">Buttons</span></div>
-        <div class="box-content">
-<pre>&lt;style&gt;
-.btn { padding:4px 8px; border:none; border-radius:3px; font-size:8.5px; font-weight:bold; cursor:pointer; text-align:center; display:inline-block; }
-.btn-primary { background:#1d78f0; color:#fff; } .btn-green { background:#50ad50; color:#fff; }
-.btn-red     { background:#e90606; color:#fff; } .btn-orange{ background:#f97316; color:#fff; }
-.btn-outline { background:transparent; border:1.2px solid #1d78f0; color:#1d78f0; }
-.btn-dashed  { background:transparent; border:1.2px dashed #94a3b8; color:#64748b; }
-.btn-block   { width:100%; } .btn-sm { padding:2px 5px; font-size:8px; }
-&lt;/style&gt;</pre>
-        </div>
+        <div class="box-title">8. Buttons &amp; Hero Banner / Footer <span class="pill">UI</span></div>
+        <div class="box-content"><pre><span class="cm">/* Buttons */</span>
+.btn{padding:4px 8px;border:none;border-radius:3px;font-size:8.5px;font-weight:bold;cursor:pointer;text-align:center;display:inline-block;}
+.btn-primary{background:#1d78f0;color:#fff;} .btn-green{background:#50ad50;color:#fff;}
+.btn-red{background:#e90606;color:#fff;} .btn-orange{background:#f97316;color:#fff;}
+.btn-purple{background:#781fa0;color:#fff;} .btn-dark{background:#000;color:#fff;}
+.btn-outline{background:transparent;border:1.2px solid #1d78f0;color:#1d78f0;}
+.btn-block{width:100%;} .btn-sm{padding:2px 5px;font-size:8px;}
+<span class="cm">/* Hero/Banner Section (Spring26 Slot2 Q2 - full-width above content) */</span>
+.banner{background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:14px 18px;margin-bottom:8px;}
+<span class="cm">/* Gradient banner: background:linear-gradient(135deg,#eb6623,#c85a32);color:#fff; */</span>
+<span class="cm">/* Usage: &lt;div class="banner"&gt;&lt;h1&gt;Title&lt;/h1&gt;&lt;p&gt;Desc&lt;/p&gt;&lt;a class="btn btn-primary"&gt;CTA&lt;/a&gt;&lt;/div&gt; */</span>
+&lt;footer class="footer"&gt;&amp;copy; 2026 UIU Book Share Hub&lt;/footer&gt;
+.footer{background:#000;color:#fff;text-align:center;padding:8px;font-size:9px;}
+<span class="cm">/* Gradient footer: background:linear-gradient(90deg,#f97316,#22c55e) */</span></pre></div>
       </div>
-
-      <!-- 9. MICRO-WIDGETS -->
+      <!-- 9 WIDGETS -->
       <div class="box">
-        <div class="box-title">9. Progress Bar, Badges, Avatar, Table & Divider <span class="pill">Widgets</span></div>
-        <div class="box-content">
-<pre><span class="hl-comm">/* Progress Bar */</span>
-&lt;div class="prog-bar"&gt;&lt;div class="prog-fill" style="width:75%; background:#3b82f6;"&gt;&lt;/div&gt;&lt;/div&gt;
-.prog-bar { width:100%; height:5px; background:#e2e8f0; border-radius:3px; overflow:hidden; margin:2px 0; }
-.prog-fill { height:100%; border-radius:3px; }
-
-<span class="hl-comm">/* Status Badge / Pills */</span>
-.badge { display:inline-block; padding:1px 5px; border-radius:8px; font-size:7.5px; font-weight:bold; }
-.badge-blue { background:#e2ebfa; color:#205bcb; } .badge-green { background:#d6f2e7; color:#0e7048; } .badge-yellow { background:#fdebc0; color:#b45309; }
-
-<span class="hl-comm">/* Circular Avatar & Search Pill */</span>
-.avatar { width:24px; height:24px; border-radius:50%; background:#536ffe; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:9px; flex-shrink:0; }
-.search-pill { width:100%; max-width:170px; padding:3px 8px; border-radius:12px; border:1px solid #cbd5e1; font-size:8.5px; outline:none; }
-
-<span class="hl-comm">/* OR Divider */</span>
-.divider { display:flex; align-items:center; margin:4px 0; color:#888; }
-.divider::before, .divider::after { content:''; flex:1; border-bottom:1px solid #ddd; }
-.divider span { padding:0 4px; font-size:7.5px; }
-
-<span class="hl-comm">/* HTML Data Table (Summer 25 Q2) */</span>
-.table { width:100%; border-collapse:collapse; background:#fff; border-radius:3px; overflow:hidden; font-size:8px; }
-.table th, .table td { padding:3px 5px; text-align:left; border-bottom:1px solid #e2e8f0; }
-.table th { background:#a05a2c; color:#fff; font-weight:600; }
-.table tr:nth-child(even) { background:#f8fafc; }</pre>
-        </div>
+        <div class="box-title">9. Progress Bar, Badges, Avatar &amp; Table <span class="pill">Widgets</span></div>
+        <div class="box-content"><pre><span class="cm">/* Progress Bar */</span>
+&lt;div class="prog-bar"&gt;&lt;div class="prog-fill" style="width:75%;background:#3b82f6;"&gt;&lt;/div&gt;&lt;/div&gt;
+.prog-bar{width:100%;height:5px;background:#e2e8f0;border-radius:3px;overflow:hidden;margin:2px 0;}
+.prog-fill{height:100%;border-radius:3px;}
+<span class="cm">/* Badges/Pills */</span>
+.badge{display:inline-block;padding:1px 5px;border-radius:8px;font-size:7.5px;font-weight:bold;}
+.badge-blue{background:#e2ebfa;color:#205bcb;} .badge-green{background:#d6f2e7;color:#0e7048;}
+.badge-yellow{background:#fdebc0;color:#b45309;} .badge-orange{background:#ffe4d6;color:#c2410c;}
+<span class="cm">/* Circular Avatar */</span>
+.avatar{width:24px;height:24px;border-radius:50%;background:#536ffe;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:9px;flex-shrink:0;}
+<span class="cm">/* HTML Table (Summer25 Q2) */</span>
+.table{width:100%;border-collapse:collapse;background:#fff;font-size:8px;}
+.table th,.table td{padding:3px 5px;text-align:left;border-bottom:1px solid #e2e8f0;}
+.table th{background:#a05a2c;color:#fff;font-weight:600;}
+.table tr:nth-child(even){background:#f8fafc;}</pre></div>
       </div>
-
     </div>
-
   </div>
-
 </body>
 </html>
