@@ -1,74 +1,164 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>UIU Web Programming Midterm — 1-Page A4 Cheat Sheet (External CSS &amp; HTML System)</title>
-  <style>
-    @page { size: A4 portrait; margin: 3mm; }
-    * { margin:0; padding:0; box-sizing:border-box; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
-    body { background:#fff; color:#0f172a; font-size:6.1pt; line-height:1.06; width:204mm; margin:0 auto; }
-    
-    /* Header */
-    .cheat-header { border-bottom:1.2px solid #0f172a; padding-bottom:1px; margin-bottom:2px; display:flex; justify-content:space-between; align-items:baseline; }
-    .cheat-header h1 { font-size:7.4pt; font-weight:800; color:#0f172a; }
-    .cheat-header .meta { font-size:5.8pt; color:#475569; }
-    
-    /* Priority Badge Bar */
-    .p-bar { display:flex; gap:2px; margin-bottom:2.5px; font-size:5.4pt; }
-    .p-bar div { flex:1; padding:1px 2px; border-radius:2px; color:#fff; font-weight:700; text-align:center; }
-    
-    /* 3-Column Balanced Layout */
-    .sheet-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:2.5px; align-items:start; }
-    .sheet-col { display:flex; flex-direction:column; gap:2.5px; min-width:0; }
-    
-    /* Box Card */
-    .box { border:1px solid #cbd5e1; border-radius:2px; background:#fff; overflow:hidden; }
-    .box.p0 { border:1.3px solid #b91c1c; }
-    .box-title {
-      background:#f1f5f9; font-size:6.1pt; font-weight:700; padding:1px 3.5px; border-bottom:1px solid #cbd5e1;
-      display:flex; justify-content:space-between; align-items:center;
-    }
-    .box.p0 .box-title { background:#fee2e2; color:#991b1b; }
-    .pill { font-size:4.8pt; background:#0284c7; color:#fff; padding:0.5px 2.5px; border-radius:2px; font-weight:700; }
-    .pill.p0 { background:#b91c1c; }
-    .box-content { padding:1.5px 3px; }
-    
-    /* Code Snippet */
-    pre {
-      font-family:"SFMono-Regular",Consolas,"Liberation Mono",Courier,monospace;
-      font-size:5.15pt; line-height:1.02; background:#f8fafc; padding:1px 2.5px;
-      border-radius:2px; border:1px solid #e2e8f0; white-space:pre-wrap;
-      overflow-wrap:anywhere; word-break:break-word; margin:0.8px 0; color:#0f172a;
-    }
-    .tag-html { color:#0369a1; font-weight:bold; }
-    .tag-css { color:#b45309; font-weight:bold; }
-    .cm { color:#64748b; font-style:italic; }
-  </style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      UIU Web Programming Midterm — 1-Page A4 Cheat Sheet (External CSS &amp;
+      HTML System)
+    </title>
+    <style>
+      @page {
+        size: A4 portrait;
+        margin: 3mm;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+          sans-serif;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body {
+        background: #fff;
+        color: #0f172a;
+        font-size: 6.1pt;
+        line-height: 1.06;
+        width: 204mm;
+        margin: 0 auto;
+      }
 
-  <div class="cheat-header">
-    <h1>UIU CSE4165 / CSE465 Web Programming Midterm — Fast External CSS &amp; HTML Architecture</h1>
-    <div class="meta">Pure HTML5 + style.css &bull; 90 Min (45m/Q) &bull; 30 Marks &bull; Spring26 &gt; Fall25 &gt; Summer25 &gt; Spring25</div>
-  </div>
+      /* Header */
+      .cheat-header {
+        border-bottom: 1.2px solid #0f172a;
+        padding-bottom: 1px;
+        margin-bottom: 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .cheat-header h1 {
+        font-size: 7.4pt;
+        font-weight: 800;
+        color: #0f172a;
+      }
+      .cheat-header .meta {
+        font-size: 5.8pt;
+        color: #475569;
+      }
 
-  <div class="p-bar">
-    <div style="background:#b91c1c;">P0: Spring 2026 (Job Filters, Left-Accent Cards, Storage Bar, Pill-Rows, Boxed Checkboxes, Canvas)</div>
-    <div style="background:#ea580c;">P1: Fall 2025 (Split Hero, 3-Col KPI, Status Badges)</div>
-    <div style="background:#0284c7;">P2: Summer 2025 (Gradient Headers, Table, LMS)</div>
-    <div style="background:#64748b;">P3: Spring 2025 (Brutalist Shadows, Social Login)</div>
-  </div>
+      /* Priority Badge Bar */
+      .p-bar {
+        display: flex;
+        gap: 2px;
+        margin-bottom: 2.5px;
+        font-size: 5.4pt;
+      }
+      .p-bar div {
+        flex: 1;
+        padding: 1px 2px;
+        border-radius: 2px;
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+      }
 
-  <div class="sheet-grid">
+      /* 3-Column Balanced Layout */
+      .sheet-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2.5px;
+        align-items: start;
+      }
+      .sheet-col {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5px;
+        min-width: 0;
+      }
 
-    <!-- ================= COLUMN 1 ================= -->
-    <div class="sheet-col">
+      /* Box Card */
+      .box {
+        border: 1px solid #cbd5e1;
+        border-radius: 2px;
+        background: #fff;
+        overflow: hidden;
+      }
+      .box.p0 {
+        border: 1.3px solid #b91c1c;
+      }
+      .box-title {
+        background: #f1f5f9;
+        font-size: 6.1pt;
+        font-weight: 700;
+        padding: 1px 3.5px;
+        border-bottom: 1px solid #cbd5e1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .box.p0 .box-title {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .pill {
+        font-size: 4.8pt;
+        background: #0284c7;
+        color: #fff;
+        padding: 0.5px 2.5px;
+        border-radius: 2px;
+        font-weight: 700;
+      }
+      .pill.p0 {
+        background: #b91c1c;
+      }
+      .box-content {
+        padding: 1.5px 3px;
+      }
 
-      <!-- 1. BOILERPLATE -->
-      <div class="box">
-        <div class="box-title">1. Setup &amp; Global Reset <span class="pill">Start</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- index.html --&gt;</span>
+      /* Code Snippet */
+      pre {
+        font-family:
+          "SFMono-Regular", Consolas, "Liberation Mono", Courier, monospace;
+        font-size: 5.15pt;
+        line-height: 1.02;
+        background: #f8fafc;
+        padding: 1px 2.5px;
+        border-radius: 2px;
+        border: 1px solid #e2e8f0;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        margin: 0.8px 0;
+        color: #0f172a;
+      }
+      .tag-html {
+        color: #0369a1;
+        font-weight: bold;
+      }
+      .tag-css {
+        color: #b45309;
+        font-weight: bold;
+      }
+      .cm {
+        color: #64748b;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet-grid">
+      <!-- ================= COLUMN 1 ================= -->
+      <div class="sheet-col">
+        <!-- 1. BOILERPLATE -->
+        <div class="box">
+          <div class="box-title">
+            1. Setup &amp; Global Reset <span class="pill">Start</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- index.html --&gt;</span>
 &lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
   &lt;link rel="stylesheet" href="style.css"&gt;
 &lt;/head&gt;&lt;body&gt; ... &lt;/body&gt;&lt;/html&gt;
@@ -76,14 +166,16 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
 body { background:#f4f6f8; color:#333; }
 a { text-decoration:none; color:inherit; }</pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 2. NAVBAR -->
-      <div class="box">
-        <div class="box-title">2. Navigation Bars <span class="pill">Navbar</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- index.html --&gt;</span>
+        <!-- 2. NAVBAR -->
+        <div class="box">
+          <div class="box-title">
+            2. Navigation Bars <span class="pill">Navbar</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- index.html --&gt;</span>
 &lt;nav class="navbar"&gt;
   &lt;div class="logo"&gt;UIU &lt;span style="color:#ff4419;"&gt;Desk&lt;/span&gt;&lt;/div&gt;
   &lt;ul class="nav-links"&gt;
@@ -97,14 +189,17 @@ a { text-decoration:none; color:inherit; }</pre>
 .nav-links { display:flex; gap:12px; list-style:none; align-items:center; }
 .nav-links a.active { color:#1d78f0; font-weight:bold; border-bottom:2px solid #1d78f0; padding-bottom:1px; }
 <span class="cm">/* Dark Navy (Spr26 S1): background:#1a237e; color:#fff; | Black (Spr26 S2): background:#000; color:#fff; */</span></pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 3. SIDEBAR DASHBOARD & FILTER -->
-      <div class="box p0">
-        <div class="box-title">3. Sidebar &amp; Filter Panels <span class="pill p0">P0 Sidebar</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- Dashboard Sidebar (Drive/LMS) --&gt;</span>
+        <!-- 3. SIDEBAR DASHBOARD & FILTER -->
+        <div class="box p0">
+          <div class="box-title">
+            3. Sidebar &amp; Filter Panels
+            <span class="pill p0">P0 Sidebar</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- Dashboard Sidebar (Drive/LMS) --&gt;</span>
 &lt;div class="layout"&gt;
   &lt;aside class="sidebar"&gt;
     &lt;div class="avatar"&gt;JS&lt;/div&gt;&lt;h3&gt;UIU HUB&lt;/h3&gt;
@@ -134,14 +229,16 @@ a { text-decoration:none; color:inherit; }</pre>
 .filter-group { margin-bottom:8px; }
 .filter-group h4 { font-size:9.5px; font-weight:bold; margin-bottom:4px; }
 .filter-item { display:flex; align-items:center; gap:5px; font-size:9px; margin-bottom:3px; cursor:pointer; }</pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 4. SPLIT HERO & FULL-BLEED CANVAS -->
-      <div class="box p0">
-        <div class="box-title">4. Split 2-Col &amp; Canvas <span class="pill p0">P0 Canvas</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- 2-Column Split Hero (Fall25 / Spr25) --&gt;</span>
+        <!-- 4. SPLIT HERO & FULL-BLEED CANVAS -->
+        <div class="box p0">
+          <div class="box-title">
+            4. Split 2-Col &amp; Canvas <span class="pill p0">P0 Canvas</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- 2-Column Split Hero (Fall25 / Spr25) --&gt;</span>
 &lt;div class="split" style="background:#eff6fe;padding:12px;border-radius:6px;"&gt;
   &lt;div class="col"&gt;
     &lt;h2&gt;Launch Faster.&lt;/h2&gt;&lt;p&gt;Modern teams tool.&lt;/p&gt;
@@ -169,19 +266,20 @@ a { text-decoration:none; color:inherit; }</pre>
 .split-46 .col-left { flex:0.4; } .split-46 .col-right { flex:0.6; }
 .canvas { padding:14px; border-radius:6px; }
 .sub-box { background:#fffbeb; border:1px solid #eb6623; border-radius:4px; padding:6px; }</pre>
+          </div>
         </div>
       </div>
 
-    </div>
-
-    <!-- ================= COLUMN 2 ================= -->
-    <div class="sheet-col">
-
-      <!-- 5. GRID ENGINES & STAT CARDS -->
-      <div class="box p0">
-        <div class="box-title">5. Grid Templates &amp; Stat Cards <span class="pill p0">P0 4-Col</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- 4-Column KPI Row (Spr26 S1 Q1 CORE-TECH) --&gt;</span>
+      <!-- ================= COLUMN 2 ================= -->
+      <div class="sheet-col">
+        <!-- 5. GRID ENGINES & STAT CARDS -->
+        <div class="box p0">
+          <div class="box-title">
+            5. Grid Templates &amp; Stat Cards
+            <span class="pill p0">P0 4-Col</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- 4-Column KPI Row (Spr26 S1 Q1 CORE-TECH) --&gt;</span>
 &lt;div class="grid-4"&gt;
   &lt;div class="stat-card" style="background:#1975d1;"&gt;
     &lt;span&gt;Total Users&lt;/span&gt;
@@ -199,14 +297,16 @@ a { text-decoration:none; color:inherit; }</pre>
 .stat-pill { align-self:flex-start; font-size:6.5px; background:rgba(255,255,255,0.25); padding:1px 4px; border-radius:4px; font-weight:bold; }
 <span class="cm">/* KPI: Blue#1975d1 Green#378b3b Orange#f78100 Purple#781fa0 */</span>
 <span class="cm">/* File Cards (Spr26 S2): .file-card { background:#fff; border-radius:4px; padding:8px; text-align:center; } */</span></pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 6. CARD ARCHETYPES -->
-      <div class="box p0">
-        <div class="box-title">6. Card Archetypes <span class="pill p0">P0 Job/Accent</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- 1. Job Card with Left-Accent Border (Spr26 S1 Q2) --&gt;</span>
+        <!-- 6. CARD ARCHETYPES -->
+        <div class="box p0">
+          <div class="box-title">
+            6. Card Archetypes <span class="pill p0">P0 Job/Accent</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- 1. Job Card with Left-Accent Border (Spr26 S1 Q2) --&gt;</span>
 &lt;div class="card card-job"&gt;
   &lt;div&gt;
     &lt;h4&gt;Junior Software Engineer&lt;/h4&gt;&lt;p&gt;Kaz Software&lt;/p&gt;
@@ -232,14 +332,16 @@ a { text-decoration:none; color:inherit; }</pre>
 .card-head-grad { background:linear-gradient(135deg,#10b981,#84cc16); color:#fff; padding:6px 8px; font-weight:bold; }
 .card-body { padding:6px 8px; }
 .cat-card { border-radius:5px; padding:8px; color:#fff; } <span class="cm">/* Purple#6b63ff Teal#0db0d7 Pink#ea6aa8 Blue#2c74db */</span></pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 7. FORM SKELETONS -->
-      <div class="box">
-        <div class="box-title">7. Form Controls &amp; Social Login <span class="pill">Forms</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- Form Controls --&gt;</span>
+        <!-- 7. FORM SKELETONS -->
+        <div class="box">
+          <div class="box-title">
+            7. Form Controls &amp; Social Login <span class="pill">Forms</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- Form Controls --&gt;</span>
 &lt;form class="form"&gt;
   &lt;div class="form-group"&gt;&lt;label&gt;Full Name&lt;/label&gt;&lt;input class="input" type="text" placeholder="Name"&gt;&lt;/div&gt;
   &lt;div class="grid-2"&gt;
@@ -264,14 +366,17 @@ a { text-decoration:none; color:inherit; }</pre>
 .divider { display:flex; align-items:center; margin:3px 0; color:#888; }
 .divider::before,.divider::after { content:''; flex:1; border-bottom:1px solid #ddd; }
 .divider span { padding:0 4px; font-size:7px; }</pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 8. CHECKBOX GROUPS & DUAL ACTIONS -->
-      <div class="box p0">
-        <div class="box-title">8. Boxed Permissions &amp; Dual Buttons <span class="pill p0">P0 Boxed</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- Boxed Permissions Row (Spr26 S1 Q1 Access Permissions) --&gt;</span>
+        <!-- 8. CHECKBOX GROUPS & DUAL ACTIONS -->
+        <div class="box p0">
+          <div class="box-title">
+            8. Boxed Permissions &amp; Dual Buttons
+            <span class="pill p0">P0 Boxed</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- Boxed Permissions Row (Spr26 S1 Q1 Access Permissions) --&gt;</span>
 &lt;div class="cb-row"&gt;
   &lt;label class="cb-box"&gt;&lt;input type="checkbox" checked&gt; Read&lt;/label&gt;
   &lt;label class="cb-box"&gt;&lt;input type="checkbox"&gt; Write&lt;/label&gt;
@@ -287,19 +392,19 @@ a { text-decoration:none; color:inherit; }</pre>
 .cb-row { display:flex; gap:5px; margin-bottom:4px; }
 .cb-box { flex:1; display:flex; align-items:center; justify-content:center; gap:3px; padding:3.5px 6px; border:1px solid #cbd5e1; border-radius:3px; background:#fff; font-size:8px; cursor:pointer; }
 .btn-group { display:flex; gap:5px; }</pre>
+          </div>
         </div>
       </div>
 
-    </div>
-
-    <!-- ================= COLUMN 3 ================= -->
-    <div class="sheet-col">
-
-      <!-- 9. BUTTON PALETTE & BANNER -->
-      <div class="box">
-        <div class="box-title">9. Button Styles &amp; Banner/Footer <span class="pill">UI</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- Banner &amp; Footer --&gt;</span>
+      <!-- ================= COLUMN 3 ================= -->
+      <div class="sheet-col">
+        <!-- 9. BUTTON PALETTE & BANNER -->
+        <div class="box">
+          <div class="box-title">
+            9. Button Styles &amp; Banner/Footer <span class="pill">UI</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- Banner &amp; Footer --&gt;</span>
 &lt;div class="card card-banner"&gt;
   &lt;h1&gt;Buy, Sell, Exchange Books&lt;/h1&gt;&lt;p&gt;UIU Book Hub&lt;/p&gt;
 &lt;/div&gt;
@@ -318,14 +423,17 @@ a { text-decoration:none; color:inherit; }</pre>
 .card-banner { background:#fff; border:1px solid #e2e8f0; border-radius:5px; padding:10px 14px; margin-bottom:6px; }
 .footer { background:#000; color:#fff; text-align:center; padding:6px; font-size:8.5px; }
 <span class="cm">/* Gradient Footer: background:linear-gradient(90deg,#f97316,#22c55e); */</span></pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 10. PROGRESS & STORAGE WIDGET -->
-      <div class="box p0">
-        <div class="box-title">10. Storage Widget &amp; Progress <span class="pill p0">P0 Storage</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- Storage Widget (Spr26 S2 Q1 Drive) --&gt;</span>
+        <!-- 10. PROGRESS & STORAGE WIDGET -->
+        <div class="box p0">
+          <div class="box-title">
+            10. Storage Widget &amp; Progress
+            <span class="pill p0">P0 Storage</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- Storage Widget (Spr26 S2 Q1 Drive) --&gt;</span>
 &lt;div class="card"&gt;
   &lt;div style="display:flex;justify-content:space-between;"&gt;
     &lt;strong&gt;Your storage&lt;/strong&gt;&lt;span style="color:#0ea5e9;"&gt;25% left&lt;/span&gt;
@@ -337,14 +445,17 @@ a { text-decoration:none; color:inherit; }</pre>
 .prog-bar { width:100%; height:5px; background:#e2e8f0; border-radius:3px; overflow:hidden; margin:2px 0; }
 .prog-fill { height:100%; border-radius:3px; }
 <span class="cm">/* Dual Progress (Fall25 Q2): Blue bar width:80% + Red bar width:70% */</span></pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 11. BADGES, PILL-ROWS, AVATAR, TABLE -->
-      <div class="box p0">
-        <div class="box-title">11. Badges, Pill-Rows &amp; Table <span class="pill p0">P0 Rows</span></div>
-        <div class="box-content">
-<pre><span class="tag-html">&lt;!-- Pill-List Row (Spr26 S2 Q1 Shared Folders) --&gt;</span>
+        <!-- 11. BADGES, PILL-ROWS, AVATAR, TABLE -->
+        <div class="box p0">
+          <div class="box-title">
+            11. Badges, Pill-Rows &amp; Table
+            <span class="pill p0">P0 Rows</span>
+          </div>
+          <div class="box-content">
+            <pre><span class="tag-html">&lt;!-- Pill-List Row (Spr26 S2 Q1 Shared Folders) --&gt;</span>
 &lt;div class="pill-row" style="background:#c8f2ef;"&gt;
   &lt;span&gt;Keynote files&lt;/span&gt;&lt;span class="tag"&gt;Team&lt;/span&gt;
 &lt;/div&gt;
@@ -366,14 +477,16 @@ a { text-decoration:none; color:inherit; }</pre>
 .table th, .table td { padding:2.5px 4px; text-align:left; border-bottom:1px solid #e2e8f0; }
 .table th { background:#a05a2c; color:#fff; font-weight:bold; }
 .table tr:nth-child(even) { background:#f8fafc; }</pre>
+          </div>
         </div>
-      </div>
 
-      <!-- 12. EXAM SPEEDRUN STRATEGY -->
-      <div class="box p0">
-        <div class="box-title">12. 45-Min Exam Speedrun <span class="pill p0">Strategy</span></div>
-        <div class="box-content">
-<pre>1. Read Q, pick Layout (Sidebar/Split/Filter) - 1 min
+        <!-- 12. EXAM SPEEDRUN STRATEGY -->
+        <div class="box p0">
+          <div class="box-title">
+            12. 45-Min Exam Speedrun <span class="pill p0">Strategy</span>
+          </div>
+          <div class="box-content">
+            <pre>1. Read Q, pick Layout (Sidebar/Split/Filter) - 1 min
 2. Link style.css, paste Reset &amp; chosen Layout - 2 min
 3. Assemble semantic HTML skeletons via classes - 20 min
 4. Apply red-arrow Hex codes directly as you go - 12 min
@@ -381,12 +494,9 @@ a { text-decoration:none; color:inherit; }</pre>
 6. Visual compare with paper, tune padding/gap - 5 min
 <span class="cm">/* TIP: Always check box-sizing:border-box. Use Flex &amp; Grid.
 Never use float. Keep external style.css cleanly grouped. */</span></pre>
+          </div>
         </div>
       </div>
-
     </div>
-
-  </div>
-
-</body>
+  </body>
 </html>
