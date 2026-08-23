@@ -9,7 +9,11 @@
     <style>
       @page {
         size: A4 portrait;
-        margin: 3mm;
+        margin: 2.5mm;
+      }
+      @media print {
+        html, body { width: 205mm; margin: 0 auto; }
+        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       }
       * {
         margin: 0;
@@ -24,9 +28,9 @@
       body {
         background: #fff;
         color: #0f172a;
-        font-size: 6.1pt;
-        line-height: 1.06;
-        width: 204mm;
+        font-size: 6.4pt;
+        line-height: 1.08;
+        width: 205mm;
         margin: 0 auto;
       }
 
@@ -53,8 +57,8 @@
       .p-bar {
         display: flex;
         gap: 2px;
-        margin-bottom: 2.5px;
-        font-size: 5.4pt;
+        margin-bottom: 2px;
+        font-size: 5.3pt;
       }
       .p-bar div {
         flex: 1;
@@ -65,17 +69,17 @@
         text-align: center;
       }
 
-      /* 3-Column Balanced Layout */
+      /* 3-Column Balanced Layout - tuned for 1-page fit */
       .sheet-grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 2.5px;
+        gap: 2px;
         align-items: start;
       }
       .sheet-col {
         display: flex;
         flex-direction: column;
-        gap: 2.5px;
+        gap: 2px;
         min-width: 0;
       }
 
@@ -91,9 +95,9 @@
       }
       .box-title {
         background: #f1f5f9;
-        font-size: 6.1pt;
+        font-size: 6pt;
         font-weight: 700;
-        padding: 1px 3.5px;
+        padding: 1px 3px;
         border-bottom: 1px solid #cbd5e1;
         display: flex;
         justify-content: space-between;
@@ -118,20 +122,20 @@
         padding: 1.5px 3px;
       }
 
-      /* Code Snippet */
+      /* Code Snippet - densified for 1-page */
       pre {
         font-family:
           "SFMono-Regular", Consolas, "Liberation Mono", Courier, monospace;
-        font-size: 5.15pt;
-        line-height: 1.02;
+        font-size: 5.35pt;
+        line-height: 1.05;
         background: #f8fafc;
-        padding: 1px 2.5px;
+        padding: 1.2px 2.5px;
         border-radius: 2px;
         border: 1px solid #e2e8f0;
         white-space: pre-wrap;
         overflow-wrap: anywhere;
         word-break: break-word;
-        margin: 0.8px 0;
+        margin: 1px 0;
         color: #0f172a;
       }
       .tag-html {
@@ -327,9 +331,9 @@ a { text-decoration:none; color:inherit; }</pre>
 <span class="tag-css">/* style.css */</span>
 .card { background:#fff; border-radius:4px; padding:8px; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
 .card-job { border-left:4px solid #205bcb; display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
-.card-brutal { border:2px solid #000; box-shadow:4px 4px 0 #000; text-align:center; }
+.card-brutal { border:2px solid #000; box-shadow:6px 6px 0 #000; text-align:center; } /* Spr25 Q1: use 6-8px offset */
 .card-course { padding:0; overflow:hidden; }
-.card-head-grad { background:linear-gradient(135deg,#10b981,#84cc16); color:#fff; padding:6px 8px; font-weight:bold; }
+.card-head-grad { background:linear-gradient(135deg,#10b981,#84cc16); color:#fff; padding:6px 8px; font-weight:bold; } /* Alt: #a8322d->#d4a017 | #1e3a5f->#4c1d95 */
 .card-body { padding:6px 8px; }
 .cat-card { border-radius:5px; padding:8px; color:#fff; } <span class="cm">/* Purple#6b63ff Teal#0db0d7 Pink#ea6aa8 Blue#2c74db */</span></pre>
           </div>
@@ -475,7 +479,7 @@ a { text-decoration:none; color:inherit; }</pre>
 .avatar { width:22px; height:22px; border-radius:50%; background:#536ffe; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:8.5px; flex-shrink:0; }
 .table { width:100%; border-collapse:collapse; background:#fff; font-size:7.5px; }
 .table th, .table td { padding:2.5px 4px; text-align:left; border-bottom:1px solid #e2e8f0; }
-.table th { background:#a05a2c; color:#fff; font-weight:bold; }
+      .table th { background:#a05a2c; color:#fff; font-weight:bold; } /* Alt gradient: linear-gradient(90deg,#c86a2e,#d4a574) */
 .table tr:nth-child(even) { background:#f8fafc; }</pre>
           </div>
         </div>
@@ -483,20 +487,24 @@ a { text-decoration:none; color:inherit; }</pre>
         <!-- 12. EXAM SPEEDRUN STRATEGY -->
         <div class="box p0">
           <div class="box-title">
-            12. 45-Min Exam Speedrun <span class="pill p0">Strategy</span>
+            12. 45-Min Speedrun <span class="pill p0">Strategy</span>
           </div>
           <div class="box-content">
-            <pre>1. Read Q, pick Layout (Sidebar/Split/Filter) - 1 min
-2. Link style.css, paste Reset &amp; chosen Layout - 2 min
-3. Assemble semantic HTML skeletons via classes - 20 min
-4. Apply red-arrow Hex codes directly as you go - 12 min
+            <pre>1. Read Q, pick Archetype (Sidebar/Split/Filter) - 1 min
+2. Link style.css, paste Reset &amp; Layout engine - 2 min
+3. Assemble HTML via classes (.grid-*/.card-job) - 20 min
+4. Apply red-arrow HEX inline style="" as you go - 12 min
 5. Buttons/Badges/Progress widgets last - 5 min
-6. Visual compare with paper, tune padding/gap - 5 min
-<span class="cm">/* TIP: Always check box-sizing:border-box. Use Flex &amp; Grid.
-Never use float. Keep external style.css cleanly grouped. */</span></pre>
+6. Compare with paper, tune padding/gap - 5 min
+<span class="cm">/* TIP: box-sizing:border-box always. Flex+Grid only.
+select{appearance:none} textarea{resize:vertical} HEX=inline &gt; class */</span></pre>
           </div>
         </div>
       </div>
+    </div>
+    <div style="margin-top:1.5px; border-top:1px dashed #94a3b8; padding-top:1px; font-size:4.7pt; color:#64748b; display:flex; justify-content:space-between;">
+      <span>PRINT: Chrome → Ctrl+P → Destination: Save as PDF → Paper: A4 → Margins: None → ☑ Background graphics ON → Save</span>
+      <span>HEX TIP: Copy red-arrow #hex → style="background:#hex" inline - faster than new class</span>
     </div>
   </body>
 </html>
