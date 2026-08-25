@@ -186,6 +186,46 @@
         vertical-align: middle;
         margin-right: 2px;
       }
+      /* VSCode-style token highlighting */
+      .hl-tag {
+        color: #0f2d7d;
+        font-weight: 700;
+      }
+      .hl-attr {
+        color: #a31515;
+      }
+      .hl-str {
+        color: #0451a5;
+      }
+      .hl-cmt2 {
+        color: #008000;
+        font-style: italic;
+      }
+      .hl-sel {
+        color: #7a0000;
+        font-weight: 700;
+      }
+      .hl-prop {
+        color: #0451a5;
+      }
+      .hl-val {
+        color: #5a2ca0;
+      }
+      .hl-num {
+        color: #098658;
+      }
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1px 7px;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 5.6pt;
+        line-height: 1;
+        margin: 0 0 1px;
+      }
+      .legend span {
+        white-space: nowrap;
+      }
     </style>
   </head>
   <body>
@@ -201,13 +241,15 @@
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- index.html --&gt;</span>
-&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
-  &lt;link rel="stylesheet" href="style.css"&gt;
-&lt;/head&gt;&lt;body&gt; ... &lt;/body&gt;&lt;/html&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-body { background:#f4f6f8; color:#333; }
-a { text-decoration:none; color:inherit; }</pre>
+&lt;<span class='hl-tag'>!DOCTYPE</span> html&gt;&lt;<span class='hl-tag'>html</span>&gt;&lt;<span class='hl-tag'>head</span>&gt;
+  &lt;<span class='hl-tag'>link</span> <span class='hl-attr'>rel</span>=<span class='hl-str'>"stylesheet"</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"style.css"</span>&gt;
+&lt;/<span class='hl-tag'>head</span>&gt;&lt;<span class='hl-tag'>body</span>&gt; ... &lt;/<span class='hl-tag'>body</span>&gt;&lt;/<span class='hl-tag'>html</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+* </span>{ <span class='hl-prop'>margin</span>:<span class='hl-val'>0</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>0</span>; <span class='hl-prop'>box-sizing</span>:<span class='hl-val'>border-box</span>; <span class='hl-prop'>font-family</span>:<span class='hl-val'>Arial,sans-serif</span>; }
+<span class='hl-sel'>body </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f4f6f8</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#333</span></span>; }
+<span class='hl-sel'>a </span>{ <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>color</span>:<span class='hl-val'>inherit</span>; }</pre>
           </div>
         </div>
 
@@ -220,18 +262,20 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- index.html --&gt;</span>
-&lt;nav class="navbar"&gt;
-  &lt;div class="logo"&gt;UIU &lt;span style="color:#ff4419;"&gt;Desk&lt;/span&gt;&lt;/div&gt;
-  &lt;ul class="nav-links"&gt;
-    &lt;li&gt;&lt;a href="#" class="active"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#"&gt;Jobs&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="#" class="btn btn-sm btn-primary"&gt;Sign Up&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.navbar { display:flex; justify-content:space-between; align-items:center; padding:6px 14px; background:#fff; border-bottom:1px solid #ddd; }
-.nav-links { display:flex; gap:12px; list-style:none; align-items:center; }
-.nav-links a.active { color:#1d78f0; font-weight:bold; border-bottom:2px solid #1d78f0; padding-bottom:1px; }
+&lt;<span class='hl-tag'>nav</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"navbar"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"logo"</span>&gt;UIU &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"color:#ff4419;"</span>&gt;Desk&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>ul</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"nav-links"</span>&gt;
+    &lt;<span class='hl-tag'>li</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"active"</span>&gt;Home&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>li</span>&gt;
+    &lt;<span class='hl-tag'>li</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Jobs&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>li</span>&gt;
+    &lt;<span class='hl-tag'>li</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-sm btn-primary"</span>&gt;Sign Up&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>li</span>&gt;
+  &lt;/<span class='hl-tag'>ul</span>&gt;
+&lt;/<span class='hl-tag'>nav</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.navbar </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>space-between</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 14px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>1px solid <span class='hl-num'>#ddd</span></span>; }
+<span class='hl-sel'>.nav-links </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>list-style</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; }
+<span class='hl-sel'>.nav-links a.active </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>2px solid <span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>padding-bottom</span>:<span class='hl-val'>1px</span>; }
 <span class="cm">/* Dark Navy: background:#1a237e; color:#fff; | Black: background:#000; color:#fff; */</span></pre>
           </div>
         </div>
@@ -246,35 +290,37 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- Dashboard Sidebar --&gt;</span>
-&lt;div class="layout"&gt;
-  &lt;aside class="sidebar"&gt;
-    &lt;div class="avatar"&gt;JS&lt;/div&gt;&lt;h3&gt;UIU HUB&lt;/h3&gt;
-    &lt;ul class="menu"&gt;
-      &lt;li class="active"&gt;Dashboard&lt;/li&gt;&lt;li&gt;Courses&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/aside&gt;
-  &lt;main class="main"&gt;&lt;!-- Main Cards --&gt;&lt;/main&gt;
-&lt;/div&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"layout"</span>&gt;
+  &lt;<span class='hl-tag'>aside</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sidebar"</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"avatar"</span>&gt;JS&lt;/<span class='hl-tag'>div</span>&gt;&lt;<span class='hl-tag'>h3</span>&gt;UIU HUB&lt;/<span class='hl-tag'>h3</span>&gt;
+    &lt;<span class='hl-tag'>ul</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"menu"</span>&gt;
+      &lt;<span class='hl-tag'>li</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"active"</span>&gt;Dashboard&lt;/<span class='hl-tag'>li</span>&gt;&lt;<span class='hl-tag'>li</span>&gt;Courses&lt;/<span class='hl-tag'>li</span>&gt;
+    &lt;/<span class='hl-tag'>ul</span>&gt;
+  &lt;/<span class='hl-tag'>aside</span>&gt;
+  &lt;<span class='hl-tag'>main</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"main"</span>&gt;<span class='hl-cmt2'>&lt;!-- Main Cards --&gt;</span>&lt;/<span class='hl-tag'>main</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;
 <span class="tag-html">&lt;!-- Filter Sidebar --&gt;</span>
-&lt;aside class="filter-sidebar"&gt;
-  &lt;div class="filter-group"&gt;
-    &lt;h4&gt;Job Type&lt;/h4&gt;
-    &lt;label class="filter-item"&gt;&lt;input type="checkbox" checked&gt; Full-time&lt;/label&gt;
-    &lt;label class="filter-item"&gt;&lt;input type="checkbox"&gt; Remote&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;button class="btn btn-primary btn-block"&gt;Apply Filters&lt;/button&gt;
-&lt;/aside&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.layout { display:flex; min-height:100vh; }
-.sidebar { width:170px; background:#0d3e86; color:#fff; padding:12px; flex-shrink:0; }
-.menu { list-style:none; margin-top:8px; display:flex; flex-direction:column; gap:4px; }
-.menu li { padding:5px 8px; border-radius:4px; cursor:pointer; font-size:9px; }
-.menu li.active { background:rgba(255,255,255,0.22); font-weight:bold; }
-.main { flex:1; padding:12px; background:#f5f6fb; }
-.filter-sidebar { width:200px; padding:12px; border-right:1px solid #e2e8f0; background:#fff; }
-.filter-group { margin-bottom:8px; }
-.filter-group h4 { font-size:9.5px; font-weight:bold; margin-bottom:4px; }
-.filter-item { display:flex; align-items:center; gap:5px; font-size:9px; margin-bottom:3px; cursor:pointer; }</pre>
+&lt;<span class='hl-tag'>aside</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"filter-sidebar"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"filter-group"</span>&gt;
+    &lt;<span class='hl-tag'>h4</span>&gt;Job Type&lt;/<span class='hl-tag'>h4</span>&gt;
+    &lt;<span class='hl-tag'>label</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"filter-item"</span>&gt;&lt;<span class='hl-tag'>input</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"checkbox"</span> checked&gt; Full-time&lt;/<span class='hl-tag'>label</span>&gt;
+    &lt;<span class='hl-tag'>label</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"filter-item"</span>&gt;&lt;<span class='hl-tag'>input</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"checkbox"</span>&gt; Remote&lt;/<span class='hl-tag'>label</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-primary btn-block"</span>&gt;Apply Filters&lt;/<span class='hl-tag'>button</span>&gt;
+&lt;/<span class='hl-tag'>aside</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.layout </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>min-height</span>:<span class='hl-val'>100vh</span>; }
+<span class='hl-sel'>.sidebar </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>170px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0d3e86</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>flex-shrink</span>:<span class='hl-val'>0</span>; }
+<span class='hl-sel'>.menu </span>{ <span class='hl-prop'>list-style</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>margin-top</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>flex-direction</span>:<span class='hl-val'>column</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>4px</span>; }
+<span class='hl-sel'>.menu li </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>5px 8px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>cursor</span>:<span class='hl-val'>pointer</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>9px</span>; }
+<span class='hl-sel'>.menu li.active </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'>rgba(255,255,255,0.22)</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
+<span class='hl-sel'>.main </span>{ <span class='hl-prop'>flex</span>:<span class='hl-val'>1</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f5f6fb</span></span>; }
+<span class='hl-sel'>.filter-sidebar </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>200px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>border-right</span>:<span class='hl-val'>1px solid <span class='hl-num'>#e2e8f0</span></span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
+<span class='hl-sel'>.filter-group </span>{ <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>.filter-group h4 </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>9.5px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>4px</span>; }
+<span class='hl-sel'>.filter-item </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>9px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>cursor</span>:<span class='hl-val'>pointer</span>; }</pre>
           </div>
         </div>
 
@@ -287,33 +333,35 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- 2-Column Split Hero --&gt;</span>
-&lt;div class="split" style="background:#eff6fe;padding:12px;border-radius:6px;"&gt;
-  &lt;div class="col"&gt;
-    &lt;h2&gt;Launch Faster.&lt;/h2&gt;&lt;p&gt;Modern teams tool.&lt;/p&gt;
-    &lt;button class="btn btn-green"&gt;Learn More&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="col card"&gt;&lt;!-- Right Form / Grid Card --&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"split"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#eff6fe;padding:12px;border-radius:6px;"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col"</span>&gt;
+    &lt;<span class='hl-tag'>h2</span>&gt;Launch Faster.&lt;/<span class='hl-tag'>h2</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;Modern teams tool.&lt;/<span class='hl-tag'>p</span>&gt;
+    &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-green"</span>&gt;Learn More&lt;/<span class='hl-tag'>button</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;<span class='hl-cmt2'>&lt;!-- Right Form / Grid Card --&gt;</span>&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;
 <span class="tag-html">&lt;!-- Full-Bleed Canvas --&gt;</span>
-&lt;div class="canvas" style="background:#c85a32;"&gt;
-  &lt;div class="card card-banner"&gt;&lt;h1&gt;Book Hub&lt;/h1&gt;&lt;/div&gt;
-  &lt;div class="split"&gt;
-    &lt;div class="col card"&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"canvas"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#c85a32;"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card card-banner"</span>&gt;&lt;<span class='hl-tag'>h1</span>&gt;Book Hub&lt;/<span class='hl-tag'>h1</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"split"</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;
       <span class="cm">&lt;!-- 2x2 Subgrid inside card --&gt;</span>
-      &lt;div class="grid-2"&gt;
-        &lt;div class="sub-box"&gt;CSE Books&lt;/div&gt;
-        &lt;div class="sub-box"&gt;BBA Books&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="col card"&gt;&lt;!-- Form --&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.split { display:flex; gap:10px; }
-.split .col { flex:1; }
-.split-46 .col-left { flex:0.4; } .split-46 .col-right { flex:0.6; }
-.canvas { padding:14px; border-radius:6px; }
-.sub-box { background:#fffbeb; border:1px solid #eb6623; border-radius:4px; padding:6px; }</pre>
+      &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-2"</span>&gt;
+        &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sub-box"</span>&gt;CSE Books&lt;/<span class='hl-tag'>div</span>&gt;
+        &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sub-box"</span>&gt;BBA Books&lt;/<span class='hl-tag'>div</span>&gt;
+      &lt;/<span class='hl-tag'>div</span>&gt;
+    &lt;/<span class='hl-tag'>div</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;<span class='hl-cmt2'>&lt;!-- Form --&gt;</span>&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.split </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>10px</span>; }
+<span class='hl-sel'>.split .col </span>{ <span class='hl-prop'>flex</span>:<span class='hl-val'>1</span>; }
+<span class='hl-sel'>.split-46 .col-left </span>{ <span class='hl-prop'>flex</span>:<span class='hl-val'>0.4</span>; } .split-46 .col-right { <span class='hl-prop'>flex</span>:<span class='hl-val'>0.6</span>; }
+<span class='hl-sel'>.canvas </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>6px</span>; }
+<span class='hl-sel'>.sub-box </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fffbeb</span></span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#eb6623</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px</span>; }</pre>
           </div>
         </div>
       </div>
@@ -330,21 +378,23 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- 4-Column KPI Row --&gt;</span>
-&lt;div class="grid-4"&gt;
-  &lt;div class="stat-card" style="background:#1975d1;"&gt;
-    &lt;span&gt;Total Users&lt;/span&gt;
-    &lt;span class="stat-num"&gt;12,450&lt;/span&gt;
-    &lt;span class="stat-pill"&gt;UP +12% MONTHLY&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:7px; }
-.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
-.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
-.grid-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:5px; }
-.stat-card { padding:7px; border-radius:4px; color:#fff; display:flex; flex-direction:column; gap:2px; }
-.stat-num { font-size:14px; font-weight:bold; }
-.stat-pill { align-self:flex-start; font-size:6.5px; background:rgba(255,255,255,0.25); padding:1px 4px; border-radius:4px; font-weight:bold; }
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-4"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-card"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#1975d1;"</span>&gt;
+    &lt;<span class='hl-tag'>span</span>&gt;Total Users&lt;/<span class='hl-tag'>span</span>&gt;
+    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-num"</span>&gt;12,450&lt;/<span class='hl-tag'>span</span>&gt;
+    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-pill"</span>&gt;UP +12% MONTHLY&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.grid-2 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(2,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
+<span class='hl-sel'>.grid-3 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(3,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
+<span class='hl-sel'>.grid-4 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(4,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
+<span class='hl-sel'>.grid-5 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(5,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; }
+<span class='hl-sel'>.stat-card </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>7px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>flex-direction</span>:<span class='hl-val'>column</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>2px</span>; }
+<span class='hl-sel'>.stat-num </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
+<span class='hl-sel'>.stat-pill </span>{ <span class='hl-prop'>align-self</span>:<span class='hl-val'>flex-start</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>6.5px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'>rgba(255,255,255,0.25)</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>1px 4px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
 <span class="cm">/* KPI: Blue#1975d1 Green#378b3b Orange#f78100 Purple#781fa0 */</span>
 <span class="cm">/* File Card: .file-card { background:#fff; border-radius:4px; padding:8px; text-align:center; } */</span></pre>
           </div>
@@ -359,31 +409,33 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- Job Card - Left Accent Border --&gt;</span>
-&lt;div class="card card-job"&gt;
-  &lt;div&gt;
-    &lt;h4&gt;Junior Software Engineer&lt;/h4&gt;&lt;p&gt;Kaz Software&lt;/p&gt;
-    &lt;span class="badge badge-blue"&gt;Full-time&lt;/span&gt;
-    &lt;span class="badge badge-green"&gt;Onsite&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div style="text-align:right;"&gt;
-    &lt;strong&gt;৳35,000 - 50,000&lt;/strong&gt;&lt;br&gt;
-    &lt;small&gt;Deadline: Dec 30&lt;/small&gt;&lt;br&gt;
-    &lt;button class="btn btn-primary btn-sm"&gt;Apply&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card card-job"</span>&gt;
+  &lt;<span class='hl-tag'>div</span>&gt;
+    &lt;<span class='hl-tag'>h4</span>&gt;Junior Software Engineer&lt;/<span class='hl-tag'>h4</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;Kaz Software&lt;/<span class='hl-tag'>p</span>&gt;
+    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"badge badge-blue"</span>&gt;Full-time&lt;/<span class='hl-tag'>span</span>&gt;
+    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"badge badge-green"</span>&gt;Onsite&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"text-align:right;"</span>&gt;
+    &lt;<span class='hl-tag'>strong</span>&gt;৳35,000 - 50,000&lt;/<span class='hl-tag'>strong</span>&gt;&lt;<span class='hl-tag'>br</span>&gt;
+    &lt;<span class='hl-tag'>small</span>&gt;Deadline: Dec 30&lt;/<span class='hl-tag'>small</span>&gt;&lt;<span class='hl-tag'>br</span>&gt;
+    &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-primary btn-sm"</span>&gt;Apply&lt;/<span class='hl-tag'>button</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;
 <span class="tag-html">&lt;!-- Gradient Header Course Card --&gt;</span>
-&lt;div class="card card-course"&gt;
-  &lt;div class="card-head-grad"&gt;Web Programming&lt;/div&gt;
-  &lt;div class="card-body"&gt;&lt;p&gt;Prof. Rahman&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.card { background:#fff; border-radius:4px; padding:8px; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
-.card-job { border-left:4px solid #205bcb; display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
-.card-brutal { border:2px solid #000; box-shadow:6px 6px 0 #000; text-align:center; } /* offset 6-8px */
-.card-course { padding:0; overflow:hidden; }
-.card-head-grad { background:linear-gradient(135deg,#10b981,#84cc16); color:#fff; padding:6px 8px; font-weight:bold; } /* Alt: #a8322d->#d4a017 | #1e3a5f->#4c1d95 */
-.card-body { padding:6px 8px; }
-.cat-card { border-radius:5px; padding:8px; color:#fff; } <span class="cm">/* Purple#6b63ff Teal#0db0d7 Pink#ea6aa8 Blue#2c74db */</span></pre>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card card-course"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card-head-grad"</span>&gt;Web Programming&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card-body"</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;Prof. Rahman&lt;/<span class='hl-tag'>p</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.card </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>0 1px 3px rgba(0,0,0,0.06)</span>; }
+<span class='hl-sel'>.card-job </span>{ <span class='hl-prop'>border-left</span>:<span class='hl-val'>4px solid <span class='hl-num'>#205bcb</span></span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>space-between</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>6px</span>; }
+<span class='hl-sel'>.card-brutal </span>{ <span class='hl-prop'>border</span>:<span class='hl-val'>2px solid <span class='hl-num'>#000</span></span>; <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>6px 6px 0 <span class='hl-num'>#000</span></span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>center</span>; } <span class='hl-cmt2'>/* offset 6-8px */</span>
+<span class='hl-sel'>.card-course </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>0</span>; <span class='hl-prop'>overflow</span>:<span class='hl-val'>hidden</span>; }
+<span class='hl-sel'>.card-head-grad </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'>linear-gradient(135deg,<span class='hl-num'>#10b981</span>,<span class='hl-num'>#84cc16</span>)</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 8px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; } <span class='hl-cmt2'>/* Alt: #a8322d->#d4a017 | #1e3a5f->#4c1d95 */</span>
+<span class='hl-sel'>.card-body </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 8px</span>; }
+<span class='hl-sel'>.cat-card </span>{ <span class='hl-prop'>border-radius</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; } <span class="cm">/* Purple#6b63ff Teal#0db0d7 Pink#ea6aa8 Blue#2c74db */</span></pre>
           </div>
         </div>
 
@@ -396,33 +448,34 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- Form Controls --&gt;</span>
-&lt;form class="form"&gt;
-  &lt;div class="form-group"&gt;&lt;label&gt;Full Name&lt;/label&gt;&lt;input class="input" type="text" placeholder="Name"&gt;&lt;/div&gt;
-  &lt;div class="grid-2"&gt;
-    &lt;div class="form-group"&gt;&lt;label&gt;Zone&lt;/label&gt;&lt;select class="select"&gt;&lt;option&gt;USA&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
-    &lt;div class="form-group"&gt;&lt;label&gt;Email&lt;/label&gt;&lt;input class="input" type="email" placeholder="Email"&gt;&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="form-group"&gt;&lt;label&gt;Notes&lt;/label&gt;&lt;textarea class="textarea" rows="2"&gt;&lt;/textarea&gt;&lt;/div&gt;
-  &lt;button type="submit" class="btn btn-primary btn-block"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
+&lt;<span class='hl-tag'>form</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"form"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"form-group"</span>&gt;&lt;<span class='hl-tag'>label</span>&gt;Full Name&lt;/<span class='hl-tag'>label</span>&gt;&lt;<span class='hl-tag'>input</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"input"</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"text"</span> <span class='hl-attr'>placeholder</span>=<span class='hl-str'>"Name"</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-2"</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"form-group"</span>&gt;&lt;<span class='hl-tag'>label</span>&gt;Zone&lt;/<span class='hl-tag'>label</span>&gt;&lt;<span class='hl-tag'>select</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"select"</span>&gt;&lt;<span class='hl-tag'>option</span>&gt;USA&lt;/<span class='hl-tag'>option</span>&gt;&lt;/<span class='hl-tag'>select</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"form-group"</span>&gt;&lt;<span class='hl-tag'>label</span>&gt;Email&lt;/<span class='hl-tag'>label</span>&gt;&lt;<span class='hl-tag'>input</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"input"</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"email"</span> <span class='hl-attr'>placeholder</span>=<span class='hl-str'>"Email"</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"form-group"</span>&gt;&lt;<span class='hl-tag'>label</span>&gt;Notes&lt;/<span class='hl-tag'>label</span>&gt;&lt;<span class='hl-tag'>textarea</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"textarea"</span> <span class='hl-attr'>rows</span>=<span class='hl-str'>"2"</span>&gt;&lt;/<span class='hl-tag'>textarea</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"submit"</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-primary btn-block"</span>&gt;Submit&lt;/<span class='hl-tag'>button</span>&gt;
+&lt;/<span class='hl-tag'>form</span>&gt;
 <span class="tag-html">&lt;!-- Social Login &amp; OR Divider --&gt;</span>
-&lt;button class="social-btn"&gt;G Sign in with Google&lt;/button&gt;
-&lt;div class="grid-2"&gt;
-  &lt;button class="social-btn"&gt;Apple&lt;/button&gt;&lt;button class="social-btn"&gt;Facebook&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="divider"&gt;&lt;span&gt;OR&lt;/span&gt;&lt;/div&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.form-group { display:flex; flex-direction:column; gap:1px; margin-bottom:3px; }
-.form-group label { font-size:7.5px; font-weight:bold; color:#475569; }
-.input, .select, .textarea { width:100%; padding:3px 5px; border:1px solid #cbd5e1; border-radius:3px; font-size:8px; outline:none; }
-.input:focus, .select:focus, .textarea:focus { border-color:#2563eb; }
-.social-btn { width:100%; padding:4px; border:1px solid #ddd; border-radius:3px; background:#fff; font-size:8px; cursor:pointer; margin-bottom:3px; }
-.divider { display:flex; align-items:center; margin:3px 0; color:#888; }
-.divider::before,.divider::after { content:''; flex:1; border-bottom:1px solid #ddd; }
-.divider span { padding:0 4px; font-size:7px; }</pre>
+&lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"social-btn"</span>&gt;G Sign in with Google&lt;/<span class='hl-tag'>button</span>&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-2"</span>&gt;
+  &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"social-btn"</span>&gt;Apple&lt;/<span class='hl-tag'>button</span>&gt;&lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"social-btn"</span>&gt;Facebook&lt;/<span class='hl-tag'>button</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"divider"</span>&gt;&lt;<span class='hl-tag'>span</span>&gt;OR&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.form-group </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>flex-direction</span>:<span class='hl-val'>column</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>1px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>3px</span>; }
+<span class='hl-sel'>.form-group label </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>7.5px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#475569</span></span>; }
+<span class='hl-sel'>.input, .select, .textarea </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>3px 5px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>outline</span>:<span class='hl-val'>none</span>; }
+<span class='hl-sel'>.input:focus, .select:focus, .textarea:focus </span>{ <span class='hl-prop'>border-color</span>:<span class='hl-val'><span class='hl-num'>#2563eb</span></span>; }
+<span class='hl-sel'>.social-btn </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#ddd</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>cursor</span>:<span class='hl-val'>pointer</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>3px</span>; }
+<span class='hl-sel'>.divider </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>margin</span>:<span class='hl-val'>3px 0</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#888</span></span>; }
+<span class='hl-sel'>.divider::before,.divider::after </span>{ <span class='hl-prop'>content</span>:<span class='hl-val'>''</span>; <span class='hl-prop'>flex</span>:<span class='hl-val'>1</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>1px solid <span class='hl-num'>#ddd</span></span>; }
+<span class='hl-sel'>.divider span </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>0 4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7px</span>; }</pre>
           </div>
         </div>
-
       </div>
 
       <!-- ================= COLUMN 3 ================= -->
@@ -437,21 +490,23 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- Boxed Permissions Row --&gt;</span>
-&lt;div class="cb-row"&gt;
-  &lt;label class="cb-box"&gt;&lt;input type="checkbox" checked&gt; Read&lt;/label&gt;
-  &lt;label class="cb-box"&gt;&lt;input type="checkbox"&gt; Write&lt;/label&gt;
-  &lt;label class="cb-box"&gt;&lt;input type="checkbox"&gt; Delete&lt;/label&gt;
-  &lt;label class="cb-box"&gt;&lt;input type="checkbox" checked&gt; API&lt;/label&gt;
-&lt;/div&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cb-row"</span>&gt;
+  &lt;<span class='hl-tag'>label</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cb-box"</span>&gt;&lt;<span class='hl-tag'>input</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"checkbox"</span> checked&gt; Read&lt;/<span class='hl-tag'>label</span>&gt;
+  &lt;<span class='hl-tag'>label</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cb-box"</span>&gt;&lt;<span class='hl-tag'>input</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"checkbox"</span>&gt; Write&lt;/<span class='hl-tag'>label</span>&gt;
+  &lt;<span class='hl-tag'>label</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cb-box"</span>&gt;&lt;<span class='hl-tag'>input</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"checkbox"</span>&gt; Delete&lt;/<span class='hl-tag'>label</span>&gt;
+  &lt;<span class='hl-tag'>label</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cb-box"</span>&gt;&lt;<span class='hl-tag'>input</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"checkbox"</span> checked&gt; API&lt;/<span class='hl-tag'>label</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;
 <span class="tag-html">&lt;!-- Dual Action Buttons --&gt;</span>
-&lt;div class="btn-group"&gt;
-  &lt;button class="btn btn-navy" style="flex:1;"&gt;UPDATE SETTINGS&lt;/button&gt;
-  &lt;button class="btn btn-secondary"&gt;RESET&lt;/button&gt;
-&lt;/div&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.cb-row { display:flex; gap:5px; margin-bottom:4px; }
-.cb-box { flex:1; display:flex; align-items:center; justify-content:center; gap:3px; padding:3.5px 6px; border:1px solid #cbd5e1; border-radius:3px; background:#fff; font-size:8px; cursor:pointer; }
-.btn-group { display:flex; gap:5px; }</pre>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn-group"</span>&gt;
+  &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-navy"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"flex:1;"</span>&gt;UPDATE SETTINGS&lt;/<span class='hl-tag'>button</span>&gt;
+  &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-secondary"</span>&gt;RESET&lt;/<span class='hl-tag'>button</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.cb-row </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>4px</span>; }
+<span class='hl-sel'>.cb-box </span>{ <span class='hl-prop'>flex</span>:<span class='hl-val'>1</span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>3.5px 6px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>cursor</span>:<span class='hl-val'>pointer</span>; }
+<span class='hl-sel'>.btn-group </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; }</pre>
           </div>
         </div>
 
@@ -464,23 +519,25 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- Banner &amp; Footer --&gt;</span>
-&lt;div class="card card-banner"&gt;
-  &lt;h1&gt;Buy, Sell, Exchange Books&lt;/h1&gt;&lt;p&gt;UIU Book Hub&lt;/p&gt;
-&lt;/div&gt;
-&lt;footer class="footer"&gt;&amp;copy; 2026 UIU&lt;/footer&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.btn { padding:3.5px 7px; border:none; border-radius:3px; font-size:8px; font-weight:bold; cursor:pointer; display:inline-block; }
-.btn-primary { background:#1d78f0; color:#fff; }
-.btn-navy { background:#1a237e; color:#fff; }
-.btn-secondary { background:#6c757d; color:#fff; }
-.btn-green { background:#50ad50; color:#fff; }
-.btn-red { background:#e90606; color:#fff; }
-.btn-orange { background:#f97316; color:#fff; }
-.btn-outline { background:transparent; border:1.2px solid #1d78f0; color:#1d78f0; }
-.btn-dashed { width:100%; background:transparent; border:1.2px dashed #94a3b8; color:#64748b; padding:4px; border-radius:4px; font-size:8px; } <span class="cm">/* P0 +Add More */</span>
-.btn-block { width:100%; } .btn-sm { padding:2px 4px; font-size:7.5px; }
-.card-banner { background:#fff; border:1px solid #e2e8f0; border-radius:5px; padding:10px 14px; margin-bottom:6px; }
-.footer { background:#000; color:#fff; text-align:center; padding:6px; font-size:8.5px; }
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card card-banner"</span>&gt;
+  &lt;<span class='hl-tag'>h1</span>&gt;Buy, Sell, Exchange Books&lt;/<span class='hl-tag'>h1</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;UIU Book Hub&lt;/<span class='hl-tag'>p</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;<span class='hl-tag'>footer</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"footer"</span>&gt;&amp;copy; 2026 UIU&lt;/<span class='hl-tag'>footer</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.btn </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>3.5px 7px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; <span class='hl-prop'>cursor</span>:<span class='hl-val'>pointer</span>; <span class='hl-prop'>display</span>:<span class='hl-val'>inline-block</span>; }
+<span class='hl-sel'>.btn-primary </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
+<span class='hl-sel'>.btn-navy </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#1a237e</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
+<span class='hl-sel'>.btn-secondary </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#6c757d</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
+<span class='hl-sel'>.btn-green </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#50ad50</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
+<span class='hl-sel'>.btn-red </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#e90606</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
+<span class='hl-sel'>.btn-orange </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f97316</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
+<span class='hl-sel'>.btn-outline </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'>transparent</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1.2px solid <span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }
+<span class='hl-sel'>.btn-dashed </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>background</span>:<span class='hl-val'>transparent</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1.2px dashed <span class='hl-num'>#94a3b8</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#64748b</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; } <span class="cm">/* P0 +Add More */</span>
+<span class='hl-sel'>.btn-block </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; } .btn-sm { <span class='hl-prop'>padding</span>:<span class='hl-val'>2px 4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7.5px</span>; }
+<span class='hl-sel'>.card-banner </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#e2e8f0</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>10px 14px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>6px</span>; }
+<span class='hl-sel'>.footer </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#000</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8.5px</span>; }
 <span class="cm">/* Gradient Footer: background:linear-gradient(90deg,#f97316,#22c55e); */</span></pre>
           </div>
         </div>
@@ -495,16 +552,18 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- Storage Widget (Spr26 S2 Q1 Drive) --&gt;</span>
-&lt;div class="card"&gt;
-  &lt;div style="display:flex;justify-content:space-between;"&gt;
-    &lt;strong&gt;Your storage&lt;/strong&gt;&lt;span style="color:#0ea5e9;"&gt;25% left&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class="prog-bar"&gt;&lt;div class="prog-fill" style="width:75%;background:#3b82f6;"&gt;&lt;/div&gt;&lt;/div&gt;
-  &lt;small&gt;75 GB of 100 GB are used&lt;/small&gt;
-&lt;/div&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.prog-bar { width:100%; height:5px; background:#e2e8f0; border-radius:3px; overflow:hidden; margin:2px 0; }
-.prog-fill { height:100%; border-radius:3px; }
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"display:flex;justify-content:space-between;"</span>&gt;
+    &lt;<span class='hl-tag'>strong</span>&gt;Your storage&lt;/<span class='hl-tag'>strong</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"color:#0ea5e9;"</span>&gt;25% left&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"prog-bar"</span>&gt;&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"prog-fill"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"width:75%;background:#3b82f6;"</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>small</span>&gt;75 GB of 100 GB are used&lt;/<span class='hl-tag'>small</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.prog-bar </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>height</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#e2e8f0</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>overflow</span>:<span class='hl-val'>hidden</span>; <span class='hl-prop'>margin</span>:<span class='hl-val'>2px 0</span>; }
+<span class='hl-sel'>.prog-fill </span>{ <span class='hl-prop'>height</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; }
 <span class="cm">/* Dual Progress: Blue width:80% + Red width:70% */</span></pre>
           </div>
         </div>
@@ -519,30 +578,31 @@ a { text-decoration:none; color:inherit; }</pre>
             <pre
               class="html-code"
             ><span class="tag-html">&lt;!-- Pill-List Row --&gt;</span>
-&lt;div class="pill-row" style="background:#c8f2ef;"&gt;
-  &lt;span&gt;Keynote files&lt;/span&gt;&lt;span class="tag"&gt;Team&lt;/span&gt;
-&lt;/div&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"pill-row"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#c8f2ef;"</span>&gt;
+  &lt;<span class='hl-tag'>span</span>&gt;Keynote files&lt;/<span class='hl-tag'>span</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tag"</span>&gt;Team&lt;/<span class='hl-tag'>span</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;
 <span class="tag-html">&lt;!-- HTML Table --&gt;</span>
-&lt;table class="table"&gt;
-  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Course&lt;/th&gt;&lt;th&gt;Code&lt;/th&gt;&lt;th&gt;Cr&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Web Prog&lt;/td&gt;&lt;td&gt;CSE201&lt;/td&gt;&lt;td&gt;3.0&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
-&lt;/table&gt;</pre>
-            <pre class="css-code"><span class="tag-css">/* style.css */</span>
-.badge { display:inline-block; padding:1px 5px; border-radius:8px; font-size:7px; font-weight:bold; }
-.badge-blue { background:#e2ebfa; color:#205bcb; }
-.badge-green { background:#d6f2e7; color:#0e7048; }
-.badge-yellow { background:#fdebc0; color:#b45309; }
-.badge-orange { background:#ffe4d6; color:#c2410c; }
-.pill-row { display:flex; justify-content:space-between; align-items:center; padding:5px 8px; border-radius:5px; margin-bottom:3px; font-size:8px; }
-<span class="cm">/* Pill-row colors: Mint#c8f2ef Lavender#ddd8ff Pink#f8d9dd */</span>
-.avatar { width:22px; height:22px; border-radius:50%; background:#536ffe; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:8.5px; flex-shrink:0; }
-.table { width:100%; border-collapse:collapse; background:#fff; font-size:7.5px; }
-.table th, .table td { padding:2.5px 4px; text-align:left; border-bottom:1px solid #e2e8f0; }
-      .table th { background:#a05a2c; color:#fff; font-weight:bold; } /* Alt gradient: linear-gradient(90deg,#c86a2e,#d4a574) */
-.table tr:nth-child(even) { background:#f8fafc; }</pre>
+&lt;<span class='hl-tag'>table</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"table"</span>&gt;
+  &lt;<span class='hl-tag'>thead</span>&gt;&lt;<span class='hl-tag'>tr</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;Course&lt;/<span class='hl-tag'>th</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;Code&lt;/<span class='hl-tag'>th</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;Cr&lt;/<span class='hl-tag'>th</span>&gt;&lt;/<span class='hl-tag'>tr</span>&gt;&lt;/<span class='hl-tag'>thead</span>&gt;
+  &lt;<span class='hl-tag'>tbody</span>&gt;&lt;<span class='hl-tag'>tr</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;Web Prog&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;CSE201&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;3.0&lt;/<span class='hl-tag'>td</span>&gt;&lt;/<span class='hl-tag'>tr</span>&gt;&lt;/<span class='hl-tag'>tbody</span>&gt;
+&lt;/<span class='hl-tag'>table</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.badge </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>inline-block</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>1px 5px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
+<span class='hl-sel'>.badge-blue </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#e2ebfa</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#205bcb</span></span>; }
+<span class='hl-sel'>.badge-green </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#d6f2e7</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#0e7048</span></span>; }
+<span class='hl-sel'>.badge-yellow </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fdebc0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#b45309</span></span>; }
+<span class='hl-sel'>.badge-orange </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#ffe4d6</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#c2410c</span></span>; }
+<span class='hl-sel'>.pill-row </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>space-between</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>5px 8px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'><span class="cm">/* Pill-row colors: Mint#c8f2ef Lavender#ddd8ff Pink#f8d9dd */</span>
+.avatar </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>22px</span>; <span class='hl-prop'>height</span>:<span class='hl-val'>22px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>50%</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#536ffe</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8.5px</span>; <span class='hl-prop'>flex-shrink</span>:<span class='hl-val'>0</span>; }
+<span class='hl-sel'>.table </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>border-collapse</span>:<span class='hl-val'>collapse</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7.5px</span>; }
+<span class='hl-sel'>.table th, .table td </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>2.5px 4px</span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>left</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>1px solid <span class='hl-num'>#e2e8f0</span></span>; }
+<span class='hl-sel'>      .table th </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#a05a2c</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; } <span class='hl-cmt2'>/* Alt gradient: linear-gradient(90deg,#c86a2e,#d4a574) */</span>
+<span class='hl-sel'>.table tr:nth-child(even) </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f8fafc</span></span>; }</pre>
           </div>
         </div>
-
       </div>
     </div>
   </body>
