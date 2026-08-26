@@ -483,7 +483,47 @@
       <div class="sheet-col">
         
 
-        <!-- 9. BUTTON PALETTE & BANNER -->
+        <!-- 4. SPLIT HERO & FULL-BLEED CANVAS -->
+        <div class="box p0">
+          <div class="box-title">
+            4. Split 2-Col &amp; Canvas <span class="pill p0">P0 Canvas</span>
+          </div>
+          <div class="box-content">
+            <pre
+              class="html-code"
+            ><span class="tag-html">&lt;!-- 2-Column Split Hero --&gt;</span>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"split"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#eff6fe;padding:12px;border-radius:6px;"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col"</span>&gt;
+    &lt;<span class='hl-tag'>h2</span>&gt;Launch Faster.&lt;/<span class='hl-tag'>h2</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;Modern teams tool.&lt;/<span class='hl-tag'>p</span>&gt;
+    &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-green"</span>&gt;Learn More&lt;/<span class='hl-tag'>button</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;<span class='hl-cmt2'>&lt;!-- Right Form / Grid Card --&gt;</span>&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;
+<span class="tag-html">&lt;!-- Full-Bleed Canvas --&gt;</span>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"canvas"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#c85a32;"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card card-banner"</span>&gt;&lt;<span class='hl-tag'>h1</span>&gt;Book Hub&lt;/<span class='hl-tag'>h1</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"split"</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;
+      <span class="cm">&lt;!-- 2x2 Subgrid inside card --&gt;</span>
+      &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-2"</span>&gt;
+        &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sub-box"</span>&gt;CSE Books&lt;/<span class='hl-tag'>div</span>&gt;
+        &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sub-box"</span>&gt;BBA Books&lt;/<span class='hl-tag'>div</span>&gt;
+      &lt;/<span class='hl-tag'>div</span>&gt;
+    &lt;/<span class='hl-tag'>div</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;<span class='hl-cmt2'>&lt;!-- Form --&gt;</span>&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.split </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>10px</span>; }
+<span class='hl-sel'>.split .col </span>{ <span class='hl-prop'>flex</span>:<span class='hl-val'>1</span>; }
+<span class='hl-sel'>.split-46 .col-left </span>{ <span class='hl-prop'>flex</span>:<span class='hl-val'>0.4</span>; } .split-46 .col-right { <span class='hl-prop'>flex</span>:<span class='hl-val'>0.6</span>; }
+<span class='hl-sel'>.canvas </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>6px</span>; }
+<span class='hl-sel'>.sub-box </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fffbeb</span></span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#eb6623</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px</span>; }</pre>
+          </div>
+        </div>
+<!-- 9. BUTTON PALETTE & BANNER -->
         <div class="box">
           <div class="box-title">
             9. Button Styles &amp; Banner/Footer <span class="pill">UI</span>
