@@ -102,7 +102,7 @@
       }
       .box-title {
         background: #f1f5f9;
-        font-size: 7pt;
+        font-size: 6.2pt;
         font-weight: 700;
         padding: 1.2px 3px;
         border-bottom: 1px solid #cbd5e1;
@@ -129,12 +129,12 @@
         padding: 1px 2.5px;
       }
 
-      /* Code Snippet */
+      /* Code Snippet - 7pt body optimized */
       pre {
         font-family:
           "SFMono-Regular", Consolas, "Liberation Mono", Courier, monospace;
-        font-size: 7pt;
-        line-height: 1.05;
+        font-size: 5.9pt;
+        line-height: 1.1;
         background: #f8fafc;
         padding: 1px 2px;
         border-radius: 2px;
@@ -251,7 +251,37 @@
 <span class='hl-sel'>body </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f4f6f8</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#333</span></span>; }
 <span class='hl-sel'>a </span>{ <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>color</span>:<span class='hl-val'>inherit</span>; }</pre>
           </div>
+                <div class="box p0">
+          <div class="box-title">
+            5. Grid Templates &amp; Stat Cards
+            <span class="pill p0">P0 4-Col</span>
+          </div>
+          <div class="box-content">
+            <pre
+              class="html-code"
+            ><span class="tag-html">&lt;!-- 4-Column KPI Row --&gt;</span>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-4"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-card"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#1975d1;"</span>&gt;
+    &lt;<span class='hl-tag'>span</span>&gt;Total Users&lt;/<span class='hl-tag'>span</span>&gt;
+    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-num"</span>&gt;12,450&lt;/<span class='hl-tag'>span</span>&gt;
+    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-pill"</span>&gt;UP +12% MONTHLY&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.grid-2 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(2,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
+<span class='hl-sel'>.grid-3 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(3,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
+<span class='hl-sel'>.grid-4 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(4,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
+<span class='hl-sel'>.grid-5 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(5,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; }
+<span class='hl-sel'>.stat-card </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>7px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>flex-direction</span>:<span class='hl-val'>column</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>2px</span>; }
+<span class='hl-sel'>.stat-num </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
+<span class='hl-sel'>.stat-pill </span>{ <span class='hl-prop'>align-self</span>:<span class='hl-val'>flex-start</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>6.5px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'>rgba(255,255,255,0.25)</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>1px 4px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
+
+</pre>
+          </div>
         </div>
+</div>
 
         <!-- 2. NAVBAR -->
         <div class="box">
@@ -276,7 +306,9 @@
 .navbar </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>space-between</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 14px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>1px solid <span class='hl-num'>#ddd</span></span>; }
 <span class='hl-sel'>.nav-links </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>list-style</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; }
 <span class='hl-sel'>.nav-links a.active </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>2px solid <span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>padding-bottom</span>:<span class='hl-val'>1px</span>; }
-<span class="cm">/* Dark Navy: background:#1a237e; color:#fff; | Black: background:#000; color:#fff; */</span></pre>
+      
+      <span class="cm">/* Dark Navy: background:#1a237e; color:#fff; | Black: background:#000; color:#fff; */</span>
+</pre>
           </div>
         </div>
 
@@ -327,36 +359,7 @@
       <!-- ================= COLUMN 2 ================= -->
       <div class="sheet-col">
         <!-- 5. GRID ENGINES & STAT CARDS -->
-        <div class="box p0">
-          <div class="box-title">
-            5. Grid Templates &amp; Stat Cards
-            <span class="pill p0">P0 4-Col</span>
-          </div>
-          <div class="box-content">
-            <pre
-              class="html-code"
-            ><span class="tag-html">&lt;!-- 4-Column KPI Row --&gt;</span>
-&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-4"</span>&gt;
-  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-card"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#1975d1;"</span>&gt;
-    &lt;<span class='hl-tag'>span</span>&gt;Total Users&lt;/<span class='hl-tag'>span</span>&gt;
-    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-num"</span>&gt;12,450&lt;/<span class='hl-tag'>span</span>&gt;
-    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"stat-pill"</span>&gt;UP +12% MONTHLY&lt;/<span class='hl-tag'>span</span>&gt;
-  &lt;/<span class='hl-tag'>div</span>&gt;
-&lt;/<span class='hl-tag'>div</span>&gt;</pre>
-            <pre
-              class="css-code"
-            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
-.grid-2 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(2,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
-<span class='hl-sel'>.grid-3 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(3,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
-<span class='hl-sel'>.grid-4 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(4,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>7px</span>; }
-<span class='hl-sel'>.grid-5 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(5,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; }
-<span class='hl-sel'>.stat-card </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>7px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>flex-direction</span>:<span class='hl-val'>column</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>2px</span>; }
-<span class='hl-sel'>.stat-num </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
-<span class='hl-sel'>.stat-pill </span>{ <span class='hl-prop'>align-self</span>:<span class='hl-val'>flex-start</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>6.5px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'>rgba(255,255,255,0.25)</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>1px 4px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
-<span class="cm">/* KPI: Blue#1975d1 Green#378b3b Orange#f78100 Purple#781fa0 */</span>
-<span class="cm">/* File Card: .file-card { background:#fff; border-radius:4px; padding:8px; text-align:center; } */</span></pre>
-          </div>
-        </div>
+
 
         <!-- 6. CARD ARCHETYPES -->
         <div class="box p0">
@@ -389,11 +392,21 @@
             ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
 .card </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>0 1px 3px rgba(0,0,0,0.06)</span>; }
 <span class='hl-sel'>.card-job </span>{ <span class='hl-prop'>border-left</span>:<span class='hl-val'>4px solid <span class='hl-num'>#205bcb</span></span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>space-between</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>6px</span>; }
-<span class='hl-sel'>.card-brutal </span>{ <span class='hl-prop'>border</span>:<span class='hl-val'>2px solid <span class='hl-num'>#000</span></span>; <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>6px 6px 0 <span class='hl-num'>#000</span></span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>center</span>; } <span class='hl-cmt2'>/* offset 6-8px */</span>
+<span class='hl-sel'>.card-brutal </span>{ <span class='hl-prop'>border</span>:<span class='hl-val'>2px solid <span class='hl-num'>#000</span></span>; <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>6px 6px 0 <span class='hl-num'>#000</span></span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>center</span>; } 
 <span class='hl-sel'>.card-course </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>0</span>; <span class='hl-prop'>overflow</span>:<span class='hl-val'>hidden</span>; }
-<span class='hl-sel'>.card-head-grad </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'>linear-gradient(135deg,<span class='hl-num'>#10b981</span>,<span class='hl-num'>#84cc16</span>)</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 8px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; } <span class='hl-cmt2'>/* Alt: #a8322d->#d4a017 | #1e3a5f->#4c1d95 */</span>
+<span class='hl-sel'>.card-head-grad </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'>linear-gradient(135deg,<span class='hl-num'>#10b981</span>,<span class='hl-num'>#84cc16</span>)</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 8px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; } 
 <span class='hl-sel'>.card-body </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 8px</span>; }
-<span class='hl-sel'>.cat-card </span>{ <span class='hl-prop'>border-radius</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; } <span class="cm">/* Purple#6b63ff Teal#0db0d7 Pink#ea6aa8 Blue#2c74db */</span></pre>
+<span class='hl-sel'>.cat-card </span>{ <span class='hl-prop'>border-radius</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }       
+      
+      
+      
+      
+      <span class="cm">/* KPI: Blue#1975d1 Green#378b3b Orange#f78100 Purple#781fa0 */</span>
+      <span class="cm">/* File Card: .file-card { background:#fff; border-radius:4px; padding:8px; text-align:center; } */</span>
+      <span class="cm">/* offset 6-8px */</span>
+      <span class="cm">/* Alt: #a8322d->#d4a017 | #1e3a5f->#4c1d95 */</span>
+      <span class="cm">/* Purple#6b63ff Teal#0db0d7 Pink#ea6aa8 Blue#2c74db */</span>
+</pre>
           </div>
         </div>
 
@@ -434,11 +447,8 @@
 <span class='hl-sel'>.divider span </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>0 4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7px</span>; }</pre>
           </div>
         </div>
-      </div>
-
-      <!-- ================= COLUMN 3 ================= -->
-      <div class="sheet-col">
-        <!-- 8. CHECKBOX GROUPS & DUAL ACTIONS -->
+      
+<!-- 8. CHECKBOX GROUPS & DUAL ACTIONS -->
         <div class="box p0">
           <div class="box-title">
             8. Boxed Permissions &amp; Dual Buttons
@@ -467,6 +477,11 @@
 <span class='hl-sel'>.btn-group </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; }</pre>
           </div>
         </div>
+</div>
+
+      <!-- ================= COLUMN 3 ================= -->
+      <div class="sheet-col">
+        
 
         <!-- 9. BUTTON PALETTE & BANNER -->
         <div class="box">
@@ -492,11 +507,15 @@
 <span class='hl-sel'>.btn-red </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#e90606</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
 <span class='hl-sel'>.btn-orange </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f97316</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
 <span class='hl-sel'>.btn-outline </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'>transparent</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1.2px solid <span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }
-<span class='hl-sel'>.btn-dashed </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>background</span>:<span class='hl-val'>transparent</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1.2px dashed <span class='hl-num'>#94a3b8</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#64748b</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; } <span class="cm">/* P0 +Add More */</span>
+<span class='hl-sel'>.btn-dashed </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>background</span>:<span class='hl-val'>transparent</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1.2px dashed <span class='hl-num'>#94a3b8</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#64748b</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; } 
 <span class='hl-sel'>.btn-block </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; } .btn-sm { <span class='hl-prop'>padding</span>:<span class='hl-val'>2px 4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7.5px</span>; }
 <span class='hl-sel'>.card-banner </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#e2e8f0</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>10px 14px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>6px</span>; }
 <span class='hl-sel'>.footer </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#000</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8.5px</span>; }
-<span class="cm">/* Gradient Footer: background:linear-gradient(90deg,#f97316,#22c55e); */</span></pre>
+      
+      
+      <span class="cm">/* P0 +Add More */</span>
+      <span class="cm">/* Gradient Footer: background:linear-gradient(90deg,#f97316,#22c55e); */</span>
+</pre>
           </div>
         </div><!-- 11. BADGES, PILL-ROWS, AVATAR, TABLE -->
         <div class="box p0">
@@ -525,12 +544,16 @@
 <span class='hl-sel'>.badge-yellow </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fdebc0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#b45309</span></span>; }
 <span class='hl-sel'>.badge-orange </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#ffe4d6</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#c2410c</span></span>; }
 <span class='hl-sel'>.pill-row </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>space-between</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>5px 8px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
-<span class='hl-sel'><span class="cm">/* Pill-row colors: Mint#c8f2ef Lavender#ddd8ff Pink#f8d9dd */</span>
+<span class='hl-sel'>
 .avatar </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>22px</span>; <span class='hl-prop'>height</span>:<span class='hl-val'>22px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>50%</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#536ffe</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8.5px</span>; <span class='hl-prop'>flex-shrink</span>:<span class='hl-val'>0</span>; }
 <span class='hl-sel'>.table </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>border-collapse</span>:<span class='hl-val'>collapse</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7.5px</span>; }
 <span class='hl-sel'>.table th, .table td </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>2.5px 4px</span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>left</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>1px solid <span class='hl-num'>#e2e8f0</span></span>; }
-<span class='hl-sel'>      .table th </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#a05a2c</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; } <span class='hl-cmt2'>/* Alt gradient: linear-gradient(90deg,#c86a2e,#d4a574) */</span>
-<span class='hl-sel'>.table tr:nth-child(even) </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f8fafc</span></span>; }</pre>
+<span class='hl-sel'>      .table th </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#a05a2c</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; } 
+<span class='hl-sel'>.table tr:nth-child(even) </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f8fafc</span></span>; }      
+      
+      <span class="cm">/* Pill-row colors: Mint#c8f2ef Lavender#ddd8ff Pink#f8d9dd */</span>
+      <span class="cm">/* Alt gradient: linear-gradient(90deg,#c86a2e,#d4a574) */</span>
+</pre>
           </div>
         </div>
       </div>
