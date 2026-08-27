@@ -232,8 +232,7 @@
   <body>
     <div class="sheet-grid">
         <div class="sheet-col">
-<!-- 1. BOILERPLATE -->
-        <div class="box">
+<div class="box">
           <div class="box-title">
             1. Setup &amp; Global Reset <span class="pill">Start</span>
           </div>
@@ -252,8 +251,7 @@
 <span class='hl-sel'>a </span>{ <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>color</span>:<span class='hl-val'>inherit</span>; }</pre>
           </div>
         </div>
-<!-- 2. NAVBAR -->
-        <div class="box">
+<div class="box">
           <div class="box-title">
             2. Navigation Bars <span class="pill">Navbar</span>
           </div>
@@ -278,8 +276,7 @@
 <span class="cm">/* Dark Navy: background:#1a237e; color:#fff; | Black: background:#000; color:#fff; */</span></pre>
           </div>
         </div>
-<!-- 3. SIDEBAR DASHBOARD & FILTER -->
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">
             3. Sidebar &amp; Filter Panels
             <span class="pill p0">P0 Sidebar</span>
@@ -410,10 +407,44 @@
 <span class="cm">/* orange #f97316 #f78100 | red #ef4444 #e90606 | purple #781fa0 #6b63ff | gray #0f172a #64748b */</span></pre>
           </div>
         </div>
+        <div class="box p0">
+          <div class="box-title">21. Footer (Multi-Column) <span class="pill p0">Layout</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>footer</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"footer"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"f-col"</span>&gt;&lt;<span class='hl-tag'>h4</span>&gt;About&lt;/<span class='hl-tag'>h4</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;Short text.&lt;/<span class='hl-tag'>p</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"f-col"</span>&gt;&lt;<span class='hl-tag'>h4</span>&gt;Links&lt;/<span class='hl-tag'>h4</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Home&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Docs&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"f-col"</span>&gt;&lt;<span class='hl-tag'>h4</span>&gt;Contact&lt;/<span class='hl-tag'>h4</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;mail@uiu.ac.bd&lt;/<span class='hl-tag'>p</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"f-bottom"</span>&gt;&amp;copy; 2026 UIU&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>footer</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.footer </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(3,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>14px</span>; }
+<span class='hl-sel'>.f-col h4 </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>9px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>4px</span>; }
+<span class='hl-sel'>.f-col a </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>1px 0</span>; }
+<span class='hl-sel'>.f-bottom </span>{ <span class='hl-prop'>grid-column</span>:<span class='hl-val'>1/-1</span>; <span class='hl-prop'>border-top</span>:<span class='hl-val'>1px solid <span class='hl-num'>#334155</span></span>; <span class='hl-prop'>margin-top</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>padding-top</span>:<span class='hl-val'>6px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7px</span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>center</span>; }</pre>
+          </div>
+        </div>
+
+        <div class="box p0">
+          <div class="box-title">22. Dropdown Menu (CSS :hover) <span class="pill p0">Nav</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>nav</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"nav"</span>&gt;
+  &lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Home&lt;/<span class='hl-tag'>a</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"dropdown"</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;More &amp;#9662;&lt;/<span class='hl-tag'>a</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"menu"</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Profile&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Settings&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>nav</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.dropdown </span>{ <span class='hl-prop'>position</span>:<span class='hl-val'>relative</span>; <span class='hl-prop'>display</span>:<span class='hl-val'>inline-block</span>; }
+<span class='hl-sel'>.menu </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>position</span>:<span class='hl-val'>absolute</span>; <span class='hl-prop'>top</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>left</span>:<span class='hl-val'>0</span>; <span class='hl-prop'>min-width</span>:<span class='hl-val'>120px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#ddd</span></span>; }
+<span class='hl-sel'>.dropdown:hover .menu </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; }
+<span class='hl-sel'>.menu a </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>5px 10px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>.dropdown:hover > a </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }</pre>
+          </div>
+        </div>
+
         </div>
         <div class="sheet-col">
-<!-- 5. GRID ENGINES & STAT CARDS -->
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">
             5. Grid Templates &amp; Stat Cards
             <span class="pill p0">P0 4-Col</span>
@@ -443,8 +474,7 @@
 <span class="cm">/* File Card: .file-card { background:#fff; border-radius:4px; padding:8px; text-align:center; } */</span></pre>
           </div>
         </div>
-<!-- 6. CARD ARCHETYPES -->
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">
             6. Card Archetypes <span class="pill p0">P0 Job/Accent</span>
           </div>
@@ -481,8 +511,7 @@
 <span class='hl-sel'>.cat-card </span>{ <span class='hl-prop'>border-radius</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; } <span class="cm">/* Purple#6b63ff Teal#0db0d7 Pink#ea6aa8 Blue#2c74db */</span></pre>
           </div>
         </div>
-<!-- 7. FORM SKELETONS -->
-        <div class="box">
+<div class="box">
           <div class="box-title">
             7. Form Controls &amp; Social Login <span class="pill">Forms</span>
           </div>
@@ -518,8 +547,7 @@
 <span class='hl-sel'>.divider span </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>0 4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7px</span>; }</pre>
           </div>
         </div>
-<!-- 8. CHECKBOX GROUPS & DUAL ACTIONS -->
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">
             8. Boxed Permissions &amp; Dual Buttons
             <span class="pill p0">P0 Boxed</span>
@@ -613,8 +641,7 @@
         </div>
         </div>
         <div class="sheet-col">
-<!-- 4. SPLIT HERO & FULL-BLEED CANVAS -->
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">
             4. Split 2-Col &amp; Canvas <span class="pill p0">P0 Canvas</span>
           </div>
@@ -653,8 +680,7 @@
 <span class='hl-sel'>.sub-box </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fffbeb</span></span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#eb6623</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px</span>; }</pre>
           </div>
         </div>
-<!-- 9. BUTTON PALETTE & BANNER -->
-        <div class="box">
+<div class="box">
           <div class="box-title">
             9. Button Styles &amp; Banner/Footer <span class="pill">UI</span>
           </div>
@@ -684,8 +710,7 @@
 <span class="cm">/* Gradient Footer: background:linear-gradient(90deg,#f97316,#22c55e); */</span></pre>
           </div>
         </div>
-<!-- 11. BADGES, PILL-ROWS, AVATAR, TABLE -->
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">
             11. Badges, Pill-Rows &amp; Table
             <span class="pill p0">P0 Rows</span>
@@ -719,8 +744,7 @@
 <span class='hl-sel'>.table tr:nth-child(even) </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f8fafc</span></span>; }</pre>
           </div>
         </div>
-<!-- 10. PROGRESS & STORAGE WIDGET -->
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">
             10. Storage Widget &amp; Progress
             <span class="pill p0">P0 Storage</span>
@@ -784,8 +808,66 @@
 <span class='hl-sel'>.sidebar2 a.active </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }</pre>
           </div>
         </div>
+        <div class="box p0">
+          <div class="box-title">23. Modal Dialog (:target) <span class="pill p0">Overlay</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#m1"</span>&gt;Open Modal&lt;/<span class='hl-tag'>a</span>&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>id</span>=<span class='hl-str'>"m1"</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"modal"</span>&gt;&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"modal-box"</span>&gt;
+  &lt;<span class='hl-tag'>h3</span>&gt;Title&lt;/<span class='hl-tag'>h3</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;Body text.&lt;/<span class='hl-tag'>p</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Close&lt;/<span class='hl-tag'>a</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.modal </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>position</span>:<span class='hl-val'>fixed</span>; <span class='hl-prop'>inset</span>:<span class='hl-val'>0</span>; <span class='hl-prop'>background</span>:<span class='hl-val'>rgba(0,0,0,.5)</span>; }
+<span class='hl-sel'>.modal:target </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>center</span>; }
+<span class='hl-sel'>.modal-box </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>16px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>6px</span>; <span class='hl-prop'>width</span>:<span class='hl-val'>260px</span>; }</pre>
+          </div>
+        </div>
+
+        <div class="box p0">
+          <div class="box-title">24. Tabs (radio + label) <span class="pill p0">Components</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tabs"</span>&gt;
+  &lt;<span class='hl-tag'>input</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"radio"</span> <span class='hl-attr'>name</span>=<span class='hl-str'>"t"</span> <span class='hl-attr'>id</span>=<span class='hl-str'>"t1"</span> checked&gt;&lt;<span class='hl-tag'>label</span> <span class='hl-attr'>for</span>=<span class='hl-str'>"t1"</span>&gt;One&lt;/<span class='hl-tag'>label</span>&gt;
+  &lt;<span class='hl-tag'>input</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"radio"</span> <span class='hl-attr'>name</span>=<span class='hl-str'>"t"</span> <span class='hl-attr'>id</span>=<span class='hl-str'>"t2"</span>&gt;&lt;<span class='hl-tag'>label</span> <span class='hl-attr'>for</span>=<span class='hl-str'>"t2"</span>&gt;Two&lt;/<span class='hl-tag'>label</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"panel"</span> <span class='hl-attr'>id</span>=<span class='hl-str'>"p1"</span>&gt;Panel one content.&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"panel"</span> <span class='hl-attr'>id</span>=<span class='hl-str'>"p2"</span>&gt;Panel two content.&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.tabs input </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>none</span>; }
+<span class='hl-sel'>.tabs label </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>4px 8px</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>2px solid transparent</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>#t1:checked ~ #p1, #t2:checked ~ #p2 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; }
+<span class='hl-sel'>#t1:checked ~ label[for="t1"], #t2:checked ~ label[for="t2"] </span>{ <span class='hl-prop'>border-color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }
+<span class='hl-sel'>.panel </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }</pre>
+          </div>
+        </div>
+
+        <div class="box p0">
+          <div class="box-title">25. Alerts &amp; Toasts <span class="pill p0">Feedback</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"alert alert-info"</span>&gt;Info message here.&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"alert alert-success"</span>&gt;Saved successfully!&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"toast"</span>&gt;Notification sent.&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.alert </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 10px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>border-left</span>:<span class='hl-val'>3px solid</span>; }
+<span class='hl-sel'>.alert-info </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#e0f2fe</span></span>; <span class='hl-prop'>border-color</span>:<span class='hl-val'><span class='hl-num'>#0ea5e9</span></span>; }
+<span class='hl-sel'>.alert-success </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#dcfce7</span></span>; <span class='hl-prop'>border-color</span>:<span class='hl-val'><span class='hl-num'>#22c55e</span></span>; }
+<span class='hl-sel'>.toast </span>{ <span class='hl-prop'>position</span>:<span class='hl-val'>fixed</span>; <span class='hl-prop'>bottom</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>right</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px 12px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>6px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }</pre>
+          </div>
+        </div>
+
+        <div class="box p0">
+          <div class="box-title">26. Breadcrumb &amp; Pagination <span class="pill p0">Nav</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>nav</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"crumb"</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Home&lt;/<span class='hl-tag'>a</span>&gt; / &lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Courses&lt;/<span class='hl-tag'>a</span>&gt; / &lt;<span class='hl-tag'>span</span>&gt;Midterm&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>nav</span>&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"pager"</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Prev&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"active"</span>&gt;1&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;2&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Next&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.crumb a </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; } .crumb span { <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#64748b</span></span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>.pager </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>4px</span>; }
+<span class='hl-sel'>.pager a </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>3px 8px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>.pager a.active </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>border-color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }</pre>
+          </div>
+        </div>
+
         </div>
       </div>
 </body>
 </html>
-
