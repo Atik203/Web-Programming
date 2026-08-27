@@ -35,7 +35,7 @@
       body {
         background: #fff;
         color: #0f172a;
-        font-size: 8pt;
+        font-size: 8.5pt;
         line-height: 1.1;
         width: 205mm;
         margin: 0 auto;
@@ -51,12 +51,12 @@
         align-items: baseline;
       }
       .cheat-header h1 {
-        font-size: 7.4pt;
+        font-size: 7.9pt;
         font-weight: 800;
         color: #0f172a;
       }
       .cheat-header .meta {
-        font-size: 5.8pt;
+        font-size: 6.2pt;
         color: #475569;
       }
 
@@ -65,7 +65,7 @@
         display: flex;
         gap: 2px;
         margin-bottom: 2px;
-        font-size: 5.3pt;
+        font-size: 5.6pt;
       }
       .p-bar div {
         flex: 1;
@@ -102,7 +102,7 @@
       }
       .box-title {
         background: #f1f5f9;
-        font-size: 6.2pt;
+        font-size: 6.6pt;
         font-weight: 700;
         padding: 1.2px 3px;
         border-bottom: 1px solid #cbd5e1;
@@ -115,7 +115,7 @@
         color: #991b1b;
       }
       .pill {
-        font-size: 4.8pt;
+        font-size: 5.1pt;
         background: #0284c7;
         color: #fff;
         padding: 0.5px 2.5px;
@@ -133,7 +133,7 @@
       pre {
         font-family:
           "SFMono-Regular", Consolas, "Liberation Mono", Courier, monospace;
-        font-size: 5.9pt;
+        font-size: 6.3pt;
         line-height: 1.1;
         background: #f8fafc;
         padding: 1px 2px;
@@ -219,7 +219,7 @@
         flex-wrap: wrap;
         gap: 1px 7px;
         font-family: "SFMono-Regular", Consolas, monospace;
-        font-size: 5pt;
+        font-size: 5.3pt;
         line-height: 1;
         margin: 0 0 1px;
       }
@@ -596,7 +596,33 @@
 </pre>
           </div>
         </div>
-      </div>
+      
+<!-- 10. PROGRESS & STORAGE WIDGET -->
+        <div class="box p0">
+          <div class="box-title">
+            10. Storage Widget &amp; Progress
+            <span class="pill p0">P0 Storage</span>
+          </div>
+          <div class="box-content">
+            <pre
+              class="html-code"
+            ><span class="tag-html">&lt;!-- Storage Widget (Spr26 S2 Q1 Drive) --&gt;</span>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"display:flex;justify-content:space-between;"</span>&gt;
+    &lt;<span class='hl-tag'>strong</span>&gt;Your storage&lt;/<span class='hl-tag'>strong</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"color:#0ea5e9;"</span>&gt;25% left&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"prog-bar"</span>&gt;&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"prog-fill"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"width:75%;background:#3b82f6;"</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>small</span>&gt;75 GB of 100 GB are used&lt;/<span class='hl-tag'>small</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre
+              class="css-code"
+            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.prog-bar </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>height</span>:<span class='hl-val'>5px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#e2e8f0</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>overflow</span>:<span class='hl-val'>hidden</span>; <span class='hl-prop'>margin</span>:<span class='hl-val'>2px 0</span>; }
+<span class='hl-sel'>.prog-fill </span>{ <span class='hl-prop'>height</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; }
+<span class="cm">/* Dual Progress: Blue width:80% + Red width:70% */</span></pre>
+          </div>
+        </div>
+</div>
     </div>
   </body>
 </html>
