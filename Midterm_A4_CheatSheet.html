@@ -440,6 +440,41 @@
 <span class='hl-sel'>.dropdown:hover > a </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }</pre>
           </div>
         </div>
+<div class="box p0">
+          <div class="box-title">27. Login / Auth Card <span class="pill p0">P0 Forms</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"auth-card"</span>&gt;
+  &lt;<span class='hl-tag'>h2</span>&gt;Sign In&lt;/<span class='hl-tag'>h2</span>&gt;
+  &lt;<span class='hl-tag'>form</span>&gt;
+    &lt;<span class='hl-tag'>input</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"input"</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"email"</span> <span class='hl-attr'>placeholder</span>=<span class='hl-str'>"Email"</span>&gt;
+    &lt;<span class='hl-tag'>input</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"input"</span> <span class='hl-attr'>type</span>=<span class='hl-str'>"password"</span> <span class='hl-attr'>placeholder</span>=<span class='hl-str'>"Password"</span>&gt;
+    &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-primary btn-block"</span>&gt;Login&lt;/<span class='hl-tag'>button</span>&gt;
+    &lt;<span class='hl-tag'>a</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"link"</span> <span class='hl-attr'>href</span>=<span class='hl-str'>"#"</span>&gt;Forgot password?&lt;/<span class='hl-tag'>a</span>&gt;
+  &lt;/<span class='hl-tag'>form</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.auth-card </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>240px</span>; <span class='hl-prop'>margin</span>:<span class='hl-val'>0 auto</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>16px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#e2e8f0</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>0 4px 12px rgba(0,0,0,.08)</span>; }
+<span class='hl-sel'>.auth-card h2 </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>13px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>10px</span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>center</span>; }
+<span class='hl-sel'>.auth-card .input </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>.btn-block </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; }
+<span class='hl-sel'>.link </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>margin-top</span>:<span class='hl-val'>6px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }</pre>
+          </div>
+        </div>
+<div class="box p0">
+          <div class="box-title">28. Hover &amp; Transition Effects <span class="pill p0">CSS</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"link"</span>&gt;Hover me&lt;/<span class='hl-tag'>a</span>&gt;
+&lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn2"</span>&gt;Button&lt;/<span class='hl-tag'>button</span>&gt;
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card2"</span>&gt;Card&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.link </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>transition</span>:<span class='hl-val'>color .2s</span>; }
+<span class='hl-sel'>.link:hover </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>underline</span>; }
+<span class='hl-sel'>.btn2 </span>{ <span class='hl-prop'>transition</span>:<span class='hl-val'>transform .15s, box-shadow .15s</span>; }
+<span class='hl-sel'>.btn2:hover </span>{ <span class='hl-prop'>transform</span>:<span class='hl-val'>translateY(-2px)</span>; <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>0 4px 10px rgba(0,0,0,.15)</span>; }
+<span class='hl-sel'>.card2 </span>{ <span class='hl-prop'>transition</span>:<span class='hl-val'>box-shadow .2s</span>; }
+<span class='hl-sel'>.card2:hover </span>{ <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>0 6px 16px rgba(0,0,0,.12)</span>; <span class='hl-prop'>border-color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }</pre>
+          </div>
+        </div>
         </div>
         <div class="sheet-col">
 <div class="box p0">
@@ -637,6 +672,37 @@
 <span class='hl-sel'>.grid-3 </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(3,1fr)</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>8px</span>; }</pre>
           </div>
         </div>
+        <div class="box p0">
+          <div class="box-title">30. Card / Photo Gallery Grid <span class="pill p0">Grid</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"gallery"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"ph"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#1d78f0"</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"ph"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#22c55e"</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"ph"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#f97316"</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"ph"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#781fa0"</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+<span class="cm">/* no <img> in exam: use colored placeholder divs */</span>
+.gallery </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>grid</span>; <span class='hl-prop'>grid-template-columns</span>:<span class='hl-val'>repeat(auto-fit,minmax(70px,1fr))</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>6px</span>; }
+<span class='hl-sel'>.ph </span>{ <span class='hl-prop'>height</span>:<span class='hl-val'>46px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; }
+<span class="cm">/* overlay caption: position:absolute inside .ph(position:relative) */</span></pre>
+          </div>
+        </div>
+
+        <div class="box p0">
+          <div class="box-title">31. Tooltip (CSS only) <span class="pill p0">CSS</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tip"</span>&gt;Hover me
+  &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"bubble"</span>&gt;Helpful tooltip text&lt;/<span class='hl-tag'>span</span>&gt;
+&lt;/<span class='hl-tag'>span</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.tip </span>{ <span class='hl-prop'>position</span>:<span class='hl-val'>relative</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>1px dotted <span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>cursor</span>:<span class='hl-val'>help</span>; }
+<span class='hl-sel'>.bubble </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>position</span>:<span class='hl-val'>absolute</span>; <span class='hl-prop'>bottom</span>:<span class='hl-val'>120%</span>; <span class='hl-prop'>left</span>:<span class='hl-val'>0</span>;
+  <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>3px 6px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>7px</span>; <span class='hl-prop'>white-space</span>:<span class='hl-val'>nowrap</span>; }
+<span class='hl-sel'>.tip:hover .bubble </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; }</pre>
+          </div>
+        </div>
+
         </div>
         <div class="sheet-col">
 <div class="box p0">
@@ -806,7 +872,7 @@
 <span class='hl-sel'>.sidebar2 a.active </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }</pre>
           </div>
         </div>
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">23. Form Validation &amp; Input States <span class="pill p0">P0 Forms</span></div>
           <div class="box-content">
             <pre class="html-code">&lt;<span class='hl-tag'>form</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"form"</span>&gt;
@@ -825,7 +891,6 @@
 <span class='hl-sel'>.input:focus:valid </span>{ <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>0 0 0 2px rgba(34,197,94,.15)</span>; }</pre>
           </div>
         </div>
-
 <div class="box p0">
           <div class="box-title">24. Tabs (radio + label) <span class="pill p0">Components</span></div>
           <div class="box-content">
@@ -843,7 +908,7 @@
 <span class='hl-sel'>.panel </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }</pre>
           </div>
         </div>
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">25. Table Variants &amp; Data Display <span class="pill p0">Table</span></div>
           <div class="box-content">
             <pre class="html-code">&lt;<span class='hl-tag'>table</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"table striped hover bordered"</span>&gt;
@@ -863,8 +928,7 @@
 <span class='hl-sel'>.table.bordered th, .table.bordered td </span>{ <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#cbd5e1</span></span>; }</pre>
           </div>
         </div>
-
-        <div class="box p0">
+<div class="box p0">
           <div class="box-title">26. Sidebar Submenu / Nested Nav <span class="pill p0">Nav</span></div>
           <div class="box-content">
             <pre class="html-code">&lt;<span class='hl-tag'>aside</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sb"</span>&gt;
@@ -885,7 +949,25 @@
 <span class='hl-sel'>.sb-child:hover </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }</pre>
           </div>
         </div>
-
+<div class="box p0">
+          <div class="box-title">29. Color Hex Quick-Reference <span class="pill p0">Quick</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"swatches"</span>&gt;
+  &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#1d78f0"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #1d78f0 Primary
+  &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#22c55e"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #22c55e Success
+  &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#ef4444"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #ef4444 Danger
+  &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#f97316"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #f97316 Warn
+  &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#781fa0"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #781fa0 Purple
+  &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#0f172a"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #0f172a Ink
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.sw </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>inline-block</span>; <span class='hl-prop'>width</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>height</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>vertical-align</span>:<span class='hl-val'>middle</span>; <span class='hl-prop'>margin</span>:<span class='hl-val'>0 4px 0 8px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#cbd5e1</span></span>; }
+<span class="cm">/* memorize these hexes: red arrows in exam point to these codes */</span>
+<span class="cm">/* blue #1d78f0 #2563eb | green #22c55e #10b981 */</span>
+<span class="cm">/* orange #f97316 #f78100 | red #ef4444 #e90606 */</span>
+<span class="cm">/* purple #781fa0 #6b63ff | gray #0f172a #64748b */</span></pre>
+          </div>
+        </div>
         </div>
       </div>
 </body>
