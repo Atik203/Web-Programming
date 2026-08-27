@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UIU Web Programming — Component Showcase</title>
+<style>
+  /* ============ RESET / GLOBAL ============ */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; color:#0f172a; background:#f1f5f9; }
+  a { text-decoration:none; }
+
+  /* ============ SHOWCASE CHROME ============ */
+  .sc-nav { position:fixed; top:0; left:0; width:248px; height:100vh; background:#0f172a; color:#cbd5e1; overflow-y:auto; padding:16px 14px; }
+  .sc-nav h1 { color:#fff; font-size:15px; margin-bottom:2px; }
+  .sc-nav .sub { font-size:11px; color:#94a3b8; margin-bottom:12px; line-height:1.4; }
+  .sc-search { width:100%; padding:7px 9px; border-radius:7px; border:1px solid #334155; background:#1e293b; color:#fff; font-size:12px; margin-bottom:8px; }
+  .sc-search::placeholder { color:#64748b; }
+  .sc-expand { width:100%; padding:6px; border-radius:7px; border:1px solid #334155; background:#1e293b; color:#cbd5e1; font-size:11px; cursor:pointer; margin-bottom:10px; }
+  .sc-expand:hover { background:#273549; }
+  .sc-nav .group-title { font-size:10px; text-transform:uppercase; letter-spacing:.6px; color:#64748b; margin:14px 0 5px; }
+  .sc-nav a { display:block; color:#cbd5e1; font-size:12px; padding:4px 9px; border-radius:6px; margin-bottom:1px; }
+  .sc-nav a:hover { background:#1e293b; color:#fff; }
+  .sc-nav a.active { background:#1d78f0; color:#fff; }
+
+  .sc-main { margin-left:248px; padding:26px 30px 90px; }
+  .sc-intro { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:16px 20px; margin-bottom:22px; }
+  .sc-intro h2 { font-size:18px; margin-bottom:6px; }
+  .sc-intro p { font-size:13px; color:#475569; line-height:1.5; }
+
+  .sc-section { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:18px 20px; margin-bottom:22px; scroll-margin-top:14px; }
+  .sc-section > h2 { font-size:16px; display:flex; align-items:center; gap:9px; margin-bottom:3px; flex-wrap:wrap; }
+  .sc-pill { font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700; background:#0284c7; color:#fff; }
+  .sc-pill.p0 { background:#b91c1c; }
+  .sc-pill.p1 { background:#ea580c; }
+  .sc-desc { font-size:12px; color:#64748b; margin-bottom:14px; line-height:1.5; }
+  .sc-preview { padding:18px; border:1px dashed #cbd5e1; border-radius:9px; background:#f8fafc; margin-bottom:8px; overflow-x:auto; }
+  .sc-toggle { font-size:12px; color:#1d78f0; cursor:pointer; user-select:none; font-weight:600; display:inline-block; }
+  .sc-toggle:hover { text-decoration:underline; }
+  .sc-code { display:none; margin-top:10px; }
+  .sc-code.open { display:block; }
+  .sc-code .lbl { font-size:10px; color:#64748b; text-transform:uppercase; letter-spacing:.5px; margin:10px 0 3px; font-weight:700; }
+  .sc-code pre { background:#0f172a; color:#e2e8f0; padding:11px 13px; border-radius:8px; font-family:Consolas,"SFMono-Regular",monospace; font-size:11px; line-height:1.55; overflow:auto; white-space:pre; }
+
+  /* ============ UI KIT (unified from cheat sheet) ============ */
+  .btn { padding:3.5px 7px; border:none; border-radius:3px; font-size:8.5px; font-weight:700; cursor:pointer; display:inline-block; color:#fff; background:#64748b; font-family:inherit; }
+  .btn-sm { padding:2px 4px; font-size:7.5px; }
+  .btn-lg { padding:5px 10px; font-size:9.5px; }
+  .btn-pill { border-radius:99px; }
+  .btn-grad { background:linear-gradient(135deg,#1d78f0,#6b63ff); color:#fff; }
+  .btn:disabled { opacity:.5; cursor:not-allowed; }
+  .btn-dark { background:#0f172a; color:#fff; }
+  .btn-primary { background:#1d78f0; color:#fff; }
+  .btn-navy { background:#1a237e; color:#fff; }
+  .btn-secondary { background:#6c757d; color:#fff; }
+  .btn-green { background:#50ad50; color:#fff; }
+  .btn-red { background:#e90606; color:#fff; }
+  .btn-orange { background:#f97316; color:#fff; }
+  .btn-outline { background:transparent; border:1.2px solid #1d78f0; color:#1d78f0; }
+  .btn-dashed { width:100%; background:transparent; border:1.2px dashed #94a3b8; color:#64748b; padding:4px; border-radius:4px; font-size:8px; font-weight:700; cursor:pointer; font-family:inherit; }
+  .btn-block { width:100%; }
+
+  .badge { display:inline-block; padding:1px 5px; border-radius:3px; font-size:7px; font-weight:700; color:#fff; }
+  .badge-blue{background:#1d78f0}.badge-green{background:#22c55e}.badge-red{background:#ef4444}
+  .badge-orange{background:#f97316}.badge-purple{background:#781fa0}.badge-yellow{background:#eab308}
+  .badge.badge-soft { border-radius:8px; }
+  .badge.badge-soft.badge-blue{background:#e2ebfa;color:#205bcb}
+  .badge.badge-soft.badge-green{background:#d6f2e7;color:#0e7048}
+  .badge.badge-soft.badge-yellow{background:#fdebc0;color:#b45309}
+  .badge.badge-soft.badge-orange{background:#ffe4d6;color:#c2410c}
+
+  .pill-row { display:flex; gap:3px; flex-wrap:wrap; }
+  .tag { background:#e2e8f0; color:#334155; padding:1px 5px; border-radius:99px; font-size:7px; font-weight:600; }
+
+  .card { background:#fff; border-radius:4px; padding:8px; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+  .card-job { border-left:4px solid #205bcb; display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; gap:8px; }
+  .card-brutal { border:2px solid #000; box-shadow:6px 6px 0 #000; text-align:center; }
+  .card-course { padding:0; overflow:hidden; }
+  .card-head-grad { background:linear-gradient(135deg,#10b981,#84cc16); color:#fff; padding:6px 8px; font-weight:bold; }
+  .card-body { padding:6px 8px; }
+  .card-profile { display:flex; flex-direction:column; align-items:center; gap:3px; text-align:center; }
+  .card-product { }
+  .card-price { border:2px solid #000; box-shadow:5px 5px 0 #000; text-align:center; }
+  .big { font-size:18px; font-weight:800; }
+  .card-banner { background:#fff; border:1px solid #e2e8f0; border-radius:5px; padding:10px 14px; margin-bottom:6px; }
+  .cat-card { border-radius:5px; padding:8px; color:#fff; }
+  .thumb { height:50px; background:linear-gradient(135deg,#cbd5e1,#94a3b8); border-radius:4px; margin-bottom:4px; }
+  .price { color:#16a34a; font-weight:700; }
+
+  .avatar { width:36px; height:36px; border-radius:50%; background:#1d78f0; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0; }
+  .avatar.sm { width:18px; height:18px; font-size:8px; }
+
+  .sidebar { width:170px; background:#0d3e86; color:#fff; padding:12px; flex-shrink:0; border-radius:6px; }
+  .menu { list-style:none; padding:0; margin-top:8px; display:flex; flex-direction:column; gap:4px; }
+  .menu li { padding:5px 8px; border-radius:4px; cursor:pointer; font-size:9px; }
+  .menu li.active { background:rgba(255,255,255,0.22); font-weight:bold; }
+  .layout { display:flex; min-height:220px; }
+  .main { flex:1; padding:12px; background:#f5f6fb; border-radius:6px; }
+  .filter-sidebar { width:200px; padding:12px; border:1px solid #e2e8f0; background:#fff; border-radius:6px; }
+  .filter-group { margin-bottom:8px; }
+  .filter-group h4 { font-size:9.5px; font-weight:bold; margin-bottom:4px; }
+  .filter-item { display:flex; align-items:center; gap:5px; font-size:9px; margin-bottom:3px; cursor:pointer; }
+  .sidebar2 { width:170px; background:#0f172a; padding:8px; border-radius:6px; }
+  .sidebar2 a { display:block; color:#cbd5e1; padding:6px 8px; border-radius:4px; text-decoration:none; font-size:9px; }
+  .sidebar2 a.active { background:#1d78f0; color:#fff; }
+  .sb { width:160px; background:#0f172a; color:#fff; padding:10px; border-radius:8px; }
+  .sb-item, .sb-parent { display:block; padding:6px 8px; color:#cbd5e1; text-decoration:none; border-radius:4px; font-size:9px; }
+  .sb-item.active, .sb-parent { background:#1d78f0; color:#fff; }
+  .sb-child { display:block; padding:4px 8px 4px 22px; font-size:8px; color:#94a3b8; text-decoration:none; }
+
+  .navbar { display:flex; justify-content:space-between; align-items:center; padding:6px 14px; background:#fff; border-bottom:1px solid #ddd; }
+  .logo { font-weight:800; }
+  .nav-links { display:flex; gap:12px; list-style:none; padding:0; align-items:center; }
+  .nav-links a { color:#0f172a; text-decoration:none; font-size:9px; }
+  .nav-links a.active { color:#1d78f0; font-weight:bold; border-bottom:2px solid #1d78f0; padding-bottom:1px; }
+  .search { margin-left:auto; padding:3px 6px; border-radius:3px; border:none; font-size:9px; }
+  .nav { display:flex; gap:14px; align-items:center; }
+  .dropdown { position:relative; display:inline-block; }
+  .dropdown > a { color:#0f172a; text-decoration:none; font-size:9px; }
+  .dropdown .menu { display:none; position:absolute; top:100%; left:0; min-width:120px; background:#fff; border:1px solid #ddd; border-radius:4px; z-index:5; padding:4px; margin-top:2px; }
+  .dropdown:hover .menu { display:block; }
+  .dropdown .menu a { display:block; padding:5px 10px; font-size:8px; color:#0f172a; text-decoration:none; border-radius:3px; }
+  .dropdown .menu a:hover { background:#eff6ff; }
+  .dropdown:hover > a { color:#1d78f0; }
+
+  .form { }
+  .form-group { display:flex; flex-direction:column; gap:1px; margin-bottom:6px; }
+  .form-group label { font-size:7.5px; font-weight:bold; color:#475569; }
+  .input, .select, .textarea { width:100%; padding:4px 6px; border:1px solid #cbd5e1; border-radius:3px; font-size:8.5px; outline:none; font-family:inherit; color:#0f172a; background:#fff; }
+  .input:focus, .select:focus, .textarea:focus { border-color:#2563eb; box-shadow:0 0 0 2px rgba(37,99,235,.15); }
+  .input:disabled { opacity:.5; background:#f1f5f9; cursor:not-allowed; }
+  .input:required { border-left:3px solid #ef4444; }
+  .input:valid { border-color:#22c55e; }
+  .input[type=range]{ width:100%; accent-color:#2563eb; }
+  .input[type=file]{ font-size:8px; padding:3px; }
+  .input.valid { border-color:#22c55e; }
+  .input.invalid { border-color:#ef4444; background:#fef2f2; }
+  .input:focus:invalid { box-shadow:0 0 0 2px rgba(239,68,68,.15); }
+  .input:focus:valid { box-shadow:0 0 0 2px rgba(34,197,94,.15); }
+  .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:7px; }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+  .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
+  .grid-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:5px; }
+
+  .social-btn { width:100%; padding:4px; border:1px solid #ddd; border-radius:3px; background:#fff; font-size:8px; cursor:pointer; margin-bottom:3px; font-family:inherit; }
+  .divider { display:flex; align-items:center; margin:3px 0; color:#888; font-size:8px; }
+  .divider::before, .divider::after { content:''; flex:1; border-bottom:1px solid #ddd; }
+  .divider span { padding:0 4px; }
+  .link { color:#1d78f0; transition:color .2s; text-decoration:none; }
+  .link:hover { color:#0f172a; text-decoration:underline; }
+
+  .ck, .rd { display:flex; align-items:center; gap:5px; cursor:pointer; font-size:8.5px; }
+  .ck input, .rd input { appearance:none; -webkit-appearance:none; width:14px; height:14px; border:1.5px solid #94a3b8; border-radius:3px; margin:0; cursor:pointer; }
+  .rd input { border-radius:50%; }
+  .ck input:checked { background:#1d78f0; border-color:#1d78f0; }
+  .ck input:checked::after { content:'✓'; color:#fff; font-size:10px; display:flex; justify-content:center; align-items:center; }
+  .rd input:checked { border-color:#1d78f0; }
+  .rd input:checked::after { content:''; width:7px; height:7px; border-radius:50%; background:#1d78f0; margin:2.5px; display:block; }
+
+  .cb-row { display:flex; gap:5px; margin-bottom:4px; flex-wrap:wrap; }
+  .cb-box { flex:1; display:flex; align-items:center; justify-content:center; gap:3px; padding:3.5px 6px; border:1px solid #cbd5e1; border-radius:3px; background:#fff; font-size:8px; cursor:pointer; min-width:60px; }
+  .btn-group { display:flex; gap:5px; }
+
+  .prog-bar { height:8px; background:#e2e8f0; border-radius:99px; overflow:hidden; margin-bottom:4px; }
+  .prog-fill { height:100%; background:#1d78f0; border-radius:99px; }
+  .prog-bar.thin { height:5px; }
+  .prog-label { font-size:8px; color:#64748b; }
+
+  .stat-card { padding:7px; border-radius:4px; color:#fff; display:flex; flex-direction:column; gap:2px; }
+  .stat-num { font-size:14px; font-weight:bold; }
+  .stat-pill { align-self:flex-start; font-size:6.5px; background:rgba(255,255,255,0.25); padding:1px 4px; border-radius:4px; font-weight:bold; }
+  .kpi-blue{background:#1975d1}.kpi-green{background:#378b3b}.kpi-orange{background:#f78100}.kpi-purple{background:#781fa0}.kpi-teal{background:#0976a7}
+
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(70px,1fr)); gap:6px; }
+  .ph { height:46px; border-radius:4px; }
+
+  .tip { position:relative; border-bottom:1px dotted #1d78f0; cursor:help; font-size:9px; }
+  .bubble { display:none; position:absolute; bottom:120%; left:0; background:#0f172a; color:#fff; padding:3px 6px; border-radius:3px; font-size:7px; white-space:nowrap; z-index:10; }
+  .tip:hover .bubble { display:block; }
+
+  .table { width:100%; border-collapse:collapse; font-size:8px; background:#fff; }
+  .table th, .table td { padding:3px 6px; text-align:left; border-bottom:1px solid #e2e8f0; }
+  .table th { background:#a05a2c; color:#fff; font-weight:bold; }
+  .table tbody tr:nth-child(even) { background:#f8fafc; }
+  .table.hover tbody tr:hover { background:#eff6ff; }
+  .table.bordered th, .table.bordered td { border:1px solid #cbd5e1; }
+  .table.dark th { background:#0f172a; }
+  .cell { display:flex; align-items:center; gap:5px; }
+
+  .footer { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; background:#0f172a; color:#fff; padding:14px; border-radius:8px; }
+  .f-col h4 { font-size:9px; margin-bottom:4px; }
+  .f-col a { display:block; color:#cbd5e1; font-size:8px; padding:1px 0; }
+  .f-bottom { grid-column:1/-1; border-top:1px solid #334155; margin-top:8px; padding-top:6px; font-size:7px; text-align:center; }
+  .footer.mini { display:block; text-align:center; background:#000; padding:6px; font-size:8.5px; }
+
+  .auth-card { width:240px; margin:0 auto; padding:16px; border:1px solid #e2e8f0; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.08); background:#fff; }
+  .auth-card h2 { font-size:13px; margin-bottom:10px; text-align:center; }
+
+  .btn2 { padding:6px 12px; border:none; border-radius:4px; background:#1d78f0; color:#fff; cursor:pointer; font-size:9px; transition:transform .15s, box-shadow .15s; font-family:inherit; }
+  .btn2:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,.15); }
+  .card2 { padding:14px; border:1px solid #e2e8f0; border-radius:6px; background:#fff; transition:box-shadow .2s; font-size:9px; }
+  .card2:hover { box-shadow:0 6px 16px rgba(0,0,0,.12); border-color:#1d78f0; }
+
+  .tabs input { display:none; }
+  .tabs label { padding:4px 8px; border-bottom:2px solid transparent; font-size:8px; cursor:pointer; display:inline-block; }
+  .tabs .panel { display:none; padding:8px; font-size:8px; background:#fff; border:1px solid #e2e8f0; border-top:none; }
+  #t1:checked ~ #p1, #t2:checked ~ #p2, #t3:checked ~ #p3 { display:block; }
+  #t1:checked ~ label[for="t1"], #t2:checked ~ label[for="t2"], #t3:checked ~ label[for="t3"] { border-color:#1d78f0; color:#1d78f0; }
+
+  .tile-grad { background:linear-gradient(135deg,var(--g1),var(--g2)); color:#fff; padding:8px 10px; border-radius:6px; display:flex; flex-direction:column; gap:3px; }
+  .tile-grad small { font-size:7px; opacity:.9; }
+  .tile-grad strong { font-size:10px; }
+
+  .split { display:flex; gap:12px; }
+  .split > div { flex:1; }
+  .testimonial-panel { background:#0976a7; color:#fff; padding:20px; display:flex; flex-direction:column; justify-content:center; border-radius:8px; }
+  .quote { font-size:13px; font-style:italic; margin-bottom:12px; line-height:1.5; }
+  .t-author { display:flex; align-items:center; gap:8px; }
+  .testimonial-panel .avatar { border:2px solid rgba(255,255,255,0.4); }
+
+  .pill-list { }
+  .prow { display:flex; justify-content:space-between; align-items:center; padding:5px 8px; border-radius:6px; margin-bottom:4px; font-size:8.5px; }
+
+  .sw { display:inline-block; width:14px; height:14px; border-radius:3px; vertical-align:middle; margin:0 4px 0 8px; border:1px solid #cbd5e1; }
+
+  .canvas { background:#eff6fe; padding:14px; border-radius:8px; }
+</style>
+</head>
+<body>
+<nav class="sc-nav">
+  <h1>UIU Component Showcase</h1>
+  <div class="sub">Live, working preview of every component on the midterm cheat sheet. Pure HTML/CSS — no JS inside the components.</div>
+  <input class="sc-search" placeholder="Filter components…" />
+  <button id="expandAll" class="sc-expand">Expand all code</button>
+
+  <div class="group-title">Getting Started</div>
+  <a href="#sec-1" data-sec>1 · Setup &amp; Reset</a>
+  <a href="#sec-15" data-sec>15 · CSS Quick Ref</a>
+
+  <div class="group-title">Navigation</div>
+  <a href="#sec-2" data-sec>2 · Navbars</a>
+  <a href="#sec-3" data-sec>3 · Sidebar &amp; Filter</a>
+  <a href="#sec-20" data-sec>20 · Navbar/Sidebar Variants</a>
+  <a href="#sec-22" data-sec>22 · Dropdown</a>
+  <a href="#sec-26" data-sec>26 · Sidebar Submenu &amp; Hex</a>
+
+  <div class="group-title">Layout</div>
+  <a href="#sec-18" data-sec>18 · Layout Skeletons</a>
+  <a href="#sec-21" data-sec>21 · Footer</a>
+  <a href="#sec-9" data-sec>9 · Banner &amp; Footer</a>
+
+  <div class="group-title">Forms</div>
+  <a href="#sec-12" data-sec>12 · Forms Deep-Dive</a>
+  <a href="#sec-7" data-sec>7 · Form Controls &amp; Social</a>
+  <a href="#sec-23" data-sec>23 · Form Validation</a>
+  <a href="#sec-27" data-sec>27 · Login Card</a>
+  <a href="#sec-13" data-sec>13 · Custom Checkbox/Radio</a>
+  <a href="#sec-8" data-sec>8 · Boxed Permissions</a>
+
+  <div class="group-title">Cards</div>
+  <a href="#sec-6" data-sec>6 · Card Archetypes</a>
+  <a href="#sec-16" data-sec>16 · Card Variants</a>
+  <a href="#sec-5" data-sec>5 · Grid &amp; Stat Cards</a>
+  <a href="#sec-30" data-sec>30 · Gallery Grid</a>
+  <a href="#sec-A" data-sec>A · Gradient Tiles</a>
+  <a href="#sec-B" data-sec>B · Testimonial Panel</a>
+  <a href="#sec-C" data-sec>C · Pill-List Rows</a>
+  <a href="#sec-10" data-sec>10 · Storage Widget</a>
+
+  <div class="group-title">Buttons &amp; Badges</div>
+  <a href="#sec-17" data-sec>17 · Button &amp; Badge Variants</a>
+  <a href="#sec-11" data-sec>11 · Badges/Pill-Rows/Table</a>
+
+  <div class="group-title">Data &amp; Widgets</div>
+  <a href="#sec-19" data-sec>19 · Tables</a>
+  <a href="#sec-25" data-sec>25 · Table Variants</a>
+  <a href="#sec-14" data-sec>14 · Progress Bars</a>
+  <a href="#sec-24" data-sec>24 · Tabs</a>
+  <a href="#sec-28" data-sec>28 · Hover/Transitions</a>
+  <a href="#sec-31" data-sec>31 · Tooltip</a>
+</nav>
+
+<main class="sc-main">
+  <div class="sc-intro">
+    <h2>UIU Web Programming — Component Showcase</h2>
+    <p>Every section below is a real, interactive component built with the exact HTML structure and CSS from your cheat sheet. Hover, focus, and click to see how they behave. Use <strong>Show code</strong> under any component to view the source. The left nav filters and jumps to each component. No JavaScript is used inside the components themselves — dropdowns use <code>:hover</code>, tabs use <code>:checked</code> radios, tooltips use <code>:hover</code>, and custom inputs use <code>appearance:none</code>.</p>
+  </div>
+  <section class="sc-section" id="sec-1">
+    <h2>1. Setup &amp; Global Reset <span class="sc-pill">Start</span></h2>
+    <div class="sc-desc">The base layer: a universal reset and sensible body defaults. Everything is box-sizing:border-box so widths include padding.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div style="font-family:Arial,sans-serif;background:#f4f6f8;color:#333;padding:12px;border:1px solid #e2e8f0;border-radius:6px;">
+  <p style="margin-bottom:6px;">Global reset applied: <code>* { margin:0; padding:0; box-sizing:border-box }</code></p>
+  <a href="#" style="color:#1d78f0;text-decoration:none;">A link with no underline</a>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { background:#f4f6f8; color:#333; }
+a { text-decoration:none; color:inherit; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-2">
+    <h2>2. Navigation Bars <span class="sc-pill">Navbar</span></h2>
+    <div class="sc-desc">A flex navbar with a logo, nav links, an active state, and a primary button. Dark-navy variant shown in section 20.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<nav class="navbar">
+  <div class="logo">UIU <span style="color:#ff4419;">Desk</span></div>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">Jobs</a></li>
+    <li><a href="#" class="btn btn-sm btn-primary">Sign Up</a></li>
+  </ul>
+</nav>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.navbar { display:flex; justify-content:space-between; align-items:center; padding:6px 14px; background:#fff; border-bottom:1px solid #ddd; }
+.logo { font-weight:800; }
+.nav-links { display:flex; gap:12px; list-style:none; align-items:center; }
+.nav-links a { color:#0f172a; text-decoration:none; }
+.nav-links a.active { color:#1d78f0; font-weight:bold; border-bottom:2px solid #1d78f0; padding-bottom:1px; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-3">
+    <h2>3. Sidebar &amp; Filter Panels <span class="sc-pill p0">P0 Sidebar</span></h2>
+    <div class="sc-desc">Dashboard layout: a vertical sidebar (avatar + menu) beside a main content area, plus a filter sidebar with checkboxes.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="layout" style="min-height:200px;border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+  <aside class="sidebar">
+    <div class="avatar">JS</div><h3 style="margin:6px 0;font-size:11px;">UIU HUB</h3>
+    <ul class="menu"><li class="active">Dashboard</li><li>Courses</li><li>Settings</li></ul>
+  </aside>
+  <main class="main"><p style="font-size:9px;">Main content area</p></main>
+</div>
+<div class="filter-sidebar" style="margin-top:10px;border-radius:8px;">
+  <div class="filter-group"><h4>Job Type</h4>
+    <label class="filter-item"><input type="checkbox" checked> Full-time</label>
+    <label class="filter-item"><input type="checkbox"> Remote</label>
+  </div>
+  <button class="btn btn-primary btn-block">Apply Filters</button>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.layout { display:flex; min-height:220px; }
+.sidebar { width:170px; background:#0d3e86; color:#fff; padding:12px; }
+.menu { list-style:none; display:flex; flex-direction:column; gap:4px; }
+.menu li { padding:5px 8px; border-radius:4px; cursor:pointer; font-size:9px; }
+.menu li.active { background:rgba(255,255,255,0.22); font-weight:bold; }
+.main { flex:1; padding:12px; background:#f5f6fb; }
+.filter-sidebar { width:200px; padding:12px; border:1px solid #e2e8f0; background:#fff; }
+.filter-group h4 { font-size:9.5px; font-weight:bold; margin-bottom:4px; }
+.filter-item { display:flex; align-items:center; gap:5px; font-size:9px; margin-bottom:3px; cursor:pointer; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-5">
+    <h2>5. Grid Templates &amp; Stat Cards <span class="sc-pill p0">P0 4-Col</span></h2>
+    <div class="sc-desc">Reusable grid helpers (grid-2/3/4/5) and a KPI stat card with a number and a status pill.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="grid-4">
+  <div class="stat-card kpi-blue"><span>Total Users</span><span class="stat-num">12,450</span><span class="stat-pill">UP +12% MONTHLY</span></div>
+  <div class="stat-card kpi-green"><span>Orders</span><span class="stat-num">3,210</span><span class="stat-pill">+5%</span></div>
+  <div class="stat-card kpi-orange"><span>Revenue</span><span class="stat-num">$9.4k</span><span class="stat-pill">+2%</span></div>
+  <div class="stat-card kpi-purple"><span>Tickets</span><span class="stat-num">42</span><span class="stat-pill">-8%</span></div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:7px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
+.grid-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:5px; }
+.stat-card { padding:7px; border-radius:4px; color:#fff; display:flex; flex-direction:column; gap:2px; }
+.stat-num { font-size:14px; font-weight:bold; }
+.stat-pill { align-self:flex-start; font-size:6.5px; background:rgba(255,255,255,0.25); padding:1px 4px; border-radius:4px; font-weight:bold; }
+.kpi-blue{background:#1975d1} .kpi-green{background:#378b3b} .kpi-orange{background:#f78100} .kpi-purple{background:#781fa0} .kpi-teal{background:#0976a7}</script>
+  </section>
+  <section class="sc-section" id="sec-6">
+    <h2>6. Card Archetypes <span class="sc-pill p0">P0 Job/Accent</span></h2>
+    <div class="sc-desc">Job card with a left accent border, and a course card with a gradient header. Brutalist (.card-brutal) and category (.cat-card) variants also exist.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="card card-job">
+  <div><h4 style="font-size:10px;">Junior Software Engineer</h4><p style="font-size:8px;color:#64748b;">Kaz Software</p>
+    <span class="badge badge-blue">Full-time</span> <span class="badge badge-green">Onsite</span></div>
+  <div style="text-align:right;"><strong style="font-size:9px;">৳35,000 - 50,000</strong><br><small style="font-size:7px;color:#64748b;">Deadline: Dec 30</small><br>
+    <button class="btn btn-primary btn-sm">Apply</button></div>
+</div>
+<div class="card card-course" style="margin-top:8px;max-width:230px;">
+  <div class="card-head-grad">Web Programming</div>
+  <div class="card-body"><p style="font-size:8px;color:#64748b;">Prof. Rahman</p></div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.card { background:#fff; border-radius:4px; padding:8px; box-shadow:0 1px 3px rgba(0,0,0,0.06); }
+.card-job { border-left:4px solid #205bcb; display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.card-brutal { border:2px solid #000; box-shadow:6px 6px 0 #000; text-align:center; }
+.card-course { padding:0; overflow:hidden; }
+.card-head-grad { background:linear-gradient(135deg,#10b981,#84cc16); color:#fff; padding:6px 8px; font-weight:bold; }
+.card-body { padding:6px 8px; }
+.cat-card { border-radius:5px; padding:8px; color:#fff; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-7">
+    <h2>7. Form Controls &amp; Social Login <span class="sc-pill">Forms</span></h2>
+    <div class="sc-desc">Labeled inputs, a two-column grid, a textarea, a select, plus social login buttons split by an OR divider.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<form class="form" style="max-width:300px;">
+  <div class="form-group"><label>Full Name</label><input class="input" type="text" placeholder="Name"></div>
+  <div class="grid-2">
+    <div class="form-group"><label>Zone</label><select class="select"><option>USA</option><option>BD</option></select></div>
+    <div class="form-group"><label>Email</label><input class="input" type="email" placeholder="Email"></div>
+  </div>
+  <div class="form-group"><label>Notes</label><textarea class="textarea" rows="2"></textarea></div>
+  <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+<div style="margin-top:12px;max-width:300px;">
+  <button class="social-btn">G  Sign in with Google</button>
+  <div class="grid-2">
+    <button class="social-btn">Apple</button><button class="social-btn">Facebook</button>
+  </div>
+  <div class="divider"><span>OR</span></div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.form-group { display:flex; flex-direction:column; gap:1px; margin-bottom:6px; }
+.form-group label { font-size:7.5px; font-weight:bold; color:#475569; }
+.input, .select, .textarea { width:100%; padding:4px 6px; border:1px solid #cbd5e1; border-radius:3px; font-size:8.5px; outline:none; }
+.input:focus, .select:focus, .textarea:focus { border-color:#2563eb; }
+.social-btn { width:100%; padding:4px; border:1px solid #ddd; border-radius:3px; background:#fff; font-size:8px; cursor:pointer; margin-bottom:3px; }
+.divider { display:flex; align-items:center; margin:3px 0; color:#888; }
+.divider::before, .divider::after { content:''; flex:1; border-bottom:1px solid #ddd; }
+.divider span { padding:0 4px; font-size:7px; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-8">
+    <h2>8. Boxed Permissions &amp; Dual Buttons <span class="sc-pill p0">P0 Boxed</span></h2>
+    <div class="sc-desc">Permission toggles rendered as bordered boxes, and a dual-action button group (primary + reset).</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="cb-row">
+  <label class="cb-box"><input type="checkbox" checked> Read</label>
+  <label class="cb-box"><input type="checkbox"> Write</label>
+  <label class="cb-box"><input type="checkbox"> Delete</label>
+  <label class="cb-box"><input type="checkbox" checked> API</label>
+</div>
+<div class="btn-group" style="max-width:320px;">
+  <button class="btn btn-navy" style="flex:1;">UPDATE SETTINGS</button>
+  <button class="btn btn-secondary">RESET</button>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.cb-row { display:flex; gap:5px; margin-bottom:4px; flex-wrap:wrap; }
+.cb-box { flex:1; display:flex; align-items:center; justify-content:center; gap:3px; padding:3.5px 6px; border:1px solid #cbd5e1; border-radius:3px; background:#fff; font-size:8px; cursor:pointer; }
+.btn-group { display:flex; gap:5px; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-9">
+    <h2>9. Button Styles &amp; Banner/Footer <span class="sc-pill">UI</span></h2>
+    <div class="sc-desc">All button color variants plus a banner card and a minimal black footer.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="card-banner"><h1 style="font-size:15px;">Buy, Sell, Exchange Books</h1><p style="font-size:9px;color:#64748b;">UIU Book Hub</p></div>
+<div style="margin:10px 0;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+  <button class="btn btn-primary">Primary</button>
+  <button class="btn btn-navy">Navy</button>
+  <button class="btn btn-secondary">Secondary</button>
+  <button class="btn btn-green">Green</button>
+  <button class="btn btn-red">Red</button>
+  <button class="btn btn-orange">Orange</button>
+  <button class="btn btn-outline">Outline</button>
+  <button class="btn btn-dark">Dark</button>
+</div>
+<footer class="footer mini">© 2026 UIU</footer>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.btn-primary { background:#1d78f0; color:#fff; }
+.btn-navy { background:#1a237e; color:#fff; }
+.btn-secondary { background:#6c757d; color:#fff; }
+.btn-green { background:#50ad50; color:#fff; }
+.btn-red { background:#e90606; color:#fff; }
+.btn-orange { background:#f97316; color:#fff; }
+.btn-outline { background:transparent; border:1.2px solid #1d78f0; color:#1d78f0; }
+.btn-dark { background:#0f172a; color:#fff; }
+.btn-dashed { width:100%; background:transparent; border:1.2px dashed #94a3b8; color:#64748b; padding:4px; border-radius:4px; font-size:8px; }
+.btn-block { width:100%; }
+.card-banner { background:#fff; border:1px solid #e2e8f0; border-radius:5px; padding:10px 14px; margin-bottom:6px; }
+.footer.mini { display:block; text-align:center; background:#000; padding:6px; font-size:8.5px; color:#fff; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-10">
+    <h2>10. Storage Widget &amp; Progress <span class="sc-pill p0">P0 Storage</span></h2>
+    <div class="sc-desc">A card showing used storage with a thin progress bar and a remaining label.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="card" style="max-width:300px;">
+  <div style="display:flex;justify-content:space-between;"><strong style="font-size:9px;">Your storage</strong><span style="color:#0ea5e9;font-size:8px;">25% left</span></div>
+  <div class="prog-bar thin"><div class="prog-fill" style="width:75%;background:#3b82f6;"></div></div>
+  <small style="font-size:8px;color:#64748b;">75 GB of 100 GB are used</small>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.prog-bar { width:100%; height:5px; background:#e2e8f0; border-radius:3px; overflow:hidden; margin:2px 0; }
+.prog-fill { height:100%; border-radius:3px; }
+/* Dual Progress: Blue width:80% + Red width:70% */</script>
+  </section>
+  <section class="sc-section" id="sec-11">
+    <h2>11. Badges, Pill-Rows &amp; Table <span class="sc-pill p0">P0 Rows</span></h2>
+    <div class="sc-desc">Solid and soft (pastel) badges, a colored pill-row, avatars, and a basic table.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;align-items:center;">
+  <span class="badge badge-blue">New</span>
+  <span class="badge badge-green">Ok</span>
+  <span class="badge badge-red">Hot</span>
+  <span class="badge badge-soft badge-blue">Team</span>
+  <span class="badge badge-soft badge-green">Shared</span>
+</div>
+<div class="pill-row" style="background:#c8f2ef;max-width:300px;"><span style="font-size:8px;">Keynote files</span><span class="tag">Team</span></div>
+<table class="table" style="margin-top:10px;max-width:340px;">
+  <thead><tr><th>Course</th><th>Code</th><th>Cr</th></tr></thead>
+  <tbody><tr><td>Web Prog</td><td>CSE201</td><td>3.0</td></tr></tbody>
+</table>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.badge { display:inline-block; padding:1px 5px; border-radius:8px; font-size:7px; font-weight:bold; }
+.badge-blue{background:#e2ebfa;color:#205bcb}.badge-green{background:#d6f2e7;color:#0e7048}
+.badge-yellow{background:#fdebc0;color:#b45309}.badge-orange{background:#ffe4d6;color:#c2410c}
+.pill-row { display:flex; justify-content:space-between; align-items:center; padding:5px 8px; border-radius:5px; font-size:8px; }
+.tag { background:#e2e8f0; color:#334155; padding:1px 5px; border-radius:99px; font-size:7px; }
+.avatar { width:22px; height:22px; border-radius:50%; background:#536ffe; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:8.5px; }
+.table { width:100%; border-collapse:collapse; background:#fff; font-size:7.5px; }
+.table th, .table td { padding:2.5px 4px; text-align:left; border-bottom:1px solid #e2e8f0; }
+.table th { background:#a05a2c; color:#fff; font-weight:bold; }
+.table tr:nth-child(even) { background:#f8fafc; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-12">
+    <h2>12. Forms Deep-Dive <span class="sc-pill p0">P0 Forms</span></h2>
+    <div class="sc-desc">Every input type: text, email, password, tel, date, textarea, select, with focus ring and a full-width submit.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<form class="form" style="max-width:330px;">
+  <div class="form-group"><label>Full Name</label><input class="input" type="text" placeholder="Name"></div>
+  <div class="form-group"><label>Email</label><input class="input" type="email" placeholder="you@uiu.ac.bd"></div>
+  <div class="form-group"><label>Password</label><input class="input" type="password" placeholder="dots"></div>
+  <div class="grid-2">
+    <div class="form-group"><label>Phone</label><input class="input" type="tel" placeholder="+880"></div>
+    <div class="form-group"><label>Date</label><input class="input" type="date"></div>
+  </div>
+  <div class="form-group"><label>Message</label><textarea class="textarea" rows="2"></textarea></div>
+  <div class="form-group"><label>Country</label><select class="select"><option>BD</option><option>US</option></select></div>
+  <button class="btn btn-primary btn-block" type="submit">Submit</button>
+</form>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.input, .select, .textarea { width:100%; padding:4px 6px; border:1px solid #cbd5e1; border-radius:3px; font-size:8.5px; outline:none; }
+.input:focus, .select:focus, .textarea:focus { border-color:#2563eb; box-shadow:0 0 0 2px rgba(37,99,235,.15); }
+.input:disabled { opacity:.5; background:#f1f5f9; cursor:not-allowed; }
+.input:required { border-left:3px solid #ef4444; }
+.input:valid { border-color:#22c55e; }
+input[type=range]{ width:100%; accent-color:#2563eb; }
+input[type=file]{ font-size:8px; padding:3px; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-13">
+    <h2>13. Custom Checkbox &amp; Radio <span class="sc-pill p0">P0 Boxed</span></h2>
+    <div class="sc-desc">Native boxes removed with appearance:none; the tick/dot is drawn with ::after. Pure CSS, no JS.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<label class="ck"><input type="checkbox" checked> Read</label>
+<label class="ck"><input type="checkbox"> Write</label><br><br>
+<label class="rd"><input type="radio" name="r" checked> Plan A</label>
+<label class="rd"><input type="radio" name="r"> Plan B</label>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.ck, .rd { display:flex; align-items:center; gap:5px; cursor:pointer; font-size:8.5px; }
+.ck input, .rd input { appearance:none; -webkit-appearance:none; width:14px; height:14px; border:1.5px solid #94a3b8; border-radius:3px; margin:0; cursor:pointer; }
+.rd input { border-radius:50%; }
+.ck input:checked { background:#1d78f0; border-color:#1d78f0; }
+.ck input:checked::after { content:'✓'; color:#fff; font-size:10px; display:flex; justify-content:center; align-items:center; }
+.rd input:checked { border-color:#1d78f0; }
+.rd input:checked::after { content:''; width:7px; height:7px; border-radius:50%; background:#1d78f0; margin:2.5px; display:block; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-14">
+    <h2>14. Progress Bars Gallery <span class="sc-pill p1">Widgets</span></h2>
+    <div class="sc-desc">Linear determinate bars, dual-segment (blue + red), and a storage widget with a remaining badge.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="prog-bar"><div class="prog-fill" style="width:65%;"></div></div><span class="prog-label">65%</span>
+<div class="prog-bar"><div class="prog-fill" style="width:80%;background:#536ffe;"></div></div>
+<div class="prog-bar"><div class="prog-fill" style="width:70%;background:#f93536;"></div></div>
+<div class="prog-bar"><div class="prog-fill" style="width:75%;"></div></div><span class="badge badge-blue">25% left</span>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.prog-bar { height:8px; background:#e2e8f0; border-radius:99px; overflow:hidden; margin-bottom:4px; }
+.prog-fill { height:100%; background:#1d78f0; border-radius:99px; }
+.prog-label { font-size:8px; color:#64748b; }
+/* circular: background:conic-gradient(#1d78f0 0 75%, #e2e8f0 75% 100%) + centered % text */</script>
+  </section>
+
+  <section class="sc-section" id="sec-15">
+    <h2>15. CSS Quick Reference <span class="sc-pill p0">Quick</span></h2>
+    <div class="sc-desc">The desktop cheat of the most-used CSS properties — flex, grid, position, box model, shadow.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div style="background:#0f172a;color:#e2e8f0;padding:12px;border-radius:8px;font-family:Consolas,monospace;font-size:11px;line-height:1.7;max-width:480px;">
+  <div style="color:#7dd3fc;">/* FLEX */</div> display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;
+  <div style="color:#7dd3fc;margin-top:6px;">/* GRID */</div> display:grid; grid-template-columns:repeat(3,1fr); gap:8px;
+  <div style="color:#7dd3fc;margin-top:6px;">/* POSITION */</div> position:relative|absolute|fixed|sticky; top/right/bottom/left:0;
+  <div style="color:#7dd3fc;margin-top:6px;">/* BOX */</div> box-sizing:border-box; border:1px solid #cbd5e1; border-radius:6px;
+  <div style="color:#7dd3fc;margin-top:6px;">/* SHADOW */</div> box-shadow:0 1px 3px rgba(0,0,0,.08); box-shadow:6px 6px 0 #000;
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+/* FLEX */ display:flex; justify-content:space-between; align-items:center; flex-direction:row|column; gap:8px; flex-wrap:wrap;
+/* GRID */ display:grid; grid-template-columns:repeat(3,1fr)|repeat(auto-fit,minmax(120px,1fr)); gap:8px; grid-template-columns:200px 1fr;
+/* POSITION */ position:relative|absolute|fixed|sticky; top:0; right:0; bottom:0; left:0;
+/* BOX MODEL */ box-sizing:border-box; margin; padding; border:1px solid #cbd5e1; border-radius:6px;
+/* SHADOW */ box-shadow:0 1px 3px rgba(0,0,0,.08); box-shadow:6px 6px 0 #000;
+/* EXTRA */ transition:all .2s; z-index:10; overflow:auto; cursor:pointer;
+/* HEX QUICK: blue #1d78f0 #2563eb | green #22c55e #10b981 | orange #f97316 #f78100 | red #ef4444 #e90606 | purple #781fa0 #6b63ff | gray #0f172a #64748b */</script>
+  </section>
+  <section class="sc-section" id="sec-16">
+    <h2>16. Card Variants Gallery <span class="sc-pill p0">Cards</span></h2>
+    <div class="sc-desc">Profile card (avatar + follow), product card (thumb + price), and a brutalist pricing card.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+  <div class="card card-profile" style="width:120px;">
+    <div class="avatar">AR</div><h4 style="font-size:9px;">Ashraf R.</h4><p style="font-size:8px;color:#64748b;">Student</p>
+    <button class="btn btn-sm btn-primary">Follow</button>
+  </div>
+  <div class="card card-product" style="width:120px;">
+    <div class="thumb"></div><h4 style="font-size:9px;">Book</h4><span class="price">350</span>
+    <button class="btn btn-sm btn-green">Add</button>
+  </div>
+  <div class="card card-price" style="width:120px;">
+    <h4 style="font-size:9px;">Pro</h4><p class="big">$9</p><button class="btn btn-sm btn-dark">Buy</button>
+  </div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.avatar { width:36px; height:36px; border-radius:50%; background:#1d78f0; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; }
+.card-profile { display:flex; flex-direction:column; align-items:center; gap:3px; text-align:center; }
+.thumb { height:50px; background:linear-gradient(135deg,#cbd5e1,#94a3b8); border-radius:4px; margin-bottom:4px; }
+.price { color:#16a34a; font-weight:700; }
+.card-price { border:2px solid #000; box-shadow:5px 5px 0 #000; text-align:center; }
+.big { font-size:18px; font-weight:800; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-17">
+    <h2>17. Button &amp; Badge Variants <span class="sc-pill p0">UI</span></h2>
+    <div class="sc-desc">Button sizes (sm/lg), shapes (pill/gradient/disabled), and the full badge color set plus a tag row.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+  <button class="btn btn-primary">Primary</button>
+  <button class="btn btn-sm">Sm</button>
+  <button class="btn btn-lg">Lg</button>
+  <button class="btn btn-pill">Pill</button>
+  <button class="btn btn-grad">Grad</button>
+  <button class="btn" disabled>Off</button>
+</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center;">
+  <span class="badge badge-blue">New</span><span class="badge badge-green">Ok</span>
+  <span class="badge badge-red">Hot</span><span class="badge badge-orange">Sale</span>
+  <span class="badge badge-purple">VIP</span>
+</div>
+<div class="pill-row" style="margin-top:8px;"><span class="tag">JS</span><span class="tag">CSS</span></div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.btn { padding:3.5px 7px; border:none; border-radius:3px; font-size:8.5px; font-weight:700; cursor:pointer; display:inline-block; color:#fff; background:#64748b; }
+.btn-sm { padding:2px 4px; font-size:7.5px; }
+.btn-lg { padding:5px 10px; font-size:9.5px; }
+.btn-pill { border-radius:99px; }
+.btn-grad { background:linear-gradient(135deg,#1d78f0,#6b63ff); color:#fff; }
+.btn:disabled { opacity:.5; cursor:not-allowed; }
+.badge { display:inline-block; padding:1px 5px; border-radius:3px; font-size:7px; font-weight:700; color:#fff; }
+.badge-blue{background:#1d78f0}.badge-green{background:#22c55e}.badge-red{background:#ef4444}
+.badge-orange{background:#f97316}.badge-purple{background:#781fa0}
+.pill-row { display:flex; gap:3px; flex-wrap:wrap; }
+.tag { background:#e2e8f0; color:#334155; padding:1px 5px; border-radius:99px; font-size:7px; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-18">
+    <h2>18. Layout Archetype Skeletons <span class="sc-pill p0">Layout</span></h2>
+    <div class="sc-desc">Three classic layouts: (A) sidebar + main, (B) split/canvas, (C) card grid.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="layout" style="min-height:140px;border:1px solid #e2e8f0;border-radius:6px;overflow:hidden;">
+  <div class="sidebar" style="width:120px;background:#0f172a;"><ul class="menu"><li class="active">Dash</li><li>Settings</li></ul></div>
+  <div class="main"><p style="font-size:9px;">Content</p></div>
+</div>
+<div class="canvas" style="margin-top:10px;">
+  <div class="split"><div style="border:1px dashed #94a3b8;padding:8px;border-radius:4px;font-size:8px;">Left</div><div style="border:1px dashed #94a3b8;padding:8px;border-radius:4px;font-size:8px;">Right</div></div>
+</div>
+<div class="grid-3" style="margin-top:10px;">
+  <div class="card" style="font-size:9px;">1</div><div class="card" style="font-size:9px;">2</div><div class="card" style="font-size:9px;">3</div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.layout { display:flex; }
+.sidebar { width:200px; background:#0f172a; color:#fff; padding:10px; }
+.main { flex:1; padding:12px; }
+.canvas { background:#eff6fe; padding:14px; }
+.split { display:flex; gap:12px; }
+.split > div { flex:1; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-19">
+    <h2>19. Tables &amp; Data Display <span class="sc-pill p0">Table</span></h2>
+    <div class="sc-desc">A data table with avatar cells, status badges, and row striping/hover (see also section 25 for modifiers).</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<table class="table" style="max-width:380px;">
+  <thead><tr><th>Name</th><th>Status</th><th></th></tr></thead>
+  <tbody>
+    <tr><td><div class="cell"><span class="avatar sm">AK</span> Ayesha</div></td><td><span class="badge badge-green">Active</span></td><td><a href="#">Edit</a></td></tr>
+    <tr><td><div class="cell"><span class="avatar sm">RM</span> Rahim</div></td><td><span class="badge badge-red">Banned</span></td><td><a href="#">Edit</a></td></tr>
+  </tbody>
+</table>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.table { width:100%; border-collapse:collapse; font-size:8px; }
+.table th { background:#a05a2c; color:#fff; padding:4px 6px; text-align:left; }
+.table td { padding:3px 6px; border-bottom:1px solid #e2e8f0; }
+.table tbody tr:nth-child(even) { background:#f8fafc; }
+.table tbody tr:hover { background:#eff6ff; }
+.avatar.sm { width:18px; height:18px; font-size:8px; }
+.cell { display:flex; align-items:center; gap:5px; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-20">
+    <h2>20. Navbar &amp; Sidebar Variants <span class="sc-pill p0">Nav</span></h2>
+    <div class="sc-desc">A dark top navbar (logo + links + search + avatar) and a dark vertical sidebar.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<nav class="navbar" style="background:#0f172a;color:#fff;border-bottom:none;">
+  <span class="logo" style="color:#fff;">UIU</span>
+  <div class="nav-links"><a href="#" style="color:#cbd5e1;">Home</a><a href="#" style="color:#cbd5e1;">Courses</a></div>
+  <input class="search" placeholder="Search">
+  <span class="avatar sm" style="background:#1d78f0;">AR</span>
+</nav>
+<aside class="sidebar2" style="margin-top:10px;width:160px;">
+  <a class="active" href="#">Dashboard</a><a href="#">Courses</a><a href="#">Settings</a>
+</aside>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.navbar { display:flex; align-items:center; gap:8px; background:#0f172a; color:#fff; padding:6px 10px; }
+.logo { font-weight:800; }
+.nav-links { display:flex; gap:10px; }
+.nav-links a { color:#cbd5e1; text-decoration:none; }
+.search { margin-left:auto; padding:3px 6px; border-radius:3px; border:none; }
+.sidebar2 { width:170px; background:#0f172a; padding:8px; }
+.sidebar2 a { display:block; color:#cbd5e1; padding:6px 8px; border-radius:4px; text-decoration:none; }
+.sidebar2 a.active { background:#1d78f0; color:#fff; }</script>
+  </section>
+  <section class="sc-section" id="sec-21">
+    <h2>21. Footer (Multi-Column) <span class="sc-pill p0">Layout</span></h2>
+    <div class="sc-desc">A three-column footer with a bottom copyright bar — common for the "footer" sub-question.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<footer class="footer" style="max-width:440px;">
+  <div class="f-col"><h4>About</h4><p style="font-size:8px;color:#cbd5e1;">Short text.</p></div>
+  <div class="f-col"><h4>Links</h4><a href="#">Home</a><a href="#">Docs</a></div>
+  <div class="f-col"><h4>Contact</h4><p style="font-size:8px;color:#cbd5e1;">mail@uiu.ac.bd</p></div>
+  <div class="f-bottom">© 2026 UIU</div>
+</footer>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.footer { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; background:#0f172a; color:#fff; padding:14px; }
+.f-col h4 { font-size:9px; margin-bottom:4px; }
+.f-col a { display:block; color:#cbd5e1; font-size:8px; padding:1px 0; }
+.f-bottom { grid-column:1/-1; border-top:1px solid #334155; margin-top:8px; padding-top:6px; font-size:7px; text-align:center; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-22">
+    <h2>22. Dropdown Menu (CSS :hover) <span class="sc-pill p0">Nav</span></h2>
+    <div class="sc-desc">A pure-CSS dropdown: the menu appears on hover (no JS). Hover "More" to reveal it.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<nav class="nav" style="border:1px solid #e2e8f0;padding:10px;border-radius:6px;">
+  <a href="#" style="color:#0f172a;text-decoration:none;font-size:9px;">Home</a>
+  <div class="dropdown"><a href="#">More ▾</a>
+    <div class="menu"><a href="#">Profile</a><a href="#">Settings</a></div>
+  </div>
+</nav>
+<p style="font-size:11px;color:#64748b;margin-top:8px;">Hover "More" to reveal the menu (pure CSS).</p>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.nav { display:flex; gap:14px; align-items:center; }
+.dropdown { position:relative; display:inline-block; }
+.dropdown > a { color:#0f172a; text-decoration:none; font-size:9px; }
+.dropdown .menu { display:none; position:absolute; top:100%; left:0; min-width:120px; background:#fff; border:1px solid #ddd; border-radius:4px; z-index:5; }
+.dropdown:hover .menu { display:block; }
+.dropdown .menu a { display:block; padding:5px 10px; font-size:8px; color:#0f172a; text-decoration:none; border-radius:3px; }
+.dropdown .menu a:hover { background:#eff6ff; }
+.dropdown:hover > a { color:#1d78f0; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-23">
+    <h2>23. Form Validation &amp; Input States <span class="sc-pill p0">P0 Forms</span></h2>
+    <div class="sc-desc">Visual states: valid (green), invalid (red), disabled (greyed), and required (red left border).</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<form class="form" style="max-width:300px;">
+  <div class="form-group"><label>Name</label><input class="input" type="text" placeholder="Name"></div>
+  <div class="form-group"><label>Email</label><input class="input valid" type="email" value="ok@uiu.ac.bd"></div>
+  <div class="form-group"><label>Phone</label><input class="input invalid" type="tel" value="12"></div>
+  <div class="form-group"><label>Code</label><input class="input" type="text" value="locked" disabled></div>
+  <div class="form-group"><label>Country</label><input class="input" type="text" required placeholder="required"></div>
+</form>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.input.valid { border-color:#22c55e; }
+.input.invalid { border-color:#ef4444; background:#fef2f2; }
+.input:disabled { opacity:.5; background:#f1f5f9; cursor:not-allowed; }
+.input:required { border-left:3px solid #ef4444; }
+.input:focus:invalid { box-shadow:0 0 0 2px rgba(239,68,68,.15); }
+.input:focus:valid { box-shadow:0 0 0 2px rgba(34,197,94,.15); }</script>
+  </section>
+
+  <section class="sc-section" id="sec-24">
+    <h2>24. Tabs (radio + label) <span class="sc-pill p0">Components</span></h2>
+    <div class="sc-desc">CSS-only tabs: hidden radios + labels; the checked radio reveals its panel via general-sibling selector.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="tabs">
+  <input type="radio" name="t" id="t1" checked><label for="t1">One</label>
+  <input type="radio" name="t" id="t2"><label for="t2">Two</label>
+  <input type="radio" name="t" id="t3"><label for="t3">Three</label>
+  <div class="panel" id="p1">Panel one content.</div>
+  <div class="panel" id="p2">Panel two content.</div>
+  <div class="panel" id="p3">Panel three content.</div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.tabs input { display:none; }
+.tabs label { padding:4px 8px; border-bottom:2px solid transparent; font-size:8px; cursor:pointer; display:inline-block; }
+.tabs .panel { display:none; padding:8px; font-size:8px; background:#fff; border:1px solid #e2e8f0; border-top:none; }
+#t1:checked ~ #p1, #t2:checked ~ #p2, #t3:checked ~ #p3 { display:block; }
+#t1:checked ~ label[for="t1"], #t2:checked ~ label[for="t2"], #t3:checked ~ label[for="t3"] { border-color:#1d78f0; color:#1d78f0; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-25">
+    <h2>25. Table Variants &amp; Data Display <span class="sc-pill p0">Table</span></h2>
+    <div class="sc-desc">The same table with modifier classes: striped + hover + bordered, dark header.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<table class="table striped hover bordered" style="max-width:380px;">
+  <thead><tr><th>Name</th><th>Role</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>Ayesha</td><td>Admin</td><td><span class="badge badge-green">Active</span></td></tr>
+    <tr><td>Rahim</td><td>User</td><td><span class="badge badge-red">Banned</span></td></tr>
+    <tr><td>Sara</td><td>User</td><td><span class="badge badge-blue">Pending</span></td></tr>
+  </tbody>
+</table>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.table { width:100%; border-collapse:collapse; font-size:8px; }
+.table th { background:#0f172a; color:#fff; padding:4px 6px; text-align:left; }
+.table td { padding:3px 6px; border-bottom:1px solid #e2e8f0; }
+.table.striped tbody tr:nth-child(even) { background:#f8fafc; }
+.table.hover tbody tr:hover { background:#eff6ff; }
+.table.bordered th, .table.bordered td { border:1px solid #cbd5e1; }</script>
+  </section>
+  <section class="sc-section" id="sec-26">
+    <h2>26. Sidebar Submenu &amp; Color Hex <span class="sc-pill p0">Nav/Quick</span></h2>
+    <div class="sc-desc">A collapsible-style sidebar with a parent + child submenu, plus the memorized hex swatch reference (red arrows in the exam point here).</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<aside class="sb" style="display:inline-block;">
+  <a class="sb-item active" href="#">Dashboard</a>
+  <div class="sb-group">
+    <a class="sb-parent" href="#">Courses ▾</a>
+    <a class="sb-child" href="#">Web Programming</a>
+    <a class="sb-child" href="#">Database</a>
+  </div>
+  <a class="sb-item" href="#">Settings</a>
+</aside>
+<div style="margin-top:12px;font-size:12px;">
+  <span class="sw" style="background:#1d78f0;"></span> #1d78f0 Primary
+  <span class="sw" style="background:#22c55e;"></span> #22c55e Success
+  <span class="sw" style="background:#ef4444;"></span> #ef4444 Danger
+  <span class="sw" style="background:#f97316;"></span> #f97316 Warn
+  <span class="sw" style="background:#781fa0;"></span> #781fa0 Purple
+  <span class="sw" style="background:#0f172a;"></span> #0f172a Ink
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.sb { width:160px; background:#0f172a; color:#fff; padding:10px; }
+.sb-item, .sb-parent { display:block; padding:6px 8px; color:#cbd5e1; text-decoration:none; border-radius:4px; }
+.sb-item.active, .sb-parent { background:#1d78f0; color:#fff; }
+.sb-child { display:block; padding:4px 8px 4px 22px; font-size:8px; color:#94a3b8; text-decoration:none; }
+.sw { display:inline-block; width:14px; height:14px; border-radius:3px; vertical-align:middle; margin:0 4px 0 8px; border:1px solid #cbd5e1; }
+/* blue #1d78f0 #2563eb | green #22c55e #10b981 | orange #f97316 #f78100 | red #ef4444 #e90606 | purple #781fa0 #6b63ff | gray #0f172a #64748b */</script>
+  </section>
+
+  <section class="sc-section" id="sec-27">
+    <h2>27. Login / Auth Card <span class="sc-pill p0">P0 Forms</span></h2>
+    <div class="sc-desc">A centered auth card with email/password inputs, a full-width login button, and a forgot-password link.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="auth-card">
+  <h2>Sign In</h2>
+  <form>
+    <input class="input" type="email" placeholder="Email">
+    <input class="input" type="password" placeholder="Password">
+    <button class="btn btn-primary btn-block">Login</button>
+    <a class="link" href="#" style="display:block;text-align:center;margin-top:6px;font-size:8px;">Forgot password?</a>
+  </form>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.auth-card { width:240px; margin:0 auto; padding:16px; border:1px solid #e2e8f0; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.08); background:#fff; }
+.auth-card h2 { font-size:13px; margin-bottom:10px; text-align:center; }
+.auth-card .input { width:100%; margin-bottom:8px; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-28">
+    <h2>28. Hover &amp; Transition Effects <span class="sc-pill p0">CSS</span></h2>
+    <div class="sc-desc">Micro-interactions: link color change, button lift, and card shadow growth on hover.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div style="display:flex;gap:14px;align-items:center;">
+  <a class="link" href="#">Hover me</a>
+  <button class="btn2">Button</button>
+  <div class="card2">Card</div>
+</div>
+<p style="font-size:11px;color:#64748b;margin-top:8px;">Hover each element to see the transitions.</p>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.link { color:#1d78f0; transition:color .2s; }
+.link:hover { color:#0f172a; text-decoration:underline; }
+.btn2 { padding:6px 12px; border:none; border-radius:4px; background:#1d78f0; color:#fff; cursor:pointer; transition:transform .15s, box-shadow .15s; }
+.btn2:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,.15); }
+.card2 { padding:14px; border:1px solid #e2e8f0; border-radius:6px; background:#fff; transition:box-shadow .2s; }
+.card2:hover { box-shadow:0 6px 16px rgba(0,0,0,.12); border-color:#1d78f0; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-30">
+    <h2>30. Card / Photo Gallery Grid <span class="sc-pill p0">Grid</span></h2>
+    <div class="sc-desc">A responsive auto-fit gallery using colored placeholder divs (no &lt;img&gt; allowed in the exam).</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="gallery" style="max-width:340px;">
+  <div class="ph" style="background:#1d78f0;"></div>
+  <div class="ph" style="background:#22c55e;"></div>
+  <div class="ph" style="background:#f97316;"></div>
+  <div class="ph" style="background:#781fa0;"></div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(70px,1fr)); gap:6px; }
+.ph { height:46px; border-radius:4px; }
+/* overlay caption: position:absolute inside .ph(position:relative) */</script>
+  </section>
+
+  <section class="sc-section" id="sec-31">
+    <h2>31. Tooltip (CSS only) <span class="sc-pill p0">CSS</span></h2>
+    <div class="sc-desc">A tooltip bubble shown on hover with a dotted underline — pure CSS via :hover.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<span class="tip">Hover me
+  <span class="bubble">Helpful tooltip text</span>
+</span>
+<p style="font-size:11px;color:#64748b;margin-top:16px;">(Tooltip appears above on hover.)</p>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.tip { position:relative; border-bottom:1px dotted #1d78f0; cursor:help; font-size:9px; }
+.bubble { display:none; position:absolute; bottom:120%; left:0; background:#0f172a; color:#fff; padding:3px 6px; border-radius:3px; font-size:7px; white-space:nowrap; z-index:10; }
+.tip:hover .bubble { display:block; }</script>
+  </section>
+
+  <section class="sc-section" id="sec-A">
+    <h2>A. Gradient Event / Deadline Tiles <span class="sc-pill p0">P0 Sum25</span></h2>
+    <div class="sc-desc">Three vibrant gradient tiles (CSS variables drive the gradient) — a Summer'25 Q1 pattern.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="grid-3" style="max-width:440px;">
+  <div class="tile-grad" style="--g1:#f97316;--g2:#ef4444;"><small>Mon 9:00AM</small><strong>Web Programming</strong><span class="badge badge-blue">Lab</span></div>
+  <div class="tile-grad" style="--g1:#2563eb;--g2:#eab308;"><small>Tue 2:00PM</small><strong>Database</strong></div>
+  <div class="tile-grad" style="--g1:#06b6d4;--g2:#22c55e;"><small>Wed Deadline</small><strong>Assignment</strong></div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.tile-grad { background:linear-gradient(135deg,var(--g1),var(--g2)); color:#fff; padding:8px 10px; border-radius:6px; display:flex; flex-direction:column; gap:3px; }
+/* Orange→Red: --g1:#f97316;--g2:#ef4444 | Blue→Yellow: --g1:#2563eb;--g2:#eab308 | Cyan→Green: --g1:#06b6d4;--g2:#22c55e */</script>
+  </section>
+
+  <section class="sc-section" id="sec-B">
+    <h2>B. Testimonial Split Panel <span class="sc-pill p0">P0 Spr25</span></h2>
+    <div class="sc-desc">A split layout: a solid teal testimonial panel (quote + avatar author) beside a card/form column.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="split" style="max-width:500px;border-radius:8px;overflow:hidden;">
+  <div class="col testimonial-panel">
+    <p class="quote">“UIU shaped my future.”</p>
+    <div class="t-author"><div class="avatar">AR</div><div><strong style="font-size:9px;">Ashraf R.</strong><p style="font-size:8px;">Student, CSE</p></div></div>
+  </div>
+  <div class="col card" style="padding:20px;"><p style="font-size:9px;color:#64748b;">Sign-in form area</p></div>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.split { display:flex; gap:12px; }
+.split > div { flex:1; }
+.testimonial-panel { background:#0976a7; color:#fff; padding:20px; display:flex; flex-direction:column; justify-content:center; }
+.quote { font-size:13px; font-style:italic; margin-bottom:12px; line-height:1.5; }
+.t-author { display:flex; align-items:center; gap:8px; }
+.testimonial-panel .avatar { border:2px solid rgba(255,255,255,0.4); }</script>
+  </section>
+
+  <section class="sc-section" id="sec-C">
+    <h2>C. Colored Pill-List Rows <span class="sc-pill p0">P0 Spr26S2</span></h2>
+    <div class="sc-desc">A Drive-style shared-folders list: pastel rows with a label on the left and a tag on the right, plus a dashed "add" button.</div>
+    <div class="sc-preview"></div>
+    <div class="sc-toggle">Show code ▾</div>
+    <div class="sc-code"><div class="lbl">HTML</div><pre class="src-html"></pre><div class="lbl">CSS</div><pre class="src-css"></pre></div>
+    <template class="tpl-html">
+<div class="pill-list" style="max-width:320px;">
+  <div class="prow" style="background:#c8f2ef;"><span>● Keynote files</span><span class="tag">Team</span></div>
+  <div class="prow" style="background:#ddd8ff;"><span>● Design assets</span><span class="tag">Private</span></div>
+  <div class="prow" style="background:#f8d9dd;"><span>● Project docs</span><span class="tag">Shared</span></div>
+  <button class="btn btn-dashed">+ Add more</button>
+</div>
+    </template>
+    <script type="text/plain" class="tpl-css">
+.prow { display:flex; justify-content:space-between; align-items:center; padding:5px 8px; border-radius:6px; margin-bottom:4px; font-size:8.5px; }
+/* Mint #c8f2ef | Lavender #ddd8ff | Pink #f8d9dd */
+.pill-list .btn-dashed { margin-top:4px; font-size:8px; }</script>
+  </section>
+
+</main>
+<script>
+(function(){
+  document.querySelectorAll('.sc-section').forEach(function(sec){
+    var tpl = sec.querySelector('.tpl-html');
+    var css = sec.querySelector('.tpl-css');
+    if(tpl){
+      sec.querySelector('.sc-preview').appendChild(tpl.content.cloneNode(true));
+      sec.querySelector('.src-html').textContent = tpl.innerHTML.trim();
+    }
+    if(css){
+      sec.querySelector('.src-css').textContent = css.textContent.trim();
+    }
+  });
+  document.querySelectorAll('.sc-toggle').forEach(function(t){
+    t.addEventListener('click', function(){
+      var code = t.parentElement.querySelector('.sc-code');
+      var open = code.classList.toggle('open');
+      t.textContent = open ? 'Hide code ▴' : 'Show code ▾';
+    });
+  });
+  var ea = document.getElementById('expandAll');
+  if(ea){ ea.addEventListener('click', function(){
+    var anyClosed = false;
+    document.querySelectorAll('.sc-code').forEach(function(c){ if(!c.classList.contains('open')) anyClosed=true; });
+    document.querySelectorAll('.sc-code').forEach(function(c){ c.classList.toggle('open', anyClosed); });
+    document.querySelectorAll('.sc-toggle').forEach(function(t){ t.textContent = anyClosed ? 'Hide code ▴' : 'Show code ▾'; });
+    ea.textContent = anyClosed ? 'Collapse all code' : 'Expand all code';
+  }); }
+  var search = document.querySelector('.sc-search');
+  search.addEventListener('input', function(e){
+    var q = e.target.value.toLowerCase();
+    document.querySelectorAll('.sc-nav a[data-sec]').forEach(function(a){
+      a.style.display = a.textContent.toLowerCase().indexOf(q) > -1 ? 'block' : 'none';
+    });
+  });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        document.querySelectorAll('.sc-nav a').forEach(function(a){ a.classList.remove('active'); });
+        var a = document.querySelector('.sc-nav a[href="#'+en.target.id+'"]');
+        if(a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-10% 0px -80% 0px' });
+  document.querySelectorAll('.sc-section').forEach(function(s){ obs.observe(s); });
+})();
+</script>
+</body>
+</html>
