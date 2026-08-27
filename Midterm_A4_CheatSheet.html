@@ -36,7 +36,7 @@
         background: #fff;
         color: #0f172a;
         font-size: 8.5pt;
-        line-height: 0.95;
+        line-height: 0.93;
         width: 208mm;
         margin: 0 auto;
       }
@@ -126,15 +126,15 @@
         background: #b91c1c;
       }
       .box-content {
-        padding: 1.5px 3px;
+        padding: 1px 2.5px;
       }
 
       /* Code Snippet - 7pt body optimized */
       pre {
         font-family:
           "SFMono-Regular", Consolas, "Liberation Mono", Courier, monospace;
-        font-size: 5.6pt;
-        line-height: 0.9;
+        font-size: 5.5pt;
+        line-height: 0.88;
         background: #f8fafc;
         padding: 0.5px 1.5px;
         border-radius: 2px;
@@ -142,7 +142,7 @@
         white-space: pre-wrap;
         overflow-wrap: anywhere;
         word-break: break-word;
-        margin: 1.3px 0;
+        margin: 1px 0;
         color: #0f172a;
       }
       /* Highlight lanes: HTML=blue, CSS=amber - visible in color & B&W (gray contrast) */
@@ -475,6 +475,26 @@
 <span class='hl-sel'>.card2:hover </span>{ <span class='hl-prop'>box-shadow</span>:<span class='hl-val'>0 6px 16px rgba(0,0,0,.12)</span>; <span class='hl-prop'>border-color</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; }</pre>
           </div>
         </div>
+<div class="box p0">
+          <div class="box-title">20. Navbar &amp; Sidebar Variants <span class="pill p0">Nav</span></div>
+          <div class="box-content">
+            <pre class="html-code"><span class="tag-html">&lt;!-- Top navbar with search and avatar --&gt;</span>
+&lt;<span class='hl-tag'>nav</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"navbar"</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"logo"</span>&gt;UIU&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"nav-links"</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Home&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Courses&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>input</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"search"</span> <span class='hl-attr'>placeholder</span>=<span class='hl-str'>"Search"</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"avatar sm"</span>&gt;AR&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>nav</span>&gt;
+<span class="tag-html">&lt;!-- Dark vertical sidebar --&gt;</span>
+&lt;<span class='hl-tag'>aside</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sidebar2"</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"active"</span>&gt;Dashboard&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Courses&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Settings&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>aside</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.navbar </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 10px</span>; }
+<span class='hl-sel'>.logo </span>{ <span class='hl-prop'>font-weight</span>:<span class='hl-val'>800</span>; }
+<span class='hl-sel'>.nav-links </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>10px</span>; }
+<span class='hl-sel'>.nav-links a </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; }
+<span class='hl-sel'>.search </span>{ <span class='hl-prop'>margin-left</span>:<span class='hl-val'>auto</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>3px 6px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>none</span>; }
+<span class='hl-sel'>.sidebar2 </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>170px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>.sidebar2 a </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 8px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; }
+<span class='hl-sel'>.sidebar2 a.active </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }</pre>
+          </div>
+        </div>
         </div>
         <div class="sheet-col">
 <div class="box p0">
@@ -503,7 +523,8 @@
 <span class='hl-sel'>.stat-card </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>7px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>flex-direction</span>:<span class='hl-val'>column</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>2px</span>; }
 <span class='hl-sel'>.stat-num </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
 <span class='hl-sel'>.stat-pill </span>{ <span class='hl-prop'>align-self</span>:<span class='hl-val'>flex-start</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>6.5px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'>rgba(255,255,255,0.25)</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>1px 4px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-weight</span>:<span class='hl-val'>bold</span>; }
-<span class="cm">/* KPI: Blue#1975d1 Green#378b3b Orange#f78100 Purple#781fa0 */</span>
+<span class="cm">.kpi-blue{background:#1975d1} .kpi-green{background:#378b3b} .kpi-orange{background:#f78100} .kpi-purple{background:#781fa0} .kpi-teal{background:#0976a7}
+<span class="cm">/* KPI: Blue#1975d1 Green#378b3b Orange#f78100 Purple#781fa0 Teal#0976a7 */</span></span>
 <span class="cm">/* File Card: .file-card { background:#fff; border-radius:4px; padding:8px; text-align:center; } */</span></pre>
           </div>
         </div>
@@ -702,48 +723,92 @@
 <span class='hl-sel'>.tip:hover .bubble </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; }</pre>
           </div>
         </div>
-
+<div class="box p0">
+          <div class="box-title">19. Tables &amp; Data Display <span class="pill p0">Table</span></div>
+          <div class="box-content">
+            <pre class="html-code">&lt;<span class='hl-tag'>table</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"table"</span>&gt;
+  &lt;<span class='hl-tag'>thead</span>&gt;&lt;<span class='hl-tag'>tr</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;Name&lt;/<span class='hl-tag'>th</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;Status&lt;/<span class='hl-tag'>th</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;&lt;/<span class='hl-tag'>th</span>&gt;&lt;/<span class='hl-tag'>tr</span>&gt;&lt;/<span class='hl-tag'>thead</span>&gt;
+  &lt;<span class='hl-tag'>tbody</span>&gt;
+    &lt;<span class='hl-tag'>tr</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cell"</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"avatar sm"</span>&gt;AK&lt;/<span class='hl-tag'>span</span>&gt; Ayesha&lt;/<span class='hl-tag'>div</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"badge badge-green"</span>&gt;Active&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Edit&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;/<span class='hl-tag'>tr</span>&gt;
+    &lt;<span class='hl-tag'>tr</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cell"</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"avatar sm"</span>&gt;RM&lt;/<span class='hl-tag'>span</span>&gt; Rahim&lt;/<span class='hl-tag'>div</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"badge badge-red"</span>&gt;Banned&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Edit&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;/<span class='hl-tag'>tr</span>&gt;
+  &lt;/<span class='hl-tag'>tbody</span>&gt;
+&lt;/<span class='hl-tag'>table</span>&gt;</pre>
+            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.table </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>border-collapse</span>:<span class='hl-val'>collapse</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>.table th </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#a05a2c</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>4px 6px</span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>left</span>; }
+<span class='hl-sel'>.table td </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>3px 6px</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>1px solid <span class='hl-num'>#e2e8f0</span></span>; }
+<span class='hl-sel'>.table tbody tr:nth-child(even) </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f8fafc</span></span>; }
+<span class='hl-sel'>.table tbody tr:hover </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#eff6ff</span></span>; }
+<span class='hl-sel'>.avatar.sm </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>18px</span>; <span class='hl-prop'>height</span>:<span class='hl-val'>18px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
+<span class='hl-sel'>.cell </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; }</pre>
+          </div>
+        </div>
         </div>
         <div class="sheet-col">
 <div class="box p0">
-          <div class="box-title">
-            4. Split 2-Col &amp; Canvas <span class="pill p0">P0 Canvas</span>
-          </div>
-          <div class="box-content">
-            <pre
-              class="html-code"
-            ><span class="tag-html">&lt;!-- 2-Column Split Hero --&gt;</span>
-&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"split"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#eff6fe;padding:12px;border-radius:6px;"</span>&gt;
-  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col"</span>&gt;
-    &lt;<span class='hl-tag'>h2</span>&gt;Launch Faster.&lt;/<span class='hl-tag'>h2</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;Modern teams tool.&lt;/<span class='hl-tag'>p</span>&gt;
-    &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-green"</span>&gt;Learn More&lt;/<span class='hl-tag'>button</span>&gt;
+<div class="box-title">A. Gradient Event / Deadline Tiles <span class="pill p0">P0 Sum25</span></div>
+<div class="box-content">
+<pre class="html-code"><span class="tag-html">&lt;!-- Summer25 Q1 - 3 vibrant gradient tiles in a row --&gt;</span>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-3"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tile-grad"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"--g1:#f97316;--g2:#ef4444"</span>&gt;
+    &lt;<span class='hl-tag'>small</span>&gt;Mon 9:00AM&lt;/<span class='hl-tag'>small</span>&gt;&lt;<span class='hl-tag'>strong</span>&gt;Web Programming&lt;/<span class='hl-tag'>strong</span>&gt;
+    &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"badge badge-blue"</span>&gt;Lab&lt;/<span class='hl-tag'>span</span>&gt;
   &lt;/<span class='hl-tag'>div</span>&gt;
-  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;<span class='hl-cmt2'>&lt;!-- Right Form / Grid Card --&gt;</span>&lt;/<span class='hl-tag'>div</span>&gt;
-&lt;/<span class='hl-tag'>div</span>&gt;
-<span class="tag-html">&lt;!-- Full-Bleed Canvas --&gt;</span>
-&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"canvas"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#c85a32;"</span>&gt;
-  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"card card-banner"</span>&gt;&lt;<span class='hl-tag'>h1</span>&gt;Book Hub&lt;/<span class='hl-tag'>h1</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
-  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"split"</span>&gt;
-    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;
-      <span class="cm">&lt;!-- 2x2 Subgrid inside card --&gt;</span>
-      &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"grid-2"</span>&gt;
-        &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sub-box"</span>&gt;CSE Books&lt;/<span class='hl-tag'>div</span>&gt;
-        &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sub-box"</span>&gt;BBA Books&lt;/<span class='hl-tag'>div</span>&gt;
-      &lt;/<span class='hl-tag'>div</span>&gt;
-    &lt;/<span class='hl-tag'>div</span>&gt;
-    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;<span class='hl-cmt2'>&lt;!-- Form --&gt;</span>&lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tile-grad"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"--g1:#2563eb;--g2:#eab308"</span>&gt;
+    &lt;<span class='hl-tag'>small</span>&gt;Tue 2:00PM&lt;/<span class='hl-tag'>small</span>&gt;&lt;<span class='hl-tag'>strong</span>&gt;Database&lt;/<span class='hl-tag'>strong</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tile-grad"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"--g1:#06b6d4;--g2:#22c55e"</span>&gt;
+    &lt;<span class='hl-tag'>small</span>&gt;Wed Deadline&lt;/<span class='hl-tag'>small</span>&gt;&lt;<span class='hl-tag'>strong</span>&gt;Assignment&lt;/<span class='hl-tag'>strong</span>&gt;
   &lt;/<span class='hl-tag'>div</span>&gt;
 &lt;/<span class='hl-tag'>div</span>&gt;</pre>
-            <pre
-              class="css-code"
-            ><span class='hl-sel'><span class="tag-css">/* style.css */</span>
-.split </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>10px</span>; }
-<span class='hl-sel'>.split .col </span>{ <span class='hl-prop'>flex</span>:<span class='hl-val'>1</span>; }
-<span class='hl-sel'>.split-46 .col-left </span>{ <span class='hl-prop'>flex</span>:<span class='hl-val'>0.4</span>; } .split-46 .col-right { <span class='hl-prop'>flex</span>:<span class='hl-val'>0.6</span>; }
-<span class='hl-sel'>.canvas </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>14px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>6px</span>; }
-<span class='hl-sel'>.sub-box </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#fffbeb</span></span>; <span class='hl-prop'>border</span>:<span class='hl-val'>1px solid <span class='hl-num'>#eb6623</span></span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px</span>; }</pre>
-          </div>
-        </div>
+<pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.tile-grad </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'>linear-gradient(135deg,var(--g1),var(--g2))</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px 10px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>6px</span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>flex-direction</span>:<span class='hl-val'>column</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>3px</span>; }
+<span class="cm">/* Orange→Red: --g1:#f97316;--g2:#ef4444 | Blue→Yellow: --g1:#2563eb;--g2:#eab308 | Cyan→Green: --g1:#06b6d4;--g2:#22c55e */</span></pre>
+</div>
+</div>
+<div class="box p0">
+<div class="box-title">B. Testimonial Split Panel <span class="pill p0">P0 Spr25</span></div>
+<div class="box-content">
+<pre class="html-code"><span class="tag-html">&lt;!-- Spring25 Q2 - Left solid teal panel + right form --&gt;</span>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"split"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col testimonial-panel"</span>&gt;
+    &lt;<span class='hl-tag'>p</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"quote"</span>&gt;&amp;ldquo;UIU shaped my future.&amp;rdquo;&lt;/<span class='hl-tag'>p</span>&gt;
+    &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"t-author"</span>&gt;
+      &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"avatar"</span>&gt;AR&lt;/<span class='hl-tag'>div</span>&gt;
+      &lt;<span class='hl-tag'>div</span>&gt;&lt;<span class='hl-tag'>strong</span>&gt;Ashraf R.&lt;/<span class='hl-tag'>strong</span>&gt;&lt;<span class='hl-tag'>p</span>&gt;Student, CSE&lt;/<span class='hl-tag'>p</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
+    &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"col card"</span>&gt;<span class='hl-cmt2'>&lt;!-- Sign-in form goes here --&gt;</span>&lt;/<span class='hl-tag'>div</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+<pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.testimonial-panel </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0976a7</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>20px</span>; <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>flex-direction</span>:<span class='hl-val'>column</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>center</span>; }
+<span class='hl-sel'>.quote </span>{ <span class='hl-prop'>font-size</span>:<span class='hl-val'>13px</span>; <span class='hl-prop'>font-style</span>:<span class='hl-val'>italic</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>12px</span>; <span class='hl-prop'>line-height</span>:<span class='hl-val'>1.5</span>; }
+<span class='hl-sel'>.t-author </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>8px</span>; }
+<span class="cm">/* avatar: border: 2px solid rgba(255,255,255,0.4) on teal bg */</span></pre>
+</div>
+</div>
+<div class="box p0">
+<div class="box-title">C. Colored Pill-List Rows <span class="pill p0">P0 Spr26S2</span></div>
+<div class="box-content">
+<pre class="html-code"><span class="tag-html">&lt;!-- Spring26 S2 Q1 - Drive App shared folders list --&gt;</span>
+&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"pill-list"</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"prow"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#c8f2ef"</span>&gt;
+    &lt;<span class='hl-tag'>span</span>&gt;&#128196; Keynote files&lt;/<span class='hl-tag'>span</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tag"</span>&gt;Team&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"prow"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#ddd8ff"</span>&gt;
+    &lt;<span class='hl-tag'>span</span>&gt;&#128193; Design assets&lt;/<span class='hl-tag'>span</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tag"</span>&gt;Private&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"prow"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#f8d9dd"</span>&gt;
+    &lt;<span class='hl-tag'>span</span>&gt;&#128190; Project docs&lt;/<span class='hl-tag'>span</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"tag"</span>&gt;Shared&lt;/<span class='hl-tag'>span</span>&gt;
+  &lt;/<span class='hl-tag'>div</span>&gt;
+  &lt;<span class='hl-tag'>button</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"btn btn-dashed"</span>&gt;+ Add more&lt;/<span class='hl-tag'>button</span>&gt;
+&lt;/<span class='hl-tag'>div</span>&gt;</pre>
+<pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
+.prow </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>justify-content</span>:<span class='hl-val'>space-between</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>5px 8px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>6px</span>; <span class='hl-prop'>margin-bottom</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8.5px</span>; }
+<span class="cm">/* Mint #c8f2ef | Lavender #ddd8ff | Pink #f8d9dd */</span>
+<span class='hl-sel'>.pill-list .btn-dashed </span>{ <span class='hl-prop'>margin-top</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }</pre>
+</div>
+</div>
 <div class="box">
           <div class="box-title">
             9. Button Styles &amp; Banner/Footer <span class="pill">UI</span>
@@ -833,46 +898,6 @@
           </div>
         </div>
 <div class="box p0">
-          <div class="box-title">19. Tables &amp; Data Display <span class="pill p0">Table</span></div>
-          <div class="box-content">
-            <pre class="html-code">&lt;<span class='hl-tag'>table</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"table"</span>&gt;
-  &lt;<span class='hl-tag'>thead</span>&gt;&lt;<span class='hl-tag'>tr</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;Name&lt;/<span class='hl-tag'>th</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;Status&lt;/<span class='hl-tag'>th</span>&gt;&lt;<span class='hl-tag'>th</span>&gt;&lt;/<span class='hl-tag'>th</span>&gt;&lt;/<span class='hl-tag'>tr</span>&gt;&lt;/<span class='hl-tag'>thead</span>&gt;
-  &lt;<span class='hl-tag'>tbody</span>&gt;
-    &lt;<span class='hl-tag'>tr</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cell"</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"avatar sm"</span>&gt;AK&lt;/<span class='hl-tag'>span</span>&gt; Ayesha&lt;/<span class='hl-tag'>div</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"badge badge-green"</span>&gt;Active&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Edit&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;/<span class='hl-tag'>tr</span>&gt;
-    &lt;<span class='hl-tag'>tr</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"cell"</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"avatar sm"</span>&gt;RM&lt;/<span class='hl-tag'>span</span>&gt; Rahim&lt;/<span class='hl-tag'>div</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"badge badge-red"</span>&gt;Banned&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>td</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Edit&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>td</span>&gt;&lt;/<span class='hl-tag'>tr</span>&gt;
-  &lt;/<span class='hl-tag'>tbody</span>&gt;
-&lt;/<span class='hl-tag'>table</span>&gt;</pre>
-            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
-.table </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>100%</span>; <span class='hl-prop'>border-collapse</span>:<span class='hl-val'>collapse</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
-<span class='hl-sel'>.table th </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#a05a2c</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>4px 6px</span>; <span class='hl-prop'>text-align</span>:<span class='hl-val'>left</span>; }
-<span class='hl-sel'>.table td </span>{ <span class='hl-prop'>padding</span>:<span class='hl-val'>3px 6px</span>; <span class='hl-prop'>border-bottom</span>:<span class='hl-val'>1px solid <span class='hl-num'>#e2e8f0</span></span>; }
-<span class='hl-sel'>.table tbody tr:nth-child(even) </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#f8fafc</span></span>; }
-<span class='hl-sel'>.table tbody tr:hover </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#eff6ff</span></span>; }
-<span class='hl-sel'>.avatar.sm </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>18px</span>; <span class='hl-prop'>height</span>:<span class='hl-val'>18px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; }
-<span class='hl-sel'>.cell </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>5px</span>; }</pre>
-          </div>
-        </div>
-<div class="box p0">
-          <div class="box-title">20. Navbar &amp; Sidebar Variants <span class="pill p0">Nav</span></div>
-          <div class="box-content">
-            <pre class="html-code"><span class="tag-html">&lt;!-- Top navbar with search and avatar --&gt;</span>
-&lt;<span class='hl-tag'>nav</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"navbar"</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"logo"</span>&gt;UIU&lt;/<span class='hl-tag'>span</span>&gt;
-  &lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"nav-links"</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Home&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Courses&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>div</span>&gt;
-  &lt;<span class='hl-tag'>input</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"search"</span> <span class='hl-attr'>placeholder</span>=<span class='hl-str'>"Search"</span>&gt;&lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"avatar sm"</span>&gt;AR&lt;/<span class='hl-tag'>span</span>&gt;&lt;/<span class='hl-tag'>nav</span>&gt;
-<span class="tag-html">&lt;!-- Dark vertical sidebar --&gt;</span>
-&lt;<span class='hl-tag'>aside</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sidebar2"</span>&gt;&lt;<span class='hl-tag'>a</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"active"</span>&gt;Dashboard&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Courses&lt;/<span class='hl-tag'>a</span>&gt;&lt;<span class='hl-tag'>a</span>&gt;Settings&lt;/<span class='hl-tag'>a</span>&gt;&lt;/<span class='hl-tag'>aside</span>&gt;</pre>
-            <pre class="css-code"><span class='hl-sel'><span class="tag-css">/* style.css */</span>
-.navbar </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>align-items</span>:<span class='hl-val'>center</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 10px</span>; }
-<span class='hl-sel'>.logo </span>{ <span class='hl-prop'>font-weight</span>:<span class='hl-val'>800</span>; }
-<span class='hl-sel'>.nav-links </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>flex</span>; <span class='hl-prop'>gap</span>:<span class='hl-val'>10px</span>; }
-<span class='hl-sel'>.nav-links a </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; }
-<span class='hl-sel'>.search </span>{ <span class='hl-prop'>margin-left</span>:<span class='hl-val'>auto</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>3px 6px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>3px</span>; <span class='hl-prop'>border</span>:<span class='hl-val'>none</span>; }
-<span class='hl-sel'>.sidebar2 </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>170px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>8px</span>; }
-<span class='hl-sel'>.sidebar2 a </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 8px</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; }
-<span class='hl-sel'>.sidebar2 a.active </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }</pre>
-          </div>
-        </div>
-<div class="box p0">
           <div class="box-title">23. Form Validation &amp; Input States <span class="pill p0">P0 Forms</span></div>
           <div class="box-content">
             <pre class="html-code">&lt;<span class='hl-tag'>form</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"form"</span>&gt;
@@ -929,7 +954,7 @@
           </div>
         </div>
 <div class="box p0">
-          <div class="box-title">26. Sidebar Submenu / Nested Nav <span class="pill p0">Nav</span></div>
+          <div class="box-title">26. Sidebar Submenu &amp; Color Hex <span class="pill p0">Nav/Quick</span></div>
           <div class="box-content">
             <pre class="html-code">&lt;<span class='hl-tag'>aside</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sb"</span>&gt;
   &lt;<span class='hl-tag'>a</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sb-item active"</span>&gt;Dashboard&lt;/<span class='hl-tag'>a</span>&gt;
@@ -944,15 +969,7 @@
 .sb </span>{ <span class='hl-prop'>width</span>:<span class='hl-val'>160px</span>; <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#0f172a</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>10px</span>; }
 <span class='hl-sel'>.sb-item, .sb-parent </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>6px 8px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#cbd5e1</span></span>; <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; <span class='hl-prop'>border-radius</span>:<span class='hl-val'>4px</span>; }
 <span class='hl-sel'>.sb-item.active, .sb-parent </span>{ <span class='hl-prop'>background</span>:<span class='hl-val'><span class='hl-num'>#1d78f0</span></span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }
-<span class='hl-sel'>.sb-group </span>{ <span class='hl-prop'>margin</span>:<span class='hl-val'>2px 0</span>; }
 <span class='hl-sel'>.sb-child </span>{ <span class='hl-prop'>display</span>:<span class='hl-val'>block</span>; <span class='hl-prop'>padding</span>:<span class='hl-val'>4px 8px 4px 22px</span>; <span class='hl-prop'>font-size</span>:<span class='hl-val'>8px</span>; <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#94a3b8</span></span>; <span class='hl-prop'>text-decoration</span>:<span class='hl-val'>none</span>; }
-<span class='hl-sel'>.sb-child:hover </span>{ <span class='hl-prop'>color</span>:<span class='hl-val'><span class='hl-num'>#fff</span></span>; }</pre>
-          </div>
-        </div>
-<div class="box p0">
-          <div class="box-title">29. Color Hex Quick-Reference <span class="pill p0">Quick</span></div>
-          <div class="box-content">
-            <pre class="html-code">&lt;<span class='hl-tag'>div</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"swatches"</span>&gt;
   &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#1d78f0"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #1d78f0 Primary
   &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#22c55e"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #22c55e Success
   &lt;<span class='hl-tag'>span</span> <span class='hl-attr'>class</span>=<span class='hl-str'>"sw"</span> <span class='hl-attr'>style</span>=<span class='hl-str'>"background:#ef4444"</span>&gt;&lt;/<span class='hl-tag'>span</span>&gt; #ef4444 Danger
@@ -967,6 +984,8 @@
 <span class="cm">/* orange #f97316 #f78100 | red #ef4444 #e90606 */</span>
 <span class="cm">/* purple #781fa0 #6b63ff | gray #0f172a #64748b */</span></pre>
           </div>
+        
+
         </div>
         </div>
       </div>

@@ -639,12 +639,107 @@ a {
 
 ---
 
-## 12. 45-Min Exam Speedrun Strategy
+## 12. Gradient Event / Deadline Tiles (Summer 2025 Q1)
+```html
+<div class="grid-3">
+  <div class="tile-grad" style="--g1:#f97316;--g2:#ef4444">
+    <small>Mon 9:00AM</small><strong>Web Programming</strong>
+    <span class="badge badge-blue">Lab</span>
+  </div>
+  <div class="tile-grad" style="--g1:#2563eb;--g2:#eab308">
+    <small>Tue 2:00PM</small><strong>Database</strong>
+  </div>
+  <div class="tile-grad" style="--g1:#06b6d4;--g2:#22c55e">
+    <small>Wed Deadline</small><strong>Assignment</strong>
+  </div>
+</div>
 ```
-1. Read Question & Identify Archetype (Sidebar / Split / Filter)   --> 1 min
-2. Link style.css, Paste Reset & Layout Engine                      --> 2 min
-3. Assemble Semantic HTML Structure using Predefined Class Names   --> 20 min
-4. Apply Red-Arrow Hex Codes (via inline style or helper class)    --> 12 min
-5. Add Buttons, Badges, Progress Bars & Micro-Widgets             --> 5 min
-6. Visual Comparison with Exam Paper, Tune Padding & Gap           --> 5 min
+```css
+/* style.css */
+.tile-grad {
+  background: linear-gradient(135deg, var(--g1), var(--g2));
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+/* Orange→Red: --g1:#f97316;--g2:#ef4444 | Blue→Yellow: --g1:#2563eb;--g2:#eab308 | Cyan→Green: --g1:#06b6d4;--g2:#22c55e */
 ```
+
+---
+
+## 13. Testimonial Split Panel (Spring 2025 Q2)
+```html
+<div class="split">
+  <div class="col testimonial-panel">
+    <p class="quote">&ldquo;UIU shaped my future.&rdquo;</p>
+    <div class="t-author">
+      <div class="avatar">AR</div>
+      <div><strong>Ashraf R.</strong><p>Student, CSE</p></div>
+    </div>
+  </div>
+  <div class="col card">
+    <!-- Sign-in form goes here -->
+  </div>
+</div>
+```
+```css
+/* style.css */
+.testimonial-panel {
+  background: #0976a7;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.quote {
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.t-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+```
+
+---
+
+## 14. Colored Pill-List Rows (Spring 2026 S2 Q1 Drive App)
+```html
+<div class="pill-list">
+  <div class="prow" style="background:#c8f2ef">
+    <span>📄 Keynote files</span><span class="tag">Team</span>
+  </div>
+  <div class="prow" style="background:#ddd8ff">
+    <span>📁 Design assets</span><span class="tag">Private</span>
+  </div>
+  <div class="prow" style="background:#f8d9dd">
+    <span>💾 Project docs</span><span class="tag">Shared</span>
+  </div>
+  <button class="btn btn-dashed">+ Add more</button>
+</div>
+```
+```css
+/* style.css */
+.prow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  font-size: 8.5px;
+}
+/* Mint #c8f2ef | Lavender #ddd8ff | Pink #f8d9dd */
+.pill-list .btn-dashed {
+  margin-top: 4px;
+  font-size: 8px;
+}
+```
+
