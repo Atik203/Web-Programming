@@ -221,6 +221,65 @@ body {
   color: var(--ink);
 }
 
+/* ---- gradients ----
+   variable-based: recolor inline, e.g. style="--g1:#f00;--g2:#00f" */
+.bg-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--g1, var(--blue)),
+    var(--g2, #6b63ff)
+  );
+}
+.bg-gradient-blue {
+  background: linear-gradient(135deg, #1d78f0, #2563eb);
+}
+.bg-gradient-green {
+  background: linear-gradient(135deg, #22c55e, #10b981);
+}
+.bg-gradient-purple {
+  background: linear-gradient(135deg, #781fa0, #6b63ff);
+}
+.bg-gradient-sunset {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+}
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--g1, var(--blue)),
+    var(--g2, #6b63ff)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.btn-grad {
+  background: linear-gradient(135deg, var(--blue), #6b63ff);
+  color: #fff;
+  border: none;
+}
+
+/* gradient-filled radio (no JS) */
+.radio {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 9999px;
+  cursor: pointer;
+  position: relative;
+}
+.radio:checked {
+  background: linear-gradient(135deg, var(--blue), #6b63ff);
+  border-color: transparent;
+}
+.radio:checked::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 9999px;
+  background: #fff;
+}
+
 /* ============================================================
    COMPONENT PATTERNS — copy, rename, recolor as needed
    ============================================================ */
