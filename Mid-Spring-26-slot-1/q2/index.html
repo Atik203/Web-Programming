@@ -8,7 +8,86 @@
   </head>
   <body>
     <header>
-      <nav class="navbar"></nav>
+      <nav class="navbar">
+        <div class="logo">
+          UIU <span style="color: #9bb7dc">CareerHub</span>
+        </div>
+        <div>
+          <ul class="nav-links">
+            <li><a href="">Home</a></li>
+            <li><a href="">Jobs</a></li>
+            <li><a href="">Internships</a></li>
+            <li><a href="">Companies</a></li>
+            <li><button class="btn">+ Post a Job</button></li>
+          </ul>
+        </div>
+      </nav>
     </header>
+
+    <main>
+      <div class="layout">
+        <aside class="filter-sidebar">
+          <h3 style="margin-top: 20px">Filters</h3>
+          <div class="filter-group">
+            <h4>Job Type <span style="margin-left: 4rem">^</span></h4>
+
+            <label for="" class="filter-item">
+              <input type="checkbox" name="" id="" checked />
+              Full-Time
+            </label>
+            <label for="" class="filter-item">
+              <input type="checkbox" name="" id="" />
+              Part-Time
+            </label>
+            <label for="" class="filter-item">
+              <input type="checkbox" name="" id="" />
+              Internship
+            </label>
+            <label for="" class="filter-item">
+              <input type="checkbox" name="" id="" />
+              Remote
+            </label>
+          </div>
+          <div class="filter-group">
+            <h4>Department <span style="margin-left: 4rem">^</span></h4>
+            <label for="" class="filter-item">
+              <input type="checkbox" name="" id="" checked />
+              Software Engineering
+            </label>
+            <label for="" class="filter-item">
+              <input type="checkbox" name="" id="" />
+              Data Science
+            </label>
+            <label for="" class="filter-item">
+              <input type="checkbox" name="" id="" />
+              UI/UX Design
+            </label>
+            <label for="" class="filter-item">
+              <input type="checkbox" name="" id="" />
+              Networking
+            </label>
+          </div>
+          <div class="filter-group">
+            <h4>Experience <span style="margin-left: 4rem">^</span></h4>
+          </div>
+
+          <div class="filter-group">
+            <button style="width: 100%" class="btn">Apply Filters</button>
+          </div>
+        </aside>
+        <div class="main">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <h3>Available Positions</h3>
+            <h4>Showing 3 out 23 Jobs</h4>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
