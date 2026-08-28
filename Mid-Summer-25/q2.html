@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UIU Registration</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #f8fafc;
+        color: #0f172a;
+        padding: 24px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 16px;
+        list-style: none;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 24px;
+      }
+      .nav-links a {
+        color: #64748b;
+        text-decoration: none;
+        padding-bottom: 4px;
+      }
+      .nav-links a.active {
+        color: #1d78f0;
+        border-bottom: 2px solid #1d78f0;
+      }
+
+      .canvas {
+        max-width: 1000px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      /* Left Side Elements */
+      .pill-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 24px;
+      }
+      .pill-list div {
+        padding: 10px 14px;
+        background: #e2e8f0;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .pill-list div.active {
+        background: #1d78f0;
+        color: #fff;
+      }
+
+      .notice-card {
+        background: #fff3cd;
+        border-left: 4px solid #f59e0b;
+        padding: 16px;
+        border-radius: 4px;
+        margin-bottom: 24px;
+      }
+      .notice-card h4 {
+        color: #b45309;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+      .notice-card p {
+        font-size: 12px;
+        color: #78350f;
+        margin-bottom: 8px;
+      }
+      .notice-card a {
+        font-size: 12px;
+        color: #b45309;
+        font-weight: bold;
+      }
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        font-size: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+      .table th {
+        background: #0f172a;
+        color: #fff;
+        padding: 10px;
+        text-align: left;
+      }
+      .table td {
+        padding: 10px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      /* Right Side Form */
+      .form-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+      }
+      .form-card h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #0f172a;
+      }
+      .form-group {
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .form-group label {
+        font-size: 12px;
+        font-weight: bold;
+        color: #475569;
+      }
+      .input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        font-size: 13px;
+        outline: none;
+      }
+      .btn-block {
+        width: 100%;
+        background: #1d78f0;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .footer {
+        margin-top: auto;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 12px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <ul class="nav-links">
+        <li><a href="#" class="active">Dashboard</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Notices</a></li>
+        <li><a href="#">Results</a></li>
+      </ul>
+
+      <div class="split">
+        <div class="left-col">
+          <h3 style="margin-bottom: 12px; font-size: 16px">Semesters</h3>
+          <div class="pill-list">
+            <div class="active">Spring 2025</div>
+            <div>Fall 2024</div>
+            <div>Summer 2024</div>
+          </div>
+
+          <div class="notice-card">
+            <h4>Important Notice</h4>
+            <p>
+              Midterm exams will begin on April 10, 2025.<br />Students must
+              bring their ID cards and check the schedule posted on the portal.
+            </p>
+            <a href="#">View Details</a>
+          </div>
+
+          <h3 style="margin-bottom: 12px; font-size: 16px">
+            Course Registration
+          </h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Code</th>
+                <th>Credit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Web Programming</td>
+                <td>CSE201</td>
+                <td>3.0</td>
+              </tr>
+              <tr>
+                <td>Data Structures</td>
+                <td>CSE202</td>
+                <td>3.0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="right-col">
+          <div class="form-card">
+            <h3>Sign Up Form</h3>
+            <form>
+              <div class="form-group">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  class="input"
+                  placeholder="Enter full name"
+                />
+              </div>
+              <div class="form-group">
+                <label>Student ID</label>
+                <input
+                  type="text"
+                  class="input"
+                  placeholder="e.g.. 011233001"
+                />
+              </div>
+              <div class="form-group">
+                <label>UIU Email</label>
+                <input
+                  type="email"
+                  class="input"
+                  placeholder="name@students.uiu.ac.bd"
+                />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  class="input"
+                  placeholder="Enter password"
+                />
+              </div>
+              <button type="submit" class="btn-block">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      2025 United International University | Web Programming Midterm Makeup<br />
+      <a
+        href="#"
+        style="color: #1d78f0; text-decoration: none; margin-right: 8px"
+        >Login</a
+      >
+      <a href="#" style="color: #1d78f0; text-decoration: none">Sign Up</a>
+    </footer>
+  </body>
+</html>

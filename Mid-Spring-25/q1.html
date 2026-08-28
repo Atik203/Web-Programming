@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pricing Plans</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #eff1f3;
+        color: #000;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-text {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .header-text h1 {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        max-width: 1000px;
+        width: 100%;
+        margin-bottom: 50px;
+      }
+
+      /* Brutalist Card Design */
+      .card-brutal {
+        background: #fff;
+        border: 3px solid #000;
+        box-shadow: 6px 6px 0 #000;
+        padding: 24px 20px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .plan-name {
+        font-size: 13px;
+        font-weight: bold;
+      }
+      .plan-price {
+        font-size: 32px;
+        font-weight: 900;
+      }
+      .plan-price small {
+        font-size: 12px;
+        font-weight: normal;
+        color: #475569;
+      }
+
+      .btn {
+        padding: 12px;
+        border: 2px solid transparent;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #fff;
+        text-transform: uppercase;
+      }
+      .btn:hover {
+        opacity: 0.9;
+      }
+
+      /* Specific Colors from Exam Image */
+      .color-1 {
+        color: #4358b8;
+      }
+      .bg-1 {
+        background: #4358b8;
+      }
+
+      .color-2 {
+        color: #075627;
+      }
+      .bg-2 {
+        background: #075627;
+      }
+
+      .color-3 {
+        color: #d84400;
+      }
+      .bg-3 {
+        background: #1d78f0;
+      } /* Buy Domain button is blue */
+
+      .color-4 {
+        color: #1372aa;
+      }
+      .bg-4 {
+        background: #1d78f0;
+      }
+
+      .btn-blue {
+        background: #1d78f0;
+      } /* Standard blue button */
+      .btn-dark-blue {
+        background: #206fb4;
+      }
+
+      /* Bottom Section */
+      .bottom-section {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .bottom-section h2 {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 12px;
+      }
+      .bottom-section p {
+        font-size: 14px;
+        color: #475569;
+        margin-bottom: 20px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .link-blue {
+        color: #1d78f0;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-text">
+      <h1>Free Websites, Emails, Domains, Done Right!</h1>
+    </div>
+
+    <div class="grid-4">
+      <!-- Card 1 -->
+      <div class="card-brutal">
+        <div class="plan-name color-1">Free Website Builder</div>
+        <div class="plan-price">$0 <small>and up</small></div>
+        <div>
+          <button class="btn btn-blue" style="width: 100%">
+            START FOR FREE
+          </button>
+          <div style="font-size: 9px; color: #888; margin-top: 6px">
+            No Credit Card Required
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card-brutal">
+        <div class="plan-name color-2">Email@YourDomain</div>
+        <div class="plan-price">$1 <small>/ Email box</small></div>
+        <button class="btn btn-blue">GET EMAIL</button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card-brutal">
+        <div class="plan-name color-3">Domain</div>
+        <div class="plan-price">$0.01 <small>/ 1st Yr</small></div>
+        <button class="btn btn-blue">BUY DOMAIN</button>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card-brutal">
+        <div class="plan-name color-4">Online Store</div>
+        <div class="plan-price">$10 <small>/ month</small></div>
+        <button class="btn btn-blue">SELL PRODUCTS</button>
+      </div>
+    </div>
+
+    <div class="bottom-section">
+      <h2>Website Templates, Made Easy.</h2>
+      <p>
+        Explore responsive, stunning customizable website template designs
+        tailored to thrive in your industry.
+      </p>
+      <a href="#" class="link-blue">Create Your Website Now &gt;</a>
+    </div>
+  </body>
+</html>
