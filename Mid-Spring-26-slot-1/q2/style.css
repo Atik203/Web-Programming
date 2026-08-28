@@ -4,7 +4,85 @@
   box-sizing: content-box;
 }
 
+main {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+:root {
+  --primary: #205bcb;
+}
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.logo {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid black;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.btn {
+  padding: 8px 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.layout {
+  display: flex;
+  min-height: 90vh;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+.filter-sidebar {
+  margin-bottom: 12px;
+  background: hwb(0 100% 0%);
+  box-shadow: 8px lightgray;
+  width: 200px;
+}
+.filter-sidebar h4 {
+  font-size: normal;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+.filter-item {
+  display: flex;
+  align-content: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.filter-group {
+  margin-bottom: 1rem;
 }
