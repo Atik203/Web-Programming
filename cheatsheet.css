@@ -1,0 +1,450 @@
+:root {
+  --blue: #1d78f0;
+  --green: #22c55e;
+  --red: #ef4444;
+  --orange: #f97316;
+  --purple: #781fa0;
+  --ink: #0f172a;
+  --gray: #64748b;
+  --gray-200: #e2e8f0;
+  --gray-100: #f1f5f9;
+  --white: #fff;
+}
+
+/* ---- reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: system-ui, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--gray-100);
+  line-height: 1.4;
+}
+
+/* ---- display / flex ---- */
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.hidden {
+  display: none;
+}
+.flex-col {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-1 {
+  gap: 4px;
+}
+.gap-2 {
+  gap: 8px;
+}
+.gap-3 {
+  gap: 12px;
+}
+.gap-4 {
+  gap: 16px;
+}
+
+/* ---- grid ---- */
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+/* ---- sizing ---- */
+.w-full {
+  width: 100%;
+}
+.w-1-2 {
+  width: 50%;
+}
+.w-1-3 {
+  width: 33.33%;
+}
+.h-full {
+  height: 100%;
+}
+.max-w-md {
+  max-width: 28rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- spacing ---- */
+.p-1 {
+  padding: 4px;
+}
+.p-2 {
+  padding: 8px;
+}
+.p-3 {
+  padding: 12px;
+}
+.p-4 {
+  padding: 16px;
+}
+.px-4 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.py-2 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.m-2 {
+  margin: 8px;
+}
+.m-4 {
+  margin: 16px;
+}
+.mt-2 {
+  margin-top: 8px;
+}
+.mb-2 {
+  margin-bottom: 8px;
+}
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+/* ---- typography ---- */
+.text-xs {
+  font-size: 12px;
+}
+.text-sm {
+  font-size: 14px;
+}
+.text-base {
+  font-size: 16px;
+}
+.text-lg {
+  font-size: 18px;
+}
+.text-xl {
+  font-size: 22px;
+}
+.font-bold {
+  font-weight: 700;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* ---- borders / radius / shadow / position ---- */
+.rounded {
+  border-radius: 4px;
+}
+.rounded-lg {
+  border-radius: 8px;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.border {
+  border: 1px solid var(--gray-200);
+}
+.shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.shadow-md {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* ---- colors: exam supplies the hex, so just tokens + examples ----
+   add more in 1 line:  .bg-pink{background:var(--pink)}  .text-pink{color:var(--pink)}  */
+.bg-blue {
+  background: var(--blue);
+}
+.bg-white {
+  background: var(--white);
+}
+.text-white {
+  color: var(--white);
+}
+.text-ink {
+  color: var(--ink);
+}
+
+/* ============================================================
+   COMPONENT PATTERNS — copy, rename, recolor as needed
+   ============================================================ */
+
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background: var(--gray);
+  font-family: inherit;
+}
+.btn-primary {
+  background: var(--blue);
+}
+.btn-pill {
+  border-radius: 9999px;
+}
+.btn-block {
+  width: 100%;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* more: .btn-success{background:var(--green)} .btn-danger{background:var(--red)} */
+
+/* badges */
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+.badge-blue {
+  background: var(--blue);
+}
+/* more: .badge-green{background:var(--green)} .badge-red{background:var(--red)} */
+
+/* card */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 14px;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  background: #fff;
+  border-bottom: 1px solid var(--gray-200);
+}
+.nav-links {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links a.active {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* sidebar + submenu */
+.sidebar {
+  width: 180px;
+  background: var(--ink);
+  color: #fff;
+  padding: 14px;
+  border-radius: 8px;
+}
+.sb-item,
+.sb-parent {
+  display: block;
+  padding: 8px 10px;
+  color: #cbd5e1;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.sb-item.active,
+.sb-parent {
+  background: var(--blue);
+  color: #fff;
+}
+.sb-child {
+  display: block;
+  padding: 5px 10px 5px 24px;
+  font-size: 13px;
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+/* table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--gray-200);
+  text-align: left;
+}
+.table.striped tbody tr:nth-child(even) {
+  background: var(--gray-100);
+}
+
+/* form controls + validation colors */
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(29, 120, 240, 0.15);
+}
+.input:focus:valid {
+  border-color: var(--green);
+}
+.input:focus:invalid {
+  border-color: var(--red);
+}
+
+/* progress bar */
+.progress {
+  width: 100%;
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.progress > i {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+}
+.prog-1 > i {
+  width: 25%;
+}
+.prog-2 > i {
+  width: 50%;
+}
+.prog-3 > i {
+  width: 75%;
+}
+.prog-4 > i {
+  width: 100%;
+}
+
+/* dropdown (CSS :hover) */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown .menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  padding: 6px;
+  margin-top: 4px;
+  z-index: 5;
+}
+.dropdown:hover .menu {
+  display: block;
+}
+.dropdown .menu a {
+  display: block;
+  padding: 8px 12px;
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: 4px;
+}
+.dropdown .menu a:hover {
+  background: var(--gray-100);
+}
+
+/* tooltip (CSS :hover) */
+.tooltip {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted var(--gray);
+}
+.tooltip .tip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: #fff;
+  padding: 5px 9px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.tooltip:hover .tip {
+  visibility: visible;
+}

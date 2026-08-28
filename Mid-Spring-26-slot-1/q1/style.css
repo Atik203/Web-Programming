@@ -95,3 +95,19 @@ nav h2 {
   font-weight: bold;
   font-size: 2rem;
 }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+
+.form-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.form-group {
+}
