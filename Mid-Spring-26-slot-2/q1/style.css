@@ -1,0 +1,63 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background: #cfeef3;
+  padding: 8px;
+}
+
+:root {
+  --sidebar: #0d3e86;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  width: 200px;
+  background: var(--sidebar);
+  color: white;
+  border: none;
+  border-radius: 12px 0px;
+  padding: 1rem;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+.avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.menu {
+  list-style: none;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu li {
+  padding: 5px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.menu li.active {
+  background: rgba(255, 255, 255, 0.15);
+}
