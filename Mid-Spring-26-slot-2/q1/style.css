@@ -123,3 +123,31 @@ a {
   text-align: start;
   min-width: 154px;
 }
+
+.card1 {
+  padding: 2rem;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  text-align: start;
+  min-width: 154px;
+}
+
+.section-3 {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: space-evenly;
+}
+
+.prog-bar {
+  width: 100%;
+  height: 6px;
+  background: lightblue;
+  border-radius: 3px;
+  margin: 12px 0px;
+}
+.prog-fill {
+  height: 100%;
+  border-radius: 3px;
+}
