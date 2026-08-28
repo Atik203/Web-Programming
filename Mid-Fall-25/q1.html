@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ProConnect</title>
+    <style>
+      /* Global Reset from Cheatsheet */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #eceff4;
+        color: #0f172a;
+        padding: 24px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Top Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto 20px auto;
+        width: 100%;
+      }
+      .logo {
+        font-size: 22px;
+        font-weight: 800;
+        color: #3f46a4;
+      }
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .nav-links a {
+        color: #334155;
+        text-decoration: none;
+      }
+
+      /* Canvas / Split Hero */
+      .canvas {
+        background: #eff6fe;
+        border-radius: 12px;
+        padding: 40px;
+        max-width: 1100px;
+        margin: 0 auto;
+        width: 100%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      /* Left Column Content */
+      .hero-title {
+        font-size: 34px;
+        font-weight: 800;
+        color: #3f46a4;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+      .hero-subtitle {
+        font-size: 16px;
+        font-weight: bold;
+        color: #475569;
+        margin-bottom: 12px;
+      }
+      .hero-desc {
+        font-size: 13px;
+        color: #64748b;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      .feature-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #71adec;
+      }
+      .feature-icon {
+        width: 14px;
+        height: 14px;
+        background: #50ad50;
+        border-radius: 2px;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 12px;
+      }
+      .btn {
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+      }
+      .btn-green {
+        background: #50ad50;
+        color: #fff;
+      }
+      .btn-outline-navy {
+        background: transparent;
+        border: 1.5px solid #3f46a4;
+        color: #3f46a4;
+      }
+
+      /* Right Column Form Card */
+      .form-card {
+        background: #fefefe;
+        padding: 30px;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      }
+      .form-card h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #3f46a4;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .form-group label {
+        font-size: 12px;
+        font-weight: bold;
+        color: #475569;
+      }
+      .input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        font-size: 13px;
+        outline: none;
+      }
+
+      .filter-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: #475569;
+        margin: 16px 0;
+        cursor: pointer;
+      }
+      .btn-primary-navy {
+        width: 100%;
+        background: #3f46a4;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .link-text {
+        text-align: center;
+        margin-top: 14px;
+        font-size: 12px;
+        color: #64748b;
+      }
+      .link-text a {
+        color: #6fb570;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">ProConnect</div>
+      <ul class="nav-links">
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </nav>
+
+    <div class="canvas">
+      <div class="split">
+        <!-- Left Hero Column -->
+        <div>
+          <h1 class="hero-title">Launch Your Project,<br />Faster.</h1>
+          <p class="hero-subtitle">The ultimate tool for modern teams.</p>
+          <p class="hero-desc">
+            Join over 10,000 satisfied users who have streamlined their workflow
+            with ProConnect. Sign up today and get 30 days free access.
+          </p>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <span class="feature-icon"></span> Real-time Collaboration
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"></span> Advanced Reporting Tools
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"></span> Enterprise-grade Security
+            </li>
+          </ul>
+
+          <div class="btn-group">
+            <button class="btn btn-green">Learn More</button>
+            <button class="btn btn-outline-navy">Watch Demo</button>
+          </div>
+        </div>
+
+        <!-- Right Form Card -->
+        <div class="form-card">
+          <h3>&gt; Start Your Free Trial</h3>
+          <form>
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" class="input" placeholder="John Doe" />
+            </div>
+            <div class="form-group">
+              <label>Work Email</label>
+              <input
+                type="email"
+                class="input"
+                placeholder="email@company.com"
+              />
+            </div>
+            <div class="form-group">
+              <label>Choose Password</label>
+              <input type="password" class="input" placeholder="••••••••" />
+            </div>
+            <label class="filter-item">
+              <input type="checkbox" /> I agree to the
+              <span
+                style="
+                  color: #6fb570;
+                  text-decoration: underline;
+                  margin-left: 3px;
+                "
+                >Terms of Service</span
+              >
+            </label>
+            <button type="submit" class="btn-primary-navy">
+              Create Account
+            </button>
+            <div class="link-text">
+              Already a user? <a href="#">Login Here</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
