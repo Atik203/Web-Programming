@@ -61,3 +61,65 @@ a {
 .menu li.active {
   background: rgba(255, 255, 255, 0.15);
 }
+
+.input {
+  outline: none;
+  padding: 8px 12px;
+  width: 100%;
+  border: 0.5px solid;
+  border-radius: 12px;
+}
+
+.title {
+  font-size: larger;
+  font-weight: bold;
+  margin: 20px 0px;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  padding: 2rem;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-align: start;
+  min-width: 200px;
+}
+
+.card-1 {
+  background: #6b63ff;
+}
+.card-2 {
+  background: #0db0d7;
+}
+.card-3 {
+  background: pink;
+}
+.card-4 {
+  background: skyblue;
+}
+
+.card h2 {
+  font-size: large;
+  font-weight: 600;
+}
+
+.card-11 h2 {
+  font-size: large;
+  font-weight: 600;
+}
+
+.card-11 {
+  padding: 2rem;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  text-align: start;
+  min-width: 154px;
+}
