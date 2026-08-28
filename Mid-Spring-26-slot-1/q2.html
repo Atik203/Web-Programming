@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UIU CareerHub</title>
+    <style>
+      /* Global Reset from Cheatsheet */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #fff;
+        color: #0f172a;
+      }
+
+      /* Top Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+        border-bottom: 2px solid #9bb7dc;
+      }
+      .logo {
+        font-size: 20px;
+        font-weight: 800;
+        color: #205bcb;
+      }
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+      .nav-links a {
+        color: #334155;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      /* Buttons & Badges */
+      .btn {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .btn-primary {
+        background: #205bcb;
+        color: #fff;
+      }
+      .btn-block {
+        width: 100%;
+      }
+      .badge {
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: bold;
+        margin-right: 6px;
+      }
+      .badge-blue {
+        background: #e2ebfa;
+        color: #205bcb;
+      }
+      .badge-green {
+        background: #d6f2e7;
+        color: #075627;
+      }
+      .badge-yellow {
+        background: #fdebc0;
+        color: #b45309;
+      }
+
+      /* Layout & Split Canvas */
+      .canvas {
+        display: flex;
+        gap: 24px;
+        padding: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Sidebar Filter (Left) */
+      .filter-sidebar {
+        width: 220px;
+        flex-shrink: 0;
+      }
+      .filter-sidebar h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .filter-group {
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .filter-group h4 {
+        font-size: 13px;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+      .filter-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        color: #334155;
+      }
+
+      /* Main Content (Right) */
+      .main-content {
+        flex: 1;
+        background: #f5f6fb;
+        padding: 24px;
+        border-radius: 6px;
+      }
+      .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .header-row h2 {
+        font-size: 18px;
+      }
+      .header-row span {
+        font-size: 13px;
+        color: #64748b;
+      }
+
+      /* Job Cards */
+      .card-job {
+        background: #fff;
+        border-radius: 6px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+      .card-job.blue-accent {
+        border-left: 4px solid #205bcb;
+      }
+      .card-job.green-accent {
+        border-left: 4px solid #22c55e;
+      }
+      .job-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .job-company {
+        font-size: 13px;
+        color: #64748b;
+        margin-bottom: 12px;
+      }
+      .job-meta {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-end;
+      }
+      .job-salary {
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .job-deadline {
+        font-size: 12px;
+        color: #64748b;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">UIU CareerHub</div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Jobs</a>
+        <a href="#">Internships</a>
+        <a href="#">Companies</a>
+        <a href="#">Resources</a>
+        <button class="btn btn-primary">+ Post a Job</button>
+      </div>
+    </nav>
+
+    <div class="canvas">
+      <aside class="filter-sidebar">
+        <h3>Filters</h3>
+
+        <div class="filter-group">
+          <h4>Job Type <span>^</span></h4>
+          <label class="filter-item"
+            ><input type="checkbox" checked /> Full-time</label
+          >
+          <label class="filter-item"><input type="checkbox" /> Part-time</label>
+          <label class="filter-item"
+            ><input type="checkbox" /> Internship</label
+          >
+          <label class="filter-item"><input type="checkbox" /> Remote</label>
+        </div>
+
+        <div class="filter-group">
+          <h4>Department <span>^</span></h4>
+          <label class="filter-item"
+            ><input type="checkbox" checked /> Software Engineering</label
+          >
+          <label class="filter-item"
+            ><input type="checkbox" /> Data Science</label
+          >
+          <label class="filter-item"
+            ><input type="checkbox" /> UI/UX Design</label
+          >
+          <label class="filter-item"
+            ><input type="checkbox" /> Networking</label
+          >
+        </div>
+
+        <div class="filter-group" style="border-bottom: none">
+          <h4>Experience <span>^</span></h4>
+        </div>
+
+        <button class="btn btn-primary btn-block">Apply Filters</button>
+      </aside>
+
+      <main class="main-content">
+        <div class="header-row">
+          <h2>Available Positions</h2>
+          <span>Showing 3 of 23 jobs</span>
+        </div>
+
+        <div class="card-job blue-accent">
+          <div>
+            <div class="job-title">Junior Software Engineer</div>
+            <div class="job-company">Kaz Software</div>
+            <span class="badge badge-blue">Full-time</span>
+            <span class="badge badge-green">Onsite - Dhaka</span>
+          </div>
+          <div class="job-meta">
+            <div class="job-salary">৳ 35,000 - 50,000</div>
+            <div class="job-deadline">Deadline: Dec 30, 2025</div>
+            <button class="btn btn-primary">Apply</button>
+          </div>
+        </div>
+
+        <div class="card-job green-accent">
+          <div>
+            <div class="job-title">Data Analyst Intern</div>
+            <div class="job-company">bKash Limited</div>
+            <span class="badge badge-yellow">Internship</span>
+            <span class="badge badge-green">Onsite - Dhaka</span>
+          </div>
+          <div class="job-meta">
+            <div class="job-salary">৳ 15,000 / month</div>
+            <div class="job-deadline">Deadline: Jan 15, 2020</div>
+            <button class="btn btn-primary">Apply</button>
+          </div>
+        </div>
+
+        <div class="card-job blue-accent">
+          <div>
+            <div class="job-title">Frontend Developer</div>
+            <div class="job-company">Palhau Inc.</div>
+            <span class="badge badge-blue">Full-time</span>
+            <span class="badge badge-blue">Remote</span>
+          </div>
+          <div class="job-meta">
+            <div class="job-salary">৳ 45,000 - 70,000</div>
+            <div class="job-deadline">Deadline: Jan 5, 2025</div>
+            <button class="btn btn-primary">Apply</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
