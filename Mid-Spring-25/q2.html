@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web Programming Login</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #eff1f3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .split-container {
+        display: flex;
+        width: 100%;
+        max-width: 900px;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        min-height: 500px;
+      }
+
+      /* Left Teal Panel */
+      .testimonial-panel {
+        flex: 1;
+        background: #0976a7;
+        color: #fff;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .quote-text {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .author-block {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+      }
+      .author-info h4 {
+        font-size: 14px;
+        margin-bottom: 2px;
+      }
+      .author-info p {
+        font-size: 11px;
+        opacity: 0.8;
+      }
+
+      /* Right Auth Panel */
+      .auth-panel {
+        flex: 1;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+      }
+      .auth-panel h2 {
+        font-size: 22px;
+        color: #0f172a;
+        margin-bottom: 8px;
+      }
+      .auth-panel p {
+        font-size: 13px;
+        color: #64748b;
+        margin-bottom: 24px;
+      }
+      .auth-panel a {
+        color: #1d78f0;
+        text-decoration: none;
+      }
+
+      /* Form & Social Buttons */
+      .social-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        background: #fff;
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        color: #334155;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        color: #94a3b8;
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .divider span {
+        padding: 0 10px;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        font-size: 14px;
+        outline: none;
+      }
+      .btn-submit {
+        width: 100%;
+        background: #e90606;
+        color: #fff;
+        padding: 14px;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        margin-bottom: 16px;
+      }
+
+      .auth-footer {
+        text-align: center;
+        font-size: 11px;
+        color: #94a3b8;
+        margin-top: auto;
+        line-height: 1.5;
+      }
+      .auth-footer a {
+        color: #e90606;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="split-container">
+      <!-- Left Panel -->
+      <div class="testimonial-panel">
+        <div class="quote-text">
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur."
+        </div>
+        <div class="author-block">
+          <div class="avatar">ND</div>
+          <div class="author-info">
+            <h4>Niassoh Dihan</h4>
+            <p>Assistant Professor & Program Coordinator, CSE</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="auth-panel">
+        <h2>Sign in to your WEB<br />PROGRAMMING account.</h2>
+        <p>Don't have an account? <a href="#">Create one.</a></p>
+
+        <button class="social-btn">Sign in with Google</button>
+        <div class="grid-2">
+          <button class="social-btn">Continue with Apple</button>
+          <button class="social-btn">Continue with Facebook</button>
+        </div>
+
+        <div class="divider"><span>OR</span></div>
+
+        <form>
+          <div class="form-group">
+            <input
+              type="email"
+              class="input"
+              placeholder="Enter your email address"
+            />
+          </div>
+          <div class="form-group" style="position: relative">
+            <input
+              type="password"
+              class="input"
+              placeholder="Enter your password"
+            />
+            <span
+              style="
+                position: absolute;
+                right: 12px;
+                top: 12px;
+                font-size: 12px;
+                color: #64748b;
+                cursor: pointer;
+              "
+              >Show</span
+            >
+          </div>
+          <div style="text-align: right; margin-bottom: 16px">
+            <a href="#" style="font-size: 12px; color: #1d78f0"
+              >Forgot your password?</a
+            >
+          </div>
+          <button type="submit" class="btn-submit">SIGN IN</button>
+        </form>
+
+        <div class="auth-footer">
+          Need help? Check out our <a href="#">FAQs</a>.<br />
+          Visit <a href="#">nahid.org</a>. Connect your social account.<br />
+          You can unsubscribe from emails at any time. By signing up you are
+          agreeing to our Terms of Use and Privacy Policy.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
