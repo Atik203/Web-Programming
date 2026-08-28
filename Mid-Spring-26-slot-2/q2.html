@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UIU Book Share Hub</title>
+    <style>
+      /* Global Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #f4f7fb;
+        color: #000000;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* Top Header & Navigation */
+      .navbar {
+        background: #000000;
+        color: #fff;
+        padding: 18px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      /* Container Shell */
+      .main-container {
+        flex: 1;
+        padding: 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* Banner/Hero Tile */
+      .banner-wrapper {
+        background: #c85a32;
+        padding: 24px;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .banner-inner {
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+      }
+      .banner-inner h1 {
+        font-size: 26px;
+        margin-bottom: 12px;
+        color: #000000;
+      }
+      .banner-inner p {
+        font-size: 14px;
+        color: #64748b;
+        line-height: 1.5;
+      }
+
+      /* Split Layout Structure */
+      .split {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 24px;
+      }
+
+      /* Left Panel: Categories Grid */
+      .cat-header {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        line-height: 1.2;
+      }
+      .cat-subtitle {
+        font-size: 15px;
+        color: #475569;
+        margin-bottom: 20px;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .book-card {
+        background: #fffbeb;
+        border: 1.5px solid #eb6623;
+        border-radius: 8px;
+        padding: 20px;
+      }
+      .book-card h4 {
+        color: #eb6623;
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+      .book-card p {
+        font-size: 12px;
+        color: #475569;
+        line-height: 1.4;
+      }
+
+      /* Right Panel: Form Card */
+      .form-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        height: fit-content;
+      }
+      .form-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #000000;
+      }
+      .form-card p {
+        font-size: 13px;
+        color: #94a3b8;
+        margin-bottom: 24px;
+      }
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        font-size: 14px;
+        outline: none;
+      }
+      .input:focus {
+        border-color: #f97316;
+        box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.15);
+      }
+      .btn-submit {
+        width: 100%;
+        background: #f97316;
+        color: #fff;
+        padding: 14px;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      /* Footer Area */
+      .footer {
+        background: #000000;
+        color: #fff;
+        text-align: center;
+        padding: 16px;
+        font-size: 12px;
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">UIU Book Share Hub</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Share</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-container">
+      <div class="banner-wrapper">
+        <div class="banner-inner">
+          <h1>Buy, Sell, and Exchange Academic Books at UIU</h1>
+          <p>
+            A hub for UIU students to connect, share course materials, and find
+            useful books for each semester. Save time, reduce cost, and support
+            fellow students through book sharing.
+          </p>
+        </div>
+      </div>
+
+      <div class="split">
+        <!-- Left Column: Book Categories -->
+        <div>
+          <h2 class="cat-header">Book<br />Categories</h2>
+          <p class="cat-subtitle">Browse the available books</p>
+
+          <div class="grid-2">
+            <div class="book-card">
+              <h4>CSE Books</h4>
+              <p>
+                Programming, algorithms, database, and software engineering
+                books.
+              </p>
+            </div>
+            <div class="book-card">
+              <h4>BBA Books</h4>
+              <p>Management, accounting, finance, and marketing resources.</p>
+            </div>
+            <div class="book-card">
+              <h4>EEE Books</h4>
+              <p>
+                Circuits, electronics, power systems, and lab reference books.
+              </p>
+            </div>
+            <div class="book-card">
+              <h4>English and GED Books</h4>
+              <p>
+                Language, writing, communication, and general education
+                materials.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Submission Form -->
+        <div class="form-card">
+          <h3>Share a Book</h3>
+          <p>
+            Fill out this short form if you want to share a book for other
+            students.
+          </p>
+
+          <form>
+            <div class="form-group">
+              <input type="text" class="input" placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="input" placeholder="Book Title" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="input" placeholder="Author" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="input" placeholder="Course Code" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="input" placeholder="Condition / Note" />
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">&copy; 2026 UIU Book Share Hub</footer>
+  </body>
+</html>

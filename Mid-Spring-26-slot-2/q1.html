@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cloud Storage Dashboard</title>
+    <style>
+      /* Global Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Layout & Backgrounds */
+      body {
+        background: #cfeef3;
+        padding: 12px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .layout {
+        display: flex;
+        flex: 1;
+        background: #e9eff7;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 220px;
+        background: #0d3e86;
+        color: #fff;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+      }
+      .avatar-wrapper {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #fff;
+        color: #0d3e86;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 14px;
+        margin: 0 auto 12px auto;
+      }
+      .menu {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .menu li {
+        font-size: 13px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #cbd5e1;
+      }
+      .menu li.active {
+        color: #fff;
+      }
+      .menu-bottom {
+        margin-top: auto;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .menu-bottom li {
+        font-size: 13px;
+        font-weight: bold;
+        color: #cbd5e1;
+        cursor: pointer;
+      }
+
+      /* Main Content */
+      .main {
+        flex: 1;
+        padding: 30px;
+        overflow-y: auto;
+      }
+      .search-bar {
+        width: 100%;
+        padding: 12px 24px;
+        border-radius: 99px;
+        border: 1px solid #cbd5e1;
+        outline: none;
+        margin-bottom: 30px;
+        font-size: 14px;
+      }
+      h3 {
+        font-size: 16px;
+        color: #334155;
+        margin-bottom: 12px;
+      }
+
+      /* Grids */
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 24px;
+      }
+      .grid-5 {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      /* Categories Cards */
+      .cat-card {
+        padding: 20px;
+        border-radius: 12px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .cat-title {
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .cat-count {
+        font-size: 12px;
+        opacity: 0.9;
+      }
+
+      /* Files Cards */
+      .file-card {
+        background: #fff;
+        padding: 30px 20px;
+        border-radius: 12px;
+        text-align: center;
+        border: 1px solid #e2e8f0;
+        font-weight: bold;
+        font-size: 14px;
+        color: #334155;
+        cursor: pointer;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+      .file-card small {
+        display: block;
+        font-size: 11px;
+        color: #94a3b8;
+        margin-top: 8px;
+        font-weight: normal;
+      }
+      .file-card.add-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: #1d78f0;
+      }
+
+      /* Bottom Panels */
+      .panel {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+      .panel-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #0f172a;
+      }
+      .text-blue {
+        color: #0db0d7;
+        font-size: 12px;
+      }
+
+      /* Storage Progress Widget */
+      .prog-bar {
+        height: 8px;
+        background: #e2e8f0;
+        border-radius: 99px;
+        overflow: hidden;
+        margin: 12px 0;
+      }
+      .prog-fill {
+        height: 100%;
+        background: #1d78f0;
+        border-radius: 99px;
+      }
+      .prog-label {
+        font-size: 11px;
+        color: #64748b;
+      }
+
+      /* Shared Folders Pill List */
+      .prow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 14px;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #334155;
+      }
+      .tag {
+        font-size: 11px;
+        font-weight: bold;
+        padding: 3px 8px;
+        border-radius: 99px;
+      }
+      .tag-team {
+        color: #075627;
+      }
+      .tag-files {
+        color: #536ffe;
+      }
+      .tag-docs {
+        color: #e90606;
+      }
+      .btn-dashed {
+        width: 100%;
+        background: transparent;
+        border: 1.5px dashed #94a3b8;
+        color: #64748b;
+        padding: 10px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 4px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="avatar-wrapper">
+          <div class="avatar">Rahim</div>
+        </div>
+        <ul class="menu">
+          <li class="active">My cloud</li>
+          <li>Shared files</li>
+          <li>Favorites</li>
+          <li style="margin-top: 10px">Upload files</li>
+        </ul>
+        <ul class="menu-bottom">
+          <li>Settings</li>
+          <li>Log out</li>
+        </ul>
+      </aside>
+
+      <main class="main">
+        <input type="text" class="search-bar" placeholder="Search" />
+
+        <h3>Categories</h3>
+        <div class="grid-4">
+          <div class="cat-card" style="background: #6b63ff">
+            <span class="cat-title">Pictures</span>
+            <span class="cat-count">480 files</span>
+          </div>
+          <div class="cat-card" style="background: #0db0d7">
+            <span class="cat-title">Documents</span>
+            <span class="cat-count">190 files</span>
+          </div>
+          <div class="cat-card" style="background: #ea6aa8">
+            <span class="cat-title">Videos</span>
+            <span class="cat-count">90 files</span>
+          </div>
+          <div class="cat-card" style="background: #2c74db">
+            <span class="cat-title">Audio</span>
+            <span class="cat-count">80 files</span>
+          </div>
+        </div>
+
+        <h3>Files</h3>
+        <div class="grid-5">
+          <div class="file-card">Work <small>820 files</small></div>
+          <div class="file-card">Personal <small>115 files</small></div>
+          <div class="file-card">School <small>65 files</small></div>
+          <div class="file-card">Archive <small>21 files</small></div>
+          <div class="file-card add-card">+</div>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <div class="panel-head">
+              <span>Your storage</span>
+              <span class="text-blue">25% left</span>
+            </div>
+            <div class="prog-bar">
+              <div class="prog-fill" style="width: 75%"></div>
+            </div>
+            <span class="prog-label">75 GB of 100 GB are used</span>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <span>Your shared folders</span>
+            </div>
+            <div class="prow" style="background: #c8f2ef">
+              <span>Keynote files</span>
+              <span class="tag tag-team">Team</span>
+            </div>
+            <div class="prow" style="background: #ddd8ff">
+              <span>Vacation photos</span>
+              <span class="tag tag-files">Files</span>
+            </div>
+            <div class="prow" style="background: #f8d9dd">
+              <span>Project report</span>
+              <span class="tag tag-docs">Docs</span>
+            </div>
+            <button class="btn-dashed">+ Add more</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
