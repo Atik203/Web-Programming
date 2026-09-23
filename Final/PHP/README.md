@@ -12,7 +12,7 @@
 1. [Know This Cold — the 3 patterns](#1-know-this-cold--the-3-patterns)
 2. [PHP Basics — syntax you must not fumble](#2-php-basics--syntax-you-must-not-fumble)
 3. [Classes & Objects — full template](#3-classes--objects--full-template)
-4. [HTML Forms & `$_POST`](#4-html-forms--_post)
+4. [HTML Forms — POST vs GET & `$_POST`](#4-html-forms--post-vs-get--_post)
 5. [The `ceil()` Word-Problem Pattern](#5-the-ceil-word-problem-pattern)
 6. [Built-in Functions You Need](#6-built-in-functions-you-need)
 7. [Example Files — mapped to past papers](#7-example-files--mapped-to-past-papers)
@@ -162,7 +162,7 @@ $object->printDetails();
 
 ---
 
-## 4. HTML Forms & `$_POST`
+## 4. HTML Forms — POST vs GET & `$_POST`
 
 One file: the form and the PHP that processes it.
 
@@ -194,6 +194,37 @@ if (isset($_POST["submit"])) {          // only run after the button is pressed
 | `method="post"` | `$_POST` (use `$_GET` for `method="get"`) |
 
 `$_POST` values arrive as **strings**, but PHP converts them automatically in maths (`"250" * 2` → `500`).
+
+### POST vs GET — when to use which
+
+| | **GET** | **POST** |
+|---|---|---|
+| Where the data goes | in the URL: `process.php?name=Arif&age=20` | in the request body (hidden) |
+| PHP reads it with | `$_GET["name"]` | `$_POST["name"]` |
+| Visible in the URL? | yes — bookmarkable and shareable | no |
+| Size limit | about 2000 characters | practically none |
+| Passwords / sensitive data? | **never** | **yes** |
+| Typical uses | search, filter, sorting, page links | login, registration, DB insert/update, file upload |
+| Refresh behaviour | safe to refresh | browser warns about resubmitting |
+
+**Rule of thumb:** GET = **read** (nothing changes), POST = **write or secret** (changes data or must stay hidden).
+
+**GET example — a search box:**
+
+```php
+<form method="get">
+    Search: <input type="text" name="q">
+    <input type="submit" name="submit" value="Search">
+</form>
+
+<?php
+if (isset($_GET["submit"])) {
+    echo "You searched for: " . $_GET["q"];   // URL becomes: ...?q=hello&submit=Search
+}
+?>
+```
+
+**In this course's exams:** any form that inserts/updates a database (or takes a password) → `method="post"` + `$_POST`; a search/filter form → `method="get"` + `$_GET`. The sample quiz and all final papers use POST.
 
 ---
 
@@ -322,6 +353,7 @@ $conn->close();
 
 - [ ] The full `Employee` class (properties, `__construct`, `calculateTotalSalary`, `printDetails`) + object creation
 - [ ] The one-file form skeleton: `<form method="post">` + `if (isset($_POST["submit"]))`
+- [ ] POST vs GET: which one for a login / DB insert? (POST) Which for a search box? (GET)
 - [ ] The 5 lines of the `ceil()` recipe
 - [ ] `$sum - min($ct1, $ct2, $ct3)` for best-two-of-three
 - [ ] The classify chain with `>=` boundaries (500/300/150)
