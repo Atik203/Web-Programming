@@ -16,7 +16,7 @@
 6. [GROUP BY + HAVING](#6-group-by--having)
 7. [UPDATE — guarded and arithmetic](#7-update--guarded-and-arithmetic)
 8. [Computed Columns & Subqueries](#8-computed-columns--subqueries)
-9. [PHP ↔ MySQL Bridge (full exam answer shape)](#9-php--mysql-bridge-full-exam-answer-shape)
+9. [PHP ↔ MySQL Bridge — mysqli vs PDO (full exam answer shape)](#9-php--mysql-bridge--mysqli-vs-pdo-full-exam-answer-shape)
 10. [Example Files — mapped to past papers](#10-example-files--mapped-to-past-papers)
 11. [Traps — the marks people lose](#11-traps--the-marks-people-lose)
 12. [Write From Memory — Self Test](#12-write-from-memory--self-test)
@@ -292,7 +292,7 @@ FROM sales_data s1;
 
 ---
 
-## 9. PHP ↔ MySQL Bridge (full exam answer shape)
+## 9. PHP ↔ MySQL Bridge — mysqli vs PDO (full exam answer shape)
 
 The papers say *"write full PHP–MySQL code"* — that means the SQL must be wrapped like this. **This is the most important block on the page.**
 
@@ -336,6 +336,50 @@ $conn->close();
 - On your XAMPP add the port as the 5th argument: `new mysqli("localhost", "root", "", $dbname, 3307);` — **not** in the exam.
 - The quiz Q3 version (total + average salary) is `09_php_mysql_bridge.php` — run it and compare.
 
+### mysqli vs PDO — what's the difference?
+
+Both connect PHP to MySQL and do the same job. The sample code printed in the papers uses **mysqli** — write that in the exam.
+
+| | **mysqli** | **PDO** |
+|---|---|---|
+| Works with | MySQL / MariaDB only | 12+ databases (MySQL, PostgreSQL, SQLite …) |
+| API style | procedural AND object-oriented | object-oriented only |
+| Placeholders | `?` positional only | `?` positional AND `:named` |
+| Error handling | manual checks — `$conn->connect_error` | exceptions — `try / catch` |
+| Fetch a row | `$result->fetch_assoc()` | `$stmt->fetch(PDO::FETCH_ASSOC)` |
+| Connection | `new mysqli($host, $user, $pass, $db)` | `new PDO("mysql:host=$host;dbname=$db", $user, $pass)` |
+| Your XAMPP port | 5th argument: `new mysqli(..., 3307)` | inside the DSN: `mysql:host=localhost;port=3307;dbname=...` |
+
+**The same query, both ways:**
+
+```php
+// mysqli
+$conn = new mysqli("localhost", "root", "", "bank");
+if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
+
+$result = $conn->query("SELECT name, salary FROM employees");
+while ($row = $result->fetch_assoc()) {
+    echo $row["name"] . " - " . $row["salary"] . "<br>";
+}
+$conn->close();
+```
+
+```php
+// PDO
+try {
+    $pdo = new PDO("mysql:host=localhost;port=3307;dbname=bank", "root", "");
+} catch (Exception $e) {
+    die("Connection failed");
+}
+
+$stmt = $pdo->query("SELECT name, salary FROM employees");
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo $row["name"] . " - " . $row["salary"] . "<br>";
+}
+```
+
+**Which to write in the exam?** mysqli — the 251 paper prints the mysqli sample, and the question says "using an appropriate PHP database object". PDO is not wrong, but mirror the paper. Runnable versions of both: `09_php_mysql_bridge.php` (mysqli) and `11_php_mysql_pdo.php` (PDO) — they print identical output.
+
 ---
 
 ## 10. Example Files — mapped to past papers
@@ -352,6 +396,7 @@ $conn->close();
 | `08_queries_261b.sql` | Final 261 Set-B | WHERE + ORDER BY, COUNT per group, net worth, ×0.9 |
 | `09_php_mysql_bridge.php` | Sample Quiz Q3 | **full PHP answer** — total + average salary |
 | `10_php_mysql_multiple_rows.php` | 251 paper's printed sample | multi-row fetch loop |
+| `11_php_mysql_pdo.php` | — | the same bridge written with PDO (compare with `09`) |
 
 Every query file has the expected output in comments — run it and compare.
 
@@ -386,6 +431,7 @@ Every query file has the expected output in comments — run it and compare.
 - [ ] The `LIKE '%Beach%'` + `OR` + `ORDER BY Rating DESC` query
 - [ ] The mysqli bridge: connect → query → `while ($row = $result->fetch_assoc())` → close
 - [ ] `$row["alias"]` — and why the `AS` matters
+- [ ] mysqli vs PDO in one line: MySQL-only vs many databases; `?` vs `:named`; manual errors vs `try / catch`
 
 ---
 
