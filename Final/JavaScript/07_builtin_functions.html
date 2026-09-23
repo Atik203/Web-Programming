@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Built-in Functions Playground</title>
+</head>
+<body>
+
+<h2>Built-in Functions Playground</h2>
+
+<button onclick="runArrays()">Array methods</button>
+<button onclick="runStrings()">String methods</button>
+<button onclick="runMath()">Math &amp; Number</button>
+<pre id="output"></pre>
+
+<script>
+// ============================================================================
+// EXTRA PRACTICE — every built-in method from README sections 6-8.
+// Click each button and read the results here + in the console (F12).
+// ============================================================================
+
+function print(label, value) {
+    let text = Array.isArray(value) ? JSON.stringify(value) : String(value);
+    let line = label + "  ->  " + text;
+    console.log(line);
+    document.getElementById("output").innerHTML += line + "\n";
+}
+
+function runArrays() {
+    let arr = ["a", "b", "c", "d", "e"];
+
+    print('arr.length', arr.length);
+    print('arr[0]', arr[0]);
+    print('arr[arr.length - 1]', arr[arr.length - 1]);
+    print('arr.indexOf("c")', arr.indexOf("c"));
+    print('arr.includes("c")', arr.includes("c"));
+
+    let add = ["a", "b", "c"];
+    print('push("d") returns new length', add.push("d"));
+    print('after push', add);
+    print('pop() returns removed item', add.pop());
+    print('after pop', add);
+    add.unshift("z");
+    print('after unshift("z")', add);
+    add.shift();
+    print('after shift()', add);
+
+    let sp = ["a", "b", "c", "d", "e"];
+    sp.splice(2, 1);
+    print('splice(2, 1) remove', sp);
+    sp.splice(1, 0, "X");
+    print('splice(1, 0, "X") insert', sp);
+    sp.splice(2, 2, "Y");
+    print('splice(2, 2, "Y") replace', sp);
+
+    let sl = ["a", "b", "c", "d", "e"];
+    print('slice(1, 3)', sl.slice(1, 3));
+    print('slice(2)', sl.slice(2));
+    print('slice(-2)', sl.slice(-2));
+    print('original untouched', sl);
+
+    print('join(", ")', ["Math", "Physics"].join(", "));
+    print('reverse()', ["a", "b", "c"].reverse());
+    print('sort() default (alphabetical!)', [3, 1, 10, 2].sort());
+    print('sort((a, b) => a - b) numeric', [3, 1, 10, 2].sort((a, b) => a - b));
+    print('concat()', ["a", "b"].concat(["c"]));
+
+    print('map(n => n * 2)', [1, 2, 3].map(n => n * 2));
+    print('filter(even)', [1, 2, 3, 4].filter(n => n % 2 === 0));
+}
+
+function runStrings() {
+    let s = "hello";
+
+    print('s.length', s.length);
+    print('toUpperCase()', s.toUpperCase());
+    print('toLowerCase()', "HI".toLowerCase());
+    print('trim()', "  hi  ".trim());
+    print('includes("123")', "hello123".includes("123"));
+    print('startsWith("IMG")', "IMG_01".startsWith("IMG"));
+    print('endsWith(".pdf")', "report.pdf".endsWith(".pdf"));
+    print('indexOf("l")', s.indexOf("l"));
+    print('charAt(1)', s.charAt(1));
+
+    print('slice(1, 3)', s.slice(1, 3));
+    print('slice(-3)', s.slice(-3));
+    print('substring(1, 3)', s.substring(1, 3));
+    print('substr(1, 3)', s.substr(1, 3));
+
+    print('split("-")', "English-2".split("-"));
+    print('split(",")', "a,b,c".split(","));
+    print('split("")', "abc".split(""));
+    print('replace("-", "+") first only', "a-b-c".replace("-", "+"));
+    print('replaceAll("-", "+")', "a-b-c".replaceAll("-", "+"));
+    print('repeat(3)', "ab".repeat(3));
+    print('concat("b")', "a".concat("b"));
+
+    let password = "Strong@Pass";
+    print('/[A-Z]/ has upper?', /[A-Z]/.test(password));
+    print('/[a-z]/ has lower?', /[a-z]/.test(password));
+    print('/[0-9]/ has digit?', /[0-9]/.test(password));
+    print('/[!@#$%^&*]/ has special?', /[!@#$%^&*]/.test(password));
+
+    let total = 14;
+    let average = 3.5;
+    print('template literal', `Total: ${total} hours, Average: ${average}`);
+}
+
+function runMath() {
+    print('Math.floor(4.9)', Math.floor(4.9));
+    print('Math.ceil(4.1)', Math.ceil(4.1));
+    print('Math.round(4.5)', Math.round(4.5));
+    print('Math.trunc(4.9)', Math.trunc(4.9));
+    print('Math.abs(-7)', Math.abs(-7));
+    print('Math.min(5, 2, 9)', Math.min(5, 2, 9));
+    print('Math.max(5, 2, 9)', Math.max(5, 2, 9));
+    print('Math.pow(2, 3)', Math.pow(2, 3));
+    print('Math.sqrt(16)', Math.sqrt(16));
+
+    print('parseInt("42.9")', parseInt("42.9"));
+    print('parseFloat("3.5")', parseFloat("3.5"));
+    print('Number("42")', Number("42"));
+    print('isNaN("abc")', isNaN("abc"));
+    print('Number.isInteger(5.0)', Number.isInteger(5.0));
+
+    let x = 90.66666;
+    print('Math.round(x * 100) / 100', Math.round(x * 100) / 100);
+    print('x.toFixed(2)', x.toFixed(2));
+}
+</script>
+
+</body>
+</html>
