@@ -380,6 +380,52 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 **Which to write in the exam?** mysqli — the 251 paper prints the mysqli sample, and the question says "using an appropriate PHP database object". PDO is not wrong, but mirror the paper. Runnable versions of both: `09_php_mysql_bridge.php` (mysqli) and `11_php_mysql_pdo.php` (PDO) — they print identical output.
 
+### prepare / bind / execute — why they exist
+
+Plain `query()` is fine when the SQL is **fixed** (all exam questions). But when **user input** goes into the SQL (a form field), use a prepared statement:
+
+- **Why:** SQL injection. If you build `"INSERT ... '$name'"` and the user types `'; DROP TABLE student; --`, the database executes it as SQL. Prepared statements send the **query structure first**, then the **data separately** — data can never become SQL.
+- **Also:** faster for repeated queries and handles types/quoting automatically.
+
+**mysqli format (memorise this shape):**
+
+```php
+// 1) prepare — SQL template with ? placeholders
+$stmt = $conn->prepare("INSERT INTO student (id, name, age) VALUES (?, ?, ?)");
+
+// 2) bind — attach values: "i" int, "d" double, "s" string (one letter per ?)
+$stmt->bind_param("isi", $id, $name, $age);
+
+// 3) execute — run it
+$stmt->execute();
+$stmt->close();
+```
+
+For SELECTs, add `get_result()` to fetch:
+
+```php
+$stmt = $conn->prepare("SELECT * FROM employees WHERE salary > ?");
+$stmt->bind_param("i", $minSalary);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    echo $row["name"];
+}
+$stmt->close();
+```
+
+**PDO format** (compare — no bind_param, values go inside `execute`):
+
+```php
+$stmt = $pdo->prepare("SELECT * FROM employees WHERE salary > ?");
+$stmt->execute([$minSalary]);
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo $row["name"];
+}
+```
+
+**In the exam:** the given SQL is fixed, so plain `$conn->query()` is enough (that is the printed sample). Use prepare/bind/execute when the task inserts form data — and you can add a line saying it prevents SQL injection. Runnable proof: `12_php_mysql_prepared.php` inserts a malicious-looking name safely and reads it back.
+
 ---
 
 ## 10. Example Files — mapped to past papers
@@ -397,6 +443,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 | `09_php_mysql_bridge.php` | Sample Quiz Q3 | **full PHP answer** — total + average salary |
 | `10_php_mysql_multiple_rows.php` | 251 paper's printed sample | multi-row fetch loop |
 | `11_php_mysql_pdo.php` | — | the same bridge written with PDO (compare with `09`) |
+| `12_php_mysql_prepared.php` | — | prepare → bind_param → execute, with an SQL-injection demo |
 
 Every query file has the expected output in comments — run it and compare.
 
@@ -432,6 +479,7 @@ Every query file has the expected output in comments — run it and compare.
 - [ ] The mysqli bridge: connect → query → `while ($row = $result->fetch_assoc())` → close
 - [ ] `$row["alias"]` — and why the `AS` matters
 - [ ] mysqli vs PDO in one line: MySQL-only vs many databases; `?` vs `:named`; manual errors vs `try / catch`
+- [ ] prepare → `bind_param("isi", ...)` → `execute` → `get_result` — and why it stops SQL injection
 
 ---
 
