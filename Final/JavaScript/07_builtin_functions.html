@@ -11,6 +11,7 @@
 <button onclick="runArrays()">Array methods</button>
 <button onclick="runStrings()">String methods</button>
 <button onclick="runMath()">Math &amp; Number</button>
+<button onclick="runSpread()">Spread / Rest (three dots)</button>
 <pre id="output"></pre>
 
 <script>
@@ -126,6 +127,40 @@ function runMath() {
     let x = 90.66666;
     print('Math.round(x * 100) / 100', Math.round(x * 100) / 100);
     print('x.toFixed(2)', x.toFixed(2));
+}
+
+function runSpread() {
+    let arr = [1, 2, 3];
+
+    print('[...arr] safe copy', [...arr]);
+    print('[...arr, 4, 5] add items', [...arr, 4, 5]);
+    print('[...arr, ...[7, 8]] merge', [...arr, ...[7, 8]]);
+    print('Math.max(...arr) spread', Math.max(...arr));
+    print('Math.max(arr) WITHOUT dots', Math.max(arr));
+    print('[... "abc"] string to chars', [..."abc"]);
+
+    let a = [1, 2, 3];
+    let b = a;
+    b.push(4);
+    print('b = a; b.push(4) -> a changed too', a);
+    let c = [...a];
+    c.push(5);
+    print('c = [...a]; c.push(5) -> a untouched', a);
+
+    function sum(...nums) {
+        let total = 0;
+        for (let i = 0; i < nums.length; i++) {
+            total += nums[i];
+        }
+        return total;
+    }
+    print('sum(1, 2, 3, 4) rest params', sum(1, 2, 3, 4));
+
+    let [first, ...rest] = [10, 20, 30, 40];
+    print('[first, ...rest] first', first);
+    print('[first, ...rest] rest', rest);
+
+    print('[...scores].sort numeric copy', [...[3, 1, 10, 2]].sort((a, b) => a - b));
 }
 </script>
 
