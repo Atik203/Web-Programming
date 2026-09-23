@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Vitals Monitor</title>
+</head>
+<body>
+
+<h2>Patient Vitals Monitor</h2>
+
+<input type="text" id="heartRateInput" placeholder="Heart Rate (bpm)">
+<input type="text" id="spo2Input" placeholder="SpO2 (%)">
+<button onclick="saveReading()">Save Reading</button>
+<p id="report"></p>
+<p id="feedback"></p>
+
+<script>
+// ============================================================================
+// FINAL 261 SET-B (Spring 2026) — Q1 (10 marks)
+// Track EVERY reading in arrays. Show average HR, average SpO2,
+// current Risk Score = (100 - SpO2) * 2 + |HR - 80| * 0.5
+// Feedback: SAFE (<= 10) | WARNING (>10 and <=20) | DANGER (>20)
+//
+// Averages are rounded to 2 decimals with: Math.round(x * 100) / 100
+// (so 79 shows as 79, and 90.666... shows as 90.67 — matching the sample)
+// ============================================================================
+
+let heartRates = [];
+let spo2Readings = [];
+
+function saveReading() {
+    let hrInput      = document.getElementById("heartRateInput");
+    let spo2Input    = document.getElementById("spo2Input");
+    let report       = document.getElementById("report");
+    let feedbackArea = document.getElementById("feedback");
+
+    let heartRate = parseFloat(hrInput.value);
+    let spo2      = parseFloat(spo2Input.value);
+
+    // 1) store every reading
+    heartRates.push(heartRate);
+    spo2Readings.push(spo2);
+
+    // 2) averages over ALL readings so far
+    let sumHR = 0;
+    let sumSpo2 = 0;
+    for (let i = 0; i < heartRates.length; i++) {
+        sumHR += heartRates[i];
+        sumSpo2 += spo2Readings[i];
+    }
+    let avgHR   = Math.round((sumHR / heartRates.length) * 100) / 100;
+    let avgSpo2 = Math.round((sumSpo2 / spo2Readings.length) * 100) / 100;
+
+    // 3) risk score of the CURRENT reading
+    let riskScore = (100 - spo2) * 2 + Math.abs(heartRate - 80) * 0.5;
+
+    // 4) feedback
+    let feedback;
+    if (riskScore <= 10) {
+        feedback = "SAFE";
+    } else if (riskScore <= 20) {
+        feedback = "WARNING";
+    } else {
+        feedback = "DANGER";
+    }
+
+    report.innerHTML = "Average Heart Rate: " + avgHR + "<br>" +
+                       "Average Oxygen Saturation: " + avgSpo2 + "<br>" +
+                       "Risk Score: " + riskScore;
+
+    feedbackArea.innerHTML = feedback;
+
+    hrInput.value = "";
+    spo2Input.value = "";
+}
+</script>
+
+</body>
+</html>

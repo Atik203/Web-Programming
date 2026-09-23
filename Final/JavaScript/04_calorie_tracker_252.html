@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Calorie Tracker</title>
+</head>
+<body>
+
+<h2>Daily Calorie Tracker (Goal: 2000)</h2>
+
+<input type="number" id="calorieInput" placeholder="Calories for this meal">
+<button onclick="addCalories()">Add Calories</button>
+<p id="output"></p>
+
+<script>
+// ============================================================================
+// FINAL 252 (Summer 2025) — Q1 (10 marks)
+// Running total + feedback.  >10 entries without reaching the goal -> warning.
+// Feedback: 0-800 healthy start | 801-1600 good progress |
+//           1601-1999 almost at limit | 2000+ goal reached
+// ============================================================================
+
+const GOAL = 2000;
+let totalCalories = 0;
+let entries = 0;
+
+function addCalories() {
+    let input  = document.getElementById("calorieInput");
+    let output = document.getElementById("output");
+
+    let calories = parseInt(input.value);
+    entries++;                       // count this entry
+    totalCalories += calories;       // add to running total
+
+    let feedback;
+    if (totalCalories >= 2000) {
+        feedback = "Goal reached! Stay mindful!";
+    } else if (totalCalories >= 1601) {
+        feedback = "Almost at your limit!";
+    } else if (totalCalories >= 801) {
+        feedback = "Good progress, keep it balanced!";
+    } else {
+        feedback = "You're off to a healthy start!";
+    }
+
+    output.innerHTML = "Total: " + totalCalories + " / " + GOAL + " calories" +
+                       "<br>Entries: " + entries +
+                       "<br>" + feedback;
+
+    // more than 10 entries without reaching the goal
+    if (entries > 10 && totalCalories < GOAL) {
+        output.innerHTML += "<br>Be cautious of frequent snacking!";
+    }
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>

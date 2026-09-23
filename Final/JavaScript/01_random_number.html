@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number 200-400</title>
+</head>
+<body>
+
+<h2>Random Number Generator (200–400)</h2>
+
+<button onclick="generate()">Generate</button>
+<p id="output"></p>
+
+<script>
+// ============================================================================
+// SAMPLE QUIZ — Q1 (3 marks)
+// Generate a random number between 200 and 400 and print it in the console.
+//
+// THE FORMULA TO MEMORISE:
+//   Math.floor(Math.random() * (max - min + 1)) + min
+// ============================================================================
+
+function generate() {
+    // Math.random() gives 0 <= x < 1
+    // * 201 gives 0 <= x < 201, floor -> 0..200, + 200 -> 200..400
+    let num = Math.floor(Math.random() * (400 - 200 + 1)) + 200;
+
+    console.log(num);   // exam answer: print in console
+
+    document.getElementById("output").innerHTML = "Generated: " + num;
+}
+</script>
+
+</body>
+</html>

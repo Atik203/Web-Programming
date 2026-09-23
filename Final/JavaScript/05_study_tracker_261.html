@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Study Tracker</title>
+</head>
+<body>
+
+<h2>Weekly Study Tracker (Goal: 20 hours)</h2>
+
+<input type="text" id="subjectInput" placeholder="Subject name">
+<input type="number" id="hoursInput" placeholder="Study hours">
+<button onclick="addStudy()">Add Study</button>
+<p id="output"></p>
+
+<script>
+// ============================================================================
+// FINAL 261 SET-A (Spring 2026) — Q1 (10 marks)
+// total + average + subjects array + feedback.
+// Average = total / sessions (raw number: 3.5, 5.25, 1.875 — no rounding).
+// Feedback: 0-5 start regularly | 6-12 good progress |
+//           13-19 almost ready | 20+ weekly goal reached
+// More than 7 sessions without reaching 20 hours -> "Increase your study time!"
+// ============================================================================
+
+const WEEKLY_GOAL = 20;
+let totalHours = 0;
+let sessions = 0;
+let subjects = [];      // array stores every subject name
+
+function addStudy() {
+    let subjectInput = document.getElementById("subjectInput");
+    let hoursInput   = document.getElementById("hoursInput");
+    let output       = document.getElementById("output");
+
+    let subject = subjectInput.value;
+    let hours   = parseFloat(hoursInput.value);
+
+    totalHours += hours;
+    sessions++;
+    subjects.push(subject);        // add subject to the array
+
+    let average = totalHours / sessions;
+
+    let feedback;
+    if (totalHours >= 20) {
+        feedback = "Weekly goal reached!";
+    } else if (totalHours >= 13) {
+        feedback = "Almost ready!";
+    } else if (totalHours >= 6) {
+        feedback = "Good progress!";
+    } else {
+        feedback = "Start studying regularly!";
+    }
+
+    output.innerHTML = "Total: " + totalHours + " hours" +
+                       "<br>Average: " + average + " hours" +
+                       "<br>Subjects: [" + subjects.join(", ") + "]" +
+                       "<br>Sessions: " + sessions +
+                       "<br>" + feedback;
+
+    // more than 7 sessions without reaching the weekly goal
+    if (sessions > 7 && totalHours < WEEKLY_GOAL) {
+        output.innerHTML += "<br>Increase your study time!";
+    }
+
+    subjectInput.value = "";
+    hoursInput.value = "";
+}
+</script>
+
+</body>
+</html>
