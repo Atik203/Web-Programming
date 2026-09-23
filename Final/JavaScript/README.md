@@ -14,12 +14,13 @@
 4. [Conditionals & Feedback Chains](#4-conditionals--feedback-chains)
 5. [Loops, Arrays & Counters](#5-loops-arrays--counters)
 6. [Array Methods — the full toolkit](#6-array-methods--the-full-toolkit)
-7. [String Methods — the full toolkit](#7-string-methods--the-full-toolkit)
-8. [Math, Number & Parsing Functions](#8-math-number--parsing-functions)
-9. [Example Files — mapped to past papers](#9-example-files--mapped-to-past-papers)
-10. [Traps — the marks people lose](#10-traps--the-marks-people-lose)
-11. [Write From Memory — Self Test](#11-write-from-memory--self-test)
-12. [How to Run the Examples](#12-how-to-run-the-examples)
+7. [The Three Dots — Spread & Rest](#7-the-three-dots--spread--rest)
+8. [String Methods — the full toolkit](#8-string-methods--the-full-toolkit)
+9. [Math, Number & Parsing Functions](#9-math-number--parsing-functions)
+10. [Example Files — mapped to past papers](#10-example-files--mapped-to-past-papers)
+11. [Traps — the marks people lose](#11-traps--the-marks-people-lose)
+12. [Write From Memory — Self Test](#12-write-from-memory--self-test)
+13. [How to Run the Examples](#13-how-to-run-the-examples)
 
 ---
 
@@ -200,7 +201,7 @@ for (let i = 0; i < numbers.length; i++) {
 let average = sum / numbers.length;
 ```
 
-**Useful Math functions:** `Math.abs`, `Math.round`, `Math.floor`, `Math.min` … — full list with examples in [section 8](#8-math-number--parsing-functions).
+**Useful Math functions:** `Math.abs`, `Math.round`, `Math.floor`, `Math.min` … — full list with examples in [section 9](#9-math-number--parsing-functions).
 
 ---
 
@@ -282,7 +283,66 @@ arr.slice(-2);       // ["d", "e"]        (last two)
 
 ---
 
-## 7. String Methods — the full toolkit
+## 7. The Three Dots — Spread & Rest
+
+One syntax `...`, two jobs:
+
+- **Spread** = unpack an array into individual items (when *calling* / building).
+- **Rest** = pack items into an array (when *defining* functions / destructuring).
+
+**Spread — copy, merge, expand:**
+
+```js
+let arr = [1, 2, 3];
+
+let copy   = [...arr];              // [1, 2, 3]        safe copy, original untouched
+let more   = [...arr, 4, 5];        // [1, 2, 3, 4, 5]  add items
+let merged = [...arr, ...[7, 8]];   // [1, 2, 3, 7, 8]  combine arrays
+
+Math.max(...arr);                   // 3                spread into function arguments
+Math.max(arr);                      // NaN              WRONG — always spread first
+
+let chars = [..."abc"];             // ["a", "b", "c"]  string -> character array
+```
+
+**Why copy with `[...arr]`?** Plain assignment does NOT copy — both names point to the same array:
+
+```js
+let a = [1, 2, 3];
+
+let b = a;          // b points to the SAME array
+b.push(4);          // a is now [1, 2, 3, 4] too!
+
+let c = [...a];     // c is a NEW array
+c.push(5);          // a unchanged
+```
+
+**Rest — collect everything into one array:**
+
+```js
+function sum(...nums) {          // nums is an array of ALL arguments
+    let total = 0;
+    for (let i = 0; i < nums.length; i++) {
+        total += nums[i];
+    }
+    return total;
+}
+sum(1, 2, 3, 4);                 // 10
+
+let [first, ...rest] = [10, 20, 30, 40];
+// first = 10, rest = [20, 30, 40]
+```
+
+**Where it helps in exam code:**
+- Highest/lowest reading without a loop: `Math.max(...readings)` / `Math.min(...readings)`.
+- Sort a copy so the original order survives: `[...scores].sort((a, b) => a - b)`.
+- A helper that accepts any number of values: `function average(...nums)`.
+
+**Three dots vs `slice()`:** both copy — `[...arr]` copies everything, `arr.slice(1, 3)` copies a piece.
+
+---
+
+## 8. String Methods — the full toolkit
 
 | Method | What it does | Example → Result |
 |---|---|---|
@@ -344,7 +404,7 @@ let msg = `Total: ${total} hours, Average: ${average}`;
 
 ---
 
-## 8. Math, Number & Parsing Functions
+## 9. Math, Number & Parsing Functions
 
 **Math:**
 
@@ -385,7 +445,7 @@ Exam note: the vitals monitor (Final 261B) used `Math.round(x * 100) / 100` so `
 
 ---
 
-## 9. Example Files — mapped to past papers
+## 10. Example Files — mapped to past papers
 
 | File | Paper | Key technique |
 |---|---|---|
@@ -395,13 +455,13 @@ Exam note: the vitals monitor (Final 261B) used `Math.round(x * 100) / 100` so `
 | `04_calorie_tracker_252.html` | Final 252 Q1 | running total, entries counter |
 | `05_study_tracker_261.html` | Final 261 Set-A Q1 | arrays, average, `join()` |
 | `06_vitals_monitor_261b.html` | Final 261 Set-B Q1 | arrays, averages, `Math.abs`, risk formula |
-| `07_builtin_functions.html` | extra practice | every array/string/math method from sections 6–8, with buttons |
+| `07_builtin_functions.html` | extra practice | every array/string/math method from sections 6–9, including the three dots, with buttons |
 
 Open any file in a browser, press **F12 → Console** to see `console.log` output.
 
 ---
 
-## 10. Traps — the marks people lose
+## 11. Traps — the marks people lose
 
 1. **Off-by-one random:** `Math.random() * (max - min)` is wrong — you need `(max - min + 1)`, otherwise `max` is never produced.
 2. **`.value` is a string:** `"5" + 1` gives `"51"`. Always `parseInt()` / `parseFloat()` before maths.
@@ -413,10 +473,12 @@ Open any file in a browser, press **F12 → Console** to see `console.log` outpu
 8. **Condition order:** check `>= 91` before `>= 71`, otherwise everything above 71 says "Strong".
 9. **`disabled` not `disable`:** `input.disabled = true;`
 10. **Password length scoring (Final 251):** the sample outputs only match if length points count characters **beyond the 6-char minimum** — `Math.floor((len - 6) / 2) * 10`.
+11. **`Math.max(arr)` is `NaN`:** `max`/`min` take separate numbers, not an array — write `Math.max(...arr)`.
+12. **Plain assignment does not copy an array:** `let b = a;` then `b.push(...)` also changes `a`. Copy with `[...a]` or `a.slice()`.
 
 ---
 
-## 11. Write From Memory — Self Test
+## 12. Write From Memory — Self Test
 
 Close this file and write on paper. Tick when done without looking:
 
@@ -434,10 +496,11 @@ Close this file and write on paper. Tick when done without looking:
 - [ ] `join(", ")` prints an array as one string
 - [ ] `toFixed(2)` vs `Math.round(x * 100) / 100` — which returns a string?
 - [ ] `sort((a, b) => a - b)` for numbers (plain `sort()` is alphabetical!)
+- [ ] Three dots: `[...arr]` copy, `[...a, ...b]` merge, `Math.max(...arr)` spread, `function f(...nums)` rest
 
 ---
 
-## 12. How to Run the Examples
+## 13. How to Run the Examples
 
 **Option A — browser (simplest):** double-click any `.html` file → it opens in your browser. Press `F12` → **Console** tab to see `console.log` results.
 
@@ -450,4 +513,4 @@ Close this file and write on paper. Tick when done without looking:
 - `04` — 300 → 500 → 700 gives "Good progress, keep it balanced!".
 - `05` — 4 sessions totalling 14 h shows average 3.5 and "Almost ready!".
 - `06` — 80/97 → SAFE, 78/95 → WARNING, 130/80 → DANGER.
-- `07` — click each button, read the results in the console — every method from sections 6–8 on one page.
+- `07` — click each button, read the results in the console — every method from sections 6–9 on one page, including the "Spread / Rest (three dots)" button.
