@@ -13,11 +13,13 @@
 3. [DOM — reading inputs, writing output](#3-dom--reading-inputs-writing-output)
 4. [Conditionals & Feedback Chains](#4-conditionals--feedback-chains)
 5. [Loops, Arrays & Counters](#5-loops-arrays--counters)
-6. [String Methods & Regex Tests](#6-string-methods--regex-tests)
-7. [Example Files — mapped to past papers](#7-example-files--mapped-to-past-papers)
-8. [Traps — the marks people lose](#8-traps--the-marks-people-lose)
-9. [Write From Memory — Self Test](#9-write-from-memory--self-test)
-10. [How to Run the Examples](#10-how-to-run-the-examples)
+6. [Array Methods — the full toolkit](#6-array-methods--the-full-toolkit)
+7. [String Methods — the full toolkit](#7-string-methods--the-full-toolkit)
+8. [Math, Number & Parsing Functions](#8-math-number--parsing-functions)
+9. [Example Files — mapped to past papers](#9-example-files--mapped-to-past-papers)
+10. [Traps — the marks people lose](#10-traps--the-marks-people-lose)
+11. [Write From Memory — Self Test](#11-write-from-memory--self-test)
+12. [How to Run the Examples](#12-how-to-run-the-examples)
 
 ---
 
@@ -198,36 +200,192 @@ for (let i = 0; i < numbers.length; i++) {
 let average = sum / numbers.length;
 ```
 
-**Useful Math functions:**
-
-| Function | Use | Example |
-|---|---|---|
-| `Math.abs(x)` | absolute value `\|HR - 80\|` | `Math.abs(78 - 80)` → 2 |
-| `Math.round(x)` | round to nearest integer | |
-| `Math.floor(x)` | round down | random numbers |
-| `Math.round(x * 100) / 100` | round to 2 decimals | 90.666… → 90.67 |
-| `Math.min(a, b, c)` | smallest of three | best-two-of-three CT logic |
+**Useful Math functions:** `Math.abs`, `Math.round`, `Math.floor`, `Math.min` … — full list with examples in [section 8](#8-math-number--parsing-functions).
 
 ---
 
-## 6. String Methods & Regex Tests
+## 6. Array Methods — the full toolkit
 
-| Method | What it does | Example |
+Start from this array for every example below:
+
+```js
+let arr = ["a", "b", "c", "d", "e"];
+```
+
+**Reading & info:**
+
+| Code | Result | Notes |
 |---|---|---|
-| `.length` | number of characters | `"hello123".length` → 8 |
-| `.toUpperCase()` | to capitals | |
-| `.toLowerCase()` | to small letters | |
-| `.includes("x")` | contains text? | `"Perfect@Pass123".includes("@")` |
-| `/[A-Z]/.test(s)` | has an uppercase letter? | regex test |
-| `/[a-z]/.test(s)` | has a lowercase letter? | |
-| `/[0-9]/.test(s)` | has a digit? | |
-| `/[!@#$%^&*]/.test(s)` | has a special character? | |
+| `arr.length` | 5 | number of items |
+| `arr[0]` | `"a"` | first item — indexes start at 0 |
+| `arr[arr.length - 1]` | `"e"` | last item |
+| `arr.indexOf("c")` | 2 | position, or -1 if not found |
+| `arr.includes("c")` | true | is it in the array? |
 
-These four regex tests are exactly the password-strength criteria (Final 251).
+**Adding / removing (change the original array):**
+
+| Code | Result | Notes |
+|---|---|---|
+| `arr.push("f")` | 6 | add to the END (returns new length) |
+| `arr.pop()` | `"f"` | remove from the END |
+| `arr.unshift("z")` | 6 | add to the START |
+| `arr.shift()` | `"z"` | remove from the START |
+
+**`splice` — the swiss army knife** (removes / inserts / replaces anywhere, **changes** the original):
+
+```js
+let arr = ["a", "b", "c", "d", "e"];
+
+arr.splice(2, 1);            // remove 1 item at index 2        -> ["a","b","d","e"]
+arr.splice(1, 0, "X");       // insert "X" at index 1 (delete 0) -> ["a","X","b","d","e"]
+arr.splice(2, 2, "Y");       // replace 2 items at index 2 with "Y" -> ["a","X","Y","e"]
+```
+
+Syntax: `arr.splice(start, deleteCount, item1, item2, ...)`
+
+**`slice` — copy a piece** (does **NOT** change the original):
+
+```js
+let arr = ["a", "b", "c", "d", "e"];
+
+arr.slice(1, 3);     // ["b", "c"]        (from index 1 up to but NOT including 3)
+arr.slice(2);        // ["c", "d", "e"]   (from index 2 to the end)
+arr.slice(-2);       // ["d", "e"]        (last two)
+```
+
+**splice vs slice — the one-line memory hook:** splice **s**poils the original, slice makes a **s**afe copy.
+
+**join / reverse / sort / concat:**
+
+```js
+["Math", "Physics"].join(", ");          // "Math, Physics"      (array -> string)
+["a", "b", "c"].reverse();               // ["c", "b", "a"]      (changes original)
+[3, 1, 10, 2].sort();                    // [1, 10, 2, 3]        WRONG for numbers!
+[3, 1, 10, 2].sort((a, b) => a - b);     // [1, 2, 3, 10]        numeric sort
+["a", "b"].concat(["c"]);                // ["a", "b", "c"]      (combine arrays)
+```
+
+`sort()` without a compare function sorts **alphabetically** — `10` comes before `2`. For numbers always pass `(a, b) => a - b`.
+
+**Bonus (not required by the papers, but common knowledge):**
+
+```js
+[1, 2, 3].forEach(n => console.log(n));        // loop through
+[1, 2, 3].map(n => n * 2);                     // [2, 4, 6]      transform each
+[1, 2, 3, 4].filter(n => n % 2 === 0);         // [2, 4]         keep matching
+```
+
+**Exam relevance:**
+- `push` + `length` + `join` — Final 261 study tracker (subjects array).
+- `Math.min` best-two-of-three — Final 253 (that is Math, not array).
+- "Remove the 2nd element", "keep only the last 3" — classic quiz one-liners: `arr.splice(1, 1)`, `arr.slice(-3)`.
 
 ---
 
-## 7. Example Files — mapped to past papers
+## 7. String Methods — the full toolkit
+
+| Method | What it does | Example → Result |
+|---|---|---|
+| `.length` | number of characters | `"hello".length` → 5 |
+| `.toUpperCase()` | to capitals | `"Hi".toUpperCase()` → `"HI"` |
+| `.toLowerCase()` | to small letters | `"Hi".toLowerCase()` → `"hi"` |
+| `.trim()` | remove spaces at both ends | `"  hi  ".trim()` → `"hi"` |
+| `.includes("x")` | contains text? | `"hello123".includes("123")` → true |
+| `.startsWith("x")` | begins with? | `"IMG_01".startsWith("IMG")` → true |
+| `.endsWith("x")` | ends with? | `"report.pdf".endsWith(".pdf")` → true |
+| `.indexOf("x")` | position, or -1 | `"hello".indexOf("l")` → 2 |
+| `.charAt(i)` / `str[i]` | character at index | `"hello".charAt(1)` → `"e"` |
+| `.slice(start, end)` | cut by indexes (negatives allowed) | `"hello".slice(1, 3)` → `"el"`, `"hello".slice(-3)` → `"llo"` |
+| `.substring(start, end)` | like slice, but no negatives | `"hello".substring(1, 3)` → `"el"` |
+| `.substr(start, length)` | start + how many characters | `"hello".substr(1, 3)` → `"ell"` |
+| `.split("x")` | string → array | `"English-2".split("-")` → `["English","2"]` |
+| `.replace(a, b)` | replace the FIRST match | `"a-b-c".replace("-", "+")` → `"a+b-c"` |
+| `.replaceAll(a, b)` | replace ALL matches | `"a-b-c".replaceAll("-", "+")` → `"a+b+c"` |
+| `.repeat(n)` | repeat n times | `"ab".repeat(3)` → `"ababab"` |
+| `.concat(x)` | join strings | `"a".concat("b")` → `"ab"` |
+
+**slice vs substring vs substr:**
+
+```js
+let s = "JavaScript";
+
+s.slice(0, 4)       // "Java"
+s.substring(0, 4)   // "Java"
+s.substr(0, 4)      // "Java"
+
+s.slice(-6)         // "Script"
+s.substring(-6)     // "JavaScript"   (negative becomes 0)
+s.substr(-6)        // "Script"
+```
+
+**`split` — the exam favourite** (string → array):
+
+```js
+"English-2".split("-")        // ["English", "2"]    -> subject + hours in one input!
+"a,b,c".split(",")            // ["a", "b", "c"]
+"hello world".split(" ")      // ["hello", "world"]
+"abc".split("")               // ["a", "b", "c"]     -> split into characters
+```
+
+**Regex tests (password strength — Final 251):**
+
+```js
+/[A-Z]/.test(password)        // has an uppercase letter?
+/[a-z]/.test(password)        // has a lowercase letter?
+/[0-9]/.test(password)        // has a digit?
+/[!@#$%^&*]/.test(password)   // has a special character?
+```
+
+**Template literals** — cleaner than `+` concatenation:
+
+```js
+let msg = `Total: ${total} hours, Average: ${average}`;
+```
+
+---
+
+## 8. Math, Number & Parsing Functions
+
+**Math:**
+
+| Function | Example → Result |
+|---|---|
+| `Math.floor(4.9)` | 4 — round down |
+| `Math.ceil(4.1)` | 5 — round up |
+| `Math.round(4.5)` | 5 — nearest integer |
+| `Math.trunc(4.9)` | 4 — cut the decimals |
+| `Math.abs(-7)` | 7 — absolute value |
+| `Math.min(5, 2, 9)` | 2 — smallest |
+| `Math.max(5, 2, 9)` | 9 — largest |
+| `Math.pow(2, 3)` | 8 — power |
+| `Math.sqrt(16)` | 4 — square root |
+| `Math.random()` | 0 ≤ x < 1 (see [section 2](#2-random-numbers)) |
+
+**Number & parsing:**
+
+| Function | Example → Result | Note |
+|---|---|---|
+| `parseInt("42.9")` | 42 | string → whole number |
+| `parseFloat("3.5")` | 3.5 | string → decimal |
+| `Number("42")` | 42 | another conversion |
+| `isNaN("abc")` | true | "is Not a Number?" |
+| `(3.14159).toFixed(2)` | `"3.14"` | 2 decimals — returns a STRING |
+| `Number.isInteger(5.0)` | true | whole number? |
+
+**Rounding to 2 decimals — two ways:**
+
+```js
+let x = 90.66666;
+
+Math.round(x * 100) / 100    // 90.67   (still a NUMBER — use in maths)
+x.toFixed(2)                 // "90.67" (a STRING — use for display)
+```
+
+Exam note: the vitals monitor (Final 261B) used `Math.round(x * 100) / 100` so `79` stays `79` — `toFixed(2)` would wrongly show `"79.00"`.
+
+---
+
+## 9. Example Files — mapped to past papers
 
 | File | Paper | Key technique |
 |---|---|---|
@@ -237,12 +395,13 @@ These four regex tests are exactly the password-strength criteria (Final 251).
 | `04_calorie_tracker_252.html` | Final 252 Q1 | running total, entries counter |
 | `05_study_tracker_261.html` | Final 261 Set-A Q1 | arrays, average, `join()` |
 | `06_vitals_monitor_261b.html` | Final 261 Set-B Q1 | arrays, averages, `Math.abs`, risk formula |
+| `07_builtin_functions.html` | extra practice | every array/string/math method from sections 6–8, with buttons |
 
 Open any file in a browser, press **F12 → Console** to see `console.log` output.
 
 ---
 
-## 8. Traps — the marks people lose
+## 10. Traps — the marks people lose
 
 1. **Off-by-one random:** `Math.random() * (max - min)` is wrong — you need `(max - min + 1)`, otherwise `max` is never produced.
 2. **`.value` is a string:** `"5" + 1` gives `"51"`. Always `parseInt()` / `parseFloat()` before maths.
@@ -257,7 +416,7 @@ Open any file in a browser, press **F12 → Console** to see `console.log` outpu
 
 ---
 
-## 9. Write From Memory — Self Test
+## 11. Write From Memory — Self Test
 
 Close this file and write on paper. Tick when done without looking:
 
@@ -270,10 +429,15 @@ Close this file and write on paper. Tick when done without looking:
 - [ ] `Math.abs(x - 80)` for absolute difference
 - [ ] Round to 2 decimals: `Math.round(x * 100) / 100`
 - [ ] The guess-game: 5 attempts, "Too high!/Too low!/Correct!/Out of guesses!"
+- [ ] Array: `push`, `pop`, `splice(start, deleteCount)`, `slice(start, end)` — and which ones change the original
+- [ ] String: `split("-")` turns `"English-2"` into `["English", "2"]`
+- [ ] `join(", ")` prints an array as one string
+- [ ] `toFixed(2)` vs `Math.round(x * 100) / 100` — which returns a string?
+- [ ] `sort((a, b) => a - b)` for numbers (plain `sort()` is alphabetical!)
 
 ---
 
-## 10. How to Run the Examples
+## 12. How to Run the Examples
 
 **Option A — browser (simplest):** double-click any `.html` file → it opens in your browser. Press `F12` → **Console** tab to see `console.log` results.
 
@@ -286,3 +450,4 @@ Close this file and write on paper. Tick when done without looking:
 - `04` — 300 → 500 → 700 gives "Good progress, keep it balanced!".
 - `05` — 4 sessions totalling 14 h shows average 3.5 and "Almost ready!".
 - `06` — 80/97 → SAFE, 78/95 → WARNING, 130/80 → DANGER.
+- `07` — click each button, read the results in the console — every method from sections 6–8 on one page.
