@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guessing Game</title>
+</head>
+<body>
+
+<h2>Guess the Secret Number (500–5000)</h2>
+
+<input type="text" id="guessInput" placeholder="Enter your guess">
+<button onclick="checkGuess()">Submit Guess</button>
+<p id="feedback"></p>
+<p id="status"></p>
+
+<script>
+// ============================================================================
+// FINAL 243 (Fall 2024) — Q1 (10 marks)
+// Secret number 500–5000. Feedback Too high / Too low / Correct.
+// Max 5 attempts -> "Out of guesses!" and disable the input.
+// ============================================================================
+
+let secret   = Math.floor(Math.random() * (5000 - 500 + 1)) + 500;
+let attempts = 0;
+
+function checkGuess() {
+    let input    = document.getElementById("guessInput");
+    let feedback = document.getElementById("feedback");
+    let status   = document.getElementById("status");
+
+    let userGuess = parseInt(input.value);   // .value is a STRING -> parseInt
+
+    // stop if the game is already over
+    if (attempts >= 5) {
+        return;
+    }
+
+    attempts++;   // count this guess
+
+    if (userGuess === secret) {
+        feedback.innerHTML = "Correct!";
+        status.innerHTML   = "You got it in " + attempts + " attempt(s)!";
+        input.disabled     = true;   // prevent further guesses
+    } else if (userGuess > secret) {
+        feedback.innerHTML = "Too high!";
+    } else {
+        feedback.innerHTML = "Too low!";
+    }
+
+    // ran out of guesses on a wrong guess
+    if (attempts === 5 && userGuess !== secret) {
+        feedback.innerHTML = feedback.innerHTML + " Out of guesses!";
+        status.innerHTML   = "The secret number was " + secret + ".";
+        input.disabled     = true;
+    }
+}
+</script>
+
+</body>
+</html>
