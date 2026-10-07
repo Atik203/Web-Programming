@@ -7,14 +7,14 @@
 - **Question Structure**:
   - **Q1 [10 Marks]**: **JavaScript Interactive Web Application** (HTML form controls + DOM event handler + persistent state/accumulator + mathematical/conditional evaluation + DOM feedback + state disabling).
   - **Q2 [10 Marks]**: **PHP Server-Side Processing & Business Logic** (Form submission via `$_POST` + resource quantization via `ceil()` OR progress classification ladder OR Best-of-N computation OR OOP class).
-  - **Q3 [10 Marks]**: **PHP & MySQL Database Integration** (DDL/DML schema setup + `mysqli` database connection + 4 query patterns: selective filters, guarded conditional updates, `GROUP BY ... HAVING` aggregations, computed net totals/subqueries + loop rendering).
-- **Core Strategy**: Questions are never entirely novel; they are compositions of **modular algorithmic building blocks**. Instead of memorizing specific past paper answers, master the universal building blocks below to solve *any* unseen problem.
+  - **Q3 [10 Marks]**: **PHP & MySQL Database Integration** (DDL/DML schema setup + `mysqli` database connection + deep query patterns: selective filters, guarded conditional updates, `GROUP BY ... HAVING` aggregations, multi-table `JOIN`s, subqueries & `CASE` expressions + HTML table rendering).
+- **Core Strategy**: Master the universal building blocks below to solve *any* unseen problem on the exam sheet.
 
 ---
 
 ## 2. Question 1: JavaScript Universal Decomposition Model
 
-Every JS final question—regardless of whether it presents as a game, a fitness tracker, a study logger, a vital monitor, or an auth validator—is built on the exact same 5-stage pipeline:
+Every JS final question is built on the 5-stage pipeline:
 
 ```
 [ HTML Inputs (text/number/password) ]
@@ -92,68 +92,96 @@ All PHP exam questions fall into one of three structural paradigms:
 
 ---
 
-## 4. Question 3: MySQL & PHP Integration Deep-Dive (Weak Point Focus)
-
-Students lose marks in Q3 because of syntax omissions or confusion between SQL clauses. Master these distinct query responsibilities:
+## 4. Question 3: MySQL & PHP Deep Integration (Weak Point Focus)
 
 ### 1. DDL Foundations (Table Schema)
-- Always start by creating the database and table:
-  ```sql
-  CREATE DATABASE IF NOT EXISTS shop_db;
-  USE shop_db;
-  CREATE TABLE items (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    category VARCHAR(50),
-    price DECIMAL(10,2) DEFAULT 0.00,
-    stock INT DEFAULT 0,
-    rating FLOAT DEFAULT 0.0
-  );
-  INSERT INTO items (name, category, price, stock, rating) VALUES
-  ('Item A', 'Tech', 500.00, 10, 4.8),
-  ('Item B', 'Tech', 150.00, 25, 4.2);
-  ```
+```sql
+CREATE DATABASE IF NOT EXISTS uiu_db;
+USE uiu_db;
+CREATE TABLE records (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(60) NOT NULL,
+  category VARCHAR(30),
+  stock INT DEFAULT 0,
+  fee DECIMAL(10,2),
+  rating FLOAT,
+  reg_date DATE,
+  status VARCHAR(20)
+);
+```
 
-### 2. The 5 Core SQL Query Types
-| Query Type | Syntax Blueprint | Purpose / Exam Trigger |
+### 2. Comprehensive SQL Query Patterns
+
+| Query Pattern | Syntax Blueprint | UIU Exam Paper Reference |
 |:---|:---|:---|
-| **Selective Filter** | `SELECT cols FROM tbl WHERE (cond1 OR cond2) AND cond3 ORDER BY col DESC;` | "Display all items in category X or with rating > 4.5, sorted by price highest first" |
-| **Substring Search** | `SELECT cols FROM tbl WHERE col LIKE '%keyword%';` | "SpotName contains the word 'Beach'" |
-| **Range Filter** | `SELECT cols FROM tbl WHERE col BETWEEN low AND high;` | "Rating is between 4.0 and 4.5 inclusive" |
-| **Group Aggregation** | `SELECT cat, COUNT(*) AS total, AVG(score) AS avg_s FROM tbl GROUP BY cat HAVING AVG(score) > 4.4;` | "For each category, show count and average, but only categories with avg > 4.4" |
-| **Guarded UPDATE** | `UPDATE tbl SET price = price * 1.10 WHERE price > 20 AND price * 1.10 <= 50;` | "Increase fee by 10%, but only if resulting fee does not exceed 50" |
-| **Conditional Swap** | `UPDATE tbl SET grade = 'C' WHERE score < 75 AND grade <> 'D';` | "If score < 75 and current grade is not D, change to C" |
-| **Computed Total** | `SELECT SUM(price * stock) AS net_worth FROM tbl;` | "Total net worth across entire inventory" |
-| **Subquery / CASE** | `SELECT name, CASE WHEN rev > (SELECT AVG(rev) FROM tbl) THEN 'High' ELSE 'Low' END AS status FROM tbl;` | "Label as Top Seller if above average" |
+| **Selective Filter** | `SELECT title, category, rating FROM records WHERE rating > 4.5 OR title LIKE '%Beach%' ORDER BY rating DESC;` | Spring 261-A Q3 |
+| **Inclusive Range** | `SELECT * FROM records WHERE rating BETWEEN 4.0 AND 4.5;` | Spring 261-A Q3 |
+| **Set Membership** | `SELECT * FROM records WHERE category IN ('CSE', 'EEE');` | Quiz & Finals |
+| **Group Aggregation** | `SELECT category, COUNT(*) AS total_items, AVG(rating) AS avg_rate FROM records GROUP BY category HAVING COUNT(*) > 1 AND AVG(rating) > 4.4 ORDER BY avg_rate DESC;` | Fall 253 & Spring 261-A |
+| **Guarded UPDATE** | `UPDATE records SET fee = fee * 1.10 WHERE fee > 20.00 AND fee * 1.10 <= 50.00;` | Fall 243, 251, 253 |
+| **Conditional Swap** | `UPDATE records SET status = 'Grace Period', fee = 0 WHERE status = 'Overdue' AND days_overdue < 7;` | Fall 253 Q3 |
+| **Grand Net Worth** | `SELECT SUM(fee * stock) AS grand_total FROM records;` | Spring 261-B Q3 |
+| **Scalar Subquery** | `SELECT title, fee FROM records WHERE fee > (SELECT AVG(fee) FROM records);` | General Pattern |
+| **Correlated Subquery CASE** | `SELECT title, fee, CASE WHEN fee > (SELECT AVG(r2.fee) FROM records r2 WHERE r2.category = r1.category) THEN 'Top Seller' ELSE 'Regular Seller' END AS seller_tier FROM records r1;` | Summer 252 Q3 |
 
-### 3. The Difference Between `WHERE` and `HAVING` (Critical Mark Saver)
-- `WHERE` filters **raw rows** *before* any grouping or aggregation takes place.
-- `HAVING` filters **grouped aggregate values** *after* `GROUP BY` has combined the rows.
-- **Rule**: Never put `COUNT(*)`, `SUM()`, or `AVG()` inside a `WHERE` clause! Write `GROUP BY col HAVING COUNT(*) > 1`.
+### 3. Multi-Table JOIN Patterns (Likely Exam Candidates)
 
-### 4. Master PHP ↔ MySQL Bridge (OOP `mysqli`)
+#### A. Standard `INNER JOIN` (Enrollments & Courses)
+```sql
+SELECT s.name, c.title, e.grade
+FROM student s
+INNER JOIN enrollment e ON s.id = e.student_id
+INNER JOIN course c ON e.course_id = c.id;
+```
+
+#### B. `LEFT JOIN` with Aggregation (Count per Department, including 0)
+```sql
+SELECT d.name, COUNT(e.id) AS emp_count
+FROM department d
+LEFT JOIN employee e ON d.id = e.dept_id
+GROUP BY d.id;
+```
+
+#### C. Multi-Table Join with Computed Revenue
+```sql
+SELECT c.name, SUM(o.qty * p.price) AS total_spent
+FROM customer c
+JOIN orders o ON c.id = o.customer_id
+JOIN product p ON o.product_id = p.id
+GROUP BY c.id;
+```
+
+---
+
+## 5. Master PHP ↔ MySQL Bridge Architecture
+
 ```php
 <?php
-$conn = new mysqli("localhost", "root", "", "shop_db");
-if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
+$servername = "localhost";
+$username   = "root";
+$password   = "";
+$dbname     = "uiu_db";
 
-// Reading data (SELECT)
-$sql = "SELECT category, COUNT(*) AS count, AVG(price) AS avg_price FROM items GROUP BY category";
-$result = $conn->query($sql);
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "Cat: " . $row["category"] . " | Count: " . $row["count"] . " | Avg: " . $row["avg_price"] . "<br>";
-    }
-} else {
-    echo "0 results found<br>";
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
 
-// Updating data (UPDATE / INSERT / DELETE)
-$updateSql = "UPDATE items SET price = price * 1.05 WHERE stock < 5";
-if ($conn->query($updateSql) === TRUE) {
-    echo "Updated successfully (" . $conn->affected_rows . " rows affected)<br>";
-} else {
-    echo "Error updating: " . $conn->error . "<br>";
+// SELECT with multi-row loop
+$sql1 = "SELECT category, COUNT(*) AS total_items, AVG(fee) AS avg_fee
+         FROM records GROUP BY category HAVING COUNT(*) > 1 ORDER BY avg_fee DESC";
+$result1 = $conn->query($sql1);
+
+if ($result1 && $result1->num_rows > 0) {
+  while ($row = $result1->fetch_assoc()) {
+    echo $row["category"] . ": " . $row["total_items"] . " (Avg: " . $row["avg_fee"] . ")<br>";
+  }
+} else { echo "0 results<br>"; }
+
+// UPDATE with check
+$sql2 = "UPDATE records SET fee = fee * 1.10 WHERE fee > 20 AND fee * 1.10 <= 50";
+if ($conn->query($sql2) === TRUE) {
+  echo "Updated (" . $conn->affected_rows . " rows)<br>";
 }
 
 $conn->close();
@@ -162,14 +190,9 @@ $conn->close();
 
 ---
 
-## 5. Cheat Sheet Architecture Blueprint (High-Density Generalized 2-Page A4)
+## 6. Physical Cheat Sheet Typography Configuration
 
-- **Target Print Size**: Exactly **2 Pages A4 Portrait**, `@page { margin: 2mm; }`, body `font-size: 8.5pt`.
-- **Page 1: HTML Controls + JavaScript Mechanics + PHP Foundations**:
-  - Col 1: HTML5 Input Controls & Form Attributes + DOM Extraction, Strict Parsing & State Mutators.
-  - Col 2: Universal JS Algorithmic Engines (Accumulators, Session Loggers, Tier Ladders, Target Difference, State Disabling).
-  - Col 3: JS Built-in Functions (Math, Random Integer Formula, String manipulation, Regex, Array methods) + Single-file PHP Form Skeleton & Form Security.
-- **Page 2: Advanced PHP Logic + MySQL Database Mastery + PHP-MySQL Bridge**:
-  - Col 1: PHP Problem-Solving Engines (Resource Allocator `ceil()`, Progress Classifier Ladder, Best-of-N marks, OOP Class Template).
-  - Col 2: SQL DDL/DML Foundations + Deep Query Mastery (Selective Filters, Substring `LIKE`, `BETWEEN`, `ORDER BY`, `LIMIT`).
-  - Col 3: Advanced SQL Grouping (`GROUP BY` + `HAVING`), Guarded Arithmetic `UPDATE`, Computed Expressions (`SUM(a*b)`), and the Complete PHP `mysqli` Multi-Row Bridge + HTML Table Renderer.
+- **Target Format**: Exactly **2 Pages A4 Portrait**, `@page { size: A4 portrait; margin: 2mm; }`.
+- **Card Headers (`.box-title`)**: **`8.0pt`** (font-weight: 800) for instant visibility from an exam table.
+- **Inside Code & Text (`pre`, `p`, `.hint`, `.warn`, `table`)**: **Minimum `7.5pt`** (font size boosted from 5.6pt to 7.5pt for maximum readability).
+- **Physical Column Balance**: Both Page 1 and Page 2 reach the bottom edge with 0 spillover onto Page 3.
