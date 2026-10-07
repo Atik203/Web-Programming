@@ -1,0 +1,81 @@
+                                      United International University (UIU)
+                                       Dept. of Computer Science & Engineering (CSE)
+
+                                          Final Exam      Year: 2025       Trimester:
+                                                          Summer
+                                             CSE 4165/CSE 465 Web Programming
+                                             Total Marks: 30       Duration: 2 Hours
+     Any examinee found adopting unfair means will be expelled from the trimester / program as per UIU
+                                           disciplinary rules.
+1.    Create a JavaScript application where users can track their daily calorie intake and get real-time feedback   [10]
+      on their eating habits.
+      Index.html:
+      Create a number input field to enter calories consumed per meal, a “Add Calories” button, and below
+      that a label field to display total calories, daily goal progress, and feedback messages
+      Script.js:
+          1. Set a daily calorie goal of 2000 calories.
+          2. Take the user’s calorie input from the HTML file.
+          3. Inside a function:
+                 a) Add the entered calories to a running total.
+                 b) Display the total calories consumed so far.
+                 c) Display feedback messages based on progress:
+                            • 0–800 → “You’re off to a healthy start!”
+                            • 801–1600 → “Good progress, keep it balanced!”
+                            • 1601–1999 → “Almost at your limit!”
+                            • 2000+ → “Goal reached! Stay mindful!”
+                 d) Keep track of the number of entries the user has made
+                 e) If the user logs calories more than 10 times without reaching the goal, display
+                      “Be cautious of frequent snacking!”
+
+         Sample Input (User Calorie Input)                         Sample Output (Feedback)
+      300, 500, 700                                        Good progress, keep it balanced!
+      1000, 800, 300                                       Goal reached! Stay mindful!
+      12 entries, total 1500                               Be cautious of frequent snacking!
+
+2.   You are managing a movie night event where you need to calculate how many screens to rent and how              [10]
+     much money will be wasted due to empty seats. Write a PHP function that takes three integer inputs: the
+     total number of people attending, the seating capacity of one screen, and the ticket price per seat. The
+     function should calculate how many complete screens are needed to accommodate all people (you
+     cannot book partial screens), and how many empty seats will remain after everyone is seated.
+     Furthermore, each screen has a fixed rental cost of 25,000 BDT, and the amount of money wasted on
+     empty seats must be calculated based on the ticket price multiplied by the number of unused seats. The
+     output should display the total number of screens booked, total empty seats, and total wasted money.
+
+      Sample Input (from HTML fields)                          Sample Output (print on PHP file)
+      Attendees       Seat Capacity    Ticket Price            Total Screens   Empty Seats     Wasted Money
+      150             60               500                     3               30              15,000
+      280             100              400                     3               20              8,000
+      320             120              350                     3               40              14,000
+
+                                                                                                        Page 1|2
+3.   Create a database named ‘sundarban’ and a table named ‘sales_data’ with the following structure and              [10]
+     values:
+
+          SaleID      ProductName          CategoryID         CategoryName            Quantity    Revenue
+
+      1             Laptop               301               Electronics            5              350000
+
+      2             Mouse                301               Electronics            15             45000
+
+      3             Chair                302               Furniture              8              64000
+
+      4             Desk                 302               Furniture              6              72000
+
+      5             Bottle               303               Accessories            20             30000
+
+      6             Pen                  303               Accessories            25             20000
+
+
+     Now, do the following (write full PHP–MySQL code):
+
+           1.   Display the total revenue per category from the database.
+           2.   If a product’s revenue is below 40,000 BDT, update its category to “Low Performing”.
+           3.   For all products generating more than 70,000 BDT, add a 10% bonus revenue to their total.
+           4.   Display each product’s name along with its category name and a label “Top Seller” if its revenue is
+                above the average revenue of its own category. Otherwise, display “Regular Seller”.
+
+
+
+
+                                                                                                          Page 2|2
+
