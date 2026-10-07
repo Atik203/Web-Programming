@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UIU Web Programming Final Exam — 2-Page Master Cheat Sheet</title>
+  <title>UIU Web Programming Final Exam — Master Cheat Sheet</title>
   <style>
     @page {
       size: A4 portrait;
@@ -42,7 +42,7 @@
     body {
       background: #cbd5e1;
       color: #0f172a;
-      font-size: 8.5pt;
+      font-size: 7.8pt;
       line-height: 1.08;
       width: 206mm;
       margin: 0 auto;
@@ -54,52 +54,31 @@
       min-height: 292mm;
       max-height: 292mm;
       margin: 0 auto 4mm;
-      padding: 2mm 2.2mm;
+      padding: 1.8mm 2.2mm;
       overflow: hidden;
       display: flex;
       flex-direction: column;
     }
 
-    /* Minimal Compact Header */
-    .cheat-header {
-      border-bottom: 1.4px solid #0f172a;
-      padding-bottom: 1px;
-      margin-bottom: 1.5px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .cheat-header h1 {
-      font-size: 8.5pt;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -0.2px;
-    }
-    .cheat-header .meta {
-      font-size: 6.8pt;
-      font-weight: 700;
-      color: #334155;
-    }
-
-    /* 3-Column Layout */
+    /* 3-Column Layout with Balanced Spacing */
     .sheet-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.4mm;
+      gap: 1.5mm;
       align-items: start;
       flex: 1;
     }
     .sheet-col {
       display: flex;
       flex-direction: column;
-      gap: 1.2mm;
+      gap: 1.1mm;
       min-width: 0;
     }
 
     /* Modular Box Cards */
     .box {
       border: 1px solid #94a3b8;
-      border-radius: 2px;
+      border-radius: 2.5px;
       background: #fff;
       overflow: hidden;
       break-inside: avoid;
@@ -110,12 +89,14 @@
     .box.accent-purple { border: 1.2px solid #7c3aed; }
     .box.accent-green  { border: 1.2px solid #16a34a; }
     .box.accent-amber  { border: 1.2px solid #d97706; }
+    .box.accent-cyan   { border: 1.2px solid #0891b2; }
     .box.accent-dark   { border: 1.2px solid #0f172a; }
 
+    /* CARD HEADER: Exact 7.5pt as requested */
     .box-title {
-      font-size: 6.8pt;
-      font-weight: 800;
-      padding: 0.8px 3px;
+      font-size: 7.5pt !important;
+      font-weight: 800 !important;
+      padding: 1.2px 3.5px;
       border-bottom: 1px solid #cbd5e1;
       display: flex;
       justify-content: space-between;
@@ -129,10 +110,11 @@
     .box.accent-purple .box-title { background: #f3e8ff; color: #6b21a8; }
     .box.accent-green .box-title  { background: #dcfce7; color: #166534; }
     .box.accent-amber .box-title  { background: #fef3c7; color: #92400e; }
+    .box.accent-cyan .box-title   { background: #cffafe; color: #0e7490; }
     .box.accent-dark .box-title   { background: #0f172a; color: #fff; }
 
     .tag {
-      font-size: 5.3pt;
+      font-size: 5.6pt;
       background: #0284c7;
       color: #fff;
       padding: 0.5px 3px;
@@ -145,25 +127,26 @@
     .tag.purple { background: #7c3aed; }
     .tag.green  { background: #16a34a; }
     .tag.amber  { background: #d97706; }
+    .tag.cyan   { background: #0891b2; }
     .tag.dark   { background: #334155; }
 
     .box-content {
-      padding: 1.2px 3px;
+      padding: 1.4px 3.2px;
     }
 
-    /* Code Snippets */
+    /* CODE SNIPPETS: Exact 7.0pt minimum as requested */
     pre {
       font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-      font-size: 5.6pt;
-      line-height: 0.95;
+      font-size: 7.0pt !important;
+      line-height: 1.05 !important;
       background: #f8fafc;
-      padding: 1px 2.2px;
+      padding: 1.1px 2.6px;
       border-radius: 1.5px;
       border: 1px solid #e2e8f0;
       white-space: pre-wrap;
       overflow-wrap: anywhere;
       word-break: break-word;
-      margin: 1px 0;
+      margin: 1.0px 0;
       color: #0f172a;
     }
     pre.code-js {
@@ -186,6 +169,11 @@
       background: #fff7ed;
       border-color: #fed7aa #fed7aa #fed7aa #ea580c;
     }
+    pre.code-css {
+      border-left: 2.8px solid #0891b2;
+      background: #f0fdfa;
+      border-color: #99f6e4 #99f6e4 #99f6e4 #0891b2;
+    }
 
     /* Syntax Highlighting */
     .k { color: #7c3aed; font-weight: bold; } /* keyword */
@@ -197,16 +185,16 @@
     .t { color: #0369a1; font-weight: bold; } /* html tag */
     .a { color: #9333ea; }                  /* attribute */
 
-    /* Mini Inline Tables */
+    /* Mini Inline Tables & Text: 7.0pt */
     table.dense-tbl {
       width: 100%;
       border-collapse: collapse;
-      font-size: 5.6pt;
-      margin: 1px 0;
+      font-size: 7.0pt !important;
+      margin: 1.2px 0;
     }
     table.dense-tbl th, table.dense-tbl td {
       border: 1px solid #cbd5e1;
-      padding: 0.8px 2px;
+      padding: 1px 2.8px;
       text-align: left;
     }
     table.dense-tbl th {
@@ -214,27 +202,27 @@
       font-weight: 700;
     }
     .hint {
-      font-size: 5.7pt;
+      font-size: 7.0pt !important;
       color: #334155;
-      line-height: 1.08;
-      margin: 0.8px 0;
+      line-height: 1.1;
+      margin: 1px 0;
     }
     .warn {
       background: #fee2e2;
-      border-left: 2px solid #b91c1c;
-      padding: 1px 3px;
-      font-size: 5.6pt;
+      border-left: 2.2px solid #b91c1c;
+      padding: 1.2px 3.2px;
+      font-size: 7.0pt !important;
       color: #991b1b;
-      margin: 1px 0;
+      margin: 1.2px 0;
       font-weight: 700;
     }
     .ok {
       background: #dcfce7;
-      border-left: 2px solid #16a34a;
-      padding: 1px 3px;
-      font-size: 5.6pt;
+      border-left: 2.2px solid #16a34a;
+      padding: 1.2px 3.2px;
+      font-size: 7.0pt !important;
       color: #166534;
-      margin: 1px 0;
+      margin: 1.2px 0;
       font-weight: 700;
     }
   </style>
@@ -245,11 +233,6 @@
   <!-- PAGE 1: HTML CONTROLS + JAVASCRIPT MASTER SYSTEM + PHP FOUNDATION        -->
   <!-- ========================================================================= -->
   <div class="page" id="page1">
-    <div class="cheat-header">
-      <h1>UIU CSE4165 FINAL EXAM — PAGE 1: HTML CONTROLS, JAVASCRIPT &amp; PHP CORE</h1>
-      <div class="meta">Q1: JAVASCRIPT APPS (10M) • HTML FORM CONTROLS • PHP FORM LOGIC • [A4 FRONT]</div>
-    </div>
-
     <div class="sheet-grid">
       <!-- ---------------- PAGE 1 - COL 1 ---------------- -->
       <div class="sheet-col">
@@ -260,114 +243,101 @@
             1. HTML5 Form Controls &amp; Input Types <span class="tag amber">HTML Form</span>
           </div>
           <div class="box-content">
-            <pre class="code-html"><span class="c">&lt;!-- Inputs: Text, Number, Password, Date --&gt;</span>
+            <pre class="code-html"><span class="c">&lt;!-- Inputs: Text, Number, Password --&gt;</span>
 <span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"text"</span> <span class="a">id=</span><span class="s">"uName"</span> <span class="a">name=</span><span class="s">"user"</span> <span class="a">placeholder=</span><span class="s">"Name"</span><span class="t">&gt;</span>
 <span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"number"</span> <span class="a">id=</span><span class="s">"valIn"</span> <span class="a">name=</span><span class="s">"qty"</span> <span class="a">min=</span><span class="s">"0"</span> <span class="a">step=</span><span class="s">"any"</span><span class="t">&gt;</span>
 <span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"password"</span> <span class="a">id=</span><span class="s">"pwdIn"</span> <span class="a">name=</span><span class="s">"pass"</span><span class="t">&gt;</span>
-<span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"date"</span> <span class="a">id=</span><span class="s">"dateIn"</span> <span class="a">name=</span><span class="s">"dt"</span><span class="t">&gt;</span>
 <span class="c">&lt;!-- Dropdown &amp; Textarea --&gt;</span>
-<span class="t">&lt;select</span> <span class="a">id=</span><span class="s">"catSel"</span> <span class="a">name=</span><span class="s">"cat"</span><span class="t">&gt;</span>
-  <span class="t">&lt;option</span> <span class="a">value=</span><span class="s">"CSE"</span><span class="t">&gt;</span>CSE<span class="t">&lt;/option&gt;</span>
-  <span class="t">&lt;option</span> <span class="a">value=</span><span class="s">"EEE"</span><span class="t">&gt;</span>EEE<span class="t">&lt;/option&gt;</span>
-<span class="t">&lt;/select&gt;</span>
-<span class="t">&lt;textarea</span> <span class="a">id=</span><span class="s">"txtArea"</span> <span class="a">name=</span><span class="s">"desc"</span> <span class="a">rows=</span><span class="s">"2"</span><span class="t">&gt;&lt;/textarea&gt;</span>
-<span class="c">&lt;!-- Radios &amp; Checkboxes --&gt;</span>
+<span class="t">&lt;select</span> <span class="a">id=</span><span class="s">"catSel"</span> <span class="a">name=</span><span class="s">"cat"</span><span class="t">&gt;&lt;option</span> <span class="a">value=</span><span class="s">"CSE"</span><span class="t">&gt;</span>CSE<span class="t">&lt;/option&gt;&lt;option</span> <span class="a">value=</span><span class="s">"EEE"</span><span class="t">&gt;</span>EEE<span class="t">&lt;/option&gt;&lt;/select&gt;</span>
+<span class="t">&lt;textarea</span> <span class="a">id=</span><span class="s">"txtArea"</span> <span class="a">name=</span><span class="s">"desc"</span> <span class="a">rows=</span><span class="s">"1"</span> <span class="a">placeholder=</span><span class="s">"Note"</span><span class="t">&gt;&lt;/textarea&gt;</span>
+<span class="c">&lt;!-- Radios, Checkboxes &amp; Action Button --&gt;</span>
 <span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"radio"</span> <span class="a">name=</span><span class="s">"lvl"</span> <span class="a">value=</span><span class="s">"UG"</span> <span class="a">checked</span><span class="t">&gt;</span> UG
-<span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"radio"</span> <span class="a">name=</span><span class="s">"lvl"</span> <span class="a">value=</span><span class="s">"PG"</span><span class="t">&gt;</span> PG
-<span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"checkbox"</span> <span class="a">name=</span><span class="s">"skill"</span> <span class="a">value=</span><span class="s">"JS"</span><span class="t">&gt;</span> JS
-<span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"checkbox"</span> <span class="a">name=</span><span class="s">"skill"</span> <span class="a">value=</span><span class="s">"PHP"</span><span class="t">&gt;</span> PHP
-<span class="c">&lt;!-- Action Button &amp; Output Containers --&gt;</span>
-<span class="t">&lt;button</span> <span class="a">type=</span><span class="s">"button"</span> <span class="a">id=</span><span class="s">"btnSubmit"</span> <span class="a">onclick=</span><span class="s">"runApp()"</span><span class="t">&gt;</span>Submit<span class="t">&lt;/button&gt;</span>
-<span class="t">&lt;p</span> <span class="a">id=</span><span class="s">"output"</span><span class="t">&gt;&lt;/p&gt;</span></pre>
+<span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"checkbox"</span> <span class="a">name=</span><span class="s">"sk"</span> <span class="a">value=</span><span class="s">"JS"</span><span class="t">&gt;</span> JS
+<span class="t">&lt;button</span> <span class="a">type=</span><span class="s">"button"</span> <span class="a">id=</span><span class="s">"btn"</span> <span class="a">onclick=</span><span class="s">"runApp()"</span><span class="t">&gt;</span>Submit<span class="t">&lt;/button&gt;</span> <span class="t">&lt;span</span> <span class="a">id=</span><span class="s">"output"</span><span class="t">&gt;&lt;/span&gt;</span></pre>
           </div>
         </div>
 
-        <!-- 2. DOM Extraction, Parsing & Styles -->
+        <!-- 2. DOM Extraction, Parsing & Controls -->
         <div class="box accent-blue">
           <div class="box-title">
             2. DOM Extraction, Parsing &amp; Controls <span class="tag">DOM Core</span>
           </div>
           <div class="box-content">
             <pre class="code-js"><span class="c">// 1. Reading &amp; Strict Conversions</span>
-<span class="k">let</span> <span class="v">str</span> = document.<span class="f">getElementById</span>(<span class="s">"uName"</span>).value;
+<span class="k">let</span> <span class="v">str</span>  = document.<span class="f">getElementById</span>(<span class="s">"uName"</span>).value;
 <span class="k">let</span> <span class="v">intN</span> = <span class="f">parseInt</span>(document.<span class="f">getElementById</span>(<span class="s">"valIn"</span>).value, <span class="n">10</span>);
 <span class="k">let</span> <span class="v">fltN</span> = <span class="f">parseFloat</span>(document.<span class="f">getElementById</span>(<span class="s">"valIn"</span>).value);
-<span class="k">let</span> <span class="v">num</span>  = <span class="f">Number</span>(document.<span class="f">getElementById</span>(<span class="s">"valIn"</span>).value);
 
-<span class="c">// 2. Radios &amp; Checkboxes</span>
-<span class="k">let</span> <span class="v">radVal</span> = document.<span class="f">querySelector</span>(<span class="s">'input[name="lvl"]:checked'</span>)?.value;
-<span class="k">let</span> <span class="v">checkedArr</span> = Array.<span class="f">from</span>(document.<span class="f">querySelectorAll</span>(<span class="s">'input[name="skill"]:checked'</span>))
-                      .<span class="f">map</span>(<span class="v">cb</span> =&gt; <span class="v">cb</span>.value);
+<span class="c">// 2. Radio &amp; Checked Checkbox Array</span>
+<span class="k">let</span> <span class="v">rad</span> = document.<span class="f">querySelector</span>(<span class="s">'input[name="lvl"]:checked'</span>)?.value;
+<span class="k">let</span> <span class="v">chk</span> = Array.<span class="f">from</span>(document.<span class="f">querySelectorAll</span>(<span class="s">'input[name="sk"]:checked'</span>))
+               .<span class="f">map</span>(<span class="v">c</span> =&gt; <span class="v">c</span>.value);
 
-<span class="c">// 3. Writing Output &amp; Styling</span>
+<span class="c">// 3. Writing Output &amp; Disabling</span>
 <span class="k">let</span> <span class="v">out</span> = document.<span class="f">getElementById</span>(<span class="s">"output"</span>);
 <span class="v">out</span>.innerHTML = <span class="s">`&lt;b&gt;Score:&lt;/b&gt; ${</span><span class="v">fltN</span><span class="s">}`</span>;
 <span class="v">out</span>.style.color = (<span class="v">fltN</span> &gt;= <span class="n">50</span>) ? <span class="s">"green"</span> : <span class="s">"red"</span>;
-
-<span class="c">// 4. State Disabling &amp; Clearing</span>
-document.<span class="f">getElementById</span>(<span class="s">"valIn"</span>).value = <span class="s">""</span>;        <span class="c">// clear</span>
-document.<span class="f">getElementById</span>(<span class="s">"valIn"</span>).disabled = <span class="k">true</span>;    <span class="c">// lock field</span>
-document.<span class="f">getElementById</span>(<span class="s">"btnSubmit"</span>).disabled = <span class="k">true</span>;<span class="c">// lock btn</span></pre>
-            <div class="warn"><b>Trap:</b> <code>.value</code> is ALWAYS a string! <code>"20" + 5 = "205"</code>. Always parse with <code>parseFloat()</code> or <code>parseInt()</code>!</div>
+document.<span class="f">getElementById</span>(<span class="s">"valIn"</span>).disabled = <span class="k">true</span>; <span class="c">// lock</span>
+document.<span class="f">getElementById</span>(<span class="s">"btn"</span>).disabled = <span class="k">true</span>;   <span class="c">// lock</span></pre>
+            <div class="warn"><b>Trap:</b> <code>.value</code> is ALWAYS a string! <code>"20"+5="205"</code>. Always parse with <code>parseFloat()</code> or <code>parseInt()</code>!</div>
           </div>
         </div>
 
-        <!-- 3. Dynamic DOM Creation & Row Builder -->
-        <div class="box accent-blue">
-          <div class="box-title">
-            3. Dynamic HTML Table Row Builder <span class="tag">DOM Inject</span>
-          </div>
-          <div class="box-content">
-            <pre class="code-js"><span class="c">// Append row to existing &lt;tbody id="tblBody"&gt;</span>
-<span class="k">let</span> <span class="v">tbody</span> = document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>);
-<span class="v">tbody</span>.innerHTML += <span class="s">`&lt;tr&gt;
-  &lt;td&gt;${</span><span class="v">str</span><span class="s">}&lt;/td&gt;
-  &lt;td&gt;${</span><span class="v">fltN</span><span class="s">}&lt;/td&gt;
-&lt;/tr&gt;`</span>;
-
-<span class="c">// Create element natively</span>
-<span class="k">let</span> <span class="v">li</span> = document.<span class="f">createElement</span>(<span class="s">"li"</span>);
-<span class="v">li</span>.textContent = <span class="s">`${</span><span class="v">str</span><span class="s">} - ${</span><span class="v">fltN</span><span class="s">}`</span>;
-document.<span class="f">getElementById</span>(<span class="s">"myList"</span>).<span class="f">appendChild</span>(<span class="v">li</span>);</pre>
-          </div>
-        </div>
-
-        <!-- 4. Math API & Random Formula -->
+        <!-- 3. Math API & Random Formula -->
         <div class="box accent-red">
           <div class="box-title">
-            4. Math API &amp; Universal Random Formula <span class="tag red">Math Engine</span>
+            3. Math API &amp; Universal Random Formula <span class="tag red">Math Engine</span>
           </div>
           <div class="box-content">
-            <pre class="code-js"><span class="k">let</span> <span class="v">rnd</span> = Math.<span class="f">floor</span>(Math.<span class="f">random</span>() * (<span class="v">max</span> - <span class="v">min</span> + <span class="n">1</span>)) + <span class="v">min</span>;</pre>
+            <pre class="code-js"><span class="c">// Random integer: min to max (both inclusive)</span>
+<span class="k">let</span> <span class="v">rnd</span> = Math.<span class="f">floor</span>(Math.<span class="f">random</span>() * (<span class="v">max</span> - <span class="v">min</span> + <span class="n">1</span>)) + <span class="v">min</span>;</pre>
             <table class="dense-tbl">
               <tr><th>Range</th><th>Exact Code Snippet</th></tr>
               <tr><td><code>500 .. 5000</code></td><td><code>Math.floor(Math.random() * 4501) + 500</code></td></tr>
               <tr><td><code>200 .. 400</code></td><td><code>Math.floor(Math.random() * 201) + 200</code></td></tr>
-              <tr><td><code>50 .. 150</code></td><td><code>Math.floor(Math.random() * 101) + 50</code></td></tr>
               <tr><td><code>1 .. 100</code></td><td><code>Math.floor(Math.random() * 100) + 1</code></td></tr>
-              <tr><td><code>1 .. 6 (Dice)</code></td><td><code>Math.floor(Math.random() * 6) + 1</code></td></tr>
             </table>
-            <pre class="code-js">Math.<span class="f">abs</span>(<span class="v">x</span> - <span class="n">80</span>);      <span class="c">// absolute difference: |-5| = 5</span>
-Math.<span class="f">round</span>(<span class="v">x</span> * <span class="n">100</span>)/<span class="n">100</span>;<span class="c">// round to 2 dec: 90.666 -&gt; 90.67</span>
-<span class="v">x</span>.<span class="f">toFixed</span>(<span class="n">2</span>);         <span class="c">// STRING "90.67" (display only)</span>
-Math.<span class="f">min</span>(...<span class="v">arr</span>);     <span class="c">// lowest in array</span>
-Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class="c">// highest in array</span></pre>
+            <pre class="code-js">Math.<span class="f">abs</span>(<span class="v">x</span> - <span class="n">80</span>);       <span class="c">// absolute: |-5| = 5</span>
+Math.<span class="f">round</span>(<span class="v">x</span> * <span class="n">100</span>)/<span class="n">100</span>; <span class="c">// 2 decimal: 90.67</span>
+<span class="v">x</span>.<span class="f">toFixed</span>(<span class="n">2</span>);          <span class="c">// string "90.67"</span></pre>
           </div>
         </div>
 
-        <!-- Form Validation Hook -->
-        <div class="box accent-amber">
+        <!-- 4. Dynamic HTML Table Row Builder -->
+        <div class="box accent-blue">
           <div class="box-title">
-            5. Form Validation &amp; Submit Guard <span class="tag amber">Validation</span>
+            4. Dynamic HTML Table Row Builder <span class="tag">DOM Inject</span>
           </div>
           <div class="box-content">
-            <pre class="code-js">document.<span class="f">getElementById</span>(<span class="s">"myForm"</span>).<span class="f">onsubmit</span> = <span class="k">function</span>(<span class="v">e</span>) {
-  <span class="k">let</span> <span class="v">v</span> = document.<span class="f">getElementById</span>(<span class="s">"valIn"</span>).value.<span class="f">trim</span>();
-  <span class="k">if</span> (<span class="v">v</span> === <span class="s">""</span> || <span class="f">isNaN</span>(<span class="v">v</span>)) {
-    <span class="v">e</span>.<span class="f">preventDefault</span>(); <span class="c">// stop submission!</span>
-    document.<span class="f">getElementById</span>(<span class="s">"output"</span>).textContent = <span class="s">"Enter valid input!"</span>;
-  }
-};</pre>
+            <pre class="code-js"><span class="c">// Append row to existing &lt;tbody id="tblBody"&gt;</span>
+document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>).innerHTML += <span class="s">`&lt;tr&gt;&lt;td&gt;${</span><span class="v">str</span><span class="s">}&lt;/td&gt;&lt;td&gt;${</span><span class="v">fltN</span><span class="s">}&lt;/td&gt;&lt;/tr&gt;`</span>;</pre>
+          </div>
+        </div>
+
+        <!-- 5. Basic Clean CSS (Form, Table, Input) -->
+        <div class="box accent-cyan">
+          <div class="box-title">
+            5. Basic Clean CSS (Form, Table, Input) <span class="tag cyan">CSS Format</span>
+          </div>
+          <div class="box-content">
+            <pre class="code-css"><span class="c">/* Form &amp; Inputs (Clean &amp; Centered) */</span>
+<span class="t">form</span> { <span class="a">width:</span> 300px; <span class="a">margin:</span> 4px auto; <span class="a">padding:</span> 6px; <span class="a">border:</span> 1px solid #cbd5e1; }
+<span class="t">label</span> { <span class="a">display:</span> block; <span class="a">margin-top:</span> 3px; <span class="a">font-weight:</span> bold; }
+<span class="t">input[type="text"], input[type="number"], select</span> {
+  <span class="a">width:</span> 100%; <span class="a">padding:</span> 3px; <span class="a">margin-top:</span> 2px; <span class="a">border:</span> 1px solid #94a3b8;
+}
+<span class="t">button, input[type="submit"]</span> {
+  <span class="a">margin-top:</span> 4px; <span class="a">padding:</span> 3px 10px; <span class="a">background:</span> #0284c7; <span class="a">color:</span> #fff;
+  <span class="a">border:</span> none; <span class="a">cursor:</span> pointer; <span class="a">border-radius:</span> 2px;
+}
+<span class="c">/* Formatted Table (Collapse + Zebra) */</span>
+<span class="t">table</span> { <span class="a">width:</span> 100%; <span class="a">border-collapse:</span> collapse; <span class="a">margin-top:</span> 4px; }
+<span class="t">th, td</span> { <span class="a">border:</span> 1px solid #cbd5e1; <span class="a">padding:</span> 2px 4px; <span class="a">text-align:</span> left; }
+<span class="t">th</span> { <span class="a">background:</span> #f1f5f9; <span class="a">font-weight:</span> bold; }
+<span class="t">tr:nth-child(even)</span> { <span class="a">background:</span> #f8fafc; } <span class="c">/* Zebra */</span>
+<span class="c">/* Formatting &amp; State Classes */</span>
+<span class="t">.error</span> { <span class="a">color:</span> #b91c1c; <span class="a">font-weight:</span> bold; }  <span class="t">.success</span> { <span class="a">color:</span> #16a34a; }
+<span class="t">.center</span> { <span class="a">text-align:</span> center; }</pre>
           </div>
         </div>
 
@@ -382,46 +352,44 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
             6. Universal JS 5-Stage App Pipeline <span class="tag red">Q1 Master</span>
           </div>
           <div class="box-content">
-            <pre class="code-html"><span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"text"</span> <span class="a">id=</span><span class="s">"fName"</span> <span class="a">placeholder=</span><span class="s">"Item/Subject"</span><span class="t">&gt;</span>
-<span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"number"</span> <span class="a">id=</span><span class="s">"fVal"</span> <span class="a">placeholder=</span><span class="s">"Score/Hours/Cal"</span><span class="t">&gt;</span>
-<span class="t">&lt;button</span> <span class="a">id=</span><span class="s">"btn"</span> <span class="a">onclick=</span><span class="s">"processApp()"</span><span class="t">&gt;</span>Process<span class="t">&lt;/button&gt;</span>
+            <pre class="code-html"><span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"text"</span> <span class="a">id=</span><span class="s">"fName"</span> <span class="a">placeholder=</span><span class="s">"Subject/Item"</span><span class="t">&gt;</span>
+<span class="t">&lt;input</span> <span class="a">type=</span><span class="s">"number"</span> <span class="a">id=</span><span class="s">"fVal"</span> <span class="a">placeholder=</span><span class="s">"Hours/Score"</span><span class="t">&gt;</span>
+<span class="t">&lt;button</span> <span class="a">id=</span><span class="s">"btn"</span> <span class="a">onclick=</span><span class="s">"processApp()"</span><span class="t">&gt;</span>Submit<span class="t">&lt;/button&gt;</span>
 <span class="t">&lt;p</span> <span class="a">id=</span><span class="s">"msgOut"</span><span class="t">&gt;&lt;/p&gt;</span>
 <span class="t">&lt;script&gt;</span>
   <span class="c">// STAGE 0: State Variables OUTSIDE Function!</span>
   <span class="k">let</span> <span class="v">runningTotal</span> = <span class="n">0</span>, <span class="v">sessionCount</span> = <span class="n">0</span>;
   <span class="k">let</span> <span class="v">itemHistory</span> = [];
-  <span class="k">let</span> <span class="v">secretTarget</span> = Math.<span class="f">floor</span>(Math.<span class="f">random</span>() * <span class="n">4501</span>) + <span class="n">500</span>;
 
   <span class="k">function</span> <span class="f">processApp</span>() {
-    <span class="c">// STAGE 1: Extract &amp; Validate</span>
+    <span class="c">// STAGE 1: Extract &amp; Parse</span>
     <span class="k">let</span> <span class="v">name</span> = document.<span class="f">getElementById</span>(<span class="s">"fName"</span>).value;
     <span class="k">let</span> <span class="v">val</span>  = <span class="f">parseFloat</span>(document.<span class="f">getElementById</span>(<span class="s">"fVal"</span>).value);
     <span class="k">let</span> <span class="v">out</span>  = document.<span class="f">getElementById</span>(<span class="s">"msgOut"</span>);
 
     <span class="c">// STAGE 2: Mutate State &amp; History</span>
-    <span class="v">runningTotal</span> += <span class="v">val</span>;
-    <span class="v">sessionCount</span>++;
+    <span class="v">runningTotal</span> += <span class="v">val</span>; <span class="v">sessionCount</span>++;
     <span class="v">itemHistory</span>.<span class="f">push</span>(<span class="v">name</span>);
 
-    <span class="c">// STAGE 3: Statistical Computation</span>
+    <span class="c">// STAGE 3: Compute Statistical Averages</span>
     <span class="k">let</span> <span class="v">avg</span> = <span class="v">runningTotal</span> / <span class="v">sessionCount</span>;
 
-    <span class="c">// STAGE 4: Categorical Evaluation Ladder (Highest First!)</span>
+    <span class="c">// STAGE 4: Evaluation Ladder (Highest First!)</span>
     <span class="k">let</span> <span class="v">feedback</span> = <span class="s">""</span>;
     <span class="k">if</span> (<span class="v">runningTotal</span> &gt;= <span class="n">100</span>)      <span class="v">feedback</span> = <span class="s">"Goal Achieved!"</span>;
     <span class="k">else if</span> (<span class="v">runningTotal</span> &gt;= <span class="n">60</span>) <span class="v">feedback</span> = <span class="s">"Good Progress!"</span>;
     <span class="k">else</span>                         <span class="v">feedback</span> = <span class="s">"Keep Working!"</span>;
 
-    <span class="c">// Guard: Warn if high attempts without goal</span>
+    <span class="c">// Guard: Alert on excessive attempts</span>
     <span class="k">if</span> (<span class="v">sessionCount</span> &gt; <span class="n">7</span> &amp;&amp; <span class="v">runningTotal</span> &lt; <span class="n">100</span>) {
       <span class="v">feedback</span> += <span class="s">" (High Attempts Warning!)"</span>;
     }
 
-    <span class="c">// STAGE 5: DOM Feedback Output</span>
+    <span class="c">// STAGE 5: Render DOM Feedback</span>
     <span class="v">out</span>.innerHTML = <span class="s">`Total: ${</span><span class="v">runningTotal</span><span class="s">} | Avg: ${</span><span class="v">avg</span>.<span class="f">toFixed</span>(<span class="n">2</span>)<span class="s">} | `</span> +
       <span class="s">`History: [${</span><span class="v">itemHistory</span>.<span class="f">join</span>(<span class="s">", "</span>)<span class="s">}] | Status: &lt;b&gt;${</span><span class="v">feedback</span><span class="s">}&lt;/b&gt;`</span>;
 
-    <span class="c">// STAGE 6: Termination &amp; Disabling</span>
+    <span class="c">// STAGE 6: Termination Lock</span>
     <span class="k">if</span> (<span class="v">runningTotal</span> &gt;= <span class="n">100</span> || <span class="v">sessionCount</span> &gt;= <span class="n">10</span>) {
       document.<span class="f">getElementById</span>(<span class="s">"fVal"</span>).disabled = <span class="k">true</span>;
       document.<span class="f">getElementById</span>(<span class="s">"btn"</span>).disabled = <span class="k">true</span>;
@@ -459,44 +427,9 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
 <span class="k">if</span> (/[0-9]/.<span class="f">test</span>(<span class="v">p</span>))      <span class="v">score</span> += <span class="n">20</span>; <span class="c">// Digit</span>
 <span class="k">if</span> (/[!@#$%^&amp;*]/.<span class="f">test</span>(<span class="v">p</span>)) <span class="v">score</span> += <span class="n">25</span>; <span class="c">// Symbol</span>
 
-<span class="c">// Engine D: Dual-Metric Formula (Health Risk)</span>
+<span class="c">// Engine D: Dual-Metric Health Risk Formula</span>
 <span class="k">let</span> <span class="v">risk</span> = (<span class="n">100</span> - <span class="v">spo2</span>) * <span class="n">2</span> + Math.<span class="f">abs</span>(<span class="v">hr</span> - <span class="n">80</span>) * <span class="n">0.5</span>;
 <span class="k">let</span> <span class="v">tier</span> = (<span class="v">risk</span> &lt;= <span class="n">10</span>) ? <span class="s">"SAFE"</span> : (<span class="v">risk</span> &lt;= <span class="n">20</span> ? <span class="s">"WARNING"</span> : <span class="s">"DANGER"</span>);</pre>
-          </div>
-        </div>
-
-        <!-- 8. Financial & Discount Engine -->
-        <div class="box accent-amber">
-          <div class="box-title">
-            8. Financial, Discount &amp; Tax Calculator <span class="tag amber">Billing</span>
-          </div>
-          <div class="box-content">
-            <pre class="code-js"><span class="k">let</span> <span class="v">subtotal</span> = <span class="v">price</span> * <span class="v">qty</span>;
-<span class="k">let</span> <span class="v">discountPct</span> = <span class="n">0</span>;
-<span class="k">if</span> (<span class="v">subtotal</span> &gt;= <span class="n">5000</span>)     <span class="v">discountPct</span> = <span class="n">0.20</span>; <span class="c">// 20% off</span>
-<span class="k">else if</span> (<span class="v">subtotal</span> &gt;= <span class="n">2000</span>) <span class="v">discountPct</span> = <span class="n">0.10</span>; <span class="c">// 10% off</span>
-<span class="k">let</span> <span class="v">discountAmt</span> = <span class="v">subtotal</span> * <span class="v">discountPct</span>;
-<span class="k">let</span> <span class="v">taxAmt</span> = (<span class="v">subtotal</span> - <span class="v">discountAmt</span>) * <span class="n">0.05</span>;  <span class="c">// 5% VAT</span>
-<span class="k">let</span> <span class="v">grandTotal</span> = <span class="v">subtotal</span> - <span class="v">discountAmt</span> + <span class="v">taxAmt</span>;</pre>
-          </div>
-        </div>
-
-        <!-- Timer / Stopwatch Engine -->
-        <div class="box accent-purple">
-          <div class="box-title">
-            9. Dynamic Timer &amp; Stopwatch Engine <span class="tag purple">Timing</span>
-          </div>
-          <div class="box-content">
-            <pre class="code-js"><span class="k">let</span> <span class="v">sec</span> = <span class="n">0</span>, <span class="v">timerId</span> = <span class="k">null</span>;
-<span class="k">function</span> <span class="f">startTimer</span>() {
-  <span class="k">if</span> (!<span class="v">timerId</span>) {
-    <span class="v">timerId</span> = <span class="f">setInterval</span>(() =&gt; {
-      <span class="v">sec</span>++;
-      document.<span class="f">getElementById</span>(<span class="s">"clock"</span>).textContent = <span class="s">`${</span><span class="v">sec</span><span class="s">}s elapsed`</span>;
-    }, <span class="n">1000</span>);
-  }
-}
-<span class="k">function</span> <span class="f">stopTimer</span>() { <span class="f">clearInterval</span>(<span class="v">timerId</span>); <span class="v">timerId</span> = <span class="k">null</span>; }</pre>
           </div>
         </div>
 
@@ -505,10 +438,10 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
       <!-- ---------------- PAGE 1 - COL 3 ---------------- -->
       <div class="sheet-col">
 
-        <!-- 10. JS Array & String Toolkit -->
+        <!-- 8. JS Array & String Toolkit -->
         <div class="box accent-blue">
           <div class="box-title">
-            10. JS Array, Object &amp; Filter Toolkit <span class="tag">Utility</span>
+            8. JS Array, Object &amp; Filter Toolkit <span class="tag">Utility</span>
           </div>
           <div class="box-content">
             <pre class="code-js"><span class="c">// Array Operations</span>
@@ -527,37 +460,39 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
 <span class="v">str</span>.<span class="f">includes</span>(<span class="s">"Beach"</span>);  <span class="c">// substring check</span>
 
 <span class="c">// Search in Array of Objects</span>
-<span class="k">let</span> <span class="v">filtered</span> = <span class="v">items</span>.<span class="f">filter</span>(<span class="v">item</span> =&gt;
-  <span class="v">item</span>.name.<span class="f">toLowerCase</span>().<span class="f">includes</span>(<span class="v">query</span>.<span class="f">toLowerCase</span>()) &amp;&amp;
-  <span class="v">item</span>.price &lt;= <span class="v">maxPrice</span>
+<span class="k">let</span> <span class="v">filtered</span> = <span class="v">items</span>.<span class="f">filter</span>(<span class="v">it</span> =&gt;
+  <span class="v">it</span>.name.<span class="f">toLowerCase</span>().<span class="f">includes</span>(<span class="v">query</span>.<span class="f">toLowerCase</span>()) &amp;&amp;
+  <span class="v">it</span>.price &lt;= <span class="v">maxP</span>
 );</pre>
           </div>
         </div>
 
-        <!-- 11. Weighted GPA / Grade Calculator -->
+        <!-- 9. Financial, Discount & GPA Engine -->
         <div class="box accent-purple">
           <div class="box-title">
-            11. Weighted GPA / Grade Calculator <span class="tag purple">Grading</span>
+            9. Financial Discount &amp; GPA Calculator <span class="tag purple">Calc</span>
           </div>
           <div class="box-content">
-            <pre class="code-js"><span class="k">function</span> <span class="f">getGP</span>(<span class="v">marks</span>) {
-  <span class="k">if</span> (<span class="v">marks</span> &gt;= <span class="n">90</span>) <span class="k">return</span> <span class="n">4.00</span>;
-  <span class="k">if</span> (<span class="v">marks</span> &gt;= <span class="n">80</span>) <span class="k">return</span> <span class="n">3.50</span>;
-  <span class="k">if</span> (<span class="v">marks</span> &gt;= <span class="n">70</span>) <span class="k">return</span> <span class="n">3.00</span>;
-  <span class="k">if</span> (<span class="v">marks</span> &gt;= <span class="n">60</span>) <span class="k">return</span> <span class="n">2.50</span>;
-  <span class="k">return</span> <span class="n">0.00</span>;
+            <pre class="code-js"><span class="c">// Discount &amp; Tax</span>
+<span class="k">let</span> <span class="v">sub</span> = <span class="v">price</span> * <span class="v">qty</span>;
+<span class="k">let</span> <span class="v">discPct</span> = (<span class="v">sub</span> &gt;= <span class="n">5000</span>) ? <span class="n">0.20</span> : ((<span class="v">sub</span> &gt;= <span class="n">2000</span>) ? <span class="n">0.10</span> : <span class="n">0</span>);
+<span class="k">let</span> <span class="v">discAmt</span> = <span class="v">sub</span> * <span class="v">discPct</span>;
+<span class="k">let</span> <span class="v">grandTot</span> = (<span class="v">sub</span> - <span class="v">discAmt</span>) * <span class="n">1.05</span>; <span class="c">// 5% tax included</span>
+
+<span class="c">// Weighted GPA Accumulator</span>
+<span class="k">function</span> <span class="f">getGP</span>(<span class="v">m</span>) {
+  <span class="k">if</span> (<span class="v">m</span> &gt;= <span class="n">80</span>) <span class="k">return</span> <span class="n">4.0</span>; <span class="k">if</span> (<span class="v">m</span> &gt;= <span class="n">70</span>) <span class="k">return</span> <span class="n">3.5</span>;
+  <span class="k">if</span> (<span class="v">m</span> &gt;= <span class="n">60</span>) <span class="k">return</span> <span class="n">3.0</span>; <span class="k">return</span> <span class="n">0.0</span>;
 }
-<span class="k">let</span> <span class="v">totalPoints</span> = <span class="n">0</span>, <span class="v">totalCredits</span> = <span class="n">0</span>;
-<span class="v">totalPoints</span>  += <span class="f">getGP</span>(<span class="v">courseMarks</span>) * <span class="v">courseCredits</span>;
-<span class="v">totalCredits</span> += <span class="v">courseCredits</span>;
-<span class="k">let</span> <span class="v">gpa</span> = <span class="v">totalPoints</span> / <span class="v">totalCredits</span>;</pre>
+<span class="v">totPts</span> += <span class="f">getGP</span>(<span class="v">marks</span>) * <span class="v">cr</span>; <span class="v">totCr</span> += <span class="v">cr</span>;
+<span class="k">let</span> <span class="v">gpa</span> = <span class="v">totPts</span> / <span class="v">totCr</span>;</pre>
           </div>
         </div>
 
-        <!-- 12. PHP One-File Form Processor -->
+        <!-- 10. PHP One-File Form Processor -->
         <div class="box accent-green">
           <div class="box-title">
-            12. PHP One-File Form Processor <span class="tag green">PHP Core</span>
+            10. PHP One-File Form Processor <span class="tag green">PHP Core</span>
           </div>
           <div class="box-content">
             <pre class="code-php"><span class="t">&lt;form</span> <span class="a">method=</span><span class="s">"post"</span> <span class="a">action=</span><span class="s">""</span><span class="t">&gt;</span>
@@ -577,40 +512,25 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
           </div>
         </div>
 
-        <!-- 13. PHP Built-in Functions & Sessions -->
+        <!-- 11. PHP Built-in Functions & Sessions -->
         <div class="box accent-green">
           <div class="box-title">
-            13. PHP Functions &amp; Sessions <span class="tag green">PHP API</span>
+            11. PHP Functions, Arrays &amp; Sessions <span class="tag green">PHP API</span>
           </div>
           <div class="box-content">
-            <pre class="code-php"><span class="c">// Math Functions</span>
+            <pre class="code-php"><span class="c">// Math &amp; Array Functions</span>
 <span class="f">ceil</span>(<span class="n">30</span> / <span class="n">8</span>);          <span class="c">// 4 (round UP to whole item)</span>
 <span class="f">floor</span>(<span class="n">30</span> / <span class="n">8</span>);         <span class="c">// 3 (round DOWN)</span>
 <span class="f">round</span>(<span class="n">3.754</span>, <span class="n">2</span>);       <span class="c">// 3.75</span>
-<span class="f">min</span>(<span class="v">$a</span>, <span class="v">$b</span>, <span class="v">$c</span>);       <span class="c">// lowest (best 2 of 3 marks)</span>
+<span class="f">min</span>(<span class="v">$a</span>, <span class="v">$b</span>, <span class="v">$c</span>);       <span class="c">// lowest (use for best 2 of 3 marks)</span>
 <span class="f">number_format</span>(<span class="n">8400</span>);   <span class="c">// "8,400" (comma formatted)</span>
+<span class="f">array_sum</span>(<span class="v">$arr</span>);       <span class="c">// sum of array elements</span>
+<span class="f">asort</span>(<span class="v">$scores</span>);        <span class="c">// sort associative array by value</span>
 
-<span class="c">// Sessions &amp; Sanitization</span>
+<span class="c">// Sessions &amp; Security</span>
 <span class="f">session_start</span>();
 <span class="v">$_SESSION</span>[<span class="s">"user"</span>] = <span class="v">$name</span>; <span class="c">// store session</span>
-<span class="k">if</span> (<span class="f">isset</span>(<span class="v">$_SESSION</span>[<span class="s">"user"</span>])) { ... }
-<span class="f">session_destroy</span>();      <span class="c">// logout</span>
-<span class="f">htmlspecialchars</span>(<span class="v">$str</span>); <span class="c">// XSS prevention</span></pre>
-          </div>
-        </div>
-
-        <!-- 14. PHP Array Transformations & Filtering -->
-        <div class="box accent-green">
-          <div class="box-title">
-            14. PHP Array Functions &amp; Loops <span class="tag green">Arrays</span>
-          </div>
-          <div class="box-content">
-            <pre class="code-php"><span class="v">$scores</span> = [<span class="s">"Ali"</span>=&gt;<span class="n">85</span>, <span class="s">"Bob"</span>=&gt;<span class="n">92</span>, <span class="s">"Sara"</span>=&gt;<span class="n">78</span>];
-<span class="f">asort</span>(<span class="v">$scores</span>); <span class="c">// sort by value ASC (arsort for DESC)</span>
-<span class="k">foreach</span> (<span class="v">$scores</span> <span class="k">as</span> <span class="v">$student</span> =&gt; <span class="v">$mark</span>) {
-  <span class="k">echo</span> <span class="s">"&lt;li&gt;{$student}: {$mark}&lt;/li&gt;"</span>;
-}
-<span class="v">$avgScore</span> = <span class="f">array_sum</span>(<span class="v">$scores</span>) / <span class="f">count</span>(<span class="v">$scores</span>);</pre>
+<span class="f">htmlspecialchars</span>(<span class="v">$str</span>); <span class="c">// XSS sanitization</span></pre>
           </div>
         </div>
 
@@ -623,19 +543,14 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
   <!-- PAGE 2: ADVANCED PHP LOGIC + DEEP MYSQL QUERIES + PHP-MYSQL BRIDGE       -->
   <!-- ========================================================================= -->
   <div class="page" id="page2">
-    <div class="cheat-header">
-      <h1>UIU CSE4165 FINAL EXAM — PAGE 2: ADVANCED PHP LOGIC &amp; MYSQL INTEGRATION</h1>
-      <div class="meta">Q2: PHP COMPUTATION (10M) • Q3: PHP-MYSQL BRIDGE &amp; DEEP QUERIES (10M) • [A4 BACK]</div>
-    </div>
-
     <div class="sheet-grid">
       <!-- ---------------- PAGE 2 - COL 1 ---------------- -->
       <div class="sheet-col">
 
-        <!-- 15. Universal ceil() Allocator -->
+        <!-- 12. Universal ceil() Allocator -->
         <div class="box accent-red">
           <div class="box-title">
-            15. The Universal ceil() Allocator Engine <span class="tag red">Q2 Core</span>
+            12. Universal ceil() Allocator Engine <span class="tag red">Q2 Core</span>
           </div>
           <div class="box-content">
             <div class="hint">"Cannot order/book partial items" &rarr; Always <code>ceil()</code>:</div>
@@ -655,10 +570,10 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
           </div>
         </div>
 
-        <!-- 16. Progress Classifier & Best-of-3 -->
+        <!-- 13. Progress Classifier & Best-of-3 -->
         <div class="box accent-purple">
           <div class="box-title">
-            16. Progress Classifier &amp; Best-of-3 <span class="tag purple">PHP Logic</span>
+            13. Progress Classifier &amp; Best-of-3 <span class="tag purple">PHP Logic</span>
           </div>
           <div class="box-content">
             <pre class="code-php"><span class="c">// Pattern A: Best 2 of 3 CT Marks (Drop lowest)</span>
@@ -684,10 +599,10 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
           </div>
         </div>
 
-        <!-- 17. PHP OOP Class Architecture -->
+        <!-- 14. PHP OOP Class Architecture -->
         <div class="box accent-green">
           <div class="box-title">
-            17. PHP OOP Class Architecture <span class="tag green">OOP Spec</span>
+            14. PHP OOP Class Architecture <span class="tag green">OOP Spec</span>
           </div>
           <div class="box-content">
             <pre class="code-php"><span class="k">class</span> <span class="f">Product</span> {
@@ -718,10 +633,10 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
           </div>
         </div>
 
-        <!-- 18. PHP Date & Overdue Days Engine -->
+        <!-- 15. PHP Date & Overdue Days Engine -->
         <div class="box accent-amber">
           <div class="box-title">
-            18. PHP Date &amp; Overdue Days Engine <span class="tag amber">Dates</span>
+            15. PHP Date &amp; Overdue Days Engine <span class="tag amber">Dates</span>
           </div>
           <div class="box-content">
             <pre class="code-php"><span class="c">// Day difference between two dates</span>
@@ -734,30 +649,15 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
           </div>
         </div>
 
-        <!-- 19. PHP Regex, Cookies & Sanitization -->
-        <div class="box accent-purple">
-          <div class="box-title">
-            19. PHP Regex Validation &amp; Cookies <span class="tag purple">Security</span>
-          </div>
-          <div class="box-content">
-            <pre class="code-php"><span class="c">// Email &amp; Code Regex</span>
-<span class="k">if</span> (!<span class="f">filter_var</span>(<span class="v">$email</span>, <span class="n">FILTER_VALIDATE_EMAIL</span>)) { <span class="v">$err</span> = <span class="s">"Invalid email"</span>; }
-<span class="k">if</span> (<span class="f">preg_match</span>(<span class="s">'/^[A-Z]{3}-[0-9]{3}$/'</span>, <span class="v">$courseCode</span>)) { <span class="c">/* Valid format */</span> }
-<span class="c">// Cookies (Name, Value, Expiry in seconds)</span>
-<span class="f">setcookie</span>(<span class="s">"pref_theme"</span>, <span class="s">"dark"</span>, <span class="f">time</span>() + <span class="n">86400</span> * <span class="n">7</span>);
-<span class="v">$theme</span> = <span class="v">$_COOKIE</span>[<span class="s">"pref_theme"</span>] ?? <span class="s">"light"</span>;</pre>
-          </div>
-        </div>
-
       </div>
 
       <!-- ---------------- PAGE 2 - COL 2 ---------------- -->
       <div class="sheet-col">
 
-        <!-- 20. SQL DDL Schema Setup -->
+        <!-- 16. SQL DDL Schema Setup -->
         <div class="box accent-amber">
           <div class="box-title">
-            20. SQL DDL &amp; Data Types <span class="tag amber">Schema Setup</span>
+            16. SQL DDL &amp; Data Types <span class="tag amber">Schema Setup</span>
           </div>
           <div class="box-content">
             <pre class="code-sql"><span class="k">CREATE DATABASE IF NOT EXISTS</span> uiu_db;
@@ -781,20 +681,19 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
           </div>
         </div>
 
-        <!-- 21. Deep SQL Query Patterns -->
+        <!-- 17. Deep SQL Query Vault -->
         <div class="box accent-blue">
           <div class="box-title">
-            21. Deep SQL Query Patterns <span class="tag">Weak Point Focus</span>
+            17. Deep SQL Query Vault <span class="tag">Weak Point Focus</span>
           </div>
           <div class="box-content">
             <div class="hint"><b>Pattern 1 — Selective Filters (OR, LIKE, BETWEEN, IN):</b></div>
-            <pre class="code-sql"><span class="k">SELECT</span> title, category, rating <span class="k">FROM</span> records
+            <pre class="code-sql"><span class="c">-- OR with Substring search + Sorting DESC</span>
+<span class="k">SELECT</span> title, category, rating <span class="k">FROM</span> records
 <span class="k">WHERE</span> rating &gt; <span class="n">4.5</span> <span class="k">OR</span> title <span class="k">LIKE</span> <span class="s">'%Beach%'</span>
 <span class="k">ORDER BY</span> rating <span class="k">DESC</span>;
 
-<span class="k">SELECT</span> * <span class="k">FROM</span> records
-<span class="k">WHERE</span> rating <span class="k">BETWEEN</span> <span class="n">4.0</span> <span class="k">AND</span> <span class="n">4.5</span>; <span class="c">-- Inclusive!</span>
-
+<span class="k">SELECT</span> * <span class="k">FROM</span> records <span class="k">WHERE</span> rating <span class="k">BETWEEN</span> <span class="n">4.0</span> <span class="k">AND</span> <span class="n">4.5</span>;
 <span class="k">SELECT</span> * <span class="k">FROM</span> records <span class="k">WHERE</span> category <span class="k">IN</span> (<span class="s">'CSE'</span>, <span class="s">'EEE'</span>);</pre>
 
             <div class="hint"><b>Pattern 2 — Group Aggregations with HAVING:</b></div>
@@ -815,14 +714,14 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
 <span class="c">-- Conditional grade swap with exclusion</span>
 <span class="k">UPDATE</span> records
 <span class="k">SET</span> status = <span class="s">'Grace Period'</span>, fee = <span class="n">0</span>
-<span class="k">WHERE</span> status = <span class="s">'Overdue'</span> <span class="k">AND</span> days_overdue &lt; <span class="n">7</span>;</pre>
+<span class="k">WHERE</span> status = <span class="s">'Overdue'</span> <span class="k">AND</span> score &lt; <span class="n">7</span>;</pre>
           </div>
         </div>
 
-        <!-- 22. Subqueries, Computed Totals & Joins -->
+        <!-- 18. Subqueries & CASE Expressions -->
         <div class="box accent-blue">
           <div class="box-title">
-            22. Subqueries, Computed Totals &amp; Joins <span class="tag">Advanced SQL</span>
+            18. Subqueries, Computed Totals &amp; CASE <span class="tag">Advanced SQL</span>
           </div>
           <div class="box-content">
             <pre class="code-sql"><span class="c">-- 1. Grand Net Worth (Multiplication inside SUM)</span>
@@ -832,7 +731,7 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
 <span class="k">SELECT</span> title, fee <span class="k">FROM</span> records
 <span class="k">WHERE</span> fee &gt; (<span class="k">SELECT</span> <span class="f">AVG</span>(fee) <span class="k">FROM</span> records);
 
-<span class="c">-- 3. Correlated Subquery CASE (Top Seller in its OWN category)</span>
+<span class="c">-- 3. Correlated Subquery CASE (Top Seller in OWN category)</span>
 <span class="k">SELECT</span> title, fee,
   <span class="k">CASE</span>
     <span class="k">WHEN</span> fee &gt; (<span class="k">SELECT</span> <span class="f">AVG</span>(r2.fee) <span class="k">FROM</span> records r2 <span class="k">WHERE</span> r2.category = r1.category)
@@ -840,28 +739,9 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
   <span class="k">END AS</span> seller_tier
 <span class="k">FROM</span> records r1;
 
-<span class="c">-- 4. INNER &amp; LEFT JOIN across two tables</span>
-<span class="k">SELECT</span> e.name, d.dept_name, <span class="f">COUNT</span>(p.id) <span class="k">AS</span> proj_count
-<span class="k">FROM</span> emp e
-<span class="k">LEFT JOIN</span> dept d <span class="k">ON</span> e.dept_id = d.id
-<span class="k">LEFT JOIN</span> project p <span class="k">ON</span> e.id = p.emp_id
-<span class="k">GROUP BY</span> e.id;</pre>
-          </div>
-        </div>
-
-        <!-- 23. Advanced SQL Built-in Functions & DELETE -->
-        <div class="box accent-blue">
-          <div class="box-title">
-            23. SQL Built-ins &amp; Guarded DELETE <span class="tag">SQL Extra</span>
-          </div>
-          <div class="box-content">
-            <pre class="code-sql"><span class="c">-- String &amp; Date built-in functions</span>
+<span class="c">-- 4. Date functions &amp; Guarded DELETE</span>
 <span class="k">SELECT</span> <span class="f">CONCAT</span>(first_name, <span class="s">' '</span>, last_name) <span class="k">AS</span> full_name,
-       <span class="f">UPPER</span>(category) <span class="k">AS</span> cat_upper,
-       <span class="f">DATEDIFF</span>(<span class="f">NOW</span>(), reg_date) <span class="k">AS</span> days_registered
-<span class="k">FROM</span> records;
-
-<span class="c">-- Guarded DELETE (ALWAYS specify precise WHERE!)</span>
+       <span class="f">DATEDIFF</span>(<span class="f">NOW</span>(), reg_date) <span class="k">AS</span> days_registered <span class="k">FROM</span> records;
 <span class="k">DELETE FROM</span> records <span class="k">WHERE</span> status = <span class="s">'Inactive'</span> <span class="k">AND</span> stock = <span class="n">0</span>;</pre>
           </div>
         </div>
@@ -871,120 +751,97 @@ Math.<span class="f">max</span>(...<span class="v">arr</span>);     <span class=
       <!-- ---------------- PAGE 2 - COL 3 ---------------- -->
       <div class="sheet-col">
 
-        <!-- 24. Master PHP-MySQL Bridge Skeleton -->
+        <!-- 19. Comprehensive SQL JOIN Patterns -->
+        <div class="box accent-purple">
+          <div class="box-title">
+            19. Comprehensive SQL JOIN Patterns <span class="tag purple">Joins</span>
+          </div>
+          <div class="box-content">
+            <pre class="code-sql"><span class="c">-- 1. INNER JOIN across two tables</span>
+<span class="k">SELECT</span> s.name, c.title, e.grade
+<span class="k">FROM</span> student s
+<span class="k">INNER JOIN</span> enrollment e <span class="k">ON</span> s.id = e.student_id
+<span class="k">INNER JOIN</span> course c <span class="k">ON</span> e.course_id = c.id;
+
+<span class="c">-- 2. LEFT JOIN with Aggregation (Count per dept)</span>
+<span class="k">SELECT</span> d.name, <span class="f">COUNT</span>(e.id) <span class="k">AS</span> emp_count
+<span class="k">FROM</span> department d
+<span class="k">LEFT JOIN</span> employee e <span class="k">ON</span> d.id = e.dept_id
+<span class="k">GROUP BY</span> d.id;
+
+<span class="c">-- 3. Multi-Table Join with Computed Sum</span>
+<span class="k">SELECT</span> c.name, <span class="f">SUM</span>(o.qty * p.price) <span class="k">AS</span> total_spent
+<span class="k">FROM</span> customer c
+<span class="k">JOIN</span> orders o <span class="k">ON</span> c.id = o.customer_id
+<span class="k">JOIN</span> product p <span class="k">ON</span> o.product_id = p.id
+<span class="k">GROUP BY</span> c.id;</pre>
+          </div>
+        </div>
+
+        <!-- 20. Master PHP-MySQL Bridge Skeleton -->
         <div class="box accent-dark">
           <div class="box-title">
-            24. Master PHP ↔ MySQL Bridge Skeleton <span class="tag dark">Write in Q3</span>
+            20. Master PHP ↔ MySQL Bridge Skeleton <span class="tag dark">Write in Q3</span>
           </div>
           <div class="box-content">
             <div class="hint">"Write full PHP-MySQL code, not just SQL" &rarr; Write this entire file!</div>
             <pre class="code-php"><span class="k">&lt;?php</span>
-<span class="v">$servername</span> = <span class="s">"localhost"</span>;
-<span class="v">$username</span>   = <span class="s">"root"</span>;
-<span class="v">$password</span>   = <span class="s">""</span>;
-<span class="v">$dbname</span>     = <span class="s">"uiu_db"</span>;
-
-<span class="c">// 1. Establish Connection</span>
-<span class="v">$conn</span> = <span class="k">new</span> <span class="f">mysqli</span>(<span class="v">$servername</span>, <span class="v">$username</span>, <span class="v">$password</span>, <span class="v">$dbname</span>);
+<span class="v">$conn</span> = <span class="k">new</span> <span class="f">mysqli</span>(<span class="s">"localhost"</span>, <span class="s">"root"</span>, <span class="s">""</span>, <span class="s">"uiu_db"</span>);
 <span class="k">if</span> (<span class="v">$conn</span>-&gt;<span class="v">connect_error</span>) {
   <span class="k">die</span>(<span class="s">"Connection failed: "</span> . <span class="v">$conn</span>-&gt;<span class="v">connect_error</span>);
 }
 
-<span class="c">// 2. SELECT Query Execution &amp; Fetch Loop</span>
+<span class="c">// SELECT Execution &amp; Loop</span>
 <span class="v">$sql1</span> = <span class="s">"SELECT category, COUNT(*) AS total_items, AVG(fee) AS avg_fee
-         FROM records
-         GROUP BY category
-         HAVING COUNT(*) &gt; 1
-         ORDER BY avg_fee DESC"</span>;
-
+         FROM records GROUP BY category HAVING COUNT(*) &gt; 1 ORDER BY avg_fee DESC"</span>;
 <span class="v">$result1</span> = <span class="v">$conn</span>-&gt;<span class="f">query</span>(<span class="v">$sql1</span>);
 
 <span class="k">if</span> (<span class="v">$result1</span> &amp;&amp; <span class="v">$result1</span>-&gt;<span class="v">num_rows</span> &gt; <span class="n">0</span>) {
   <span class="k">while</span> (<span class="v">$row</span> = <span class="v">$result1</span>-&gt;<span class="f">fetch_assoc</span>()) {
-    <span class="k">echo</span> <span class="s">"Category: "</span> . <span class="v">$row</span>[<span class="s">"category"</span>] .
-         <span class="s">" | Total: "</span> . <span class="v">$row</span>[<span class="s">"total_items"</span>] .
-         <span class="s">" | Avg Fee: "</span> . <span class="v">$row</span>[<span class="s">"avg_fee"</span>] . <span class="s">"&lt;br&gt;"</span>;
+    <span class="k">echo</span> <span class="v">$row</span>[<span class="s">"category"</span>] . <span class="s">": "</span> . <span class="v">$row</span>[<span class="s">"total_items"</span>] .
+         <span class="s">" (Avg: "</span> . <span class="v">$row</span>[<span class="s">"avg_fee"</span>] . <span class="s">")&lt;br&gt;"</span>;
   }
-} <span class="k">else</span> {
-  <span class="k">echo</span> <span class="s">"0 results found&lt;br&gt;"</span>;
-}
+} <span class="k">else</span> { <span class="k">echo</span> <span class="s">"0 results&lt;br&gt;"</span>; }
 
-<span class="c">// 3. UPDATE Query Execution with Feedback</span>
-<span class="v">$sql2</span> = <span class="s">"UPDATE records
-         SET fee = fee * 1.10
-         WHERE fee &gt; 20.00 AND fee * 1.10 &lt;= 50.00"</span>;
-
+<span class="c">// UPDATE Execution with Check</span>
+<span class="v">$sql2</span> = <span class="s">"UPDATE records SET fee = fee * 1.10 WHERE fee &gt; 20 AND fee * 1.10 &lt;= 50"</span>;
 <span class="k">if</span> (<span class="v">$conn</span>-&gt;<span class="f">query</span>(<span class="v">$sql2</span>) === <span class="k">TRUE</span>) {
-  <span class="k">echo</span> <span class="s">"Record updated successfully ("</span> . <span class="v">$conn</span>-&gt;<span class="v">affected_rows</span> . <span class="s">" rows)&lt;br&gt;"</span>;
-} <span class="k">else</span> {
-  <span class="k">echo</span> <span class="s">"Error updating: "</span> . <span class="v">$conn</span>-&gt;<span class="v">error</span> . <span class="s">"&lt;br&gt;"</span>;
+  <span class="k">echo</span> <span class="s">"Updated ("</span> . <span class="v">$conn</span>-&gt;<span class="v">affected_rows</span> . <span class="s">" rows)&lt;br&gt;"</span>;
 }
 
-<span class="c">// 4. Close Connection</span>
 <span class="v">$conn</span>-&gt;<span class="f">close</span>();
 <span class="k">?&gt;</span></pre>
             <div class="ok"><b>Column Alias Law:</b> <code>$row["total_items"]</code> works ONLY because of <code>AS total_items</code> in SQL! Always alias aggregated columns.</div>
           </div>
         </div>
 
-        <!-- 25. HTML Table Rendering from Database -->
+        <!-- 21. HTML Table Rendering from Database -->
         <div class="box accent-amber">
           <div class="box-title">
-            25. HTML Table Rendering from Database <span class="tag amber">HTML Output</span>
+            21. HTML Table Rendering from Database <span class="tag amber">HTML Table</span>
           </div>
           <div class="box-content">
-            <pre class="code-php"><span class="k">echo</span> <span class="s">"&lt;table border='1' cellpadding='4' cellspacing='0'&gt;
-        &lt;tr&gt;
-          &lt;th&gt;ID&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Fee&lt;/th&gt;
-        &lt;/tr&gt;"</span>;
-
+            <pre class="code-php"><span class="k">echo</span> <span class="s">"&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Fee&lt;/th&gt;&lt;/tr&gt;"</span>;
 <span class="k">while</span> (<span class="v">$row</span> = <span class="v">$result</span>-&gt;<span class="f">fetch_assoc</span>()) {
-  <span class="k">echo</span> <span class="s">"&lt;tr&gt;
-          &lt;td&gt;"</span> . <span class="v">$row</span>[<span class="s">"id"</span>] . <span class="s">"&lt;/td&gt;
-          &lt;td&gt;"</span> . <span class="v">$row</span>[<span class="s">"title"</span>] . <span class="s">"&lt;/td&gt;
-          &lt;td&gt;"</span> . <span class="v">$row</span>[<span class="s">"fee"</span>] . <span class="s">"&lt;/td&gt;
-        &lt;/tr&gt;"</span>;
+  <span class="k">echo</span> <span class="s">"&lt;tr&gt;&lt;td&gt;{$row['id']}&lt;/td&gt;&lt;td&gt;{$row['title']}&lt;/td&gt;&lt;td&gt;{$row['fee']}&lt;/td&gt;&lt;/tr&gt;"</span>;
 }
 <span class="k">echo</span> <span class="s">"&lt;/table&gt;"</span>;</pre>
           </div>
         </div>
 
-        <!-- 26. Prepared Statements & Form Integration -->
+        <!-- 22. Prepared Statements & Form Integration -->
         <div class="box accent-red">
           <div class="box-title">
-            26. Dynamic Search Form &amp; Prepared SQL <span class="tag red">Security</span>
+            22. Dynamic Search &amp; Prepared SQL <span class="tag red">Security</span>
           </div>
           <div class="box-content">
-            <pre class="code-php"><span class="c">// HTML Search Form &rarr; PHP Prepared Query</span>
-<span class="v">$search</span> = <span class="s">"%"</span> . <span class="v">$_GET</span>[<span class="s">"keyword"</span>] . <span class="s">"%"</span>;
+            <pre class="code-php"><span class="v">$search</span> = <span class="s">"%"</span> . <span class="v">$_GET</span>[<span class="s">"keyword"</span>] . <span class="s">"%"</span>;
 <span class="v">$stmt</span> = <span class="v">$conn</span>-&gt;<span class="f">prepare</span>(<span class="s">"SELECT * FROM records WHERE title LIKE ? AND fee &gt; ?"</span>);
 <span class="v">$stmt</span>-&gt;<span class="f">bind_param</span>(<span class="s">"sd"</span>, <span class="v">$search</span>, <span class="v">$minFee</span>); <span class="c">// s=str, d=double, i=int</span>
 <span class="v">$stmt</span>-&gt;<span class="f">execute</span>();
 <span class="v">$res</span> = <span class="v">$stmt</span>-&gt;<span class="f">get_result</span>();
-<span class="k">while</span> (<span class="v">$r</span> = <span class="v">$res</span>-&gt;<span class="f">fetch_assoc</span>()) { <span class="k">echo</span> <span class="v">$r</span>[<span class="s">"title"</span>]; }
+<span class="k">while</span> (<span class="v">$r</span> = <span class="v">$res</span>-&gt;<span class="f">fetch_assoc</span>()) { <span class="k">echo</span> <span class="v">$r</span>[<span class="s">"title"</span>] . <span class="s">"&lt;br&gt;"</span>; }
 <span class="v">$stmt</span>-&gt;<span class="f">close</span>();</pre>
-          </div>
-        </div>
-
-        <!-- 27. MySQL Transaction Blueprint & Procedural Bridge -->
-        <div class="box accent-dark">
-          <div class="box-title">
-            27. MySQL Transactions &amp; Procedural mysqli <span class="tag dark">Full Bridge</span>
-          </div>
-          <div class="box-content">
-            <pre class="code-php"><span class="c">// Procedural mysqli alternative</span>
-<span class="v">$c</span> = <span class="f">mysqli_connect</span>(<span class="s">"localhost"</span>, <span class="s">"root"</span>, <span class="s">""</span>, <span class="s">"uiu_db"</span>);
-<span class="v">$res</span> = <span class="f">mysqli_query</span>(<span class="v">$c</span>, <span class="s">"SELECT * FROM records"</span>);
-<span class="k">while</span> (<span class="v">$row</span> = <span class="f">mysqli_fetch_assoc</span>(<span class="v">$res</span>)) { <span class="k">echo</span> <span class="v">$row</span>[<span class="s">"title"</span>]; }
-<span class="f">mysqli_close</span>(<span class="v">$c</span>);
-
-<span class="c">// Safe Transaction Block</span>
-<span class="v">$conn</span>-&gt;<span class="f">begin_transaction</span>();
-<span class="k">try</span> {
-  <span class="v">$conn</span>-&gt;<span class="f">query</span>(<span class="s">"UPDATE accounts SET bal = bal - 100 WHERE id = 1"</span>);
-  <span class="v">$conn</span>-&gt;<span class="f">query</span>(<span class="s">"UPDATE accounts SET bal = bal + 100 WHERE id = 2"</span>);
-  <span class="v">$conn</span>-&gt;<span class="f">commit</span>();
-} <span class="k">catch</span> (<span class="f">Exception</span> <span class="v">$e</span>) { <span class="v">$conn</span>-&gt;<span class="f">rollback</span>(); }</pre>
           </div>
         </div>
 
