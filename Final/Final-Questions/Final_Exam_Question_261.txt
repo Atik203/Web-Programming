@@ -1,0 +1,228 @@
+                            United International University (UIU)
+                            Dept. of Computer Science & Engineering (CSE)
+                                                                                            SET - A
+                            Final Exam       Year: 2026  Trimester: Spring
+                                  CSE 4165/CSE 465 Web Programming
+                             Total Marks: 30            Duration: 2 Hours
+  Any examinee found adopting unfair means will be expelled from the trimester / program as per UIU
+                                            disciplinary rules.
+1. Develop a JavaScript application where users can track their weekly study hours by subject and get [10]
+     feedback.
+
+     At first, create two input fields: Subject Name and Study Hours, an “Add Study” button, and a label
+     area to display total study hours, average study hours, subjects studied, and feedback. The user will
+     enter the subject name and the number of hours studied in each session. When the button is clicked,
+     the application will do the following:
+          a. Set a weekly study goal of 20 hours.
+          b. Add the entered study hours to a running total.
+          c. Store each entered subject name.
+          d. Count how many study sessions the user has entered.
+          e. Calculate the average study hour so far:
+                Average = Total Study Hours / Number of Sessions
+          f. Display:
+                   ○ total study hours
+                   ○ average study hours
+                   ○ subjects studied in all sessions
+                   ○ feedback message
+          g. Display feedback based on total study hours:
+                   ○ 0–5 → “Start studying regularly!”
+                   ○ 6–12 → “Good progress!”
+                   ○ 13–19 → “Almost ready!”
+                   ○ 20+ → “Weekly goal reached!”
+          h. If the user enters more than 7 study sessions without reaching 20 hours, display “Increase
+               your study time!”
+
+      Sample Input                          Sample Output
+
+      English-2, English-3, Bangla-4,       Total: 14 hours, Average: 3.5 hours, Subjects: [English,
+      Physics-5                             English, Bangla, Physics], Almost ready!
+
+      Math-5, Physics-6, Chemistry-7,       Total: 21 hours, Average: 5.25 hours, Subjects: [Math,
+      English-3                             Physics, Chemistry, English], Weekly goal reached!
+
+      8 sessions, total 15 hours            Total: 15 hours, Average: 1.875 hours, Increase your study
+                                            time!
+2.   Write a PHP program for a student academic tracking system. The program should take three inputs        [10]
+     from the user via an HTML form:
+         ● credits earned per course
+         ● number of courses completed
+         ● target graduation credits.
+     First, calculate the total credits earned by multiplying the credits per course by the number of
+     courses completed. Classify the academic progress using the following conditions:
+         ● Excellent: total credits 120 or more
+         ● Good: total credits 90 or more but less than 120
+         ● Average: total credits 60 or more but less than 90
+         ● Poor: total credits less than 60
+     The program should then compare the total credits earned with the target graduation credits. Finally,
+     display the total credits, the progress category, the target value, and clearly state whether the
+     progress is above, below, or exactly at the target, along with the difference.
+
+
+                                                                                                         Page 1 of 2
+     Sample:
+       Credits/       Courses         Targ      Total              Progres      Result
+       Course         Completed       et        Credits            s
+
+       4              30              120       120                Excellen     Target met exactly (0
+                                                                   t            difference)
+
+       3              35              100       105                Good         Above target by 5
+
+
+       3              25              90        75                 Average      Below target by 15
+
+
+       4              10              60        40                 Poor         Below target by 20
+
+3.   Create a database named tourism and a table named tourist_spot with the following structure and             [10]
+     values:
+
+                                                                                              VisitorsPerYe
+      SpotID           SpotName             Region     Category        Rating    EntryFee
+                                                                                                    ar
+
+           1      Cox’s Bazar Beach          CTG          Beach           4.9         0             150000
+
+           2      Sundarbans Forest          KHL          Nature          4.3       150              80000
+
+           3      Ratargul Forest            SYL          Nature          4.8       100              60000
+
+           4      Kuakata Beach              PTU          Beach           4.5         0              90000
+
+           5      Shat Gambuj Mosque         BGH       Heritage           4.7        30              70000
+
+           6      Paharpur                   NWG       Heritage           4.1        30              40000
+
+
+     Now, do the following (write full PHP–MySQL code):
+      1. Display the SpotName, Region and Rating of all spots whose rating is above 4.5 or whose
+         SpotName contains the word ‘Beach’. Sort the result by Rating in descending order.
+      2. Update: for all spots whose rating is between 4.0 and 4.5 (inclusive) and whose EntryFee is
+         greater than 0, increase the Rating by 0.2 and raise the EntryFee by 10%.
+      3. For each category, show the category name, the number of spots in it, the average rating, and
+         the total visitors per year but only include categories whose average rating is above 4.4. Sort the
+         result by average rating in descending order.
+      4. For each region, show the region name and its total estimated yearly revenue, calculated as the
+         sum of (EntryFee × VisitorsPerYear) over its spots. Display only those regions whose total
+         estimated revenue exceeds 1,000,000, ordered from highest to lowest.
+
+
+
+
+                                                                                                             Page 2 of 2
+                               United International University (UIU)
+                             Dept. of Computer Science & Engineering (CSE)
+                                                                                           SET - B
+                            Final Exam       Year: 2026  Trimester: Spring
+                                  CSE 4165/CSE 465 Web Programming
+                             Total Marks: 30            Duration: 2 Hours
+  Any examinee found adopting unfair means will be expelled from the trimester / program as per UIU
+                                           disciplinary rules.
+1. Create a JavaScript program where a user enters a patient’s vitals and your code shows a live health [10]
+     report. Strategies are as follows:
+     Index.html:
+     Create two text fields (input type text) to take the user’s Heart Rate (bpm) and Oxygen Saturation /
+     SpO2 (%), and a “Save Reading” button. Below the button there is a label field to show the report
+     and feedback.
+     Script.js:
+      1. Take the user’s Heart Rate and SpO2 from the input fields in the HTML file.
+      2. Keep track of every reading entered so far (for example, in arrays).
+      3. Inside a function:
+             a) Calculate and display the Average Heart Rate (of all readings entered so far, including the
+                 current one).
+             b) Calculate and display the Average Oxygen Saturation (of all readings so far, including the
+                 current one).
+             c) Calculate and display the Risk Score from the current reading using the formula:
+                           RiskScore = (100 − SpO2) × 2 + |HeartRate − 80| × 0.5
+                 (|HeartRate − 80| is the absolute / positive difference, e.g. |78 − 80| = 2.)
+             d) Display the feedback in the label area: “SAFE” if the Risk Score is 10 or less, “WARNING”
+                 if it is greater than 10 and 20 or less, and “DANGER” if it is greater than 20.
+     Sample Input / Output
+                  Sample Input                                       Sample Output
+
+       Heart Rate, SpO2 (entered in order)                     Report                      Feedback
+
+                      80, 97                    Average Heart Rate: 80                      SAFE
+                                                Average Oxygen Saturation: 97
+                                                Risk Score: 6.0
+                      78, 95                    Average Heart Rate: 79                    WARNING
+                                                Average Oxygen Saturation: 96
+                                                Risk Score: 11
+                      130, 80                   Average Heart Rate: 96                     DANGER
+                                                Average Oxygen Saturation: 90.67
+                                                Risk Score: 65
+2.                                                                                                            [10]
+     The UIU Mars Rover Team is preparing for a rover field-test mission and needs to calculate how many
+     battery modules must be carried for the rover. Write a PHP program that takes three inputs from an
+     HTML form: the mission distance in meters, the energy consumption per meter, and the capacity
+     of one battery module.
+
+     The program should first calculate the total energy required by multiplying the mission distance with
+     the energy consumption per meter. Since the team cannot carry partial battery modules, the program
+     must calculate the minimum number of complete battery modules needed. Then, calculate the
+     unused energy capacity after the required number of battery modules is carried.
+
+     Classify the battery usage efficiency using the following conditions:
+
+         ●   Efficient: unused energy is less than or equal to 10% of total carried energy
+         ●   Acceptable: unused energy is more than 10% but less than or equal to 25% of total carried
+             energy
+
+
+                                                                                                         Page 1 of 2
+           ●     Wasteful: unused energy is more than 25% of total carried energy
+
+     Finally, display the total energy required, number of battery modules needed, unused energy
+     capacity, and the battery usage status.
+
+               Sample Input taken using HTML form                Sample Output printed using PHP code
+
+      Mission               Energy per       Battery         Total         Battery      Unused      Status
+      Distance              Meter            Capacity        Energy        Modules      Energy
+                                                             Required
+
+      1200                  8                5000            9600          2            400         Efficient
+
+
+      1500                  9                4000            13500         4            2500        Acceptable
+
+
+      1000                  6                5000            6000          2            4000        Wasteful
+
+
+
+
+3.   Create a database named 'uiu_bookshop' and a table named 'book_info' with the following structure              [10]
+     and values:
+
+      BookI        BookTitle                  Author                Category             Price        Stock
+      D
+      1            Web Basics                 John Smith            Programming          450          10
+
+      2            Database Guide             Alice Roy             Programming          550          8
+
+      3            English Grammar            Mary Khan             Language             300          15
+
+      4            Business Math              David Lee             Business             400          12
+
+      5            Python Mastery             Sara Ahmed            Programming          600          5
+
+      6            French Made Easy           Paul Costa            Language             350          7
+
+
+
+     Now, do the following (write full PHP–MySQL code):
+          1. Display all books from the Programming category, sorted by Price in descending order.
+          2. Display the BookTitle, Author, and Price of all books where the Price is greater than 400 BDT
+             and the Category is 'Programming'.
+          3. Display the number of books available in each Category.
+          4. Display the total net worth of the entire bookshop. (Hint: To find the total net worth of the entire
+             bookshop, multiply the Price and Stock of each book, then add all the values together.)
+          5. Apply a 10% price reduction to all books in the 'Language' category, then display the BookTitle
+             and updated Price of those books.
+
+
+
+
+                                                                                                                Page 2 of 2
+

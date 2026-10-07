@@ -1,0 +1,111 @@
+  Any examinee found adopting unfair means will be expelled from the trimester / program as per UIU
+                                               disciplinary rules.
+1. JAVASCRIPT: Create a JavaScript application where users can test their password strength and get [10]
+   real-time feedback.
+   index.html:
+   Create a password input field (input type password), a "Check Strength" button, and below that a
+   label field to display strength feedback and scoring results.
+   script.js:
+       1.​ Generate a target strength score of 100 points for a "Very Strong" password.
+       2.​ Take the user's password input from the HTML file.
+       3.​ Inside a function:
+                 ○​ Calculate password strength based on these criteria:
+                         ■​ Length: +10 points for every 2 characters (minimum 6 characters required)
+                         ■​ Uppercase letters: +15 points if present
+                         ■​ Lowercase letters: +15 points if present
+                         ■​ Numbers: +20 points if present
+                         ■​ Special characters (!@#$%^&*): +25 points if present
+                 ○​ Display strength levels: "Very Weak" (0-30), "Weak" (31-50), "Medium" (51-70),
+                     "Strong" (71-90), "Very Strong" (91+)
+                 ○​ If password reaches 100+ points, display "Perfect Password!" and show a success
+                     message
+                 ○​ Keep track of how many attempts the user has made
+                 ○​ If the user makes more than 8 attempts without reaching "Strong" level, display
+                     "Need practice!" and suggest password tips
+                        Sample Input                                     Sample Output
+      abc                                             Very Weak
+      hello123                                        Weak
+      Strong@Pass                                     Strong
+      Perfect@Pass123                                 Perfect Password!
+
+
+2.   PHP: It's time to organize the annual UIU Tech Fest, and you need to calculate the budget for venue [10]
+     booking. Write a PHP function that takes three integers as input: the number of expected attendees,
+     the cost per person for venue arrangement, and the maximum capacity of available venues. The
+     function should calculate the minimum number of venues needed to accommodate all attendees
+     (you must book complete venues; you cannot book partial venues). The function should also
+     calculate how many empty seats will remain after all attendees are seated. Moreover, if each venue
+     costs 15,000 BDT regardless of occupancy, how much money is wasted on empty seats?
+
+      Sample Input (from html file text fields)       Sample Output (print on PHP file)
+
+      Attendees         Cost per          Venue       Total Venues     Empty Seats        Wasted
+                        Person            Capacity                                        Money (BDT)
+
+      250               120               80          4                70                 8,400
+
+                                                                                                        Page 1 of 2
+            180                  150                  100                2              20              3,000
+
+            300                  100                  75                 4              0               0
+
+
+
+
+    3.    PHP & MYSQL: Create a database named 'uiutech_final' and a table named 'employee_final'. The [10]
+          employee table has the following structure and values:
+            EmployeeID          EmployeeNa          DepartmentI        DepartmentNam    Salary         PerformanceR
+                                me                  D                  e                               ating
+
+            1                   Arif Rahman         201                Software         45000          B
+                                                                       Development
+
+            2                   Marium              201                Software         52000          A
+                                Khan                                   Development
+
+            3                   Sabbir              202                Quality          38000          C
+                                Hossain                                Assurance
+
+            4                   Samira              203                UI/UX Design     42000          B
+                                Begum
+
+          Now, do the following (write full code, not just SQL queries):
+
+                   1.​ Show the total number of employees who received each performance rating (A, B, C, D)
+                         across all departments.
+                   2.​ If an employee has a salary below 40,000 BDT and their current performance rating is not
+                       'D', change their performance rating to 'C'.
+                   3.​ If an employee has a salary greater than 50,000 BDT, add a 5,000 BDT bonus to their
+                       salary, but only if the resulting salary is less than or equal to 60,000 BDT.
+                   4.​ For each department, display the department names and the number of employees working
+                       in that department, sorted by the number of employees (largest department first).
+
+
+                                                                 Sample SQL Query
+
+$servername = "localhost";                                               $servername = "localhost";
+$username = "username";                                                  $username = "username";
+$password = "password";                                                  $password = "password";
+$dbname = "myDB";                                                        $dbname = "myDB";
+$conn = new mysqli($servername, $username, $password,                    $conn = new mysqli($servername, $username, $password,
+$dbname);                                                                $dbname);
+if ($conn->connect_error) {                                              if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);                       die("Connection failed: " . $conn->connect_error);
+}                                                                        }
+$sql = "SELECT id, firstname, lastname FROM MyGuests";                   $sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+$result = $conn->query($sql);                                            if ($conn->query($sql) === TRUE) {
+if ($result->num_rows > 0) {                                               echo "Record updated successfully";
+  while($row = $result->fetch_assoc()) {                                 } else {
+    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " .       echo "Error updating record: " . $conn->error;
+$row["lastname"]. "<br>";                                                }
+  }                                                                      $conn->close();
+} else {
+  echo "0 results";
+}
+$conn->close();
+
+
+
+
+                                                                                                                      Page 2 of 2
+
