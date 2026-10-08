@@ -71,7 +71,7 @@
     .sheet-col {
       display: flex;
       flex-direction: column;
-      gap: 1.1mm;
+      gap: 0.95mm;
       min-width: 0;
     }
 
@@ -622,14 +622,13 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
   }
 
   <span class="k">public function</span> <span class="f">printDetails</span>() {
-    <span class="k">echo</span> <span class="s">"Title: "</span> . <span class="v">$this</span>-&gt;<span class="v">title</span> . <span class="s">"&lt;br&gt;"</span>;
-    <span class="k">echo</span> <span class="s">"Total: "</span> . <span class="v">$this</span>-&gt;<span class="f">calculateTotal</span>() . <span class="s">"&lt;br&gt;"</span>;
+    <span class="k">echo</span> <span class="s">"Title: {$this-&gt;title}, Total: "</span> . <span class="v">$this</span>-&gt;<span class="f">calculateTotal</span>();
   }
 }
 <span class="c">// Object Instantiation &amp; Calling</span>
 <span class="v">$item</span> = <span class="k">new</span> <span class="f">Product</span>(<span class="s">"Web Book"</span>, <span class="n">500</span>, <span class="n">3</span>);
 <span class="v">$item</span>-&gt;<span class="f">printDetails</span>();</pre>
-            <div class="ok"><b>OOP Rules:</b> <code>$this-&gt;property</code> (NO $ after -&gt;). Method calls use <code>$obj-&gt;method()</code>.</div>
+            <div class="ok"><b>OOP Rules:</b> <code>$this-&gt;prop</code> (NO $ after -&gt;). Method calls: <code>$obj-&gt;method()</code>.</div>
           </div>
         </div>
 
@@ -640,12 +639,28 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
           </div>
           <div class="box-content">
             <pre class="code-php"><span class="c">// Day difference between two dates</span>
-<span class="v">$due</span>  = <span class="f">strtotime</span>(<span class="s">"2026-09-10"</span>);
-<span class="v">$curr</span> = <span class="f">strtotime</span>(<span class="s">"2026-09-22"</span>);
+<span class="v">$due</span>  = <span class="f">strtotime</span>(<span class="s">"2026-09-10"</span>); <span class="v">$curr</span> = <span class="f">strtotime</span>(<span class="s">"2026-09-22"</span>);
 <span class="v">$daysOverdue</span> = (<span class="v">$curr</span> - <span class="v">$due</span>) / <span class="n">86400</span>; <span class="c">// 86400s per day</span>
-<span class="k">if</span> (<span class="v">$daysOverdue</span> &gt; <span class="n">0</span>) {
-  <span class="v">$penalty</span> = <span class="v">$daysOverdue</span> * <span class="n">2.00</span>; <span class="c">// 2 BDT per day</span>
-}</pre>
+<span class="k">if</span> (<span class="v">$daysOverdue</span> &gt; <span class="n">0</span>) { <span class="v">$penalty</span> = <span class="v">$daysOverdue</span> * <span class="n">2.00</span>; }</pre>
+          </div>
+        </div>
+
+        <!-- 16. Reusable PHP Functions & Sticky Forms -->
+        <div class="box accent-cyan">
+          <div class="box-title">
+            16. Reusable PHP Functions &amp; Sticky Forms <span class="tag cyan">Function Spec</span>
+          </div>
+          <div class="box-content">
+            <div class="hint"><b>Modular Function (243/251 Q2):</b> Takes 3 inputs &amp; returns/prints:</div>
+            <pre class="code-php"><span class="k">function</span> <span class="f">calcAlloc</span>(<span class="v">$demand</span>, <span class="v">$rate</span>, <span class="v">$cap</span>, <span class="v">$cost</span> = <span class="n">0</span>) {
+  <span class="v">$need</span> = <span class="v">$demand</span> * <span class="v">$rate</span>;
+  <span class="v">$units</span> = <span class="f">ceil</span>(<span class="v">$need</span> / <span class="v">$cap</span>);
+  <span class="v">$left</span>  = (<span class="v">$units</span> * <span class="v">$cap</span>) - <span class="v">$need</span>;
+  <span class="k">return</span> [<span class="s">"units"</span> =&gt; <span class="v">$units</span>, <span class="s">"left"</span> =&gt; <span class="v">$left</span>, <span class="s">"wasted"</span> =&gt; <span class="v">$left</span> * <span class="v">$cost</span>];
+}
+<span class="c">// Sticky Input: &lt;input value="&lt;?= htmlspecialchars($_POST['u']??'') ?&gt;"&gt;</span>
+<span class="c">// Best-of-N via Array Sort Alternative (253 Q1):</span>
+<span class="v">$sc</span> = [<span class="v">$c1</span>, <span class="v">$c2</span>, <span class="v">$c3</span>]; <span class="f">rsort</span>(<span class="v">$sc</span>); <span class="v">$best2</span> = (<span class="v">$sc</span>[<span class="n">0</span>] + <span class="v">$sc</span>[<span class="n">1</span>]) / <span class="n">2</span>;</pre>
           </div>
         </div>
 
@@ -654,10 +669,10 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
       <!-- ---------------- PAGE 2 - COL 2 ---------------- -->
       <div class="sheet-col">
 
-        <!-- 16. SQL DDL Schema Setup -->
+        <!-- 17. SQL DDL Schema Setup -->
         <div class="box accent-amber">
           <div class="box-title">
-            16. SQL DDL &amp; Data Types <span class="tag amber">Schema Setup</span>
+            17. SQL DDL &amp; Data Types <span class="tag amber">Schema Setup</span>
           </div>
           <div class="box-content">
             <pre class="code-sql"><span class="k">CREATE DATABASE IF NOT EXISTS</span> uiu_db;
@@ -681,10 +696,10 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
           </div>
         </div>
 
-        <!-- 17. Deep SQL Query Vault -->
+        <!-- 18. Deep SQL Query Vault -->
         <div class="box accent-blue">
           <div class="box-title">
-            17. Deep SQL Query Vault <span class="tag">Weak Point Focus</span>
+            18. Deep SQL Query Vault <span class="tag">Weak Point Focus</span>
           </div>
           <div class="box-content">
             <div class="hint"><b>Pattern 1 — Selective Filters (OR, LIKE, BETWEEN, IN):</b></div>
@@ -718,10 +733,10 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
           </div>
         </div>
 
-        <!-- 18. Subqueries & CASE Expressions -->
+        <!-- 19. Subqueries & CASE Expressions -->
         <div class="box accent-blue">
           <div class="box-title">
-            18. Subqueries, Computed Totals &amp; CASE <span class="tag">Advanced SQL</span>
+            19. Subqueries, Computed Totals &amp; CASE <span class="tag">Advanced SQL</span>
           </div>
           <div class="box-content">
             <pre class="code-sql"><span class="c">-- 1. Grand Net Worth (Multiplication inside SUM)</span>
@@ -746,15 +761,36 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
           </div>
         </div>
 
+        <!-- 20. Advanced Aggregations, Limits & Multi-Sort -->
+        <div class="box accent-green">
+          <div class="box-title">
+            20. Advanced Aggregations, Limits &amp; Multi-Sort <span class="tag green">Exam Queries</span>
+          </div>
+          <div class="box-content">
+            <div class="hint"><b>1. Revenue Threshold HAVING (261 Set A Q3.4):</b></div>
+            <pre class="code-sql"><span class="k">SELECT</span> region, <span class="f">SUM</span>(entry_fee * visitors) <span class="k">AS</span> revenue
+<span class="k">FROM</span> tourist_spot <span class="k">GROUP BY</span> region <span class="k">HAVING</span> revenue &gt; <span class="n">1000000</span> <span class="k">ORDER BY</span> revenue <span class="k">DESC</span>;</pre>
+
+            <div class="hint"><b>2. Multi-Column UPDATE &amp; Limits (261 Set A &amp; B):</b></div>
+            <pre class="code-sql"><span class="c">-- Math update on two columns simultaneously</span>
+<span class="k">UPDATE</span> tourist_spot <span class="k">SET</span> rating = rating + <span class="n">0.2</span>, entry_fee = entry_fee * <span class="n">1.10</span>
+<span class="k">WHERE</span> rating <span class="k">BETWEEN</span> <span class="n">4.0</span> <span class="k">AND</span> <span class="n">4.5</span> <span class="k">AND</span> entry_fee &gt; <span class="n">0</span>;
+<span class="c">-- Compound Sort: category ASC, rating DESC</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> tourist_spot <span class="k">ORDER BY</span> category <span class="k">ASC</span>, rating <span class="k">DESC</span>;
+<span class="c">-- 2nd Highest / Nth Record via LIMIT OFFSET:</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> records <span class="k">ORDER BY</span> fee <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="n">1</span> <span class="k">OFFSET</span> <span class="n">1</span>;</pre>
+          </div>
+        </div>
+
       </div>
 
       <!-- ---------------- PAGE 2 - COL 3 ---------------- -->
       <div class="sheet-col">
 
-        <!-- 19. Comprehensive SQL JOIN Patterns -->
+        <!-- 21. Comprehensive SQL JOIN Patterns -->
         <div class="box accent-purple">
           <div class="box-title">
-            19. Comprehensive SQL JOIN Patterns <span class="tag purple">Joins</span>
+            21. Comprehensive SQL JOIN Patterns <span class="tag purple">Joins</span>
           </div>
           <div class="box-content">
             <pre class="code-sql"><span class="c">-- 1. INNER JOIN across two tables</span>
@@ -778,10 +814,10 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
           </div>
         </div>
 
-        <!-- 20. Master PHP-MySQL Bridge Skeleton -->
+        <!-- 22. Master PHP-MySQL Bridge Skeleton -->
         <div class="box accent-dark">
           <div class="box-title">
-            20. Master PHP ↔ MySQL Bridge Skeleton <span class="tag dark">Write in Q3</span>
+            22. Master PHP ↔ MySQL Bridge Skeleton <span class="tag dark">Write in Q3</span>
           </div>
           <div class="box-content">
             <div class="hint">"Write full PHP-MySQL code, not just SQL" &rarr; Write this entire file!</div>
@@ -805,9 +841,7 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
 
 <span class="c">// UPDATE Execution with Check</span>
 <span class="v">$sql2</span> = <span class="s">"UPDATE records SET fee = fee * 1.10 WHERE fee &gt; 20 AND fee * 1.10 &lt;= 50"</span>;
-<span class="k">if</span> (<span class="v">$conn</span>-&gt;<span class="f">query</span>(<span class="v">$sql2</span>) === <span class="k">TRUE</span>) {
-  <span class="k">echo</span> <span class="s">"Updated ("</span> . <span class="v">$conn</span>-&gt;<span class="v">affected_rows</span> . <span class="s">" rows)&lt;br&gt;"</span>;
-}
+<span class="k">if</span> (<span class="v">$conn</span>-&gt;<span class="f">query</span>(<span class="v">$sql2</span>) === <span class="k">TRUE</span>) { <span class="k">echo</span> <span class="s">"Updated ("</span> . <span class="v">$conn</span>-&gt;<span class="v">affected_rows</span> . <span class="s">" rows)&lt;br&gt;"</span>; }
 
 <span class="v">$conn</span>-&gt;<span class="f">close</span>();
 <span class="k">?&gt;</span></pre>
@@ -815,24 +849,24 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
           </div>
         </div>
 
-        <!-- 21. HTML Table Rendering from Database -->
+        <!-- 23. HTML Table Rendering from Database -->
         <div class="box accent-amber">
           <div class="box-title">
-            21. HTML Table Rendering from Database <span class="tag amber">HTML Table</span>
+            23. HTML Table Rendering from Database <span class="tag amber">HTML Table</span>
           </div>
           <div class="box-content">
             <pre class="code-php"><span class="k">echo</span> <span class="s">"&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Fee&lt;/th&gt;&lt;/tr&gt;"</span>;
-<span class="k">while</span> (<span class="v">$row</span> = <span class="v">$result</span>-&gt;<span class="f">fetch_assoc</span>()) {
-  <span class="k">echo</span> <span class="s">"&lt;tr&gt;&lt;td&gt;{$row['id']}&lt;/td&gt;&lt;td&gt;{$row['title']}&lt;/td&gt;&lt;td&gt;{$row['fee']}&lt;/td&gt;&lt;/tr&gt;"</span>;
+<span class="k">while</span> (<span class="v">$r</span> = <span class="v">$result</span>-&gt;<span class="f">fetch_assoc</span>()) {
+  <span class="k">echo</span> <span class="s">"&lt;tr&gt;&lt;td&gt;{$r['id']}&lt;/td&gt;&lt;td&gt;{$r['title']}&lt;/td&gt;&lt;td&gt;{$r['fee']}&lt;/td&gt;&lt;/tr&gt;"</span>;
 }
 <span class="k">echo</span> <span class="s">"&lt;/table&gt;"</span>;</pre>
           </div>
         </div>
 
-        <!-- 22. Prepared Statements & Form Integration -->
+        <!-- 24. Prepared Statements & Form Integration -->
         <div class="box accent-red">
           <div class="box-title">
-            22. Dynamic Search &amp; Prepared SQL <span class="tag red">Security</span>
+            24. Dynamic Search &amp; Prepared SQL <span class="tag red">Security</span>
           </div>
           <div class="box-content">
             <pre class="code-php"><span class="v">$search</span> = <span class="s">"%"</span> . <span class="v">$_GET</span>[<span class="s">"keyword"</span>] . <span class="s">"%"</span>;
@@ -842,6 +876,28 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
 <span class="v">$res</span> = <span class="v">$stmt</span>-&gt;<span class="f">get_result</span>();
 <span class="k">while</span> (<span class="v">$r</span> = <span class="v">$res</span>-&gt;<span class="f">fetch_assoc</span>()) { <span class="k">echo</span> <span class="v">$r</span>[<span class="s">"title"</span>] . <span class="s">"&lt;br&gt;"</span>; }
 <span class="v">$stmt</span>-&gt;<span class="f">close</span>();</pre>
+          </div>
+        </div>
+
+        <!-- 25. Form-to-Database INSERT & Action Pipeline -->
+        <div class="box accent-cyan">
+          <div class="box-title">
+            25. Form-to-Database INSERT &amp; Action Pipeline <span class="tag cyan">CRUD Full Code</span>
+          </div>
+          <div class="box-content">
+            <div class="hint"><b>HTML Form Submission &rarr; PHP INSERT with Validation:</b></div>
+            <pre class="code-php"><span class="k">if</span> (<span class="f">isset</span>(<span class="v">$_POST</span>[<span class="s">"btnSave"</span>])) {
+  <span class="c">// 1. Sanitize string inputs &amp; cast numbers</span>
+  <span class="v">$t</span> = <span class="v">$conn</span>-&gt;<span class="f">real_escape_string</span>(<span class="f">trim</span>(<span class="v">$_POST</span>[<span class="s">"title"</span>]));
+  <span class="v">$c</span> = <span class="v">$conn</span>-&gt;<span class="f">real_escape_string</span>(<span class="v">$_POST</span>[<span class="s">"cat"</span>]);
+  <span class="v">$f</span> = <span class="f">floatval</span>(<span class="v">$_POST</span>[<span class="s">"fee"</span>]); <span class="v">$s</span> = <span class="f">intval</span>(<span class="v">$_POST</span>[<span class="s">"stock"</span>]);
+
+  <span class="c">// 2. Execute INSERT &amp; retrieve auto ID</span>
+  <span class="v">$sql</span> = <span class="s">"INSERT INTO records (title, category, fee, stock) VALUES ('$t', '$c', $f, $s)"</span>;
+  <span class="k">if</span> (<span class="v">$conn</span>-&gt;<span class="f">query</span>(<span class="v">$sql</span>) === <span class="k">TRUE</span>) {
+    <span class="k">echo</span> <span class="s">"&lt;p class='ok'&gt;Saved! ID: "</span> . <span class="v">$conn</span>-&gt;<span class="v">insert_id</span> . <span class="s">"&lt;/p&gt;"</span>;
+  } <span class="k">else</span> { <span class="k">echo</span> <span class="s">"&lt;p class='warn'&gt;Error: "</span> . <span class="v">$conn</span>-&gt;<span class="v">error</span> . <span class="s">"&lt;/p&gt;"</span>; }
+}</pre>
           </div>
         </div>
 
