@@ -68,6 +68,6 @@ Every file's header comment names its exact boxes; the summary:
 | Best 2 of 3 CTs | 13A | 253 Q1 |
 | Classifier ladder + target difference | 13B | 253 Q2, 261A Q2 |
 | SQL: GROUP BY / guarded UPDATE / CASE / HAVING | 17–21 | all Q3 |
-| mysqli bridge (connect → query → loop → close) | 22, 23 | all Q3 |
+| mysqli bridge (connect → query → loop → close) | 22 | all Q3 |
 
 Big-picture mapping and trap list: `../Final_Exam_Analysis.md`.
