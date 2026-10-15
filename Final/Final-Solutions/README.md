@@ -5,6 +5,14 @@ Every answer file is written in the **same code pattern as `../cheatsheet.html`*
 `$sql1` → `fetch_assoc()` loop → `$conn->close()`), so practising these files
 drills the cheat sheet for the real 2-hour exam.
 
+## Exam starters
+
+Copy the matching file and fill the `EDIT` spots — nothing else to set up:
+
+- [quickstart.html](quickstart.html) — Q1: Box 5 CSS + Box 6 JS pipeline, runnable
+- [quickstart-q2.php](quickstart-q2.php) — Q2: Box 10 form + `btnSubmit`, optional `calcAlloc()` (Box 12/16)
+- [quickstart-q3.php](quickstart-q3.php) — Q3: Box 22 bridge with 4 task slots (2 SELECT, 2 guarded UPDATE)
+
 ## Files
 
 | Paper | Q1 (HTML + JS) | Q2 (PHP) | Q3 (PHP + MySQL) |
