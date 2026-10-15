@@ -10,7 +10,7 @@
 
 <?php
 // ============================================================================
-// FINAL 252 (Summer 2025) — Q3 (10 marks)        [cheat sheet: boxes 18, 19, 22, 23]
+// FINAL 252 (Summer 2025) — Q3 (10 marks)        [cheat sheet: boxes 18, 19, 22]
 // ----------------------------------------------------------------------------
 // PART 1 — DATABASE + TABLE: in the exam you create this FIRST as plain SQL
 // (in phpMyAdmin). It is NOT part of the PHP answer:
