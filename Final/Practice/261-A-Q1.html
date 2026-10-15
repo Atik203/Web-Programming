@@ -13,7 +13,7 @@
       }
       input[type="submit"],
       button {
-        margin-top: 4px;
+        margin-top: 8px;
         padding: 3px 10px;
         background: #0284c7;
         color: white;
@@ -36,5 +36,67 @@
       }
     </style>
   </head>
-  <body></body>
+  <body>
+    <div style="width: 50%; margin: 20px auto">
+      <label for=""> Subject Name </label>
+      <input type="text" name="subjectName" id="subjectName" />
+      <label for="">Study Hours</label>
+      <input type="text" id="studyHour" name="studyHour" />
+      <button onclick="CalculateStudy()">Add Study</button>
+
+      <label for="">Total Study Hour: <span id="totalStudyHour"></span></label>
+      <label for="">Avg Study Hour: <span id="avgStudyHour"></span></label>
+      <label for="">Subject Studied: <span id="subjectStudied"></span></label>
+      <label for="">Feedback: <span id="feedback"></span></label>
+    </div>
+
+    <script>
+      let totalStudyHour = document.getElementById("totalStudyHour");
+      let avgStudyHour = document.getElementById("avgStudyHour");
+      let subjectStudied = document.getElementById("subjectStudied");
+      let feedbacks = document.getElementById("feedback");
+
+      let goal = 20;
+      let total = 0;
+      let sessions = 0;
+      let subjects = [];
+
+      function CalculateStudy() {
+        let subjectName = document.getElementById("subjectName").value;
+        let studyHour = parseFloat(document.getElementById("studyHour").value);
+
+        if (!subjectName || isNaN(studyHour)) {
+          alert("Please enter a valid subject name and study hours.");
+          return;
+        }
+
+        subjects.push(subjectName);
+        total += studyHour;
+        sessions++;
+        let avg = total / sessions;
+
+        let feedback = "";
+        if (sessions > 7 && total < goal) {
+          feedback = "Increase your study time!";
+        } else {
+          feedback = Feedback(total);
+        }
+
+        totalStudyHour.innerHTML = total + " hours";
+        avgStudyHour.innerHTML = avg + " hours";
+        subjectStudied.innerHTML = "[" + subjects.join(", ") + "]";
+        feedbacks.innerHTML = feedback;
+
+        document.getElementById("subjectName").value = "";
+        document.getElementById("studyHour").value = "";
+      }
+
+      function Feedback(total) {
+        if (total >= 20) return "Weekly goal reached!";
+        else if (total >= 13) return "Almost ready!";
+        else if (total >= 6) return "Good progress!";
+        else return "Start studying regularly!";
+      }
+    </script>
+  </body>
 </html>
