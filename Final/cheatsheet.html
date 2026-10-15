@@ -426,6 +426,8 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
 <span class="k">if</span> (/[a-z]/.<span class="f">test</span>(<span class="v">p</span>))      <span class="v">score</span> += <span class="n">15</span>; <span class="c">// Lower</span>
 <span class="k">if</span> (/[0-9]/.<span class="f">test</span>(<span class="v">p</span>))      <span class="v">score</span> += <span class="n">20</span>; <span class="c">// Digit</span>
 <span class="k">if</span> (/[!@#$%^&amp;*]/.<span class="f">test</span>(<span class="v">p</span>)) <span class="v">score</span> += <span class="n">25</span>; <span class="c">// Symbol</span>
+<span class="c">// Levels: &gt;=91 Very Strong, &gt;=71 Strong, &gt;=51 Medium, &gt;=31 Weak, else Very Weak</span>
+<span class="c">// 100+ &rarr; "Perfect Password!" | &gt;8 tries without Strong &rarr; "Need practice!"</span>
 
 <span class="c">// Engine D: Dual-Metric Health Risk Formula</span>
 <span class="k">let</span> <span class="v">risk</span> = (<span class="n">100</span> - <span class="v">spo2</span>) * <span class="n">2</span> + Math.<span class="f">abs</span>(<span class="v">hr</span> - <span class="n">80</span>) * <span class="n">0.5</span>;
@@ -560,6 +562,7 @@ document.<span class="f">getElementById</span>(<span class="s">"tblBody"</span>)
 <span class="v">$supplied</span> = <span class="v">$items</span> * <span class="v">$capacityPerItem</span>;        <span class="c">// Total capacity</span>
 <span class="v">$unused</span>   = <span class="v">$supplied</span> - <span class="v">$needed</span>;              <span class="c">// Leftover/empty</span>
 <span class="v">$wasted</span>   = <span class="v">$unused</span> * <span class="v">$costPerSingleUnit</span>;     <span class="c">// Money wasted</span>
+<span class="c">// Pizza: unit = 1050 / 8 = 131.25 per slice</span>
 
 <span class="c">// 2. Efficiency Ratio / Category</span>
 <span class="v">$ratio</span> = <span class="v">$unused</span> / <span class="v">$supplied</span>;
