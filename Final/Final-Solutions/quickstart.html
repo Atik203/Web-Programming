@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Q1 QUICKSTART — fill the EDIT spots</title>
     <style>
-        /* Box 5 — Basic Clean CSS (already here, nothing to write in the exam) */
+        /* Box 5 CSS — already here */
         body { font-family: Arial, sans-serif; }
         form { width: 300px; margin: 4px auto; padding: 6px; border: 1px solid #cbd5e1; }
         label { display: block; margin-top: 3px; font-weight: bold; }
@@ -34,13 +34,10 @@
 <p id="msgOut"></p>
 
 <script>
-// ============================================================================
-// Q1 QUICKSTART [cheat sheet: boxes 1, 2, 5, 6] — runs as-is (try it!).
-// Replace the demo logic with the question's; the EDIT comments mark what.
-//   Random number?    Box 3:  Math.floor(Math.random() * (max - min + 1)) + min;
-//   Radio/checkbox?   Box 2:  document.querySelector('input[name="x"]:checked')?.value;
-//   Table rows?       Box 4:  document.getElementById("tblBody").innerHTML += `...`;
-// ============================================================================
+// Q1 quickstart (boxes 1, 2, 5, 6) — runs as-is; EDIT marks what to change.
+// Random? Box 3: Math.floor(Math.random() * (max - min + 1)) + min;
+// Radio/checkbox? Box 2: document.querySelector('input[name="x"]:checked')?.value;
+// Table rows? Box 4: document.getElementById("tblBody").innerHTML += `...`;
 
 // STAGE 0: State Variables OUTSIDE the Function!
 let runningTotal = 0, sessionCount = 0;

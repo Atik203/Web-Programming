@@ -9,13 +9,11 @@
 <h2>Q3 Starter — EDIT title</h2>
 
 <?php
-// ============================================================================
-// Q3 QUICKSTART [cheat sheet: boxes 17, 18, 22] — PHP + MySQL bridge (Box 22).
-// Each task block below is independent — copy/delete blocks to match the
-// number of tasks in the question.
-// ----------------------------------------------------------------------------
-// PART 1 — DATABASE + TABLE: create FIRST in phpMyAdmin as plain SQL
-// (NOT part of the PHP answer). Use the real names/values from the question:
+// Q3 quickstart (Boxes 17, 18, 22) — the Box 22 PHP + MySQL bridge.
+// Each task block is independent — copy/delete to match the question.
+
+// PART 1 — create the DB/table FIRST in phpMyAdmin as plain SQL
+// (not PHP). Use the real names/values from the question:
 //
 //   CREATE DATABASE your_db;
 //   USE your_db;
@@ -26,9 +24,8 @@
 //   );
 //   INSERT INTO your_table VALUES (1, 'first row', 100), (2, 'second row', 250);
 //
-// PART 2 — the answer: PHP + MySQL bridge. Local XAMPP MySQL runs on
-// port 3307 -> 5th mysqli argument (in the exam: drop it, default port).
-// ============================================================================
+// PART 2 — the bridge below. Local XAMPP MySQL = port 3307 (5th argument);
+// in the exam drop it (default port).
 
 $servername = "localhost";
 $username   = "root";
@@ -41,24 +38,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// ---------------------------------------------------------------------------
 // TASK 1 — display/filter rows (EDIT: real table + columns)
-// ---------------------------------------------------------------------------
 echo "<h3>Task 1</h3>";
 $sql1 = "SELECT * FROM your_table";   // EDIT: WHERE / ORDER BY as asked
 $result1 = $conn->query($sql1);
 if ($result1 && $result1->num_rows > 0) {
     while ($row = $result1->fetch_assoc()) {
-        // EDIT: named columns (Box 22 Column Alias Law: always alias aggregates!)
+        // EDIT: named columns (Box 22: always alias aggregates!)
         echo $row["name"] . " | " . $row["amount"] . "<br>";
     }
 } else {
     echo "0 results<br>";
 }
 
-// ---------------------------------------------------------------------------
 // TASK 2 — guarded UPDATE (EDIT: real table/columns/condition)
-// ---------------------------------------------------------------------------
 echo "<h3>Task 2</h3>";
 $sql2 = "UPDATE your_table SET amount = amount + 10 WHERE amount < 200";   // EDIT
 if ($conn->query($sql2) === TRUE) {
@@ -67,9 +60,7 @@ if ($conn->query($sql2) === TRUE) {
     echo "Error: " . $conn->error . "<br>";
 }
 
-// ---------------------------------------------------------------------------
 // TASK 3 — group/count/aggregate (EDIT: real GROUP BY / ORDER BY)
-// ---------------------------------------------------------------------------
 echo "<h3>Task 3</h3>";
 $sql3 = "SELECT name, COUNT(*) AS TotalRows
          FROM your_table
@@ -84,10 +75,8 @@ if ($result3 && $result3->num_rows > 0) {
     echo "0 results<br>";
 }
 
-// ---------------------------------------------------------------------------
 // TASK 4 — value-change UPDATE with a cap guard (EDIT or DELETE if not asked)
-// Guard trick: put the limit right inside WHERE (example: AND Bonus + 5 <= 90)
-// ---------------------------------------------------------------------------
+// Guard trick: put the limit inside WHERE (example: AND Bonus + 5 <= 90)
 echo "<h3>Task 4</h3>";
 $sql4 = "UPDATE your_table SET amount = amount * 1.10 WHERE amount < 300";   // EDIT
 if ($conn->query($sql4) === TRUE) {
