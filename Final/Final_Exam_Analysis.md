@@ -193,6 +193,8 @@ $conn->close();
 ## 6. Physical Cheat Sheet Typography Configuration
 
 - **Target Format**: Exactly **2 Pages A4 Portrait**, `@page { size: A4 portrait; margin: 2mm; }`.
-- **Card Headers (`.box-title`)**: **`8.0pt`** (font-weight: 800) for instant visibility from an exam table.
-- **Inside Code & Text (`pre`, `p`, `.hint`, `.warn`, `table`)**: **Minimum `7.5pt`** (font size boosted from 5.6pt to 7.5pt for maximum readability).
-- **Physical Column Balance**: Both Page 1 and Page 2 reach the bottom edge with 0 spillover onto Page 3.
+- **Card Headers (`.box-title`)**: **`7.5pt`** (font-weight: 800) for instant visibility from an exam table.
+- **Code, Tables & Notes (`pre`, `.dense-tbl`, `.hint`, `.warn`, `.ok`)**: **`7.0pt`** — the enforced minimum for readability inside the sheet.
+- **Body Base**: `7.8pt`; small tag chips (`.tag`): `5.6pt`.
+- **Export Method**: Headless Chrome `--print-to-pdf` from `cheatsheet.html` (same engine = screen measurements valid for print). Regenerate `Final_CheatSheet.pdf` and the `page_verified-*.png` after any edit.
+- **Physical Column Balance**: Both pages print as exactly 2 A4 sides with 0 spillover onto Page 3 and no text clipped (verified by DOM clip-margin measurement after the Oct 2026 update: 3.9–240 px per column). Bottom box borders on Page 2 sit within ~1 px of the clip edge by design — keep that in mind before adding lines.
