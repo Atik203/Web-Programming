@@ -2,6 +2,7 @@
 $BASE = __DIR__;
 
 $sections = [
+    'Final-Solutions' => ['title' => 'Final Solutions', 'desc' => 'All 6 papers solved — exam-pattern answers (HTML/JS + PHP + MySQL)', 'color' => '#16a34a', 'text' => '#15803d'],
     'JavaScript' => ['title' => 'JavaScript', 'desc' => 'Q1 — random numbers, DOM, conditionals, loops', 'color' => '#f0db4f', 'text' => '#8a6d00'],
     'PHP'        => ['title' => 'PHP',        'desc' => 'Q2 — classes, forms, ceil() word problems',      'color' => '#777bb4', 'text' => '#4b4e8f'],
     'MySQL'      => ['title' => 'MySQL',      'desc' => 'Q3 — queries, updates, PHP mysqli bridge',        'color' => '#00758f', 'text' => '#00566a'],

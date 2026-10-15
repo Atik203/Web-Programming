@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FINAL 252 — Q1: Daily Calorie Tracker</title>
+</head>
+<body>
+
+<h2>Daily Calorie Tracker (Goal: 2000)</h2>
+
+<input type="number" id="fVal" placeholder="Calories for this meal">
+<button id="btn" onclick="processApp()">Add Calories</button>
+<p id="msgOut"></p>
+
+<script>
+// ============================================================================
+// FINAL 252 (Summer 2025) — Q1 (10 marks)          [cheat sheet: boxes 1, 2, 6]
+// Running total + feedback ladder:
+//   0-800 healthy start | 801-1600 good progress | 1601-1999 almost at limit |
+//   2000+ goal reached. >10 entries without the goal -> "Be cautious..."
+// Sample: 300, 500, 700 -> Good progress, keep it balanced!
+//         1000, 800, 300 -> Goal reached! Stay mindful!
+//         12 entries, total 1500 -> Be cautious of frequent snacking!
+// ============================================================================
+
+// STAGE 0: State Variables OUTSIDE the Function!
+let runningTotal = 0;
+let sessionCount = 0;
+
+function processApp() {
+    // STAGE 1: Extract & Parse
+    let calories = parseInt(document.getElementById("fVal").value, 10);
+    let out      = document.getElementById("msgOut");
+
+    // STAGE 2: Mutate State
+    runningTotal += calories;
+    sessionCount++;
+
+    // STAGE 3: Evaluation Ladder (check the highest range first!)
+    let feedback;
+    if (runningTotal >= 2000)      feedback = "Goal reached! Stay mindful!";
+    else if (runningTotal >= 1601) feedback = "Almost at your limit!";
+    else if (runningTotal >= 801)  feedback = "Good progress, keep it balanced!";
+    else                           feedback = "You're off to a healthy start!";
+
+    // STAGE 4: Render DOM Feedback
+    out.innerHTML = "Total Calories: " + runningTotal + "<br>" +
+                    "Entries: " + sessionCount + "<br>" + feedback;
+
+    // STAGE 5: Frequent-snacking guard (>10 entries without the goal)
+    if (sessionCount > 10 && runningTotal < 2000) {
+        out.innerHTML += "<br>Be cautious of frequent snacking!";
+    }
+
+    // STAGE 6: clear the input for the next entry
+    document.getElementById("fVal").value = "";
+}
+</script>
+
+</body>
+</html>

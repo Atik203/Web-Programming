@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FINAL 243 — Q1: Guess the Secret Number</title>
+</head>
+<body>
+
+<h2>Guess the Secret Number (500-5000)</h2>
+
+<input type="text" id="fVal" placeholder="Your guess (500-5000)">
+<button id="btn" onclick="processApp()">Submit Guess</button>
+<p id="msgOut"></p>
+
+<script>
+// ============================================================================
+// FINAL 243 (Fall 2024) — Q1 (10 marks)        [cheat sheet: boxes 1, 2, 3, 6, 7B]
+// Secret number 500-5000 (Box 3 random formula).
+// Feedback: "Too high!" / "Too low!" / "Correct!". After 5 attempts ->
+// "Out of guesses!" and the input is disabled.
+// Sample: 50,25,35,38,37 -> Too high!, Too low!, Too low!, Too high!, Correct!
+//         10,50,90,80,85 -> ...Out of guesses! (input disabled)
+// ============================================================================
+
+// STAGE 0: State Variables OUTSIDE the Function!
+let secret   = Math.floor(Math.random() * (5000 - 500 + 1)) + 500;   // once!
+let attempts = 0;
+
+function processApp() {
+    // STAGE 1: Extract & Parse  (.value is a string!)
+    let guess = parseInt(document.getElementById("fVal").value, 10);
+    let out   = document.getElementById("msgOut");
+
+    // STAGE 2: Mutate State (count this guess)
+    attempts++;
+
+    // STAGE 3: Compare Guess vs Secret              [Box 7 Engine B]
+    let feedback;
+    if (guess === secret) {
+        feedback = "Correct!";
+    } else if (guess > secret) {
+        feedback = "Too high!";
+    } else {
+        feedback = "Too low!";
+    }
+
+    // STAGE 4: Out-of-guesses guard (5 attempts)
+    if (guess !== secret && attempts >= 5) {
+        feedback += " Out of guesses!";
+    }
+
+    // STAGE 5: Render DOM Feedback
+    out.innerHTML = feedback;
+
+    // STAGE 6: Termination Lock
+    if (guess === secret || attempts >= 5) {
+        document.getElementById("fVal").disabled = true;
+        document.getElementById("btn").disabled = true;
+    }
+}
+</script>
+
+</body>
+</html>
