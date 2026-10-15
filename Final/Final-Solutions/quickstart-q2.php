@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Q2 QUICKSTART — fill the EDIT spots</title>
     <style>
-        /* Box 5 — Basic Clean CSS (already here, nothing to write in the exam) */
+        /* Box 5 CSS — already here */
         body { font-family: Arial, sans-serif; }
         form { width: 300px; margin: 4px auto; padding: 6px; border: 1px solid #cbd5e1; }
         label { display: block; margin-top: 3px; font-weight: bold; }
@@ -37,16 +37,11 @@
 <hr>
 
 <?php
-// ============================================================================
-// Q2 QUICKSTART [cheat sheet: box 10] — one file: form above, PHP below.
-// Swap the demo math for the question's logic:
-//   word problem (whole items only)  -> calcAlloc() below = Box 12 five-liner
-//   classifier (Excellent/Good/...)  -> if/elseif ladder, highest first (Box 13B)
-//   best 2 of 3 marks                -> drop the min (Box 13A)
-//   money output                     -> number_format($x)
-// ============================================================================
+// Q2 quickstart (Box 10) — form above, PHP below; EDIT marks what to change.
+// Word problem -> calcAlloc() below (Box 12). Classifier -> ladder (Box 13B).
+// Best 2 of 3 -> drop the min (Box 13A). Money -> number_format().
 
-// ----- OPTIONAL word-problem helper (Box 16). DELETE this block if unused. -----
+// OPTIONAL word-problem helper (Box 16). DELETE if unused.
 function calcAlloc($demand, $rate, $cap, $cost = 0) {
     $needed   = $demand * $rate;              // 1) total required
     $units    = ceil($needed / $cap);         // 2) whole items only (round UP)
@@ -55,7 +50,7 @@ function calcAlloc($demand, $rate, $cap, $cost = 0) {
     return ["needed" => $needed, "units" => $units, "left" => $left,
             "wasted" => $left * $cost];       // 5) money wasted
 }
-// ----- END OPTIONAL -----
+// END OPTIONAL
 
 if (isset($_POST["btnSubmit"])) {
     // STAGE 1: Extract (EDIT: real field names)
