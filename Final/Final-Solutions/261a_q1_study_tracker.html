@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FINAL 261 Set A — Q1: Weekly Study Tracker</title>
+</head>
+<body>
+
+<h2>Weekly Study Tracker (Goal: 20 hours)</h2>
+
+<input type="text" id="fName" placeholder="Subject name">
+<input type="number" id="fVal" placeholder="Study hours">
+<button id="btn" onclick="processApp()">Add Study</button>
+<p id="msgOut"></p>
+
+<script>
+// ============================================================================
+// FINAL 261 SET-A (Spring 2026) — Q1 (10 marks)    [cheat sheet: boxes 1, 2, 6, 8]
+// Total + average + subjects array + feedback.
+// Average = total / sessions (raw number: 3.5, 5.25, 1.875 - no rounding).
+// Feedback: 0-5 start regularly | 6-12 good progress |
+//           13-19 almost ready | 20+ weekly goal reached.
+// >7 sessions without the goal -> "Increase your study time!"
+// Sample: English-2, English-3, Bangla-4, Physics-5 ->
+//         Total 14, Average 3.5, Subjects [English, English, Bangla, Physics],
+//         Almost ready!
+// ============================================================================
+
+// STAGE 0: State Variables OUTSIDE the Function!
+let runningTotal = 0;
+let sessionCount = 0;
+let itemHistory  = [];          // stores every subject name
+
+function processApp() {
+    // STAGE 1: Extract & Parse
+    let subject = document.getElementById("fName").value;
+    let hours   = parseFloat(document.getElementById("fVal").value);
+    let out     = document.getElementById("msgOut");
+
+    // STAGE 2: Mutate State & History
+    runningTotal += hours;
+    sessionCount++;
+    itemHistory.push(subject);          // Box 8: array push
+
+    // STAGE 3: Compute Average
+    let avg = runningTotal / sessionCount;
+
+    // STAGE 4: Evaluation Ladder (check the highest range first!)
+    let feedback;
+    if (runningTotal >= 20)      feedback = "Weekly goal reached!";
+    else if (runningTotal >= 13) feedback = "Almost ready!";
+    else if (runningTotal >= 6)  feedback = "Good progress!";
+    else                         feedback = "Start studying regularly!";
+
+    // STAGE 5: Render DOM Feedback
+    out.innerHTML = "Total: " + runningTotal + " hours<br>" +
+                    "Average: " + avg + " hours<br>" +
+                    "Subjects: [" + itemHistory.join(", ") + "]<br>" + feedback;
+
+    // STAGE 6: Sessions guard (>7 sessions without the weekly goal)
+    if (sessionCount > 7 && runningTotal < 20) {
+        out.innerHTML += "<br>Increase your study time!";
+    }
+
+    document.getElementById("fName").value = "";
+    document.getElementById("fVal").value  = "";
+}
+</script>
+
+</body>
+</html>
