@@ -1,9 +1,9 @@
 <?php
 // ============================================================================
 // BONUS — the SAME quiz-Q3 bridge written with PDO, for comparison with
-// 09_php_mysql_bridge.php (mysqli). Both print identical output.
+// 10_php_mysql_bridge_sample_quiz.php (mysqli). Both print identical output.
 //
-// Run:  & "G:\xampp\php\php.exe" 11_php_mysql_pdo.php
+// Run:  & "G:\xampp\php\php.exe" 12_php_mysql_pdo.php
 //
 // Differences to notice:
 //   - PDO takes ONE DSN string; the port goes inside it

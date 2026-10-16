@@ -4,6 +4,8 @@
 > Format: *"Create a database named X and a table named Y … now do the following"* → you write **SQL inside PHP** (251/252/261 demand "full PHP–MySQL code, not just SQL").
 > There are only **4 query patterns**. Every paper recycles them with different column names.
 
+> **TONIGHT (final is tomorrow — study final-first):** query drills now run `03 → 08` (the real final papers), `01_schema.sql` to load/reset data. The mock-quiz material moved to the bottom: `09_queries_sample_quiz.sql` + `10_php_mysql_bridge_sample_quiz.php`. Bridge extras (multi-row `11`, PDO `12`, prepared `13`) come last.
+
 ---
 
 ## 📖 Index
@@ -334,7 +336,7 @@ $conn->close();
 - `$row["alias"]` uses the column name **or the `AS` alias** — that's why every query in this folder uses `AS`.
 - Run each of the question's tasks as its own `$conn->query(...)` block (the UPDATE tasks print nothing; you can `echo "Updated successfully"`).
 - On your XAMPP add the port as the 5th argument: `new mysqli("localhost", "root", "", $dbname, 3307);` — **not** in the exam.
-- The quiz Q3 version (total + average salary) is `09_php_mysql_bridge.php` — run it and compare.
+- The quiz Q3 version (total + average salary) is `10_php_mysql_bridge_sample_quiz.php` — run it and compare.
 
 ### mysqli vs PDO — what's the difference?
 
@@ -378,7 +380,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 }
 ```
 
-**Which to write in the exam?** mysqli — the 251 paper prints the mysqli sample, and the question says "using an appropriate PHP database object". PDO is not wrong, but mirror the paper. Runnable versions of both: `09_php_mysql_bridge.php` (mysqli) and `11_php_mysql_pdo.php` (PDO) — they print identical output.
+**Which to write in the exam?** mysqli — the 251 paper prints the mysqli sample, and the question says "using an appropriate PHP database object". PDO is not wrong, but mirror the paper. Runnable versions of both: `10_php_mysql_bridge_sample_quiz.php` (mysqli) and `12_php_mysql_pdo.php` (PDO) — they print identical output.
 
 ### prepare / bind / execute — why they exist
 
@@ -424,7 +426,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 }
 ```
 
-**In the exam:** the given SQL is fixed, so plain `$conn->query()` is enough (that is the printed sample). Use prepare/bind/execute when the task inserts form data — and you can add a line saying it prevents SQL injection. Runnable proof: `12_php_mysql_prepared.php` inserts a malicious-looking name safely and reads it back.
+**In the exam:** the given SQL is fixed, so plain `$conn->query()` is enough (that is the printed sample). Use prepare/bind/execute when the task inserts form data — and you can add a line saying it prevents SQL injection. Runnable proof: `13_php_mysql_prepared.php` inserts a malicious-looking name safely and reads it back.
 
 ---
 
@@ -433,17 +435,17 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 | File | Paper | Queries inside |
 |---|---|---|
 | `01_schema.sql` | all | every database/table/data — re-run to reset |
-| `02_queries_sample_quiz.sql` | **Sample Quiz Q3** | `SUM`, `AVG` |
 | `03_queries_243.sql` | Final 243 | GROUP BY count, guarded UPDATE, +5 bonus, GROUP BY + ORDER BY |
 | `04_queries_251.sql` | Final 251 | same 4 patterns, salary/rating |
 | `05_queries_252.sql` | Final 252 | SUM per category, rename, ×1.1, CASE + subquery |
 | `06_queries_253.sql` | Final 253 | HAVING, two-column UPDATE, ×1.1 guard, SUM per book |
-| `07_queries_261.sql` | Final 261 Set-A | OR + LIKE, BETWEEN UPDATE, HAVING AVG, computed SUM |
-| `08_queries_261b.sql` | Final 261 Set-B | WHERE + ORDER BY, COUNT per group, net worth, ×0.9 |
-| `09_php_mysql_bridge.php` | Sample Quiz Q3 | **full PHP answer** — total + average salary |
-| `10_php_mysql_multiple_rows.php` | 251 paper's printed sample | multi-row fetch loop |
-| `11_php_mysql_pdo.php` | — | the same bridge written with PDO (compare with `09`) |
-| `12_php_mysql_prepared.php` | — | prepare → bind_param → execute, with an SQL-injection demo |
+| `07_queries_261.sql` | Final 261 Set-A | OR + LIKE, BETWEEN UPDATE, HAVING AVG, computed SUM — **freshest (2026)** |
+| `08_queries_261b.sql` | Final 261 Set-B | WHERE + ORDER BY, COUNT per group, net worth, ×0.9 — **freshest (2026)** |
+| `11_php_mysql_multiple_rows.php` | 251 paper's printed sample | multi-row fetch loop |
+| `09_queries_sample_quiz.sql` | Sample Quiz (mock) | `SUM`, `AVG` — mock warm-up only |
+| `10_php_mysql_bridge_sample_quiz.php` | Sample Quiz (mock) | **full PHP answer** — total + average salary |
+| `12_php_mysql_pdo.php` | — | the same bridge written with PDO (compare with `10`) |
+| `13_php_mysql_prepared.php` | — | prepare → bind_param → execute, with an SQL-injection demo |
 
 Every query file has the expected output in comments — run it and compare.
 
