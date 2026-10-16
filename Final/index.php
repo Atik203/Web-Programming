@@ -155,38 +155,64 @@ $view = isset($_GET['view']) ? $_GET['view'] : null;
 
 $CSS = <<<CSS
 :root {
-    --bg: #f4f6fb; --card: #ffffff; --ink: #1e2433; --muted: #6b7280;
-    --line: #e6e9f2; --accent: #3b5bdb; --code-bg: #101728; --code-ink: #dbe4f3;
+    --bg: #eef1f8; --card: #ffffff; --ink: #1c2433; --muted: #67718a;
+    --line: #e4e8f3; --accent: #3b5bdb; --accent-2: #7048e8;
+    --code-bg: #0f172a; --code-ink: #dbe4f5;
+    --shadow-1: 0 1px 2px rgba(23,31,54,.05), 0 10px 28px -16px rgba(23,31,54,.22);
+    --shadow-2: 0 3px 6px rgba(23,31,54,.06), 0 18px 42px -18px rgba(23,31,54,.30);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 60px; }
-.hero { background: linear-gradient(135deg, #1b2559 0%, #3b5bdb 100%); color: #fff; border-radius: 16px; padding: 30px 32px; margin-bottom: 24px; }
-.hero h1 { font-size: 26px; letter-spacing: .2px; }
-.hero p { opacity: .85; margin-top: 6px; font-size: 14.5px; }
-.hero .chips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25); padding: 3px 10px; border-radius: 999px; font-size: 12.5px; }
-h2.sec { font-size: 15px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 26px 0 12px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
-.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 2px rgba(16,24,40,.05); }
-.card .head { padding: 16px 18px 12px; border-top: 4px solid var(--accent); }
-.card .head h3 { font-size: 17px; }
-.card .head p { font-size: 13px; color: var(--muted); margin-top: 3px; }
+html { scroll-behavior: smooth; }
+body { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; background: linear-gradient(180deg, #eef1f8 0%, #e8ecf6 100%); color: var(--ink); line-height: 1.55; min-height: 100vh; }
+::selection { background: var(--accent); color: #fff; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 30px 20px 70px; }
+
+/* ── Hero ─────────────────────────────────────────── */
+.hero { position: relative; overflow: hidden; border-radius: 20px; padding: 34px 38px 30px; margin-bottom: 26px; color: #fff;
+    background: radial-gradient(900px 340px at -5% -20%, rgba(124,86,255,.42), transparent 55%),
+                radial-gradient(700px 300px at 105% -15%, rgba(56,140,255,.35), transparent 55%),
+                linear-gradient(135deg, #141b3c 0%, #24306b 55%, #3b5bdb 100%);
+    box-shadow: var(--shadow-2); }
+.hero .kick { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.30);
+    padding: 5px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700; letter-spacing: .4px; margin-bottom: 14px; }
+.hero h1 { font-size: 27px; letter-spacing: .2px; }
+.hero p { opacity: .88; margin-top: 7px; font-size: 14.5px; max-width: 700px; }
+.hero .chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.24); padding: 4px 12px; border-radius: 999px; font-size: 12.5px; }
+.chip b { font-weight: 700; }
+
+/* ── Section headers ─────────────────────────────── */
+h2.sec { display: flex; align-items: center; gap: 10px; font-size: 14.5px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); margin: 30px 0 14px; }
+h2.sec::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line), transparent); }
+
+/* ── Cards ───────────────────────────────────────── */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-1); transition: transform .18s ease, box-shadow .18s ease; }
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+.card .head { position: relative; padding: 16px 18px 12px; border-top: 4px solid var(--accent); }
+.card .head h3 { font-size: 16.5px; display: flex; align-items: center; gap: 8px; }
+.card .head p { font-size: 12.8px; color: var(--muted); margin-top: 4px; padding-right: 68px; }
+.count { position: absolute; top: 15px; right: 14px; font-size: 11px; font-weight: 700; color: var(--accent); background: #eef2fe; border: 1px solid #dbe3fb; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
 .files { padding: 6px 10px 12px; }
-a.file { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 9px; text-decoration: none; color: var(--ink); font-size: 14px; }
-a.file:hover { background: #eef1fb; }
+
+/* ── File rows ───────────────────────────────────── */
+a.file { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; text-decoration: none; color: var(--ink); font-size: 14px; transition: background .15s, transform .15s; }
+a.file:hover { background: #eef2fe; transform: translateX(3px); }
 a.file .fname { flex: 1; }
-a.file .go { color: #b6bdd4; font-size: 18px; }
-.badge { font-size: 10px; font-weight: 700; letter-spacing: .6px; padding: 3px 7px; border-radius: 6px; color: #fff; }
-.badge.html { background: #e34f26; } .badge.php { background: #777bb4; } .badge.sql { background: #00758f; }
-.badge.md { background: #64748b; } .badge.pdf { background: #b91c1c; }
+a.file .go { color: #b9c1da; font-size: 17px; transition: transform .15s, color .15s; }
+a.file:hover .go { transform: translateX(3px); color: var(--accent); }
+
+/* ── Badges ──────────────────────────────────────── */
+.badge { flex: none; font-size: 10px; font-weight: 700; letter-spacing: .6px; padding: 3px 8px; border-radius: 6px; color: #fff; min-width: 36px; text-align: center; }
+.badge.html { background: #ea5f2d; } .badge.php { background: #7a7fb8; } .badge.sql { background: #0b89b0; }
+.badge.md { background: #64748b; } .badge.pdf { background: #dc2626; }
 .quizcard { border-left: 4px solid var(--accent); }
-.past { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 8px 10px; }
-footer { margin-top: 34px; font-size: 12.5px; color: var(--muted); text-align: center; }
-footer code { background: #e8ecf7; padding: 2px 6px; border-radius: 5px; }
-.topbar { margin-bottom: 18px; font-size: 14px; }
-.topbar a { color: var(--accent); text-decoration: none; font-weight: 600; }
-article { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 34px 40px; }
+.past { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 8px 10px; box-shadow: var(--shadow-1); }
+.past h4 { font-size: 12.5px; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); padding: 8px 10px 6px; }
+
+/* ── Article (markdown viewer) ───────────────────── */
+article { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 34px 40px; box-shadow: var(--shadow-1); }
 article h1 { font-size: 24px; margin: 6px 0 14px; }
 article h2 { font-size: 19px; margin: 26px 0 10px; padding-top: 14px; border-top: 1px solid var(--line); }
 article h3 { font-size: 16px; margin: 20px 0 8px; }
@@ -203,6 +229,12 @@ article table { border-collapse: collapse; width: 100%; margin: 12px 0; font-siz
 article th, article td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; }
 article tr:nth-child(even) { background: #f8f9fd; }
 .cb { color: var(--accent); }
+
+/* ── Footer ──────────────────────────────────────── */
+.topbar { margin-bottom: 16px; font-size: 14px; }
+.topbar a { color: var(--accent); text-decoration: none; font-weight: 600; }
+footer { margin-top: 40px; font-size: 12.5px; color: var(--muted); text-align: center; line-height: 2; }
+footer code { background: #e8edf8; border: 1px solid var(--line); padding: 2px 7px; border-radius: 6px; }
 CSS;
 
 if ($view !== null) {
@@ -266,32 +298,45 @@ sort($pdfFiles);
 <div class="wrap">
 
     <div class="hero">
+        <span class="kick">📣 FINAL EXAM TOMORROW — question papers pinned at the top</span>
         <h1>CSE 4165 — Web Programming Revision Hub</h1>
-        <p>FINAL TOMORROW — final exam papers are at the top, mock-quiz material moved to the bottom. Every past-paper question, solved and verified.</p>
+        <p>Every final paper (Fall 2024 → Spring 2026) solved and verified, drills in exam order, mock-quiz material moved to the bottom. Work top to bottom tonight.</p>
         <div class="chips">
-            <span class="chip">Final: 3 questions &middot; 30 marks &middot; 2 hours</span>
-            <span class="chip">Q1 JavaScript &middot; Q2 PHP &middot; Q3 PHP+MySQL</span>
+            <span class="chip"><b>Final:</b> 3 questions &middot; 30 marks &middot; 2 hours</span>
+            <span class="chip"><b>Q1</b> JavaScript &middot; <b>Q2</b> PHP &middot; <b>Q3</b> PHP+MySQL</span>
+            <span class="chip">📄 6 papers × 3 Qs — all solved</span>
             <span class="chip">XAMPP MySQL :3307</span>
         </div>
     </div>
 
-    <h2 class="sec">Final Exam Papers — start here (solutions in the &ldquo;Final Solutions&rdquo; card below)</h2>
-    <div class="past">
-        <?php foreach ($paperFiles as $p): ?>
-            <?= file_link($p[0], $p[1]) ?>
-        <?php endforeach; ?>
+    <h2 class="sec">🏆 Final Exam Papers &amp; Toolkit — start here</h2>
+    <div class="grid2">
+        <div class="past">
+            <h4>📄 Question Papers (PDF)</h4>
+            <?php foreach ($paperFiles as $p): ?>
+                <?= file_link($p[0], $p[1]) ?>
+            <?php endforeach; ?>
+        </div>
+        <div class="past">
+            <h4>🧭 Exam Toolkit</h4>
+            <?= file_link('', 'Final_Exam_Analysis.md', 'Final Exam Analysis — what repeats on every paper &amp; attack strategy') ?>
+            <?= file_link('', 'cheatsheet.html', 'Cheat sheet — interactive HTML version') ?>
+            <?= file_link('', 'Final_CheatSheet.pdf', 'Cheat sheet — print version (2 pages A4)') ?>
+        </div>
     </div>
 
-    <h2 class="sec">Study Folders</h2>
+    <h2 class="sec">📚 Study Folders</h2>
     <div class="grid">
         <?php foreach ($sections as $dir => $meta): ?>
+        <?php $fs = scan_dir($BASE, $dir, ['md', 'html', 'php', 'sql']); ?>
         <div class="card">
             <div class="head" style="border-top-color: <?= $meta['color'] ?>">
-                <h3 style="color: <?= $meta['text'] ?>"><?= h($meta['title']) ?></h3>
+                <h3 style="color: <?= $meta['text'] ?>"><span><?= $meta['icon'] ?></span><?= h($meta['title']) ?></h3>
                 <p><?= h($meta['desc']) ?></p>
+                <span class="count"><?= count($fs) ?> files</span>
             </div>
             <div class="files">
-                <?php foreach (scan_dir($BASE, $dir, ['md', 'html', 'php', 'sql']) as $f): ?>
+                <?php foreach ($fs as $f): ?>
                     <?= file_link($dir, $f, $f === 'README.md' ? 'Guide — read this first' : null) ?>
                 <?php endforeach; ?>
             </div>
@@ -311,7 +356,7 @@ sort($pdfFiles);
     <?php endif; ?>
 
     <?php if (!empty($pdfFiles)): ?>
-    <h2 class="sec">Cheat Sheet &amp; Sample Question (PDF)</h2>
+    <h2 class="sec">🃏 Sample Quiz Question (PDF)</h2>
     <div class="past">
         <?php foreach ($pdfFiles as $p): ?>
             <?= file_link($p[0], $p[1]) ?>
