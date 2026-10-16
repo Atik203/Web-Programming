@@ -46,6 +46,33 @@
         echo "Error: " . $conn->error . "<br>";
     }
 
+    $sql3 = "UPDATE book_loans
+    SET PenaltyFee = PenaltyFee * 1.10
+    Where PenaltyFee > 20.00 and PenaltyFee * 1.10 <=50
+    ";
+
+    $result3 = $conn->query($sql3);
+
+    if ($result3 && $result3 === TRUE) {
+        echo "Updated rows: " . $conn->affected_rows . "<br>";
+    } else {
+        echo "Error: " . $conn->error . "<br>";
+    }
+
+    $sql4 = "SELECT BookTitle,SUM(PenaltyFee) as TotalPenalty
+     From book_loans
+     Group BY BookTitle
+    order by TotalPenalty DESC
+    ";
+
+    $result4 = $conn->query($sql4);
+    if ($result4 && $result4->num_rows > 0) {
+        while ($row = $result4->fetch_assoc()) {
+            echo $row["BookTitle"] . " | " . $row["TotalPenalty"] . "<br>";
+        }
+    } else {
+        echo "0 results<br>";
+    }
 
 
     $conn->close();
