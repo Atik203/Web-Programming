@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Q2 QUICKSTART — fill the EDIT spots</title>
+    <title>Q2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -83,42 +83,41 @@
 
 
     <form method="post">
-        Input A: <input type="number" name="valA" required><br><br>
-        Input B: <input type="number" name="valB" required><br><br>
+        Items sold per day: <input type="number" name="items" required><br><br>
+        Sale runs days: <input type="number" name="days" required><br><br>
+        Target number of items: <input type="number" name="target" required><br><br>
         <input type="submit" name="btnSubmit" value="Calculate">
     </form>
 
-    <hr>
-
     <?php
 
-    function calcAlloc($demand, $rate, $cap, $cost = 0)
-    {
-        $needed   = $demand * $rate;              // 1) total required
-        $units    = ceil($needed / $cap);         // 2) whole items only (round UP)
-        $supplied = $units * $cap;                // 3) capacity of what we ordered
-        $left     = $supplied - $needed;          // 4) leftover / empty / unused
-        return [
-            "needed" => $needed,
-            "units" => $units,
-            "left" => $left,
-            "wasted" => $left * $cost
-        ];       // 5) money wasted
-    }
-    // END OPTIONAL
 
     if (isset($_POST["btnSubmit"])) {
-        // STAGE 1: Extract (EDIT: real field names)
-        $a = floatval($_POST["valA"]);
-        $b = floatval($_POST["valB"]);
 
-        // STAGE 2: Compute — EDIT: demo is a*b; put the real formula here
-        $res = $a * $b;
-        // word problem?  $r = calcAlloc($a, $b, 8, 105);  then echo $r["units"] etc.
+        $items = intval($_POST["items"]);
+        $days = intval($_POST["days"]);
+        $target = intval($_POST["target"]);
 
-        // STAGE 3: Echo results (EDIT: the question's outputs)
-        echo "<h3>Result</h3>";
-        echo "Result: " . $res . "<br>";
+        $total = $items * $days;
+
+        $performance = "";
+        if ($total >= 500) $performance = "Excellent";
+        else if ($total >= 300 && $total < 500) $performance = "Good";
+        else if ($total >= 150 && $total < 300) $performance = "Average";
+        else $performance = "Poor";
+
+        $result = "";
+        if ($total > $target) $result = "Above target by " . $total - $target;
+        if ($total < $target) $result = "Below target by " . $target - $total;
+        else $result =  "Target met exactly";
+
+
+
+        echo "<div>
+        <h3>Total Items:  $total</h3>
+        <h4>Performance: $performance </h4>
+        <h5>Result: $result</h5>
+        </div>";
     }
     ?>
 
