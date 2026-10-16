@@ -1,84 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Q1 QUICKSTART — fill the EDIT spots</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Q1</title>
     <style>
-        /* Box 5 CSS — already here */
-        body { font-family: Arial, sans-serif; }
-        form { width: 300px; margin: 4px auto; padding: 6px; border: 1px solid #cbd5e1; }
-        label { display: block; margin-top: 3px; font-weight: bold; }
-        input[type="text"], input[type="number"], select {
-            width: 100%; padding: 3px; margin-top: 2px; border: 1px solid #94a3b8;
-        }
-        button, input[type="submit"] {
-            margin-top: 4px; padding: 3px 10px; background: #0284c7; color: #fff;
-            border: none; cursor: pointer; border-radius: 2px;
-        }
-        table { width: 100%; border-collapse: collapse; margin-top: 4px; }
-        th, td { border: 1px solid #cbd5e1; padding: 2px 4px; text-align: left; }
-        th { background: #f1f5f9; font-weight: bold; }
-        tr:nth-child(even) { background: #f8fafc; }
-        .error { color: #b91c1c; font-weight: bold; }  .success { color: #16a34a; }
-        .center { text-align: center; }
+      form {
+        width: 300px;
+        margin: 4px auto;
+        padding: 6px;
+        border: 1px solid #cbd5e1;
+      }
+      label {
+        display: block;
+        margin-top: 3px;
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 3px;
+        margin-top: 2px;
+        border: 1px solid #94a3b8;
+      }
+      button,
+      input[type="submit"] {
+        margin-top: 4px;
+        padding: 3px 10px;
+        background: #0284c7;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 2px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 4px;
+      }
+      th,
+      td {
+        border: 1px solid #cbd5e1;
+        padding: 2px 4px;
+        text-align: left;
+      }
+      th {
+        background: #f1f5f9;
+        font-weight: bold;
+      }
+      tr:nth-child(even) {
+        background: #f8fafc;
+      }
+      .error {
+        color: #b91c1c;
+        font-weight: bold;
+      }
+      .success {
+        color: #16a34a;
+      }
+      .center {
+        text-align: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <h2>Questions 1</h2>
+    <input type="text" id="fName" placeholder="Subject/Item" />
+    <input type="number" id="fVal" placeholder="Hours/Score" />
+    <button id="btn" onclick="processApp()">Submit</button>
+    <p id="msgOut"></p>
 
-<h2>Q1 Starter — EDIT title</h2>
+    <script>
+      // Q1 quickstart (boxes 1, 2, 5, 6) — runs as-is; EDIT marks what to change.
+      // Random? Box 3: Math.floor(Math.random() * (max - min + 1)) + min;
+      // Radio/checkbox? Box 2: document.querySelector('input[name="x"]:checked')?.value;
+      // Table rows? Box 4: document.getElementById("tblBody").innerHTML += `...`;
 
-<!-- Box 6 markup. EDIT: labels/placeholders for the question -->
-<input type="text" id="fName" placeholder="Subject/Item">
-<input type="number" id="fVal" placeholder="Hours/Score">
-<button id="btn" onclick="processApp()">Submit</button>
-<p id="msgOut"></p>
+      // STAGE 0: State Variables OUTSIDE the Function!
+      let runningTotal = 0,
+        sessionCount = 0;
+      let itemHistory = [];
 
-<script>
-// Q1 quickstart (boxes 1, 2, 5, 6) — runs as-is; EDIT marks what to change.
-// Random? Box 3: Math.floor(Math.random() * (max - min + 1)) + min;
-// Radio/checkbox? Box 2: document.querySelector('input[name="x"]:checked')?.value;
-// Table rows? Box 4: document.getElementById("tblBody").innerHTML += `...`;
+      function processApp() {
+        // STAGE 1: Extract & Parse  (.value is a string!)
+        let name = document.getElementById("fName").value;
+        let val = parseFloat(document.getElementById("fVal").value);
+        let out = document.getElementById("msgOut");
+        // empty field guard: if (isNaN(val)) { out.innerHTML = "Enter a number!"; return; }
 
-// STAGE 0: State Variables OUTSIDE the Function!
-let runningTotal = 0, sessionCount = 0;
-let itemHistory  = [];
+        // STAGE 2: Mutate State & History
+        runningTotal += val;
+        sessionCount++;
+        itemHistory.push(name);
 
-function processApp() {
-    // STAGE 1: Extract & Parse  (.value is a string!)
-    let name = document.getElementById("fName").value;    // EDIT: real field ids
-    let val  = parseFloat(document.getElementById("fVal").value);
-    let out  = document.getElementById("msgOut");
-    // empty field guard: if (isNaN(val)) { out.innerHTML = "Enter a number!"; return; }
+        // STAGE 3: Compute (demo = average)
+        let avg = runningTotal / sessionCount;
 
-    // STAGE 2: Mutate State & History
-    runningTotal += val; sessionCount++;
-    itemHistory.push(name);
+        // STAGE 4: Evaluation Ladder — EDIT: real thresholds, highest first!
+        let feedback = "";
+        if (runningTotal >= 100) feedback = "Goal Achieved!";
+        else if (runningTotal >= 60) feedback = "Good Progress!";
+        else feedback = "Keep Working!";
 
-    // STAGE 3: Compute (demo = average)
-    let avg = runningTotal / sessionCount;
+        // Guard — EDIT or delete (the question's limit rule)
+        if (sessionCount > 7 && runningTotal < 100) {
+          feedback += " (High Attempts Warning!)";
+        }
 
-    // STAGE 4: Evaluation Ladder — EDIT: real thresholds, highest first!
-    let feedback = "";
-    if (runningTotal >= 100)      feedback = "Goal Achieved!";
-    else if (runningTotal >= 60)  feedback = "Good Progress!";
-    else                          feedback = "Keep Working!";
+        // STAGE 5: Render DOM Feedback — EDIT: real output text
+        out.innerHTML =
+          `Total: ${runningTotal} | Avg: ${avg.toFixed(2)} | ` +
+          `History: [${itemHistory.join(", ")}] | Status: <b>${feedback}</b>`;
 
-    // Guard — EDIT or delete (the question's limit rule)
-    if (sessionCount > 7 && runningTotal < 100) {
-        feedback += " (High Attempts Warning!)";
-    }
-
-    // STAGE 5: Render DOM Feedback — EDIT: real output text
-    out.innerHTML = `Total: ${runningTotal} | Avg: ${avg.toFixed(2)} | ` +
-        `History: [${itemHistory.join(", ")}] | Status: <b>${feedback}</b>`;
-
-    // STAGE 6: Termination Lock — EDIT: when to stop accepting input
-    if (runningTotal >= 100 || sessionCount >= 10) {
-        document.getElementById("fVal").disabled = true;
-        document.getElementById("btn").disabled = true;
-    }
-}
-</script>
-
-</body>
+        // STAGE 6: Termination Lock — EDIT: when to stop accepting input
+        if (runningTotal >= 100 || sessionCount >= 10) {
+          document.getElementById("fVal").disabled = true;
+          document.getElementById("btn").disabled = true;
+        }
+      }
+    </script>
+  </body>
 </html>
