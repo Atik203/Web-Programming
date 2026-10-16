@@ -2,10 +2,11 @@
 $BASE = __DIR__;
 
 $sections = [
-    'Final-Solutions' => ['title' => 'Final Solutions', 'desc' => 'All 6 papers solved — exam-pattern answers (HTML/JS + PHP + MySQL)', 'color' => '#16a34a', 'text' => '#15803d'],
-    'JavaScript' => ['title' => 'JavaScript', 'desc' => 'Q1 — random numbers, DOM, conditionals, loops', 'color' => '#f0db4f', 'text' => '#8a6d00'],
-    'PHP'        => ['title' => 'PHP',        'desc' => 'Q2 — classes, forms, ceil() word problems',      'color' => '#777bb4', 'text' => '#4b4e8f'],
-    'MySQL'      => ['title' => 'MySQL',      'desc' => 'Q3 — queries, updates, PHP mysqli bridge',        'color' => '#00758f', 'text' => '#00566a'],
+    'Final-Solutions' => ['icon' => '✅', 'title' => 'Final Solutions', 'desc' => 'All 6 papers solved — exam-pattern answers (HTML/JS + PHP + MySQL) + ready-made quickstart starters', 'color' => '#16a34a', 'text' => '#15803d'],
+    'JavaScript'      => ['icon' => '🟨', 'title' => 'JavaScript',      'desc' => 'Q1 — final papers 02→06 lead, method drills 07, mock-quiz warm-up last (08)', 'color' => '#f0db4f', 'text' => '#8a6d00'],
+    'PHP'             => ['icon' => '🟪', 'title' => 'PHP',             'desc' => 'Q2 — final papers 02→08 lead, mock-quiz class exercise last (09)', 'color' => '#777bb4', 'text' => '#4b4e8f'],
+    'MySQL'           => ['icon' => '🟦', 'title' => 'MySQL',           'desc' => 'Q3 — final query drills 03→08 lead, bridge extras 11–13, mock quiz 09–10 last', 'color' => '#00758f', 'text' => '#00566a'],
+    'Practice'        => ['icon' => '🏋️', 'title' => 'Practice',        'desc' => 'Your raw timed attempts — compare them line by line against Final Solutions', 'color' => '#0ea5e9', 'text' => '#0369a1'],
 ];
 
 function h($s) {
@@ -246,9 +247,11 @@ $paperFiles = [];
 foreach (glob($BASE . DIRECTORY_SEPARATOR . 'Final-Questions' . DIRECTORY_SEPARATOR . '*.pdf') as $p) $paperFiles[] = ['Final-Questions', basename($p)];
 sort($paperFiles);
 
-// Cheat sheet + sample/mock-quiz PDFs live lower down
+// Cheat sheet lives in the top Toolkit card now; keep only the sample/mock PDF down here
 $pdfFiles = [];
-foreach (glob($BASE . DIRECTORY_SEPARATOR . '*.pdf') as $p) $pdfFiles[] = ['', basename($p)];
+foreach (glob($BASE . DIRECTORY_SEPARATOR . '*.pdf') as $p) {
+    if (basename($p) !== 'Final_CheatSheet.pdf') $pdfFiles[] = ['', basename($p)];
+}
 sort($pdfFiles);
 ?>
 <!DOCTYPE html>
