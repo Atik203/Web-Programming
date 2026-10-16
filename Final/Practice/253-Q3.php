@@ -12,8 +12,8 @@
 
     <?php
 
-    $connn = new mysqli('localhost', 'root', '', "campus_library", 3307);
-    if ($connn->connect_error) {
+    $conn = new mysqli('localhost', 'root', '', "campus_library", 3307);
+    if ($conn->connect_error) {
         die("Connection Failed" . $conn->connect_error);
     }
 
@@ -23,7 +23,7 @@
     Having count(*) > 1;
     ";
 
-    $result1 = $connn->query($sql1);
+    $result1 = $conn->query($sql1);
 
     if ($result1 && $result1->num_rows > 0) {
 
@@ -31,6 +31,24 @@
             echo $row["Status"] . " - " . $row["total_books"] . "<br>";
         }
     }
+
+
+    $sql2 = "UPDATE book_loans
+    SET Status='Grace Period',PenaltyFee = 0.0
+    WHERE Status='Overdue' and DaysOverdue < 7
+    ";
+
+    $result2 = $conn->query($sql2);
+
+    if ($result2 && $result2 === TRUE) {
+        echo "Updated rows: " . $conn->affected_rows . "<br>";
+    } else {
+        echo "Error: " . $conn->error . "<br>";
+    }
+
+
+
+    $conn->close();
 
 
 
