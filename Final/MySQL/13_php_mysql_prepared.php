@@ -6,7 +6,7 @@
 //      Prepared statements send the query and the data SEPARATELY, so the
 //      data can never be executed as SQL — this blocks SQL injection.
 //
-// Run:  & "G:\xampp\php\php.exe" 12_php_mysql_prepared.php
+// Run:  & "G:\xampp\php\php.exe" 13_php_mysql_prepared.php
 // Re-runnable: it recreates its own demo table every time.
 // ============================================================================
 

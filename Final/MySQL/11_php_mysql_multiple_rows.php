@@ -3,7 +3,7 @@
 // BONUS — the SAME boilerplate fetching MANY rows (the pattern printed in the
 // 251 paper). This is the one to memorise: it works for ANY SELECT.
 //
-// Run:  & "G:\xampp\php\php.exe" 10_php_mysql_multiple_rows.php
+// Run:  & "G:\xampp\php\php.exe" 11_php_mysql_multiple_rows.php
 // ============================================================================
 
 $servername = "localhost";

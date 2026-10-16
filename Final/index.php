@@ -241,9 +241,14 @@ if ($view !== null) {
 $mockFiles = scan_dir($BASE, '', ['md']);
 $mockFiles = array_values(array_filter($mockFiles, function ($f) { return strpos($f, 'Mock-Quiz') === 0; }));
 
+// Final exam papers (PDF) — kept at the TOP of the page
+$paperFiles = [];
+foreach (glob($BASE . DIRECTORY_SEPARATOR . 'Final-Questions' . DIRECTORY_SEPARATOR . '*.pdf') as $p) $paperFiles[] = ['Final-Questions', basename($p)];
+sort($paperFiles);
+
+// Cheat sheet + sample/mock-quiz PDFs live lower down
 $pdfFiles = [];
 foreach (glob($BASE . DIRECTORY_SEPARATOR . '*.pdf') as $p) $pdfFiles[] = ['', basename($p)];
-foreach (glob($BASE . DIRECTORY_SEPARATOR . 'Final-Questions' . DIRECTORY_SEPARATOR . '*.pdf') as $p) $pdfFiles[] = ['Final-Questions', basename($p)];
 sort($pdfFiles);
 ?>
 <!DOCTYPE html>
@@ -259,24 +264,20 @@ sort($pdfFiles);
 
     <div class="hero">
         <h1>CSE 4165 — Web Programming Revision Hub</h1>
-        <p>Final + Quiz study pack — every past-paper question, solved and verified.</p>
+        <p>FINAL TOMORROW — final exam papers are at the top, mock-quiz material moved to the bottom. Every past-paper question, solved and verified.</p>
         <div class="chips">
-            <span class="chip">Quiz: 3 questions &middot; 20 min &middot; written</span>
-            <span class="chip">JavaScript &middot; PHP &middot; MySQL</span>
+            <span class="chip">Final: 3 questions &middot; 30 marks &middot; 2 hours</span>
+            <span class="chip">Q1 JavaScript &middot; Q2 PHP &middot; Q3 PHP+MySQL</span>
             <span class="chip">XAMPP MySQL :3307</span>
         </div>
     </div>
 
-    <?php if (!empty($mockFiles)): ?>
-    <h2 class="sec">Mock Quiz</h2>
-    <div class="card quizcard" style="margin-bottom:4px">
-        <div class="files" style="padding-top:12px">
-            <?php foreach ($mockFiles as $f): ?>
-                <?= file_link('', $f, $f === 'Mock-Quiz-1-ANSWER-KEY.md' ? 'Answer Key — do not open until time is up' : pretty_name($f)) ?>
-            <?php endforeach; ?>
-        </div>
+    <h2 class="sec">Final Exam Papers — start here (solutions in the &ldquo;Final Solutions&rdquo; card below)</h2>
+    <div class="past">
+        <?php foreach ($paperFiles as $p): ?>
+            <?= file_link($p[0], $p[1]) ?>
+        <?php endforeach; ?>
     </div>
-    <?php endif; ?>
 
     <h2 class="sec">Study Folders</h2>
     <div class="grid">
@@ -295,8 +296,19 @@ sort($pdfFiles);
         <?php endforeach; ?>
     </div>
 
+    <?php if (!empty($mockFiles)): ?>
+    <h2 class="sec">Mock Quiz — only after the final drilling is done</h2>
+    <div class="card quizcard" style="margin-bottom:4px">
+        <div class="files" style="padding-top:12px">
+            <?php foreach ($mockFiles as $f): ?>
+                <?= file_link('', $f, $f === 'Mock-Quiz-1-ANSWER-KEY.md' ? 'Answer Key — do not open until time is up' : pretty_name($f)) ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <?php if (!empty($pdfFiles)): ?>
-    <h2 class="sec">Past Papers (PDF)</h2>
+    <h2 class="sec">Cheat Sheet &amp; Sample Question (PDF)</h2>
     <div class="past">
         <?php foreach ($pdfFiles as $p): ?>
             <?= file_link($p[0], $p[1]) ?>

@@ -5,6 +5,8 @@
 > **(B) word-problem function** — take 3 inputs, "whole items only", leftovers, wasted money (every final).
 > Both live inside ONE `.php` file that contains the HTML form and the PHP code together.
 
+> **TONIGHT (final is tomorrow — study final-first):** files now run **02 → 08** (the real final papers, oldest to newest 2026). The mock-quiz class exercise moved to the bottom as `09_employee_class_sample_quiz.php` — but re-read section 3 in case a class question appears.
+
 ---
 
 ## 📖 Index
@@ -285,14 +287,14 @@ $wasted   = $leftover * $costPerUnit;         // 5) money wasted
 
 | File | Paper | Key technique |
 |---|---|---|
-| `01_employee_class.php` | **Sample Quiz Q2** | class, `__construct`, return + echo methods |
 | `02_pizza_party_243.php` | Final 243 Q2 | `ceil`, leftover, price-per-slice |
 | `03_venue_booking_251.php` | Final 251 Q2 | `ceil`, empty seats, distractor cost |
 | `04_movie_screens_252.php` | Final 252 Q2 | `ceil`, empty seats, ticket price |
 | `05_ct_marks_253.php` | Final 253 Q1 | best two of three with `min()`, pass/fail |
 | `06_sales_event_253.php` | Final 253 Q2 | classify + above/below/exactly target |
-| `07_academic_tracking_261.php` | Final 261A Q2 | classify (120/90/60) + target difference |
-| `08_mars_rover_261b.php` | Final 261B Q2 | `ceil`, unused energy, %-based status |
+| `07_academic_tracking_261.php` | Final 261A Q2 | classify (120/90/60) + target difference — **the freshest pattern (2026)** |
+| `08_mars_rover_261b.php` | Final 261B Q2 | `ceil`, unused energy, %-based status — **the freshest pattern (2026)** |
+| `09_employee_class_sample_quiz.php` | Sample Quiz (mock) | class, `__construct`, return + echo methods — mock warm-up only |
 
 ---
 
@@ -371,7 +373,7 @@ $conn->close();
 
 ```powershell
 & "G:\xampp\php\php.exe" -S localhost:8000
-# then open http://localhost:8000/01_employee_class.php etc.
+# then open http://localhost:8000/09_employee_class_sample_quiz.php etc.
 ```
 
 Run the command from inside `D:\WEB\Web-Practice\Final\PHP`.

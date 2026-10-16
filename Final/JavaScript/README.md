@@ -4,6 +4,8 @@
 > Every question has the SAME shape: **input field(s) + button + label → one function reads the input, computes something, writes feedback back to the page.**
 > Learn the skeleton once — every paper is just different scoring inside it.
 
+> **TONIGHT (final is tomorrow — study final-first):** files now run **02 → 06** (the real final papers, oldest to newest 2026), `07` for method drills. The mock-quiz warm-up was moved to the bottom as `08_random_number_sample_quiz.html` — ignore it unless you finish everything else.
+
 ---
 
 ## 📖 Index
@@ -449,13 +451,13 @@ Exam note: the vitals monitor (Final 261B) used `Math.round(x * 100) / 100` so `
 
 | File | Paper | Key technique |
 |---|---|---|
-| `01_random_number.html` | **Sample Quiz Q1** | `Math.floor(Math.random() * 201) + 200`, `console.log` |
-| `02_guess_game_243.html` | Final 243 Q1 | secret number, attempts counter, disable input after 5 |
-| `03_password_strength_251.html` | Final 251 Q1 | scoring, regex tests, attempts > 8 warning |
-| `04_calorie_tracker_252.html` | Final 252 Q1 | running total, entries counter |
-| `05_study_tracker_261.html` | Final 261 Set-A Q1 | arrays, average, `join()` |
-| `06_vitals_monitor_261b.html` | Final 261 Set-B Q1 | arrays, averages, `Math.abs`, risk formula |
+| `02_guess_game_243.html` | Final 243 Q1 | secret number (generated ONCE, outside fn), attempts counter, disable input after 5 |
+| `03_password_strength_251.html` | Final 251 Q1 | scoring ladder, regex tests, attempts > 8 warning |
+| `04_calorie_tracker_252.html` | Final 252 Q1 | running total, entries counter, threshold feedback |
+| `05_study_tracker_261.html` | Final 261 Set-A Q1 | arrays, average, `join()` — **the freshest pattern (2026)** |
+| `06_vitals_monitor_261b.html` | Final 261 Set-B Q1 | arrays, averages, `Math.abs`, risk formula — **the freshest pattern (2026)** |
 | `07_builtin_functions.html` | extra practice | every array/string/math method from sections 6–9, including the three dots, with buttons |
+| `08_random_number_sample_quiz.html` | Sample Quiz (mock) | `Math.floor(Math.random() * 201) + 200`, `console.log` — mock warm-up only |
 
 Open any file in a browser, press **F12 → Console** to see `console.log` output.
 
@@ -506,11 +508,11 @@ Close this file and write on paper. Tick when done without looking:
 
 **Option B — Node (just the script):** copy the code inside `<script>...</script>` into a `.js` file and run `node file.js` (Node 24 is installed).
 
-**Quick test checklist per file:**
-- `01` — click Generate several times, check the console shows 200–400.
+**Quick test checklist per file (final-first):**
 - `02` — try the sample sequence: guess 5000 (Too high), 500 (Too low) … 5 wrong guesses → "Out of guesses!".
 - `03` — try `abc` (Very Weak), `hello123` (Weak), `Strong@Pass` (Strong), `Perfect@Pass123` (Perfect Password!).
 - `04` — 300 → 500 → 700 gives "Good progress, keep it balanced!".
 - `05` — 4 sessions totalling 14 h shows average 3.5 and "Almost ready!".
 - `06` — 80/97 → SAFE, 78/95 → WARNING, 130/80 → DANGER.
 - `07` — click each button, read the results in the console — every method from sections 6–9 on one page, including the "Spread / Rest (three dots)" button.
+- `08` — mock-quiz warm-up only: click Generate, console shows 200–400.

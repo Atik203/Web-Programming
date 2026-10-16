@@ -4,7 +4,7 @@
 // Connect to database 'bank' and print total + average salary from 'employees'
 // using the fetch function and a loop.
 //
-// Run:  & "G:\xampp\php\php.exe" 09_php_mysql_bridge.php
+// Run:  & "G:\xampp\php\php.exe" 10_php_mysql_bridge_sample_quiz.php
 // (XAMPP MySQL is on port 3307, so 3307 is passed as the 5th mysqli argument.
 //  In the exam they use the default port — just drop the 5th argument there.)
 // ============================================================================
