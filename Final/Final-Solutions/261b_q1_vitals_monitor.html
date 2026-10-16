@@ -1,67 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>FINAL 261 Set B — Q1: Patient Vitals Monitor</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h2>Patient Vitals Monitor</h2>
 
-<h2>Patient Vitals Monitor</h2>
+    <input type="text" id="fVal" placeholder="Heart Rate (bpm)" />
+    <input type="text" id="fVal2" placeholder="SpO2 (%)" />
+    <button id="btn" onclick="processApp()">Save Reading</button>
+    <p id="msgOut"></p>
 
-<input type="text" id="fVal" placeholder="Heart Rate (bpm)">
-<input type="text" id="fVal2" placeholder="SpO2 (%)">
-<button id="btn" onclick="processApp()">Save Reading</button>
-<p id="msgOut"></p>
+    <script>
+      // ============================================================================
+      // FINAL 261 SET-B (Spring 2026) — Q1 (10 marks)   [cheat sheet: boxes 1, 2, 3, 6, 7D]
+      // Keep EVERY reading in arrays. Show average HR, average SpO2, and the
+      // current reading's Risk Score = (100 - SpO2) * 2 + |HR - 80| * 0.5.
+      // Feedback: SAFE (<=10) | WARNING (>10 and <=20) | DANGER (>20).
+      // Averages rounded with Math.round(x * 100) / 100  (79 stays 79, 90.666 -> 90.67).
+      // Sample: 80/97 -> 80, 97, 6, SAFE | 78/95 -> 79, 96, 11, WARNING |
+      //         130/80 -> 96, 90.67, 65, DANGER
+      // ============================================================================
 
-<script>
-// ============================================================================
-// FINAL 261 SET-B (Spring 2026) — Q1 (10 marks)   [cheat sheet: boxes 1, 2, 3, 6, 7D]
-// Keep EVERY reading in arrays. Show average HR, average SpO2, and the
-// current reading's Risk Score = (100 - SpO2) * 2 + |HR - 80| * 0.5.
-// Feedback: SAFE (<=10) | WARNING (>10 and <=20) | DANGER (>20).
-// Averages rounded with Math.round(x * 100) / 100  (79 stays 79, 90.666 -> 90.67).
-// Sample: 80/97 -> 80, 97, 6, SAFE | 78/95 -> 79, 96, 11, WARNING |
-//         130/80 -> 96, 90.67, 65, DANGER
-// ============================================================================
+      // STAGE 0: State Variables OUTSIDE the Function!
+      let heartRates = []; // every HR reading
+      let spo2Readings = []; // every SpO2 reading
 
-// STAGE 0: State Variables OUTSIDE the Function!
-let heartRates    = [];         // every HR reading
-let spo2Readings  = [];         // every SpO2 reading
+      function processApp() {
+        // STAGE 1: Extract & Parse
+        let heartRate = parseFloat(document.getElementById("fVal").value);
+        let spo2 = parseFloat(document.getElementById("fVal2").value);
+        let out = document.getElementById("msgOut");
 
-function processApp() {
-    // STAGE 1: Extract & Parse
-    let heartRate = parseFloat(document.getElementById("fVal").value);
-    let spo2      = parseFloat(document.getElementById("fVal2").value);
-    let out       = document.getElementById("msgOut");
+        // STAGE 2: Mutate State (store every reading)
+        heartRates.push(heartRate);
+        spo2Readings.push(spo2);
 
-    // STAGE 2: Mutate State (store every reading)
-    heartRates.push(heartRate);
-    spo2Readings.push(spo2);
+        // STAGE 3: Compute Averages over ALL readings + Risk Score of current reading
+        let sumHR = 0,
+          sumSpo2 = 0;
+        for (let i = 0; i < heartRates.length; i++) {
+          sumHR += heartRates[i];
+          sumSpo2 += spo2Readings[i];
+        }
+        let avgHR = Math.round((sumHR / heartRates.length) * 100) / 100;
+        let avgSpo2 = Math.round((sumSpo2 / spo2Readings.length) * 100) / 100;
 
-    // STAGE 3: Compute Averages over ALL readings + Risk Score of current reading
-    let sumHR = 0, sumSpo2 = 0;
-    for (let i = 0; i < heartRates.length; i++) {
-        sumHR   += heartRates[i];
-        sumSpo2 += spo2Readings[i];
-    }
-    let avgHR   = Math.round((sumHR / heartRates.length) * 100) / 100;      // Box 3
-    let avgSpo2 = Math.round((sumSpo2 / spo2Readings.length) * 100) / 100;
+        // Box 7 Engine D: |HR - 80| uses Math.abs
+        let riskScore = (100 - spo2) * 2 + Math.abs(heartRate - 80) * 0.5;
 
-    // Box 7 Engine D: |HR - 80| uses Math.abs
-    let riskScore = (100 - spo2) * 2 + Math.abs(heartRate - 80) * 0.5;
+        // STAGE 4: Feedback Tiers (ternary ladder)
+        let feedback =
+          riskScore <= 10 ? "SAFE" : riskScore <= 20 ? "WARNING" : "DANGER";
 
-    // STAGE 4: Feedback Tiers (ternary ladder)
-    let feedback = (riskScore <= 10) ? "SAFE" : (riskScore <= 20 ? "WARNING" : "DANGER");
+        // STAGE 5: Render DOM Feedback
+        out.innerHTML =
+          "Average Heart Rate: " +
+          avgHR +
+          "<br>" +
+          "Average Oxygen Saturation: " +
+          avgSpo2 +
+          "<br>" +
+          "Risk Score: " +
+          riskScore +
+          "<br>" +
+          feedback;
 
-    // STAGE 5: Render DOM Feedback
-    out.innerHTML = "Average Heart Rate: " + avgHR + "<br>" +
-                    "Average Oxygen Saturation: " + avgSpo2 + "<br>" +
-                    "Risk Score: " + riskScore + "<br>" + feedback;
-
-    document.getElementById("fVal").value  = "";
-    document.getElementById("fVal2").value = "";
-}
-</script>
-
-</body>
+        document.getElementById("fVal").value = "";
+        document.getElementById("fVal2").value = "";
+      }
+    </script>
+  </body>
 </html>
